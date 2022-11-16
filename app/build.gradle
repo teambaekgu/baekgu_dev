@@ -1,6 +1,9 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+
+    //firebase 사용을 위한 plugin 추가
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -42,6 +45,10 @@ android {
 }
 
 dependencies {
+
+    //firebase 사용을 위한 dependency 추가
+    implementation platform('com.google.firebase:firebase-bom:31.0.2')
+    implementation 'com.google.firebase:firebase-analytics-ktx'
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
