@@ -30,7 +30,6 @@ class SignupActivity:BaseActivity<ActivitySignupBinding>(ActivitySignupBinding::
             )
             Log.d(TAG, "버튼 클릭")
         }
-
     }
 
     private fun createAccount(email: String, password: String) {
