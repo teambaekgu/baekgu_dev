@@ -19,7 +19,6 @@ class SignupActivity:BaseActivity<ActivitySignupBinding>(ActivitySignupBinding::
         binding.signupTvFinish.setOnClickListener { 
             if(checkData()){
                 signupFirebase(binding.signupEditId.text.toString(),binding.signupEditPw.text.toString(),binding.signupEditName.text.toString())
-
             }
         }        
     }

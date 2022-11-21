@@ -3,6 +3,7 @@ package com.kookmin.mobile_programming.baekgu.myapplication.src.fg_product
 import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
 import com.kookmin.mobile_programming.baekgu.myapplication.R
 import com.kookmin.mobile_programming.baekgu.myapplication.config.BaseFragment
 import com.kookmin.mobile_programming.baekgu.myapplication.databinding.FragmentProductBinding
@@ -19,6 +20,7 @@ class ProductFragment: BaseFragment<FragmentProductBinding>(FragmentProductBindi
     }
 
     private fun setData(){
+
 
     }
 
