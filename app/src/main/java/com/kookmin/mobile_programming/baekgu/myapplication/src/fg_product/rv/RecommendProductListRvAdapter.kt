@@ -10,7 +10,6 @@ import com.kookmin.mobile_programming.baekgu.myapplication.databinding.ItemRecom
 class RecommendProductListRvAdapter(val dataSet:ArrayList<RecommendProductListDataClass>):RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val binding=ItemRecommendProductBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         return recommendProductViewHolder(binding)
@@ -31,6 +30,7 @@ class RecommendProductListRvAdapter(val dataSet:ArrayList<RecommendProductListDa
     class recommendProductViewHolder(val binding:ItemRecommendProductBinding):RecyclerView.ViewHolder(binding.root){
 
         fun bind(item:RecommendProductListDataClass){
+
             Glide.with(binding.root)
                 .load(item.image)
                 .centerCrop()
