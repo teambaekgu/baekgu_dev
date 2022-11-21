@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+
 import com.kookmin.mobile_programming.baekgu.myapplication.databinding.ItemRecommendProductBinding
 
 class RecommendProductListRvAdapter(val dataSet:ArrayList<RecommendProductListDataClass>):RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -14,6 +15,7 @@ class RecommendProductListRvAdapter(val dataSet:ArrayList<RecommendProductListDa
         val binding=ItemRecommendProductBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         return recommendProductViewHolder(binding)
     }
+    //뷰8개 생성하는 코드임
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if(holder is recommendProductViewHolder){
