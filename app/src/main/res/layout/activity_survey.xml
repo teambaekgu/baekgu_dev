@@ -1,15 +1,386 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="-131dp" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/survey_layout_height"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:paddingHorizontal="16dp"
+            android:orientation="vertical"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            >
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/surey_tv_height_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1. 현재 키를 입력해 주세요. (cm)"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/survey_edit_height"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLength="20"
+                android:hint="ex) 172"
+                />
 
 
-<!--<androidx.core.widget.NestedScrollView-->
-<!--    android:layout_width="match_parent"-->
-<!--    android:layout_height="match_parent"-->
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/survey_layout_weight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:paddingHorizontal="16dp"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/survey_layout_height"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            >
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/surey_tv_weight_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2. 현재 몸무게를 입력해 주세요. (kg)"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/survey_edit_weight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLength="20"
+                android:hint="ex) 56"
+                />
 
 
-<!--    />-->
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/survey_layout_proteinpurpose"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:paddingHorizontal="16dp"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/survey_layout_weight"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            >
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/surey_tv_proteinpurpose_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3.단백질 섭취의 목적을 선택해 주세요."
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                />
+            <RadioGroup
+                android:id="@+id/survey_rg_proteinpurpose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:id="@+id/survey_rb_proteinpurpose_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="웨이트 트레이닝"/>
+                <RadioButton
+                    android:id="@+id/survey_rb_proteinpurpose_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="운동 선수(엘리트)"/>
+                <RadioButton
+                    android:id="@+id/survey_rb_proteinpurpose_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="체중 감량"/>
+                <RadioButton
+                    android:id="@+id/survey_rb_proteinpurpose_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="체중 증량"/>
+            </RadioGroup>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/survey_layout_trainingpurpose"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:paddingHorizontal="16dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/survey_layout_proteinpurpose"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        >
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/surey_tv_trainpurpose_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4.웨이트 트레이닝의 목적을 선택해 주세요."
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            />
+        <CheckBox
+            android:id="@+id/survey_cb_trainpurpose_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="보디빌딩 대회 준비"/>
+        <CheckBox
+            android:id="@+id/survey_cb_trainpurpose_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="바디 프로필 준비"/>
+        <CheckBox
+            android:id="@+id/survey_cb_trainpurpose_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="골격근량 증가"/>
+        <CheckBox
+            android:id="@+id/survey_cb_trainpurpose_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="체지방 감량"/>
+        <CheckBox
+            android:id="@+id/survey_cb_trainpurpose_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="벌크업"/>
+        <CheckBox
+            android:id="@+id/survey_cb_trainpurpose_6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="웨이트 트레이닝을 하지 않음"/>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/survey_layout_trainingcnt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:paddingHorizontal="16dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/survey_layout_trainingpurpose"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        >
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/surey_tv_trainingcnt_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5.일주일에 운동을 얼마나 하시나요?."
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            />
+        <RadioGroup
+            android:id="@+id/survey_rg_trainingcnt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:id="@+id/survey_rb_trainingcnt_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="주 7일"/>
+            <RadioButton
+                android:id="@+id/survey_rb_trainingcnt_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="주 4~6회"/>
+            <RadioButton
+                android:id="@+id/survey_rb_trainingcnt_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="주 2~3회"/>
+            <RadioButton
+                android:id="@+id/survey_rb_trainingcnt_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="주 1회 이하"/>
+        </RadioGroup>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/survey_layout_trainingtime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:paddingHorizontal="16dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/survey_layout_trainingcnt"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        >
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/surey_tv_trainingtime_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6.하루에 얼마나 운동하시나요?"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            />
+        <RadioGroup
+            android:id="@+id/survey_rg_trainingtime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:id="@+id/survey_rb_trainingtime_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2시간 30분 이상"/>
+            <RadioButton
+                android:id="@+id/survey_rb_trainingtime_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1시간 30분 ~ 2시간 30분"/>
+            <RadioButton
+                android:id="@+id/survey_rb_trainingtime_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="30분 ~ 1시간 30분"/>
+            <RadioButton
+                android:id="@+id/survey_rb_trainingtime_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="30분 이하"/>
+        </RadioGroup>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/survey_layout_dietcnt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:paddingHorizontal="16dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/survey_layout_trainingtime"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        >
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/surey_tv_dietcnt_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="7. 백구를 통해 하루에 몇 끼 식사를 원하시나요?"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            />
+        <CheckBox
+            android:id="@+id/survey_cb_dietcnt_breakfast"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="아침"/>
+        <CheckBox
+            android:id="@+id/survey_cb_dietcnt_lunch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="점심"/>
+        <CheckBox
+            android:id="@+id/survey_cb_dietcnt_dinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="저녁"/>
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/survey_layout_allergy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:paddingHorizontal="16dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/survey_layout_dietcnt"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        >
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/surey_tv_allergy_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="8. 알레르기가 있는 식품을 모두 체크해 주세요"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            />
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/survey_cbg_allergy"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="16dp"
+            android:paddingHorizontal="16dp"
+            android:orientation="horizontal">
+
+
+            <CheckBox
+                android:id="@+id/survey_cb_allergy_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="유제품"/>
+            <CheckBox
+                android:id="@+id/survey_cb_allergy_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="난류"/>
+            <CheckBox
+                android:id="@+id/survey_cb_allergy_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="땅콩"/>
+            <CheckBox
+                android:id="@+id/survey_cb_allergy_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="메밀"/>
+            <CheckBox
+                android:id="@+id/survey_cb_allergy_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="밀"/>
+            <CheckBox
+                android:id="@+id/survey_cb_allergy_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="잣"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
