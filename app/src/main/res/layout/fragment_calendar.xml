@@ -62,14 +62,6 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 >
 
-                <androidx.appcompat.widget.LinearLayoutCompat
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginLeft="@dimen/horizontal_margin"
-                    android:layout_marginTop="@dimen/vertical_margin_large"
-                    >
-
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -101,59 +93,9 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         />
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/fg_calendar_tv_target_protein_title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="목표 섭취량"
-                        android:textColor="@color/black"
-                        android:fontFamily="@font/spoqa_han_sans_neo_bold"
-                        android:textSize="@dimen/text_large"
-                        />
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/fg_calendar_tv_target_protein"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="2000g"
-                        android:textSize="@dimen/text_standard"
-                        android:textColor="@color/darkGrey"
-                        android:fontFamily="@font/spoqa_han_sans_neo_regular"
-                        />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <androidx.appcompat.widget.LinearLayoutCompat
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginLeft="@dimen/horizontal_margin"
-                    android:layout_marginTop="@dimen/vertical_margin_large"
-                    >
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/fg_calendar_tv_target_protein_title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="목표 섭취량"
-                        android:textColor="@color/black"
-                        android:fontFamily="@font/spoqa_han_sans_neo_bold"
-                        android:textSize="@dimen/text_large"
-                        />
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/fg_calendar_tv_target_protein"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="2000g"
-                        android:textSize="@dimen/text_standard"
-                        android:textColor="@color/darkGrey"
-                        android:fontFamily="@font/spoqa_han_sans_neo_regular"
-                        />
-
-                </androidx.appcompat.widget.LinearLayoutCompat>
 
                 <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="wrap_content"
@@ -163,42 +105,28 @@
                     android:layout_marginLeft="@dimen/horizontal_margin"
                     >
                     <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/fg_calendar_tv_current_protein_title"
+                        android:id="@+id/fg_calendar_tv_target_protein_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="현재 섭취량"
-                        android:textSize="@dimen/text_large"
-                        android:textColor="@color/mainBlack"
+                        android:text="목표 섭취량"
+                        android:textColor="@color/black"
                         android:fontFamily="@font/spoqa_han_sans_neo_bold"
+                        android:textSize="@dimen/text_large"
                         />
 
                     <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/fg_calendar_tv_current_protein"
+                        android:id="@+id/fg_calendar_tv_target_protein"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:text="1500g"
-                        android:textColor="@color/darkGrey"
+                        android:text="2000g"
                         android:textSize="@dimen/text_standard"
+                        android:textColor="@color/darkGrey"
                         android:fontFamily="@font/spoqa_han_sans_neo_regular"
                         />
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
-
-
-
-
-
-            </androidx.appcompat.widget.LinearLayoutCompat>
-
-
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-    </androidx.core.widget.NestedScrollView>
 
 
                 <androidx.appcompat.widget.LinearLayoutCompat
@@ -233,18 +161,17 @@
 
 
 
-
-
-
             </androidx.appcompat.widget.LinearLayoutCompat>
 
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 
     </androidx.core.widget.NestedScrollView>
+
+
 
 
 
