@@ -25,6 +25,7 @@ class DietDetailsRvAdapter(val dataSet:ArrayList<DietDetailsDataClass>):Recycler
 
         fun bind(item:DietDetailsDataClass){
 
+
         }
 
     }
