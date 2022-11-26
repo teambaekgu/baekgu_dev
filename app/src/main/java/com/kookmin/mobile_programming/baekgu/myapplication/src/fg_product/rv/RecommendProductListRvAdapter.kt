@@ -27,7 +27,10 @@ class RecommendProductListRvAdapter(val dataSet:ArrayList<RecommendProductListDa
 
     class recommendProductViewHolder(val binding:ItemRecommendProductBinding):RecyclerView.ViewHolder(binding.root){
 
+
+
         fun bind(item:RecommendProductListDataClass){
+            binding.itemRecommendProductImgMain.clipToOutline=true
 
             Glide.with(binding.root)
                 .load(item.image)
