@@ -25,6 +25,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
         binding.mainBnv.setOnItemSelectedListener{
             when(it.itemId){
                 R.id.main_product ->{
+
+
                     moveProduct()
                 }
 
@@ -34,9 +36,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
                 }
 
                 R.id.main_profile ->{
-
                     moveProfile()
-
                 }
 
 

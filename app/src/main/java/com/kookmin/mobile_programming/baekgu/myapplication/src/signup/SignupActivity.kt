@@ -6,10 +6,12 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
+import androidx.core.widget.addTextChangedListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.kookmin.mobile_programming.baekgu.myapplication.R
 import com.kookmin.mobile_programming.baekgu.myapplication.config.BaseActivity
 import com.kookmin.mobile_programming.baekgu.myapplication.databinding.ActivitySignupBinding
 import com.kookmin.mobile_programming.baekgu.myapplication.src.MainActivity
@@ -21,15 +23,20 @@ class SignupActivity:BaseActivity<ActivitySignupBinding>(ActivitySignupBinding::
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         auth = Firebase.auth
-
         // 회원가입 완료 버튼
         binding.signupTvFinish.setOnClickListener() {
-            createAccount(
-                binding.signupEditId.text.toString(),
-                binding.signupEditPw.text.toString()
-            )
-            Log.d(TAG, "버튼 클릭")
+            //[Temp] : 발표자료에 쓰일 예정이므로 해당코드는 잠시 주석처리
+//            createAccount(
+//                binding.signupEditId.text.toString(),
+//                binding.signupEditPw.text.toString()
+//            )
+//            Log.d(TAG, "버튼 클릭")
+            startActivity(Intent(this,MainActivity::class.java))
         }
+
+
+        setListener()
+
     }
 
     private fun createAccount(email: String, password: String) {
@@ -49,28 +56,61 @@ class SignupActivity:BaseActivity<ActivitySignupBinding>(ActivitySignupBinding::
             }
     }
 
-//
-//    private fun setListener(){
-//        binding.signupTvFinish.setOnClickListener {
-//            if(checkData()){
-//                signupFirebase(
-//                    binding.signupEditId.text.toString(),
-//                    binding.signupEditPw.text.toString(),
-//                    binding.signupEditName.text.toString()
-//                )
-//            }
-//        }
-//    }
-//
-//    //정보가 올바르게 입력되었는지 확인
-//    private fun checkData():Boolean{
-//        if(true){
-//
-//            return true
-//        }else{
-//            return false
-//        }
-//    }
+
+    private fun setListener(){
+
+
+        binding.signupEditId.addTextChangedListener {
+            if(it!!.isNotEmpty()){
+                binding.signupEditId.background=resources.getDrawable(R.drawable.bg_activity,null)
+            }else{
+                binding.signupEditId.background=resources.getDrawable(R.drawable.bg_btn_disabled,null)
+            }
+            checkData()
+
+        }
+
+        binding.signupEditPw.addTextChangedListener {
+            if(it!!.isNotEmpty()){
+                binding.signupEditPw.background=resources.getDrawable(R.drawable.bg_activity,null)
+            }else{
+                binding.signupEditPw.background=resources.getDrawable(R.drawable.bg_btn_disabled,null)
+            }
+            checkData()
+        }
+
+        binding.signupEditName.addTextChangedListener {
+            if(it!!.isNotEmpty()){
+                binding.signupEditName.background=resources.getDrawable(R.drawable.bg_activity,null)
+            }else{
+                binding.signupEditName.background=resources.getDrawable(R.drawable.bg_btn_disabled,null)
+            }
+            checkData()
+        }
+
+        binding.signupEditTown.addTextChangedListener {
+            if(it!!.isNotEmpty()){
+                binding.signupEditTown.background=resources.getDrawable(R.drawable.bg_activity,null)
+            }else{
+                binding.signupEditTown.background=resources.getDrawable(R.drawable.bg_btn_disabled,null)
+            }
+            checkData()
+        }
+
+    }
+
+    //정보가 올바르게 입력되었는지 확인
+    private fun checkData(){
+        if(binding.signupEditId.text!!.isNotEmpty() && binding.signupEditPw.text!!.isNotEmpty() && binding.signupEditName.text!!.isNotEmpty() && binding.signupEditTown.text!!.isNotEmpty()){
+            binding.signupTvFinish.background=resources.getDrawable(R.drawable.bg_btn_activity,null)
+            binding.signupTvFinish.setTextColor(resources.getColor(R.color.white,null))
+
+        }else{
+            binding.signupTvFinish.background=resources.getDrawable(R.drawable.bg_btn_disabled,null)
+            binding.signupTvFinish.setTextColor(resources.getColor(R.color.subGrey,null))
+
+        }
+    }
 
     private fun updateUI(user: FirebaseUser?) {
 

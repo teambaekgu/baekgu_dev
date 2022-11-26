@@ -4,13 +4,15 @@
 
     <item
         android:id="@+id/main_product"
-        android:title="상품"
+        android:icon="@drawable/ic_bnv_feed_unchecked"
+        android:title="피드"
         android:enabled="true"
         app:showAsAction="ifRoom"
         />
 
     <item
         android:id="@+id/main_calender"
+        android:icon="@drawable/ic_bnv_game_unchecked"
         android:title="캘린더"
         android:enabled="true"
         app:showAsAction="ifRoom"
@@ -18,7 +20,8 @@
 
     <item
         android:id="@+id/main_profile"
-        android:title="프로필"
+        android:icon="@drawable/ic_bnv_profile_unchecked"
+        android:title="MY"
         android:enabled="true"
         app:showAsAction="ifRoom"
         />

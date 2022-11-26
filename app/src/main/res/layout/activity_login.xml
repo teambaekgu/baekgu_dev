@@ -19,7 +19,7 @@
         android:id="@+id/login_layout_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:paddingHorizontal="16dp"
         android:layout_marginTop="16dp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -31,17 +31,21 @@
             android:id="@+id/login_tv_id_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ID"
+            android:text="아이디"
             android:textSize="16dp"
-            android:textColor="@color/black"
-            android:textStyle="bold"
+            android:textColor="@color/darkGrey"
+            android:fontFamily="@font/spoqa_han_sans_neo_bold"
             />
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/login_edit_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingVertical="8dp"
+            android:paddingHorizontal="16dp"
             android:maxLength="20"
+            android:background="@drawable/bg_btn_disabled"
+            android:layout_marginTop="@dimen/vertical_margin_small"
             />
 
 
@@ -54,7 +58,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:paddingHorizontal="16dp"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@+id/login_layout_id"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -63,17 +67,21 @@
             android:id="@+id/login_tv_pw_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="PW"
-            android:textStyle="bold"
-            android:textColor="@color/black"
+            android:text="비밀번호"
+            android:textColor="@color/darkGrey"
             android:textSize="16dp"
+            android:fontFamily="@font/spoqa_han_sans_neo_bold"
             />
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/login_edit_pw"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/vertical_margin_small"
+            android:paddingVertical="8dp"
+            android:paddingHorizontal="16dp"
             android:maxLength="20"
+            android:background="@drawable/bg_btn_disabled"
             />
 
 
@@ -84,9 +92,12 @@
         android:id="@+id/login_btn_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/bg_btn_disabled"
         android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="@dimen/vertical_margin_large"
+        android:textColor="@color/subGrey"
         android:text="로그인"
+        android:fontFamily="@font/spoqa_han_sans_neo_bold"
         app:layout_constraintTop_toBottomOf="@+id/login_layout_pw"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -96,8 +107,10 @@
         android:id="@+id/login_tv_signup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/vertical_margin"
         android:text="회원가입"
-        android:textColor="@color/black"
+        android:fontFamily="@font/spoqa_han_sans_neo_regular"
+        android:textColor="@color/mainBlack"
         app:layout_constraintTop_toBottomOf="@+id/login_btn_login"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

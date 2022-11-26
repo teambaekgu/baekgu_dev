@@ -4,12 +4,15 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.core.widget.addTextChangedListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.kookmin.mobile_programming.baekgu.myapplication.R
 import com.kookmin.mobile_programming.baekgu.myapplication.config.BaseActivity
 import com.kookmin.mobile_programming.baekgu.myapplication.databinding.ActivityLoginBinding
+import com.kookmin.mobile_programming.baekgu.myapplication.src.MainActivity
 import com.kookmin.mobile_programming.baekgu.myapplication.src.signup.SignupActivity
 
 class LoginActivity:BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::inflate) {
@@ -24,19 +27,50 @@ class LoginActivity:BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::inf
     private fun setListener() {
         //로그인버튼
         binding.loginBtnLogin.setOnClickListener {
-            if (binding.loginTvIdTitle.text.isNullOrEmpty() || binding.loginTvPwTitle.text.isNullOrEmpty()) {
-                showCustomToast("정보를 올바르게 입력하세요")
-            } else {
-                signIn(
-                    binding.loginEditId.text.toString(),
-                    binding.loginEditPw.text.toString()
-                )
+            //[Temp] : 발표자료에 쓰일 예정이므로 해당코드는 잠시 주석처리
+//            if (binding.loginTvIdTitle.text.isNullOrEmpty() || binding.loginTvPwTitle.text.isNullOrEmpty()) {
+//                showCustomToast("정보를 올바르게 입력하세요")
+//            } else {
+//                signIn(
+//                    binding.loginEditId.text.toString(),
+//                    binding.loginEditPw.text.toString()
+//                )
+//            }
+
+
+
+            if (binding.loginTvIdTitle.text.isNullOrEmpty() || binding.loginTvPwTitle.text.isNullOrEmpty()){
+                startActivity(Intent(this,MainActivity::class.java))
             }
+
         }
         //회원가입 버튼
         binding.loginTvSignup.setOnClickListener {
             var intent = Intent(this, SignupActivity::class.java)
             startActivity(intent)
+        }
+
+
+
+        binding.loginEditId.addTextChangedListener {
+            if(it!!.isNotEmpty()){
+                binding.loginEditId.background=resources.getDrawable(R.drawable.bg_activity,null)
+            }else{
+                binding.loginEditId.background=resources.getDrawable(R.drawable.bg_btn_disabled,null)
+            }
+            checkData()
+
+
+        }
+
+        binding.loginEditPw.addTextChangedListener {
+            if(it!!.isNotEmpty()){
+                binding.loginEditPw.background=resources.getDrawable(R.drawable.bg_activity,null)
+            }else{
+                binding.loginEditPw.background=resources.getDrawable(R.drawable.bg_btn_disabled,null)
+            }
+            checkData()
+
         }
     }
 
@@ -78,4 +112,20 @@ class LoginActivity:BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::inf
     private fun reload() {
 
     }
+
+    private fun checkData(){
+        if(binding.loginEditId.text!!.isNotEmpty() && binding.loginEditPw.text!!.isNotEmpty()){
+            binding.loginBtnLogin.background=resources.getDrawable(R.drawable.bg_btn_activity,null)
+            binding.loginBtnLogin.setTextColor(resources.getColor(R.color.white,null))
+
+        }else{
+            binding.loginBtnLogin.background=resources.getDrawable(R.drawable.bg_btn_disabled,null)
+            binding.loginBtnLogin.setTextColor(resources.getColor(R.color.subGrey,null))
+
+        }
+    }
+
+
+
+
 }

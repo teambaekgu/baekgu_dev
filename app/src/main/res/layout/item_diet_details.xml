@@ -17,28 +17,25 @@
         android:layout_marginTop="@dimen/vertical_margin"
         android:text="11월 21일"
         android:textSize="16dp"
+        android:fontFamily="@font/tmoney_round_wind_extra_bold_font"
         />
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/item_diet_details_layout_breakfast"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/vertical_margin_large"
         >
-
-        <androidx.appcompat.widget.AppCompatCheckBox
-            android:id="@+id/item_diet_details_chb_breakfast"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/item_diet_details_tv_breakfast_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="아침 : "
+            android:text="아침"
             android:textSize="@dimen/text_large"
             android:textColor="@color/black"
+            android:fontFamily="@font/spoqa_han_sans_neo_bold"
             />
 
 
@@ -46,8 +43,10 @@
             android:id="@+id/item_diet_details_tv_breakfast_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/vertical_margin_small"
             android:text="닭가슴살"
-
+            android:textColor="@color/subGrey"
+            android:fontFamily="@font/spoqa_han_sans_neo_regular"
             />
 
 
@@ -59,22 +58,21 @@
         android:id="@+id/item_diet_details_layout_lunch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/vertical_margin_large"
         >
 
-        <androidx.appcompat.widget.AppCompatCheckBox
-            android:id="@+id/item_diet_details_chb_lunch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            />
+
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/item_diet_details_tv_lunch_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="점심 : "
+            android:text="점심"
             android:textSize="@dimen/text_large"
             android:textColor="@color/black"
+            android:fontFamily="@font/spoqa_han_sans_neo_bold"
+
             />
 
 
@@ -82,8 +80,10 @@
             android:id="@+id/item_diet_details_tv_lunch_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/vertical_margin_small"
             android:text="연어스테이크"
-
+            android:textColor="@color/subGrey"
+            android:fontFamily="@font/spoqa_han_sans_neo_regular"
             />
 
 
@@ -98,22 +98,20 @@
         android:id="@+id/item_diet_details_layout_dinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/vertical_margin_large"
+
         >
 
-        <androidx.appcompat.widget.AppCompatCheckBox
-            android:id="@+id/item_diet_details_chb_dinner"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/item_diet_details_tv_dinner_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="점심 : "
+            android:text="저녁"
             android:textSize="@dimen/text_large"
             android:textColor="@color/black"
+            android:fontFamily="@font/spoqa_han_sans_neo_bold"
             />
 
 
@@ -121,8 +119,10 @@
             android:id="@+id/item_diet_details_tv_dinner_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/vertical_margin_small"
             android:text="파스타 밀키트"
-
+            android:textColor="@color/subGrey"
+            android:fontFamily="@font/spoqa_han_sans_neo_regular"
             />
 
 
