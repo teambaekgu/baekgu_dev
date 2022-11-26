@@ -29,6 +29,8 @@ class CalendarFragment: BaseFragment<FragmentCalendarBinding>(FragmentCalendarBi
         var sdf = SimpleDateFormat("MM.dd")
 
         val getTime: String = sdf.format(date)
+        month=getTime.split(".")[0]
+        day=getTime.split(".")[1]
 
         Log.d("weagawegawegwaeg",getTime)
 
