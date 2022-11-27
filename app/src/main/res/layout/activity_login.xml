@@ -31,7 +31,7 @@
             android:id="@+id/login_tv_id_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="아이디"
+            android:text="이메일"
             android:textSize="16dp"
             android:textColor="@color/darkGrey"
             android:fontFamily="@font/spoqa_han_sans_neo_bold"
