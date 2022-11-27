@@ -88,11 +88,11 @@ class SignupActivity:BaseActivity<ActivitySignupBinding>(ActivitySignupBinding::
             checkData()
         }
 
-        binding.signupEditTown.addTextChangedListener {
+        binding.signupEditAddress.addTextChangedListener {
             if(it!!.isNotEmpty()){
-                binding.signupEditTown.background=resources.getDrawable(R.drawable.bg_activity,null)
+                binding.signupEditAddress.background=resources.getDrawable(R.drawable.bg_activity,null)
             }else{
-                binding.signupEditTown.background=resources.getDrawable(R.drawable.bg_btn_disabled,null)
+                binding.signupEditAddress.background=resources.getDrawable(R.drawable.bg_btn_disabled,null)
             }
             checkData()
         }
@@ -101,7 +101,7 @@ class SignupActivity:BaseActivity<ActivitySignupBinding>(ActivitySignupBinding::
 
     //정보가 올바르게 입력되었는지 확인
     private fun checkData(){
-        if(binding.signupEditId.text!!.isNotEmpty() && binding.signupEditPw.text!!.isNotEmpty() && binding.signupEditName.text!!.isNotEmpty() && binding.signupEditTown.text!!.isNotEmpty()){
+        if(binding.signupEditId.text!!.isNotEmpty() && binding.signupEditPw.text!!.isNotEmpty() && binding.signupEditName.text!!.isNotEmpty() && binding.signupEditAddress.text!!.isNotEmpty()){
             binding.signupTvFinish.background=resources.getDrawable(R.drawable.bg_btn_activity,null)
             binding.signupTvFinish.setTextColor(resources.getColor(R.color.white,null))
 
