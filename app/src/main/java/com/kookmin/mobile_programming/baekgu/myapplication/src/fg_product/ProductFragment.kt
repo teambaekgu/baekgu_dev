@@ -12,7 +12,7 @@ import com.kookmin.mobile_programming.baekgu.myapplication.src.fg_product.rv.Rec
 
 class ProductFragment: BaseFragment<FragmentProductBinding>(FragmentProductBinding::bind, R.layout.fragment_product) {
     private val recommendProductList=ArrayList<RecommendProductListDataClass>()
-
+    private val bestProductList=ArrayList<RecommendProductListDataClass>()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setData()
@@ -25,10 +25,19 @@ class ProductFragment: BaseFragment<FragmentProductBinding>(FragmentProductBindi
     }
 
     private fun setRecyclerView(){
-        for(i in 0 until 5){
-            recommendProductList.add(RecommendProductListDataClass(R.drawable.test_product))
-        }
+            recommendProductList.add(RecommendProductListDataClass(R.drawable.test_image_2,"고등어구이"))
+            recommendProductList.add(RecommendProductListDataClass(R.drawable.test_image_4,"연어구이"))
+            recommendProductList.add(RecommendProductListDataClass(R.drawable.test_image_4,"연어구이"))
+
+            bestProductList.add(RecommendProductListDataClass(R.drawable.test_image_1,"갈릭맛"))
+            bestProductList.add(RecommendProductListDataClass(R.drawable.test_image_3,"레몬 크림 맛"))
+            bestProductList.add(RecommendProductListDataClass(R.drawable.test_image_3,"레몬 크림 맛"))
+
         binding.fgProductRvMain.adapter=RecommendProductListRvAdapter(recommendProductList)
         binding.fgProductRvMain.layoutManager=LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
+
+        binding.fgProductRvBest.adapter=RecommendProductListRvAdapter(bestProductList)
+        binding.fgProductRvBest.layoutManager=LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
+
     }
 }

@@ -72,6 +72,22 @@ class LoginActivity:BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::inf
             checkData()
 
         }
+
+
+        binding.loginEditPw.addTextChangedListener {
+            if(it!!.isNotEmpty()){
+                binding.loginEditPw.background=resources.getDrawable(R.drawable.bg_activity,null)
+            }else{
+                binding.loginEditPw.background=resources.getDrawable(R.drawable.bg_btn_disabled,null)
+            }
+            checkData()
+
+        }
+
+
+
+
+
     }
 
     public override fun onStart() {
