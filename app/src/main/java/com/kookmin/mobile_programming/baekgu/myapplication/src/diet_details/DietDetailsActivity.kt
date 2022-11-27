@@ -2,6 +2,7 @@ package com.kookmin.mobile_programming.baekgu.myapplication.src.diet_details
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.viewpager2.widget.ViewPager2
 import com.kookmin.mobile_programming.baekgu.myapplication.R
@@ -25,8 +26,12 @@ class DietDetailsActivity:BaseActivity<ActivityDietDetailsBinding>(ActivityDietD
 
         }
 
+        Log.d("weagawgawg","${date}")
+
+
+
         for(i in 0 until 5){
-            dietList.add(DietDetailsDataClass("test$i"))
+            dietList.add(DietDetailsDataClass(date))
         }
         setViewPager()
     }
