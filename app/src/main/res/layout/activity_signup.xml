@@ -243,30 +243,43 @@
         </androidx.appcompat.widget.LinearLayoutCompat>
 
 
-
-
-
-        <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/signup_edit_town"
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/signup_layout_address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="주소"
-            android:layout_marginHorizontal="@dimen/horizontal_margin"
-            android:paddingVertical="8dp"
+            android:layout_marginTop="16dp"
+            android:orientation="vertical"
             android:paddingHorizontal="16dp"
-            android:maxLength="20"
-            android:background="@drawable/bg_btn_disabled"
-            android:layout_marginTop="@dimen/vertical_margin_small"
-            app:layout_constraintTop_toBottomOf="@+id/signup_layout_number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/signup_layout_number">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/signup_tv_address_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/spoqa_han_sans_neo_bold"
+                android:text="주소"
+                android:textColor="@color/darkGrey"
+                android:textSize="16dp" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/signup_edit_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="8dp"
+                android:paddingHorizontal="16dp"
+                android:maxLength="20"
+                android:background="@drawable/bg_btn_disabled"
+                android:layout_marginTop="@dimen/vertical_margin_small" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-
-
-
+    
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/signup_tv_finish"
         android:layout_width="match_parent"
