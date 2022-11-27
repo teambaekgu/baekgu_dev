@@ -38,6 +38,8 @@ class RecommendProductListRvAdapter(val dataSet:ArrayList<RecommendProductListDa
                 .load(item.image)
                 .centerCrop()
                 .into(binding.itemRecommendProductImgMain)
+
+            binding.itemRecommendProductTvTitle.text=item.title
         }
 
     }

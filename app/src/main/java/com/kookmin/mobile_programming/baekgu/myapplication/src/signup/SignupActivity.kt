@@ -97,11 +97,32 @@ class SignupActivity:BaseActivity<ActivitySignupBinding>(ActivitySignupBinding::
             checkData()
         }
 
+        binding.signupEditBirthday.addTextChangedListener {
+            if(it!!.isNotEmpty()){
+                binding.signupEditBirthday.background=resources.getDrawable(R.drawable.bg_activity,null)
+            }else{
+                binding.signupEditBirthday.background=resources.getDrawable(R.drawable.bg_btn_disabled,null)
+            }
+            checkData()
+        }
+
+        binding.signupEditNumber.addTextChangedListener {
+            if(it!!.isNotEmpty()){
+                binding.signupEditNumber.background=resources.getDrawable(R.drawable.bg_activity,null)
+            }else{
+                binding.signupEditNumber.background=resources.getDrawable(R.drawable.bg_btn_disabled,null)
+            }
+            checkData()
+        }
+
+
+
     }
 
     //정보가 올바르게 입력되었는지 확인
     private fun checkData(){
-        if(binding.signupEditId.text!!.isNotEmpty() && binding.signupEditPw.text!!.isNotEmpty() && binding.signupEditName.text!!.isNotEmpty() && binding.signupEditTown.text!!.isNotEmpty()){
+        if(binding.signupEditId.text!!.isNotEmpty() && binding.signupEditPw.text!!.isNotEmpty() && binding.signupEditName.text!!.isNotEmpty() &&
+            binding.signupEditTown.text!!.isNotEmpty() && binding.signupEditNumber.text!!.isNotEmpty() && binding.signupEditBirthday.text!!.isNotEmpty()){
             binding.signupTvFinish.background=resources.getDrawable(R.drawable.bg_btn_activity,null)
             binding.signupTvFinish.setTextColor(resources.getColor(R.color.white,null))
 
