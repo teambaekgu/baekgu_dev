@@ -1,10 +1,8 @@
 package com.kookmin.mobile_programming.baekgu.myapplication.src.survey
 
+import android.R
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.RadioButton
-import android.widget.RadioGroup
+import android.widget.*
 import com.kookmin.mobile_programming.baekgu.myapplication.R
 import com.kookmin.mobile_programming.baekgu.myapplication.config.BaseActivity
 import com.kookmin.mobile_programming.baekgu.myapplication.databinding.ActivitySurveyBinding
@@ -38,6 +36,9 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
         // 체크박스 part
         //val dietCntEdit = findViewById<EditText>(R.id.dietCnt)
         //val allergyEdit = findViewById<EditText>(com.kookmin.mobile_programming.baekgu.myapplication.R.id.allergy)
+        val dietCntBreakfast = findViewById<CheckBox>(R.id.survey_cb_dietcnt_breakfast)
+        var dietCntLunch = findViewById<CheckBox>(R.id.survey_cb_dietcnt_lunch)
+        var dietCntDinner = findViewById<CheckBox>(R.id.survey_cb_dietcnt_dinner);
 
 
         val snackynRadioButtonGroup = findViewById<RadioGroup>(R.id.survey_rg_snackyn)
@@ -80,6 +81,7 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
 
         // 데이터 등록
         addBtn.setOnClickListener {
+
             // 입력값 변수에 담기
             val sHeight = heightEdit.text.toString()
             val sWeight = weightEdit.text.toString()
@@ -87,7 +89,7 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
             val sTrainingPurpose = trainingPurposeRadioButton.text.toString()
             val sTrainingCnt = trainingCntRadioButton.text.toString()
             val sTrainingTime = trainingTimeRadioButton.text.toString()
-            // val sDietCnt = dietCntEdit.text.toString()
+            val sDietCnt = sendCheck(dietCntBreakfast, dietCntLunch, dietCntDinner)
             // val sAllergy = allergyEdit.text.toString()
             val sSnackYn = snackynRadioButton.text.toString()
             // val sProPre = proPreEdit.text.toString()
@@ -131,7 +133,25 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
         }
     }
 
+    private fun sendCheck(vararg checkBox:CheckBox): String? {
+        var checked = ""
+        for(ch in checkBox) {
+            if (ch.isChecked) {
+                checked += ch.text.toString() + ","
+            }
+        }
+
+        val hArr = checked.split(",").toTypedArray()
+        var result = ""
+        for (i in hArr.indices) {
+            result += if (i == hArr.size - 1) {
+                hArr[i]
+            } else {
+                hArr[i] + ","
+            }
+        }
+        return result
+    }
 
 }
 
-}
