@@ -136,68 +136,74 @@
                     android:text="체중 증량"/>
             </RadioGroup>
 
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/survey_layout_trainingpurpose"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="vertical"
+                android:paddingHorizontal="16dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/survey_layout_proteinpurpose">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/surey_tv_trainpurpose_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="4.웨이트 트레이닝의 목적을 선택해 주세요."
+                    android:textColor="@color/black"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <RadioGroup
+                    android:id="@+id/survey_rg_trainpurpose"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <RadioButton
+                        android:id="@+id/survey_cb_trainpurpose_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="보디빌딩 대회 준비" />
+
+                    <RadioButton
+                        android:id="@+id/survey_cb_trainpurpose_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="바디 프로필 준비" />
+
+                    <RadioButton
+                        android:id="@+id/survey_cb_trainpurpose_3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="골격근량 증가" />
+
+                    <RadioButton
+                        android:id="@+id/survey_cb_trainpurpose_4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="체지방 감량" />
+
+                    <RadioButton
+                        android:id="@+id/survey_cb_trainpurpose_5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="벌크업" />
+
+                    <RadioButton
+                        android:id="@+id/survey_cb_trainpurpose_6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="웨이트 트레이닝을 하지 않음" />
+                </RadioGroup>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
         </androidx.appcompat.widget.LinearLayoutCompat>
 
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/survey_layout_trainingpurpose"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:paddingHorizontal="16dp"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@+id/survey_layout_proteinpurpose"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        >
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/surey_tv_trainpurpose_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="4.웨이트 트레이닝의 목적을 선택해 주세요."
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:textSize="16dp"
-            />
-        <RadioGroup
-            android:id="@+id/survey_rg_trainpurpose"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-        <RadioButton
-            android:id="@+id/survey_cb_trainpurpose_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="보디빌딩 대회 준비"/>
-        <RadioButton
-            android:id="@+id/survey_cb_trainpurpose_2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="바디 프로필 준비"/>
-        <RadioButton
-            android:id="@+id/survey_cb_trainpurpose_3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="골격근량 증가"/>
-        <RadioButton
-            android:id="@+id/survey_cb_trainpurpose_4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="체지방 감량"/>
-        <RadioButton
-            android:id="@+id/survey_cb_trainpurpose_5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="벌크업"/>
-        <RadioButton
-            android:id="@+id/survey_cb_trainpurpose_6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="웨이트 트레이닝을 하지 않음"/>
-        </RadioGroup>
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
-
-
-    <androidx.appcompat.widget.LinearLayoutCompat
+            <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/survey_layout_trainingcnt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
