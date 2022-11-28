@@ -36,11 +36,16 @@
                 android:textSize="16dp"
                 />
 
+
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/survey_edit_height"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingVertical="8dp"
+                android:paddingHorizontal="16dp"
                 android:maxLength="20"
+                android:background="@drawable/bg_btn_disabled"
+                android:layout_marginTop="@dimen/vertical_margin_small"
                 android:hint="ex) 172"
                 />
 
@@ -68,13 +73,19 @@
                 android:textSize="16dp"
                 />
 
+
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/survey_edit_weight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingVertical="8dp"
+                android:paddingHorizontal="16dp"
                 android:maxLength="20"
+                android:background="@drawable/bg_btn_disabled"
+                android:layout_marginTop="@dimen/vertical_margin_small"
                 android:hint="ex) 56"
                 />
+
 
 
         </androidx.appcompat.widget.LinearLayoutCompat>
@@ -147,36 +158,41 @@
             android:textColor="@color/black"
             android:textSize="16dp"
             />
-        <CheckBox
+        <RadioGroup
+            android:id="@+id/survey_rg_trainpurpose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        <RadioButton
             android:id="@+id/survey_cb_trainpurpose_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="보디빌딩 대회 준비"/>
-        <CheckBox
+        <RadioButton
             android:id="@+id/survey_cb_trainpurpose_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="바디 프로필 준비"/>
-        <CheckBox
+        <RadioButton
             android:id="@+id/survey_cb_trainpurpose_3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="골격근량 증가"/>
-        <CheckBox
+        <RadioButton
             android:id="@+id/survey_cb_trainpurpose_4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="체지방 감량"/>
-        <CheckBox
+        <RadioButton
             android:id="@+id/survey_cb_trainpurpose_5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="벌크업"/>
-        <CheckBox
+        <RadioButton
             android:id="@+id/survey_cb_trainpurpose_6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="웨이트 트레이닝을 하지 않음"/>
+        </RadioGroup>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -530,7 +546,7 @@
             android:id="@+id/surey_propre_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="10. 제품 별 선호도에 대해 평가해 주세요 \n (매우나쁨(1)-나쁨(2)-보통(3)-좋음(4)-매우 좋음(5)"
+            android:text="10. 제품 별 선호도에 대해 평가해 주세요."
             android:textStyle="bold"
             android:textColor="@color/black"
             android:textSize="16dp"
@@ -550,27 +566,27 @@
                 android:id="@+id/survey_rb_propre_csk1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1"/>
+                android:text="매우나쁨"/>
             <RadioButton
                 android:id="@+id/survey_rb_propre_csk2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2"/>
+                android:text="나쁨"/>
             <RadioButton
                 android:id="@+id/survey_rb_propre_csk3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3"/>
+                android:text="보통"/>
             <RadioButton
                 android:id="@+id/survey_rb_propre_csk4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4"/>
+                android:text="좋음"/>
             <RadioButton
                 android:id="@+id/survey_rb_propre_csk5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="5"/>
+                android:text="매우좋음"/>
 
         </RadioGroup>
         <TextView
@@ -588,27 +604,27 @@
                 android:id="@+id/survey_rb_propre_csg1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1"/>
+                android:text="매우나쁨"/>
             <RadioButton
                 android:id="@+id/survey_rb_propre_csg2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2"/>
+                android:text="나쁨"/>
             <RadioButton
                 android:id="@+id/survey_rb_propre_cs3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3"/>
+                android:text="보통"/>
             <RadioButton
                 android:id="@+id/survey_rb_propre_cs4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4"/>
+                android:text="좋음"/>
             <RadioButton
                 android:id="@+id/survey_rb_propre_cs5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="5"/>
+                android:text="매우좋음"/>
 
         </RadioGroup>
         <TextView
@@ -626,27 +642,27 @@
                 android:id="@+id/survey_rb_propre_saucechicken1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1"/>
+                android:text="매우나쁨"/>
             <RadioButton
                 android:id="@+id/survey_rb_propre_saucechicken2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2"/>
+                android:text="나쁨"/>
             <RadioButton
                 android:id="@+id/survey_rb_propre_saucechicken3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3"/>
+                android:text="보통"/>
             <RadioButton
                 android:id="@+id/survey_rb_propre_saucechicken4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4"/>
+                android:text="좋음"/>
             <RadioButton
                 android:id="@+id/survey_rb_propre_saucechicken5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="5"/>
+                android:text="매우좋음"/>
 
         </RadioGroup>
 
@@ -665,27 +681,27 @@
                 android:id="@+id/survey_rb_propre_chickenball1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1"/>
+                android:text="매우나쁨"/>
             <RadioButton
                 android:id="@+id/survey_rb_propre_chickenball2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2"/>
+                android:text="나쁨"/>
             <RadioButton
                 android:id="@+id/survey_rb_propre_chickenball3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3"/>
+                android:text="보통"/>
             <RadioButton
                 android:id="@+id/survey_rb_propre_chickenball4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4"/>
+                android:text="좋음"/>
             <RadioButton
                 android:id="@+id/survey_rb_propre_chickenball5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="5"/>
+                android:text="매우좋음"/>
 
         </RadioGroup>
         <TextView
@@ -703,27 +719,27 @@
                 android:id="@+id/survey_rb_propre_beefball1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1"/>
+                android:text="매우나쁨"/>
             <RadioButton
                 android:id="@+id/survey_rb_propre_beefball2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2"/>
+                android:text="나쁨"/>
             <RadioButton
                 android:id="@+id/survey_rb_propre_beefball3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3"/>
+                android:text="보통"/>
             <RadioButton
                 android:id="@+id/survey_rb_propre_beefball4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4"/>
+                android:text="좋음"/>
             <RadioButton
                 android:id="@+id/survey_rb_propre_beefball5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="5"/>
+                android:text="매우좋음"/>
 
         </RadioGroup>
         <TextView
@@ -741,27 +757,27 @@
                 android:id="@+id/survey_rb_propre_beefsteak1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1"/>
+                android:text="매우나쁨"/>
             <RadioButton
                 android:id="@+id/survey_rb_propre_beefsteak2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2"/>
+                android:text="나쁨"/>
             <RadioButton
                 android:id="@+id/survey_rb_propre_beefsteak3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3"/>
+                android:text="보통"/>
             <RadioButton
                 android:id="@+id/survey_rb_propre_beefsteak4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4"/>
+                android:text="좋음"/>
             <RadioButton
                 android:id="@+id/survey_rb_propre_beefsteak5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="5"/>
+                android:text="매우좋음"/>
 
         </RadioGroup>
         <TextView
@@ -779,27 +795,27 @@
                 android:id="@+id/survey_rb_propre_cchickendumpling1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1"/>
+                android:text="매우나쁨"/>
             <RadioButton
                 android:id="@+id/survey_rb_propre_chickendumpling2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2"/>
+                android:text="나쁨"/>
             <RadioButton
                 android:id="@+id/survey_rb_propre_chickendumpling3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3"/>
+                android:text="보통"/>
             <RadioButton
                 android:id="@+id/survey_rb_propre_chickendumpling4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4"/>
+                android:text="좋음"/>
             <RadioButton
                 android:id="@+id/survey_rb_propre_chickendumpling5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="5"/>
+                android:text="매우좋음"/>
 
         </RadioGroup>
         <TextView
@@ -817,27 +833,27 @@
                 android:id="@+id/survey_rb_propre_chickenfishcake1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1"/>
+                android:text="매우나쁨"/>
             <RadioButton
                 android:id="@+id/survey_rb_propre_chickenfishcake2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2"/>
+                android:text="나쁨"/>
             <RadioButton
                 android:id="@+id/survey_rb_propre_chickenfishcake3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3"/>
+                android:text="보통"/>
             <RadioButton
                 android:id="@+id/survey_rb_propre_chickenfishcake4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4"/>
+                android:text="좋음"/>
             <RadioButton
                 android:id="@+id/survey_rb_propre_chickenfishcake5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="5"/>
+                android:text="매우좋음"/>
 
         </RadioGroup>
         <TextView
@@ -855,27 +871,27 @@
                 android:id="@+id/survey_rb_propre_godeungeo1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1"/>
+                android:text="매우나쁨"/>
             <RadioButton
                 android:id="@+id/survey_rb_propre_godeungeo2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2"/>
+                android:text="나븜"/>
             <RadioButton
                 android:id="@+id/survey_rb_propre_godeungeo3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3"/>
+                android:text="보통"/>
             <RadioButton
                 android:id="@+id/survey_rb_propre_godeungeo4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4"/>
+                android:text="좋음"/>
             <RadioButton
                 android:id="@+id/survey_rb_propre_godeungeo5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="5"/>
+                android:text="매우좋음"/>
 
         </RadioGroup>
         <TextView
@@ -893,27 +909,27 @@
                 android:id="@+id/survey_rb_propre_kkongchi1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1"/>
+                android:text="매우나쁨"/>
             <RadioButton
                 android:id="@+id/survey_rb_propre_kkongchi2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2"/>
+                android:text="나쁨"/>
             <RadioButton
                 android:id="@+id/survey_rb_propre_kkongchi3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3"/>
+                android:text="보통"/>
             <RadioButton
                 android:id="@+id/survey_rb_propre_kkongchi4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4"/>
+                android:text="좋음"/>
             <RadioButton
                 android:id="@+id/survey_rb_propre_kkongchi5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="5"/>
+                android:text="매우좋음"/>
 
         </RadioGroup>
         <TextView
@@ -931,27 +947,27 @@
                 android:id="@+id/survey_rb_propre_samchi1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1"/>
+                android:text="매우나쁨"/>
             <RadioButton
                 android:id="@+id/survey_rb_propre_samchi2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2"/>
+                android:text="나븜"/>
             <RadioButton
                 android:id="@+id/survey_rb_propre_samchi3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3"/>
+                android:text="보통"/>
             <RadioButton
                 android:id="@+id/survey_rb_propre_samchi4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4"/>
+                android:text="좋음"/>
             <RadioButton
                 android:id="@+id/survey_rb_propre_samchi5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="5"/>
+                android:text="매우좋음"/>
 
         </RadioGroup>
 
@@ -975,18 +991,18 @@
             android:id="@+id/surey_flapre_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="11. 맛 선호도에 대해 평가해 주세요. \n (매우나쁨(1)-나쁨(2)-보통(3)-좋음(4)-매우 좋음(5)"
+            android:text="11. 맛 선호도에 대해 평가해 주세요."
             android:textStyle="bold"
             android:textColor="@color/black"
             android:textSize="16dp"
             />
-        <TextView
+            <TextView
             android:id="@+id/survey_tv_original"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="오리지날"/>
-        <RadioGroup
+            <RadioGroup
             android:id="@+id/survey_rg_original"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -995,27 +1011,27 @@
                 android:id="@+id/survey_rb_flapre_original1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1"/>
+                android:text="매우나쁨"/>
             <RadioButton
                 android:id="@+id/survey_rb_flapre_original2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2"/>
+                android:text="나쁨"/>
             <RadioButton
                 android:id="@+id/survey_rb_flapre_original3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3"/>
+                android:text="보통"/>
             <RadioButton
                 android:id="@+id/survey_rb_flapre_original4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4"/>
+                android:text="좋음"/>
             <RadioButton
                 android:id="@+id/survey_rb_flapre_original5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="5"/>
+                android:text="매우좋음"/>
 
         </RadioGroup>
         <TextView
@@ -1033,27 +1049,27 @@
                 android:id="@+id/survey_rb_flapre_garlic1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1"/>
+                android:text="매우나쁨"/>
             <RadioButton
                 android:id="@+id/survey_rb_flapre_garlic2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2"/>
+                android:text="나쁨"/>
             <RadioButton
                 android:id="@+id/survey_rb_flapre_garlic3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3"/>
+                android:text="보통"/>
             <RadioButton
                 android:id="@+id/survey_rb_flapre_garlic4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4"/>
+                android:text="좋음"/>
             <RadioButton
                 android:id="@+id/survey_rb_flapre_garlic5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="5"/>
+                android:text="매우좋음"/>
 
         </RadioGroup>
         <TextView
@@ -1068,25 +1084,30 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <RadioButton
+                android:id="@+id/survey_rb_flapre_pepper1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="매우나쁨"/>
+            <RadioButton
                 android:id="@+id/survey_rb_flapre_pepper2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2"/>
+                android:text="나쁨"/>
             <RadioButton
                 android:id="@+id/survey_rb_flapre_pepper3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3"/>
+                android:text="보통"/>
             <RadioButton
                 android:id="@+id/survey_rb_flare_pepper4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4"/>
+                android:text="좋음"/>
             <RadioButton
                 android:id="@+id/survey_rb_flaopre_pepper5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="5"/>
+                android:text="매우좋음"/>
 
         </RadioGroup>
 
@@ -1105,27 +1126,27 @@
                 android:id="@+id/survey_rb_flapre_cream1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1"/>
+                android:text="매우나쁨"/>
             <RadioButton
                 android:id="@+id/survey_rb_flapre_cream2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2"/>
+                android:text="나쁨"/>
             <RadioButton
                 android:id="@+id/survey_rb_flapre_cream3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3"/>
+                android:text="보통"/>
             <RadioButton
                 android:id="@+id/survey_rb_flapre_cream4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4"/>
+                android:text="좋음"/>
             <RadioButton
                 android:id="@+id/survey_rb_flapre_cream5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="5"/>
+                android:text="매우좋음"/>
 
         </RadioGroup>
         <TextView
@@ -1143,27 +1164,27 @@
                 android:id="@+id/survey_rb_flapre_curry1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1"/>
+                android:text="매우나쁨"/>
             <RadioButton
                 android:id="@+id/survey_rb_flapre_curry2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2"/>
+                android:text="나쁨"/>
             <RadioButton
                 android:id="@+id/survey_rb_flapre_curry3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3"/>
+                android:text="보통"/>
             <RadioButton
                 android:id="@+id/survey_rb_flapre_curry4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4"/>
+                android:text="좋음"/>
             <RadioButton
                 android:id="@+id/survey_rb_flapre_curry5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="5"/>
+                android:text="매우좋음"/>
 
         </RadioGroup>
         <TextView
@@ -1171,7 +1192,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="닭가슴살 만두"/>
+            android:text="훈제 맛"/>
         <RadioGroup
             android:id="@+id/survey_rg_smoke"
             android:layout_width="wrap_content"
@@ -1181,27 +1202,27 @@
                 android:id="@+id/survey_rb_flapre_smoke1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1"/>
+                android:text="매우나쁨"/>
             <RadioButton
                 android:id="@+id/survey_rb_flapre_smoke2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2"/>
+                android:text="나쁨"/>
             <RadioButton
                 android:id="@+id/survey_rb_flapre_smoke3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3"/>
+                android:text="보통"/>
             <RadioButton
                 android:id="@+id/survey_rb_flapre_smoke4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4"/>
+                android:text="좋음"/>
             <RadioButton
                 android:id="@+id/survey_rb_flapre_smoke5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="5"/>
+                android:text="매우좋음"/>
 
         </RadioGroup>
         <TextView
@@ -1219,27 +1240,27 @@
                 android:id="@+id/survey_rb_flapre_tomato1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1"/>
+                android:text="매우나쁨"/>
             <RadioButton
                 android:id="@+id/survey_rb_flapre_tomato2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2"/>
+                android:text="나쁨"/>
             <RadioButton
                 android:id="@+id/survey_rb_flapre_tomato3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3"/>
+                android:text="보통"/>
             <RadioButton
                 android:id="@+id/survey_rb_flapre_tomato4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4"/>
+                android:text="좋음"/>
             <RadioButton
                 android:id="@+id/survey_rb_flapre_tomato5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="5"/>
+                android:text="매우좋음"/>
 
         </RadioGroup>
         <TextView
@@ -1257,27 +1278,27 @@
                 android:id="@+id/survey_rb_flapre_black1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1"/>
+                android:text="매우나쁨"/>
             <RadioButton
                 android:id="@+id/survey_rb_flapre_black2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2"/>
+                android:text="나쁨"/>
             <RadioButton
                 android:id="@+id/survey_rb_flapre_black3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3"/>
+                android:text="보통"/>
             <RadioButton
                 android:id="@+id/survey_rb_flapre_black4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4"/>
+                android:text="좋음"/>
             <RadioButton
                 android:id="@+id/survey_rb_flapre_black5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="5"/>
+                android:text="매우좋음"/>
 
         </RadioGroup>
         <TextView
@@ -1295,27 +1316,27 @@
                 android:id="@+id/survey_rb_flapre_red1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1"/>
+                android:text="매우나쁨"/>
             <RadioButton
                 android:id="@+id/survey_rb_flapre_red2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2"/>
+                android:text="나쁨"/>
             <RadioButton
                 android:id="@+id/survey_rb_flapre_red3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3"/>
+                android:text="보통"/>
             <RadioButton
                 android:id="@+id/survey_rb_flapre_red4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4"/>
+                android:text="좋음"/>
             <RadioButton
                 android:id="@+id/survey_rb_flapre_red5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="5"/>
+                android:text="매우좋음"/>
 
         </RadioGroup>
         <TextView
@@ -1333,27 +1354,28 @@
                 android:id="@+id/survey_rb_flapre_soy1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1"/>
+                android:text="매우나쁨"/>
             <RadioButton
                 android:id="@+id/survey_rb_flapre_soy2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2"/>
+                android:text="나쁨"/>
             <RadioButton
                 android:id="@+id/survey_rb_flapre_soy3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3"/>
+                android:text="보통"/>
             <RadioButton
                 android:id="@+id/survey_rb_flaopre_soy4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4"/>
+                android:text="좋음"/>
             <RadioButton
                 android:id="@+id/survey_rb_flapre_soy5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="5"/>
+                android:text="매우좋음"
+                />
 
         </RadioGroup>
 
@@ -1363,14 +1385,29 @@
     </androidx.appcompat.widget.LinearLayoutCompat>
 
 
-    <Button
+    <!--<Button
         android:id="@+id/survey_btn_send"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:paddingHorizontal="16dp"
         app:layout_constraintTop_toBottomOf="@+id/survey_layout_flapre"
-        android:text="저장하기"/>
+        android:text="저장하기"/>-->
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/survey_btn_save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_btn_disabled"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="@dimen/vertical_margin_large"
+        android:textColor="@color/subGrey"
+        android:text="저 장"
+        android:fontFamily="@font/spoqa_han_sans_neo_bold"
+        app:layout_constraintTop_toBottomOf="@+id/survey_layout_flapre"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
 
 
         </LinearLayout>
