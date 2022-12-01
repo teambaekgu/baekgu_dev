@@ -116,6 +116,11 @@ class SignupActivity:BaseActivity<ActivitySignupBinding>(ActivitySignupBinding::
         }
 
 
+        binding.signupImgBack.setOnClickListener {
+            finish()
+        }
+
+
 
     }
 
