@@ -15,9 +15,17 @@ import com.kookmin.mobile_programming.baekgu.myapplication.R
 import com.kookmin.mobile_programming.baekgu.myapplication.config.BaseActivity
 import com.kookmin.mobile_programming.baekgu.myapplication.databinding.ActivitySignupBinding
 import com.kookmin.mobile_programming.baekgu.myapplication.src.MainActivity
+import com.kookmin.mobile_programming.baekgu.myapplication.src.survey.SurveyActivity
+import java.util.regex.Pattern
 
 
 class SignupActivity:BaseActivity<ActivitySignupBinding>(ActivitySignupBinding::inflate) {
+    private lateinit var emailValue: String
+    private lateinit var pwValue: String
+    private lateinit var nameValue: String
+    private lateinit var birthValue: String
+    private lateinit var phoneValue: String
+    private lateinit var addressValue: String
     private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,13 +33,30 @@ class SignupActivity:BaseActivity<ActivitySignupBinding>(ActivitySignupBinding::
         auth = Firebase.auth
         // 회원가입 완료 버튼
         binding.signupTvFinish.setOnClickListener() {
-            //[Temp] : 발표자료에 쓰일 예정이므로 해당코드는 잠시 주석처리
-//            createAccount(
-//                binding.signupEditId.text.toString(),
-//                binding.signupEditPw.text.toString()
-//            )
-//            Log.d(TAG, "버튼 클릭")
-            startActivity(Intent(this,MainActivity::class.java))
+            emailValue = binding.signupEditId.text.toString()
+            pwValue = binding.signupEditPw.text.toString()
+            nameValue = binding.signupEditName.text.toString()
+            birthValue = binding.signupEditBirthday.text.toString()
+            phoneValue = binding.signupEditNumber.text.toString()
+            addressValue = binding.signupEditTown.text.toString()
+            if(android.util.Patterns.EMAIL_ADDRESS.matcher(emailValue).matches()) {
+                if (Pattern.matches(
+                        "^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[\$@\$!%*#?&])[A-Za-z[0-9]\$@\$!%*#?&]{8,20}\$", pwValue)) {
+                    if(nameValue.isNotEmpty() && birthValue.isNotEmpty() && phoneValue.isNotEmpty() && addressValue.isNotEmpty()) {
+                        createAccount(
+                            binding.signupEditId.text.toString(),
+                            binding.signupEditPw.text.toString()
+                        )
+                    } else {
+                        Toast.makeText(baseContext, "모든 항목을 다 입력해주세요.", Toast.LENGTH_SHORT).show()
+
+                    }
+                } else {
+                    Toast.makeText(baseContext, "8~16자 영문, 숫자, 특수문자를 사용하세요.", Toast.LENGTH_SHORT).show()
+                }
+            } else {
+                Toast.makeText(baseContext, "이메일 형식이 아닙니다.", Toast.LENGTH_SHORT).show()
+            }
         }
 
 
@@ -43,15 +68,19 @@ class SignupActivity:BaseActivity<ActivitySignupBinding>(ActivitySignupBinding::
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    Log.d(TAG, "회원가입 성공")
-                    var intent= Intent(this, MainActivity::class.java)
-                    startActivity(intent)
-                    val user = auth.currentUser
-                    updateUI(user)
+                    val user = Firebase.auth.currentUser
+                    user?.let {
+                        val email = user.email
+                        val uid = user.uid
+                        var intent= Intent(this, SurveyActivity::class.java)
+                        intent.putExtra("email", email)
+                        intent.putExtra("uid", uid)
+                        startActivity(intent)
+//                        updateUI(user)
+                    }
                 } else {
-                    Log.w(TAG, "회원가입 실패", task.exception)
-                    Toast.makeText(baseContext, "이미 존재하는 계정입니다.", Toast.LENGTH_SHORT).show()
-                    updateUI(null)
+                    Toast.makeText(baseContext, "이미 존재하는 이메일입니다.", Toast.LENGTH_SHORT).show()
+//                    updateUI(null)
                 }
             }
     }
@@ -138,9 +167,9 @@ class SignupActivity:BaseActivity<ActivitySignupBinding>(ActivitySignupBinding::
         }
     }
 
-    private fun updateUI(user: FirebaseUser?) {
-
-    }
+//    private fun updateUI(user: FirebaseUser?) {
+//
+//    }
 
     companion object {
         private const val TAG = "EmailPassword"

@@ -84,7 +84,7 @@
                 android:layout_height="wrap_content"
                 android:paddingVertical="8dp"
                 android:paddingHorizontal="16dp"
-                android:maxLength="20"
+                android:maxLength="30"
                 android:background="@drawable/bg_btn_disabled"
                 android:layout_marginTop="@dimen/vertical_margin_small"
                 />
@@ -121,9 +121,10 @@
                 android:layout_height="wrap_content"
                 android:paddingVertical="8dp"
                 android:paddingHorizontal="16dp"
-                android:maxLength="20"
+                android:maxLength="16"
                 android:background="@drawable/bg_btn_disabled"
                 android:layout_marginTop="@dimen/vertical_margin_small"
+                android:inputType="textPassword"
                 />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
