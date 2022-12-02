@@ -7,6 +7,7 @@ import com.kookmin.mobile_programming.baekgu.myapplication.R
 import com.kookmin.mobile_programming.baekgu.myapplication.config.BaseFragment
 import com.kookmin.mobile_programming.baekgu.myapplication.databinding.FragmentProfileBinding
 import com.kookmin.mobile_programming.baekgu.myapplication.src.profile_edit.ProfileEditActivity
+import com.kookmin.mobile_programming.baekgu.myapplication.src.survey.SurveyActivity
 
 class ProfileFragment: BaseFragment<FragmentProfileBinding>(FragmentProfileBinding::bind, R.layout.fragment_profile) {
 
@@ -20,6 +21,11 @@ class ProfileFragment: BaseFragment<FragmentProfileBinding>(FragmentProfileBindi
     private fun setListener(){
         binding.fgProfileTvProfileEdit.setOnClickListener {
             var intent= Intent(requireContext(),ProfileEditActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.fgProfileLayoutSurvey.setOnClickListener{
+            var intent = Intent(requireContext(),SurveyActivity::class.java)
             startActivity(intent)
         }
     }
