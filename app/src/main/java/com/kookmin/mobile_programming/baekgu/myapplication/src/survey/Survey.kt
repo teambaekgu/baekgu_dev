@@ -10,7 +10,10 @@ class Survey {
     var user_dietCnt: List<String>? = null
     var user_allergy: List<String>? = null
     var user_snackYn: String? = null
-//    var user_proPre: String? = null
+    var user_proPre: List<Int>? = null
+    var user_flaPre: List<Int>? = null
+
+
 
     internal constructor() {}
     constructor(
@@ -23,7 +26,10 @@ class Survey {
         user_dietCnt: List<String>?,
         user_allergy: List<String>?,
         user_snackYn: String?,
-//        user_proPre: String?
+        user_proPre: List<Int>?,
+        user_flaPre: List<Int>?
+
+
     ) {
         this.user_height = user_height
         this.user_weight = user_weight
@@ -34,6 +40,7 @@ class Survey {
         this.user_dietCnt = user_dietCnt
         this.user_allergy = user_allergy
         this.user_snackYn = user_snackYn
-//        this.user_proPre = user_proPre
+        this.user_proPre = user_proPre
+        this.user_flaPre = user_flaPre
     }
 }
