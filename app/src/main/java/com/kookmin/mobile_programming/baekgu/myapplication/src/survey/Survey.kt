@@ -9,7 +9,7 @@ class Survey {
     var user_trainingTime: String? = null
     var user_dietCnt: List<String>? = null
     var user_allergy: List<String>? = null
-//    var user_snackYn: Array<String>? = null
+    var user_snackYn: String? = null
 //    var user_proPre: String? = null
 
     internal constructor() {}
@@ -22,7 +22,7 @@ class Survey {
         user_trainingTime: String?,
         user_dietCnt: List<String>?,
         user_allergy: List<String>?,
-//        user_snackYn: String?,
+        user_snackYn: String?,
 //        user_proPre: String?
     ) {
         this.user_height = user_height
@@ -33,7 +33,7 @@ class Survey {
         this.user_trainingTime = user_trainingTime
         this.user_dietCnt = user_dietCnt
         this.user_allergy = user_allergy
-//        this.user_snackYn = user_snackYn
+        this.user_snackYn = user_snackYn
 //        this.user_proPre = user_proPre
     }
 }

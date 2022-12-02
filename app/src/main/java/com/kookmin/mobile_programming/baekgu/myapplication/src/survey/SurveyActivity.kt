@@ -130,7 +130,7 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
 
             val snackynRadioButton = findViewById<RadioButton>(snackynRadioButtonGroup.checkedRadioButtonId)
             val sSnackYn = snackynRadioButton.text.toString()
-            
+
             // val sProPre = proPreEdit.text.toString()
             val survey = Survey(
                 sHeight,
@@ -181,8 +181,8 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
         }
 
         val hArr = checked.split(",").toTypedArray()
-        val result = hArr.toList()
-        return result
+        val result =  hArr.toList()
+        return result.subList(0, result.size-1)
     }
 
 }
