@@ -73,14 +73,11 @@ class SignupActivity:BaseActivity<ActivitySignupBinding>(ActivitySignupBinding::
                         val email = user.email
                         val uid = user.uid
                         var intent= Intent(this, SurveyActivity::class.java)
-                        intent.putExtra("email", email)
                         intent.putExtra("uid", uid)
                         startActivity(intent)
-//                        updateUI(user)
                     }
                 } else {
                     Toast.makeText(baseContext, "이미 존재하는 이메일입니다.", Toast.LENGTH_SHORT).show()
-//                    updateUI(null)
                 }
             }
     }
