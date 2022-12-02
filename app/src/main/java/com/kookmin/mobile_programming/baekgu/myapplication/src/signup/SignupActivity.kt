@@ -15,6 +15,7 @@ import com.kookmin.mobile_programming.baekgu.myapplication.R
 import com.kookmin.mobile_programming.baekgu.myapplication.config.BaseActivity
 import com.kookmin.mobile_programming.baekgu.myapplication.databinding.ActivitySignupBinding
 import com.kookmin.mobile_programming.baekgu.myapplication.src.MainActivity
+import com.kookmin.mobile_programming.baekgu.myapplication.src.survey.SurveyActivity
 
 
 class SignupActivity:BaseActivity<ActivitySignupBinding>(ActivitySignupBinding::inflate) {
@@ -31,7 +32,7 @@ class SignupActivity:BaseActivity<ActivitySignupBinding>(ActivitySignupBinding::
 //                binding.signupEditPw.text.toString()
 //            )
 //            Log.d(TAG, "버튼 클릭")
-            startActivity(Intent(this,MainActivity::class.java))
+            startActivity(Intent(this, SurveyActivity::class.java))
         }
 
 
