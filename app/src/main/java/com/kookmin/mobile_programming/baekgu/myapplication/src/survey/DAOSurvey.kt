@@ -18,4 +18,13 @@ class DAOSurvey internal constructor() {
     fun add(survey: Survey?): Task<Void> {
         return databaseReference.push().setValue(survey)
     }
+
+    fun get(): DatabaseReference {
+        val db: FirebaseDatabase = FirebaseDatabase.getInstance()
+        val myRef: DatabaseReference = db.getReference()
+        return myRef
+    }
 }
+
+
+

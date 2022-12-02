@@ -1,28 +1,34 @@
 package com.kookmin.mobile_programming.baekgu.myapplication.src.survey
 
 
+import android.R
 import android.os.Bundle
+import android.util.Log
 import android.widget.*
 import com.example.firebasepratice.Survey
 import com.google.android.gms.tasks.OnFailureListener
 import com.google.android.gms.tasks.OnSuccessListener
-import com.kookmin.mobile_programming.baekgu.myapplication.R
-import com.kookmin.mobile_programming.baekgu.myapplication.R.*
+import com.google.firebase.database.*
 import com.kookmin.mobile_programming.baekgu.myapplication.R.id.*
+import com.kookmin.mobile_programming.baekgu.myapplication.R.layout
 import com.kookmin.mobile_programming.baekgu.myapplication.config.BaseActivity
 import com.kookmin.mobile_programming.baekgu.myapplication.databinding.ActivitySurveyBinding
 
 
 class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::inflate) {
 
+    var arrayList = ArrayList<String>()
+    var adapter: ArrayAdapter<String>? = null
+    
+    var firebaseDatabase: FirebaseDatabase? = null
+    var databaseReference: DatabaseReference? = null
+
+    var listView: ListView? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(layout.activity_survey)
 
-//        var proPreArray = arrayOf("ST", "CS", "CB", "BF", "F", "SC", "P", "OT")
-//
-//        // 맛 선호도
-//        var flaPreArray = arrayOf("오리지날", "마늘", "고추", "까르보나라", "카레", "훈제", "토마토", "짜장", "짬뽕", "간장")
 
         // 컴포넌트 변수에 담기
         val heightEdit = findViewById<EditText>(
@@ -37,13 +43,8 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
         val trainingCntRadioButtonGroup = findViewById<RadioGroup>(survey_rg_trainingcnt)
 
 
-
         val trainingTimeRadioButtonGroup = findViewById<RadioGroup>(survey_rg_trainingtime)
 
-        //https://wpioneer.tistory.com/23 -> checkbox 텍스트 처리
-        // 체크박스 part
-        //val dietCntEdit = findViewById<EditText>(dietCnt)
-        //val allergyEdit = findViewById<EditText>(com.kookmin.mobile_programming.baekgu.myapplication.R.id.allergy)
         val dietCntBreakfast = findViewById<CheckBox>(survey_cb_dietcnt_breakfast)
         var dietCntLunch = findViewById<CheckBox>(survey_cb_dietcnt_lunch)
         var dietCntDinner = findViewById<CheckBox>(survey_cb_dietcnt_dinner);
@@ -61,7 +62,7 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
         var allergy9 = findViewById<CheckBox>(survey_cb_allergy_9)
         var allergy10 = findViewById<CheckBox>(survey_cb_allergy_10)
         var allergy11 = findViewById<CheckBox>(survey_cb_allergy_11)
-        var allergy12= findViewById<CheckBox>(survey_cb_allergy_12)
+        var allergy12 = findViewById<CheckBox>(survey_cb_allergy_12)
         var allergy13 = findViewById<CheckBox>(survey_cb_allergy_13)
         var allergy14 = findViewById<CheckBox>(survey_cb_allergy_14)
         var allergy15 = findViewById<CheckBox>(survey_cb_allergy_15)
@@ -96,47 +97,28 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
         val flaPre9 = findViewById<RadioGroup>(survey_rg_red)
         val flaPre10 = findViewById<RadioGroup>(survey_rg_soy)
 
-        //var propreHashMap = HashMap<String, Any>()
-
-        // 체크박스 part
-        // val proPre = findViewById<EditText>(id.proPre)
-        // val flaPre = findViewById
 
         val addBtn = findViewById<Button>(survey_btn_save)
 
-         val dao = DAOSurvey()
-        // listView = findViewById(R.id.list_View);
+        val dao = DAOSurvey()
+
+        listView = findViewById(list_View);
 
         // 어뎁터 초기화
-        // adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, arrayList);
+        adapter = ArrayAdapter(this, R.layout.simple_list_item_1, arrayList)
 
         // 데이터베이스 초기화
-        // firebaseDatabase = FirebaseDatabase.getInstance();
+        val firebaseDatabase = FirebaseDatabase.getInstance();
 
         // 레퍼런스 초기화
-        // databaseReference = firebaseDatabase.getReference().child("Data");
+        val databaseReference = firebaseDatabase.getReference().child("Data");
 
         // 데이터 조회
-        //getValue();
+        getValue()
 
-        // 데이터 등록
-        // listView = findViewById(R.id.list_View);
-
-        // 어뎁터 초기화
-        // adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, arrayList);
-
-        // 데이터베이스 초기화
-        // firebaseDatabase = FirebaseDatabase.getInstance();
-
-        // 레퍼런스 초기화
-        // databaseReference = firebaseDatabase.getReference().child("Data");
-
-        // 데이터 조회
-        //getValue();
 
         // 데이터 등록
         addBtn.setOnClickListener {
-
             // 입력값 변수에 담기
             val sHeight = heightEdit.text.toString()
             val sWeight = weightEdit.text.toString()
@@ -186,8 +168,6 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
             val sFlapreResult = sendRadio(sFlapre1, sFlapre2, sFlapre3, sFlapre4, sFlapre5, sFlapre6, sFlapre7,sFlapre8,sFlapre9,sFlapre10)
 
 
-
-
             val survey = Survey(
                 sHeight,
                 sWeight,
@@ -203,24 +183,45 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
             )
             dao.add(survey).addOnSuccessListener(OnSuccessListener<Void?> {
                 Toast.makeText(applicationContext, "성공", Toast.LENGTH_SHORT).show()
-
-            // 입력창 초기화
-            heightEdit.setText("")
-            weightEdit.setText("")
-            proteinPurposeRadioButton.isChecked = false
-            trainingPurposeRadioButton.isChecked = false
-            trainingCntRadioButton.isChecked = false
-            trainingTimeRadioButton.isChecked = false
+                // Read from the database
 
 
-            setCheckBoxFalse(dietCntBreakfast, dietCntLunch, dietCntDinner)
-            setCheckBoxFalse(allergy1,allergy2,allergy3,allergy4,allergy5, allergy6, allergy7, allergy8, allergy9, allergy10,
-                allergy11, allergy12, allergy13, allergy14, allergy15, allergy16, allergy17, allergy18, allergy19)
+                // 입력창 초기화
+                heightEdit.setText("")
+                weightEdit.setText("")
+                proteinPurposeRadioButton.isChecked = false
+                trainingPurposeRadioButton.isChecked = false
+                trainingCntRadioButton.isChecked = false
+                trainingTimeRadioButton.isChecked = false
 
 
-            snackynRadioButton.isChecked = false
+                setCheckBoxFalse(dietCntBreakfast, dietCntLunch, dietCntDinner)
+                setCheckBoxFalse(
+                    allergy1,
+                    allergy2,
+                    allergy3,
+                    allergy4,
+                    allergy5,
+                    allergy6,
+                    allergy7,
+                    allergy8,
+                    allergy9,
+                    allergy10,
+                    allergy11,
+                    allergy12,
+                    allergy13,
+                    allergy14,
+                    allergy15,
+                    allergy16,
+                    allergy17,
+                    allergy18,
+                    allergy19
+                )
 
-            //proPreEdit.setText("") //checkbox
+
+//            snackynRadioButton.isChecked = false
+
+                //proPreEdit.setText("") //checkbox
 
             }).addOnFailureListener(OnFailureListener {
                 Toast.makeText(
@@ -232,32 +233,33 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
         }
     }
 
-    private fun sendCheck(vararg checkBox:CheckBox): List<String> {
+
+    private fun sendCheck(vararg checkBox: CheckBox): List<String> {
         var checked = ""
-        for(ch in checkBox) {
+        for (ch in checkBox) {
             if (ch.isChecked) {
                 checked += ch.text.toString() + ","
             }
         }
         val hArr = checked.split(",").toTypedArray()
-        val result =  hArr.toList()
-        return result.subList(0, result.size-1)
+        val result = hArr.toList()
+        return result.subList(0, result.size - 1)
     }
 
     private fun setCheckBoxFalse(vararg checkBox: CheckBox) {
-        for (ch in checkBox){
+        for (ch in checkBox) {
             if (ch.isChecked) {
                 ch.isChecked = false
             }
         }
     }
 
-    private fun sendRadio(vararg flapreStr: String ): List<Int> {
+    private fun sendRadio(vararg flapreStr: String): List<Int> {
         var flavor = mutableListOf<Int>()
         var i = 0
-        for(str in flapreStr) {
+        for (str in flapreStr) {
             var x = 0
-            when(str){
+            when (str) {
                 "매우나쁨" -> x = 1
                 "나쁨" -> x = 2
                 "보통" -> x = 3
@@ -269,6 +271,24 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
         }
         return flavor
     }
+
+    private fun getValue() {
+        databaseReference?.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                arrayList.clear()
+                for (dataSnapshot in snapshot.children) {
+                    val sHeight = dataSnapshot.child("user_height").getValue(
+                        String::class.java
+                    )
+
+                    if (sHeight != null) {
+                        arrayList.add(sHeight)
+                    }
+                }
+                listView?.setAdapter(adapter)
+            }
+            override fun onCancelled(error: DatabaseError) {}
+        })
+    }
+
 }
-
-
