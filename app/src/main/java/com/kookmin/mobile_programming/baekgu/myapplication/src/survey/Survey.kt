@@ -7,8 +7,8 @@ class Survey {
     var user_trainingPurpose: String? = null
     var user_trainingCnt: String? = null
     var user_trainingTime: String? = null
-    var user_dietCnt: Array<String>? = null
-    var user_allergy: Array<String>? = null
+    var user_dietCnt: List<String>? = null
+    var user_allergy: List<String>? = null
 //    var user_snackYn: Array<String>? = null
 //    var user_proPre: String? = null
 
@@ -20,8 +20,8 @@ class Survey {
         user_trainingPurpose: String?,
         user_trainingCnt: String?,
         user_trainingTime: String?,
-        user_dietCnt: Array<String>?,
-        user_allergy: Array<String>?,
+        user_dietCnt: List<String>?,
+        user_allergy: List<String>?,
 //        user_snackYn: String?,
 //        user_proPre: String?
     ) {

@@ -28,16 +28,14 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
         val weightEdit = findViewById<EditText>(survey_edit_weight)
 
         val proteinPurposeRadioButtonGroup = findViewById<RadioGroup>(survey_rg_proteinpurpose)
-        val proteinPurposeRadioButton = findViewById<RadioButton>(proteinPurposeRadioButtonGroup.checkedRadioButtonId)
 
         val trainingPurposeRadioButtonGroup = findViewById<RadioGroup>(survey_rg_trainpurpose)
-        val trainingPurposeRadioButton = findViewById<RadioButton>(trainingPurposeRadioButtonGroup.checkedRadioButtonId)
 
         val trainingCntRadioButtonGroup = findViewById<RadioGroup>(survey_rg_trainingcnt)
-        val trainingCntRadioButton = findViewById<RadioButton>(trainingCntRadioButtonGroup.checkedRadioButtonId)
+
+
 
         val trainingTimeRadioButtonGroup = findViewById<RadioGroup>(survey_rg_trainingtime)
-        val trainingTimeRadioButton = findViewById<RadioButton>(trainingTimeRadioButtonGroup.checkedRadioButtonId)
 
         //https://wpioneer.tistory.com/23 -> checkbox 텍스트 처리
         // 체크박스 part
@@ -71,7 +69,7 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
 
 
         val snackynRadioButtonGroup = findViewById<RadioGroup>(survey_rg_snackyn)
-        val snackynRadioButton = findViewById<RadioButton>(snackynRadioButtonGroup.checkedRadioButtonId)
+
 
         // 체크박스 part
         // val proPreEdit = findViewById<EditText>(id.proPre)
@@ -114,15 +112,25 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
             // 입력값 변수에 담기
             val sHeight = heightEdit.text.toString()
             val sWeight = weightEdit.text.toString()
+            val proteinPurposeRadioButton = findViewById<RadioButton>(proteinPurposeRadioButtonGroup.checkedRadioButtonId)
             val sProteinPurpose = proteinPurposeRadioButton.text.toString()
+
+            val trainingPurposeRadioButton = findViewById<RadioButton>(trainingPurposeRadioButtonGroup.checkedRadioButtonId)
             val sTrainingPurpose = trainingPurposeRadioButton.text.toString()
+
+            val trainingCntRadioButton = findViewById<RadioButton>(trainingCntRadioButtonGroup.checkedRadioButtonId)
             val sTrainingCnt = trainingCntRadioButton.text.toString()
+
+            val trainingTimeRadioButton = findViewById<RadioButton>(trainingTimeRadioButtonGroup.checkedRadioButtonId)
             val sTrainingTime = trainingTimeRadioButton.text.toString()
+
             val sDietCnt = sendCheck(dietCntBreakfast, dietCntLunch, dietCntDinner)
             val sAllergy = sendCheck(allergy1,allergy2,allergy3,allergy4,allergy5, allergy6, allergy7, allergy8, allergy9, allergy10,
                                         allergy11, allergy12, allergy13, allergy14, allergy15, allergy16, allergy17, allergy18, allergy19)
 
-            //val sSnackYn = snackynRadioButton.text.toString()
+            val snackynRadioButton = findViewById<RadioButton>(snackynRadioButtonGroup.checkedRadioButtonId)
+            val sSnackYn = snackynRadioButton.text.toString()
+            
             // val sProPre = proPreEdit.text.toString()
             val survey = Survey(
                 sHeight,
@@ -133,7 +141,7 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
                 sTrainingTime,
                 sDietCnt,
                 sAllergy,
-//                sSnackYn,
+                sSnackYn,
 //                sProPre
             )
             dao.add(survey).addOnSuccessListener(OnSuccessListener<Void?> {
@@ -164,7 +172,7 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
         }
     }
 
-    private fun sendCheck(vararg checkBox:CheckBox): Array<String> {
+    private fun sendCheck(vararg checkBox:CheckBox): List<String> {
         var checked = ""
         for(ch in checkBox) {
             if (ch.isChecked) {
@@ -173,7 +181,8 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
         }
 
         val hArr = checked.split(",").toTypedArray()
-        return hArr
+        val result = hArr.toList()
+        return result
     }
 
 }
