@@ -88,28 +88,28 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
 
         val snackynRadioButtonGroup = findViewById<RadioGroup>(survey_rg_snackyn)
 
-        val proPre1 = findViewById<RadioGroup>(survey_rg_chickensteak)
-        val proPre2 = findViewById<RadioGroup>(survey_rg_chickensausage)
-        val proPre3 = findViewById<RadioGroup>(survey_rg_saucechicken)
-        val proPre4 = findViewById<RadioGroup>(survey_rg_chickenball)
-        val proPre5 = findViewById<RadioGroup>(survey_rg_beefball)
-        val proPre6 = findViewById<RadioGroup>(survey_rg_beefsteak)
-        val proPre7 = findViewById<RadioGroup>(survey_rg_chickendumpling)
-        val proPre8 = findViewById<RadioGroup>(survey_rg_chickenfishcake)
-        val proPre9 = findViewById<RadioGroup>(survey_rg_godeungeo)
-        val proPre10 = findViewById<RadioGroup>(survey_rg_samchi)
-        val proPre11 = findViewById<RadioGroup>(survey_rg_kkongchi)
 
-        val flaPre1 = findViewById<RadioGroup>(survey_rg_original)
-        val flaPre2 = findViewById<RadioGroup>(survey_rg_garlic)
-        val flaPre3 = findViewById<RadioGroup>(survey_rg_pepper)
-        val flaPre4 = findViewById<RadioGroup>(survey_rg_cream)
-        val flaPre5 = findViewById<RadioGroup>(survey_rg_curry)
-        val flaPre6 = findViewById<RadioGroup>(survey_rg_smoke)
-        val flaPre7 = findViewById<RadioGroup>(survey_rg_tomato)
-        val flaPre8 = findViewById<RadioGroup>(survey_rg_black)
-        val flaPre9 = findViewById<RadioGroup>(survey_rg_red)
-        val flaPre10 = findViewById<RadioGroup>(survey_rg_soy)
+        val proPre1 = findViewById<RadioGroup>(survey_rg_chickensausage)
+        val proPre2 = findViewById<RadioGroup>(survey_rg_chickenball)
+        val proPre3 = findViewById<RadioGroup>(survey_rg_saucechicken)
+        val proPre4 = findViewById<RadioGroup>(survey_rg_beefsteak)
+        //val proPre5 = findViewById<RadioGroup>(survey_rg_fish)
+        val proPre6 = findViewById<RadioGroup>(survey_rg_chickensteak)
+        //val proPre7 = findViewById<RadioGroup>(survey_rg_protein)
+        //val proPre8 = findViewById<RadioGroup>(survey_rg_snack)
+
+
+
+        // val flaPre1 = findViewById<RadioGroup>(survey_rg_spicy)
+        // val flaPre2 = findViewById<RadioGroup>(survey_rg_very_spicy)
+        //val flaPre3 = findViewById<RadioGroup>(survey_rg_pepper)
+        // val flaPre4 = findViewById<RadioGroup>(survey_rg_garlic)
+        // val flaPre5 = findViewById<RadioGroup>(survey_rg_original)
+        //val flaPre6 = findViewById<RadioGroup>(survey_rg_soy)
+        //val flaPre7 = findViewById<RadioGroup>(survey_rg_cream)
+        //val flaPre8 = findViewById<RadioGroup>(survey_rg_vege)
+
+
 
 
         val addBtn = findViewById<Button>(survey_btn_save)
@@ -163,11 +163,8 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
             val sPropre6 = findViewById<RadioButton>(proPre6.checkedRadioButtonId).text.toString()
             val sPropre7 = findViewById<RadioButton>(proPre7.checkedRadioButtonId).text.toString()
             val sPropre8 = findViewById<RadioButton>(proPre8.checkedRadioButtonId).text.toString()
-            val sPropre9 = findViewById<RadioButton>(proPre9.checkedRadioButtonId).text.toString()
-            val sPropre10 = findViewById<RadioButton>(proPre10.checkedRadioButtonId).text.toString()
-            val sPropre11 = findViewById<RadioButton>(proPre11.checkedRadioButtonId).text.toString()
             val sPropreResult = sendRadio(sPropre1, sPropre2, sPropre3, sPropre4, sPropre5, sPropre6,
-                sPropre7, sPropre8,sPropre9,sPropre10, sPropre11)
+                sPropre7, sPropre8)
 
             val sFlapre1 = findViewById<RadioButton>(flaPre1.checkedRadioButtonId).text.toString()
             val sFlapre2 = findViewById<RadioButton>(flaPre2.checkedRadioButtonId).text.toString()
@@ -177,9 +174,7 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
             val sFlapre6 = findViewById<RadioButton>(flaPre6.checkedRadioButtonId).text.toString()
             val sFlapre7 = findViewById<RadioButton>(flaPre7.checkedRadioButtonId).text.toString()
             val sFlapre8 = findViewById<RadioButton>(flaPre8.checkedRadioButtonId).text.toString()
-            val sFlapre9 = findViewById<RadioButton>(flaPre9.checkedRadioButtonId).text.toString()
-            val sFlapre10 = findViewById<RadioButton>(flaPre10.checkedRadioButtonId).text.toString()
-            val sFlapreResult = sendRadio(sFlapre1, sFlapre2, sFlapre3, sFlapre4, sFlapre5, sFlapre6, sFlapre7,sFlapre8,sFlapre9,sFlapre10)
+            val sFlapreResult = sendRadio(sFlapre1, sFlapre2, sFlapre3, sFlapre4, sFlapre5, sFlapre6, sFlapre7,sFlapre8)
 
 
             val survey = Survey(
@@ -316,24 +311,24 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
                     sTrainingPurpose = sFTrainingPurpose
                     sTrainingTime = sFTrainingTime
 
-                    sAllergy = sFAllergy
-                    sDietCnt = sFDietCnt
-                    sPropre = sFPropre
-                    sFlapre = sFFlapre
+//                    sAllergy = sFAllergy.toTypeArray()
+//                    sDietCnt = sFDietCnt.toTypeArray()
+//                    sPropre = sFPropre.toTypeArray()
+//                    sFlapre = sFFlapre.toTypeArray()
 
 
-                    Log.d("키", sHeight!!)
-                    Log.d("무게", sWeight!!)
-                    Log.d("단백질 섭취 목적", sProteinPurpose!!)
-                    Log.d("간식 여부", sSnackYn!!)
-                    Log.d("훈련 횟수", sTrainingCnt!!)
-                    Log.d("훈련 목적", sTrainingPurpose!!)
-                    Log.d("훈련 시간", sTrainingTime!!)
+                    Log.d("1. 키", sHeight!!)
+                    Log.d("2. 무게", sWeight!!)
+                    Log.d("3. 단백질 섭취 목적", sProteinPurpose!!)
+                    Log.d("4. 간식 여부", sSnackYn!!)
+                    Log.d("5. 훈련 횟수", sTrainingCnt!!)
+                    Log.d("6. 훈련 목적", sTrainingPurpose!!)
+                    Log.d("7. 훈련 시간", sTrainingTime!!)
 
-                    Log.d("알러지", sAllergy.toString())
-                    Log.d("하루 식단", sDietCnt.toString())
-                    Log.d("제품별 선호도", sPropre.toString())
-                    Log.d("맛 선호도", sFlapre.toString())
+                    Log.d("8. 알러지", sAllergy.toString())
+                    Log.d("9. 하루 식단", sDietCnt.toString())
+                    Log.d("10. 제품별 선호도", sPropre.toString())
+                    Log.d("11. 맛 선호도", sFlapre.toString())
 
 //                    arrayList.add(sFHeight!!)
 //                    arrayList.add(sFWeight!!)
