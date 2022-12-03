@@ -18,14 +18,15 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        val test="weagaweg"
 
         productFragment= ProductFragment()
         supportFragmentManager.beginTransaction().replace(R.id.main_layout_fragment,productFragment!!).commit()
-
         binding.mainBnv.setOnItemSelectedListener{
             when(it.itemId){
                 R.id.main_product ->{
+
+
                     moveProduct()
                 }
 
@@ -35,9 +36,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
                 }
 
                 R.id.main_profile ->{
-
                     moveProfile()
-
                 }
 
 

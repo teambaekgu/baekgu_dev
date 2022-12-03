@@ -1,6 +1,8 @@
 package com.kookmin.mobile_programming.baekgu.myapplication.src.diet_details
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.viewpager2.widget.ViewPager2
 import com.kookmin.mobile_programming.baekgu.myapplication.R
@@ -12,11 +14,24 @@ import com.kookmin.mobile_programming.baekgu.myapplication.src.diet_details.util
 
 class DietDetailsActivity:BaseActivity<ActivityDietDetailsBinding>(ActivityDietDetailsBinding::inflate) {
     private val dietList=ArrayList<DietDetailsDataClass>()
-
+    private lateinit var receiveIntent: Intent
+    private var date:String=""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        receiveIntent=intent
+        if(receiveIntent!=null){
+            if(!receiveIntent.getStringExtra("date")!!.isEmpty()){
+                date=receiveIntent.getStringExtra("date")!!
+            }
+
+        }
+
+        Log.d("weagawgawg","${date}")
+
+
+
         for(i in 0 until 5){
-            dietList.add(DietDetailsDataClass("test$i"))
+            dietList.add(DietDetailsDataClass(date))
         }
         setViewPager()
     }
