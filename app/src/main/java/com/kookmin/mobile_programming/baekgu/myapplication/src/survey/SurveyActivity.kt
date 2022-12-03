@@ -33,7 +33,10 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
     var sTrainingPurpose: String? = null
     var sTrainingCnt : String? = null
 
+    var sDietCnt: ArrayList<String>? = null
     var sAllergy: ArrayList<String>? = null
+    var sPropre: ArrayList<String>? = null
+    var sFlapre: ArrayList<String>? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -295,7 +298,15 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
                     val sFTrainingCnt = dataSnapshot.child("user_trainingCnt").getValue(String::class.java)
                     val sFTrainingPurpose = dataSnapshot.child("user_trainingPurpose").getValue(String::class.java)
                     val sFTrainingTime = dataSnapshot.child("user_trainingTime").getValue(String::class.java)
-                    //sAllergyval sAl = dataSnapshot.child("user_trainingTime").getValue(String::class.java)
+
+                    val sFAllergy = dataSnapshot.child("user_allergy").value as ArrayList<String>?
+                    val sFDietCnt = dataSnapshot.child("user_dietCnt").value as ArrayList<String>?
+                    val sFPropre = dataSnapshot.child("user_proPre").value as ArrayList<String>?
+                    val sFFlapre = dataSnapshot.child("user_flaPre").value as ArrayList<String>?
+
+
+
+
 
                     sHeight = sFHeight
                     sWeight = sFWeight
@@ -305,6 +316,11 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
                     sTrainingPurpose = sFTrainingPurpose
                     sTrainingTime = sFTrainingTime
 
+                    sAllergy = sFAllergy
+                    sDietCnt = sFDietCnt
+                    sPropre = sFPropre
+                    sFlapre = sFFlapre
+
 
                     Log.d("키", sHeight!!)
                     Log.d("무게", sWeight!!)
@@ -313,6 +329,11 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
                     Log.d("훈련 횟수", sTrainingCnt!!)
                     Log.d("훈련 목적", sTrainingPurpose!!)
                     Log.d("훈련 시간", sTrainingTime!!)
+
+                    Log.d("알러지", sAllergy.toString())
+                    Log.d("하루 식단", sDietCnt.toString())
+                    Log.d("제품별 선호도", sPropre.toString())
+                    Log.d("맛 선호도", sFlapre.toString())
 
 //                    arrayList.add(sFHeight!!)
 //                    arrayList.add(sFWeight!!)
