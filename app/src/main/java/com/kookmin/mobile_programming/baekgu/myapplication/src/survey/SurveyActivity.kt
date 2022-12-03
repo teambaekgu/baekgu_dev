@@ -25,6 +25,17 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
 
     var listView: ListView? = null
 
+    var sHeight: String? = null
+    var sWeight: String? = null
+    var sProteinPurpose: String? = null
+    var sSnackYn : String? = null
+    var sTrainingTime: String? = null
+    var sTrainingPurpose: String? = null
+    var sTrainingCnt : String? = null
+
+    var sAllergy: ArrayList<String>? = null
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(layout.activity_survey)
@@ -108,10 +119,10 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
         adapter = ArrayAdapter(this, R.layout.simple_list_item_1, arrayList)
 
         // 데이터베이스 초기화
-        val firebaseDatabase = FirebaseDatabase.getInstance();
+        firebaseDatabase = FirebaseDatabase.getInstance();
 
         // 레퍼런스 초기화
-        val databaseReference = firebaseDatabase.getReference().child("Data");
+        databaseReference = firebaseDatabase!!.getReference().child("Survey");
 
         // 데이터 조회
         getValue()
@@ -273,20 +284,43 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
     }
 
     private fun getValue() {
-        databaseReference?.addValueEventListener(object : ValueEventListener {
+        databaseReference!!.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 arrayList.clear()
                 for (dataSnapshot in snapshot.children) {
-                    val sHeight = dataSnapshot.child("user_height").getValue(
-                        String::class.java
-                    )
+                    val sFHeight = dataSnapshot.child("user_height").getValue(String::class.java)
+                    val sFWeight = dataSnapshot.child("user_weight").getValue(String::class.java)
+                    val sFProteinPurpose = dataSnapshot.child("user_proteinPurpose").getValue(String::class.java)
+                    val sFSnackYn = dataSnapshot.child("user_snackYn").getValue(String::class.java)
+                    val sFTrainingCnt = dataSnapshot.child("user_trainingCnt").getValue(String::class.java)
+                    val sFTrainingPurpose = dataSnapshot.child("user_trainingPurpose").getValue(String::class.java)
+                    val sFTrainingTime = dataSnapshot.child("user_trainingTime").getValue(String::class.java)
+                    //sAllergyval sAl = dataSnapshot.child("user_trainingTime").getValue(String::class.java)
 
-                    if (sHeight != null) {
-                        arrayList.add(sHeight)
-                    }
+                    sHeight = sFHeight
+                    sWeight = sFWeight
+                    sProteinPurpose = sFProteinPurpose
+                    sSnackYn = sFSnackYn
+                    sTrainingCnt = sFTrainingCnt
+                    sTrainingPurpose = sFTrainingPurpose
+                    sTrainingTime = sFTrainingTime
+
+
+                    Log.d("키", sHeight!!)
+                    Log.d("무게", sWeight!!)
+                    Log.d("단백질 섭취 목적", sProteinPurpose!!)
+                    Log.d("간식 여부", sSnackYn!!)
+                    Log.d("훈련 횟수", sTrainingCnt!!)
+                    Log.d("훈련 목적", sTrainingPurpose!!)
+                    Log.d("훈련 시간", sTrainingTime!!)
+
+//                    arrayList.add(sFHeight!!)
+//                    arrayList.add(sFWeight!!)
+//                    //arrayList.add(sFPurpose!!)
                 }
-                listView?.setAdapter(adapter)
+                listView!!.adapter = adapter
             }
+
             override fun onCancelled(error: DatabaseError) {}
         })
     }
