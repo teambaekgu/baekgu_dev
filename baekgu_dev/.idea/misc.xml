@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/nex00/Desktop/baekgu_project/app/src/main/res/drawable/bg_diet_details.xml" value="0.1915" />
+        <entry key="..\:/Users/nex00/Desktop/baekgu_project/app/src/main/res/layout/activity_diet.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/nex00/Desktop/baekgu_project/app/src/main/res/layout/activity_diet_details.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/nex00/Desktop/baekgu_project/app/src/main/res/layout/activity_login.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/nex00/Desktop/baekgu_project/app/src/main/res/layout/activity_main.xml" value="0.4" />
+        <entry key="..\:/Users/nex00/Desktop/baekgu_project/app/src/main/res/layout/activity_product.xml" value="0.186328125" />
+        <entry key="..\:/Users/nex00/Desktop/baekgu_project/app/src/main/res/layout/activity_second.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/nex00/Desktop/baekgu_project/app/src/main/res/layout/activity_signup.xml" value="0.2484375" />
+        <entry key="..\:/Users/nex00/Desktop/baekgu_project/app/src/main/res/layout/activity_splash.xml" value="0.2484375" />
+        <entry key="..\:/Users/nex00/Desktop/baekgu_project/app/src/main/res/layout/activity_survey.xml" value="0.186328125" />
+        <entry key="..\:/Users/nex00/Desktop/baekgu_project/app/src/main/res/layout/dialog_loading.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/nex00/Desktop/baekgu_project/app/src/main/res/layout/fragment_calendar.xml" value="0.264" />
+        <entry key="..\:/Users/nex00/Desktop/baekgu_project/app/src/main/res/layout/fragment_product.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/nex00/Desktop/baekgu_project/app/src/main/res/layout/fragment_profile.xml" value="0.4" />
+        <entry key="..\:/Users/nex00/Desktop/baekgu_project/app/src/main/res/layout/item_diet_details.xml" value="0.2484375" />
+        <entry key="..\:/Users/nex00/Desktop/baekgu_project/app/src/main/res/layout/item_reommend_product.xml" value="0.2484375" />
+        <entry key="..\:/Users/nex00/Desktop/baekgu_project/app/src/main/res/menu/main_bnv.xml" value="0.1" />
+        <entry key="..\:/Users/nex00/Desktop/baekgu_project/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1915" />
+        <entry key="..\:/Users/nex00/Desktop/baekgu_project/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1915" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

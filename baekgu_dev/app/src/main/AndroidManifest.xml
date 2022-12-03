@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.kookmin.mobile_programming.baekgu.myapplication">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@drawable/baekgu_mipmap"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/baekgu_mipmap"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MyApplication"
+        tools:targetApi="31">
+        <activity
+            android:name=".src.splash.SplashActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
+        <activity
+            android:name=".src.login.LoginActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            />
+
+
+
+        <activity
+            android:name=".src.signup.SignupActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            />
+
+
+        <activity
+            android:name=".src.MainActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            />
+
+        <activity
+            android:name=".src.survey.SurveyActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            />
+
+        <activity
+            android:name=".src.diet_details.DietDetailsActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            />
+
+        <activity
+            android:name=".src.profile_edit.ProfileEditActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            />
+    </application>
+
+</manifest>
