@@ -555,44 +555,7 @@
             android:textColor="@color/black"
             android:textSize="16dp"
             />
-        <TextView
-            android:id="@+id/survey_tv_chickensteak"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="닭가슴살 스테이크"/>
-        <RadioGroup
-            android:id="@+id/survey_rg_chickensteak"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <RadioButton
-                android:id="@+id/survey_rb_propre_csk1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="매우나쁨"/>
-            <RadioButton
-                android:id="@+id/survey_rb_propre_csk2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="나쁨"/>
-            <RadioButton
-                android:id="@+id/survey_rb_propre_csk3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="보통"/>
-            <RadioButton
-                android:id="@+id/survey_rb_propre_csk4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="좋음"/>
-            <RadioButton
-                android:id="@+id/survey_rb_propre_csk5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="매우좋음"/>
 
-        </RadioGroup>
         <TextView
             android:id="@+id/survey_tv_chickensausage"
             android:layout_width="wrap_content"
@@ -605,65 +568,27 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <RadioButton
-                android:id="@+id/survey_rb_propre_csg1"
+                android:id="@+id/survey_rb_propre_chickensausage1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="매우나쁨"/>
             <RadioButton
-                android:id="@+id/survey_rb_propre_csg2"
+                android:id="@+id/survey_rb_propre_chickensausage2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="나쁨"/>
             <RadioButton
-                android:id="@+id/survey_rb_propre_cs3"
+                android:id="@+id/survey_rb_propre_chickensausage3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="보통"/>
             <RadioButton
-                android:id="@+id/survey_rb_propre_cs4"
+                android:id="@+id/survey_rb_propre_chickensausage4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="좋음"/>
             <RadioButton
-                android:id="@+id/survey_rb_propre_cs5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="매우좋음"/>
-
-        </RadioGroup>
-        <TextView
-            android:id="@+id/survey_tv_saucechicken"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="소스 닭가슴살"/>
-        <RadioGroup
-            android:id="@+id/survey_rg_saucechicken"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <RadioButton
-                android:id="@+id/survey_rb_propre_saucechicken1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="매우나쁨"/>
-            <RadioButton
-                android:id="@+id/survey_rb_propre_saucechicken2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="나쁨"/>
-            <RadioButton
-                android:id="@+id/survey_rb_propre_saucechicken3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="보통"/>
-            <RadioButton
-                android:id="@+id/survey_rb_propre_saucechicken4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="좋음"/>
-            <RadioButton
-                android:id="@+id/survey_rb_propre_saucechicken5"
+                android:id="@+id/survey_rb_propre_chickensausage5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="매우좋음"/>
@@ -708,44 +633,47 @@
                 android:text="매우좋음"/>
 
         </RadioGroup>
+
         <TextView
-            android:id="@+id/survey_tv_beefball"
+            android:id="@+id/survey_tv_saucechicken"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="소고기 볼"/>
+            android:text="소스 닭가슴살"/>
         <RadioGroup
-            android:id="@+id/survey_rg_beefball"
+            android:id="@+id/survey_rg_saucechicken"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <RadioButton
-                android:id="@+id/survey_rb_propre_beefball1"
+                android:id="@+id/survey_rb_propre_saucechicken1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="매우나쁨"/>
             <RadioButton
-                android:id="@+id/survey_rb_propre_beefball2"
+                android:id="@+id/survey_rb_propre_saucechicken2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="나쁨"/>
             <RadioButton
-                android:id="@+id/survey_rb_propre_beefball3"
+                android:id="@+id/survey_rb_propre_saucechicken3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="보통"/>
             <RadioButton
-                android:id="@+id/survey_rb_propre_beefball4"
+                android:id="@+id/survey_rb_propre_saucechicken4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="좋음"/>
             <RadioButton
-                android:id="@+id/survey_rb_propre_beefball5"
+                android:id="@+id/survey_rb_propre_saucechicken5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="매우좋음"/>
 
         </RadioGroup>
+
+
         <TextView
             android:id="@+id/survey_tv_beefsteak"
             android:layout_width="wrap_content"
@@ -784,82 +712,8 @@
                 android:text="매우좋음"/>
 
         </RadioGroup>
-        <TextView
-            android:id="@+id/survey_tv_chickendumpling"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="닭가슴살 만두"/>
-        <RadioGroup
-            android:id="@+id/survey_rg_chickendumpling"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <RadioButton
-                android:id="@+id/survey_rb_propre_cchickendumpling1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="매우나쁨"/>
-            <RadioButton
-                android:id="@+id/survey_rb_propre_chickendumpling2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="나쁨"/>
-            <RadioButton
-                android:id="@+id/survey_rb_propre_chickendumpling3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="보통"/>
-            <RadioButton
-                android:id="@+id/survey_rb_propre_chickendumpling4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="좋음"/>
-            <RadioButton
-                android:id="@+id/survey_rb_propre_chickendumpling5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="매우좋음"/>
 
-        </RadioGroup>
-        <TextView
-            android:id="@+id/survey_tv_chickenfishcake"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="닭가슴살 어묵"/>
-        <RadioGroup
-            android:id="@+id/survey_rg_chickenfishcake"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <RadioButton
-                android:id="@+id/survey_rb_propre_chickenfishcake1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="매우나쁨"/>
-            <RadioButton
-                android:id="@+id/survey_rb_propre_chickenfishcake2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="나쁨"/>
-            <RadioButton
-                android:id="@+id/survey_rb_propre_chickenfishcake3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="보통"/>
-            <RadioButton
-                android:id="@+id/survey_rb_propre_chickenfishcake4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="좋음"/>
-            <RadioButton
-                android:id="@+id/survey_rb_propre_chickenfishcake5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="매우좋음"/>
 
-        </RadioGroup>
         <TextView
             android:id="@+id/survey_tv_godeungeo"
             android:layout_width="wrap_content"
@@ -880,7 +734,7 @@
                 android:id="@+id/survey_rb_propre_godeungeo2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="나븜"/>
+                android:text="나쁨"/>
             <RadioButton
                 android:id="@+id/survey_rb_propre_godeungeo3"
                 android:layout_width="wrap_content"
@@ -898,44 +752,46 @@
                 android:text="매우좋음"/>
 
         </RadioGroup>
+
         <TextView
-            android:id="@+id/survey_tv_kkongchi"
+            android:id="@+id/survey_tv_tuna"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="꽁치"/>
+            android:text="참치"/>
         <RadioGroup
-            android:id="@+id/survey_rg_kkongchi"
+            android:id="@+id/survey_rg_tuna"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <RadioButton
-                android:id="@+id/survey_rb_propre_kkongchi1"
+                android:id="@+id/survey_rb_propre_tuna1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="매우나쁨"/>
             <RadioButton
-                android:id="@+id/survey_rb_propre_kkongchi2"
+                android:id="@+id/survey_rb_propre_tuna2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="나쁨"/>
             <RadioButton
-                android:id="@+id/survey_rb_propre_kkongchi3"
+                android:id="@+id/survey_rb_propre_tuna3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="보통"/>
             <RadioButton
-                android:id="@+id/survey_rb_propre_kkongchi4"
+                android:id="@+id/survey_rb_propre_tuna4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="좋음"/>
             <RadioButton
-                android:id="@+id/survey_rb_propre_kkongchi5"
+                android:id="@+id/survey_rb_propre_tuna5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="매우좋음"/>
 
         </RadioGroup>
+
         <TextView
             android:id="@+id/survey_tv_samchi"
             android:layout_width="wrap_content"
@@ -956,7 +812,7 @@
                 android:id="@+id/survey_rb_propre_samchi2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="나븜"/>
+                android:text="나쁨"/>
             <RadioButton
                 android:id="@+id/survey_rb_propre_samchi3"
                 android:layout_width="wrap_content"
@@ -975,9 +831,120 @@
 
         </RadioGroup>
 
+        <TextView
+            android:id="@+id/survey_tv_chickensteak"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="닭가슴살 스테이크"/>
+        <RadioGroup
+            android:id="@+id/survey_rg_chickensteak"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/survey_rb_propre_chickensteak1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="매우나쁨"/>
+            <RadioButton
+                android:id="@+id/survey_rb_propre_chickensteak2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="나쁨"/>
+            <RadioButton
+                android:id="@+id/survey_rb_propre_chickensteak3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="보통"/>
+            <RadioButton
+                android:id="@+id/survey_rb_propre_chickensteak4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="좋음"/>
+            <RadioButton
+                android:id="@+id/survey_rb_propre_chickensteak5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="매우좋음"/>
 
+        </RadioGroup>
+        <TextView
+            android:id="@+id/survey_tv_protein"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="프로틴"/>
+        <RadioGroup
+            android:id="@+id/survey_rg_protein"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/survey_rb_protein1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="매우나쁨"/>
+            <RadioButton
+                android:id="@+id/survey_rb_propre_protein2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="나쁨"/>
+            <RadioButton
+                android:id="@+id/survey_rb_propre_protein3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="보통"/>
+            <RadioButton
+                android:id="@+id/survey_rb_propre_protein4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="좋음"/>
+            <RadioButton
+                android:id="@+id/survey_rb_propre_protein5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="매우좋음"/>
 
+        </RadioGroup>
+        <TextView
+            android:id="@+id/survey_tv_snack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="간식"/>
+        <RadioGroup
+            android:id="@+id/survey_rg_snack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/survey_rb_propre_snack1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="매우나쁨"/>
+            <RadioButton
+                android:id="@+id/survey_rb_propre_snack2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="나쁨"/>
+            <RadioButton
+                android:id="@+id/survey_rb_propre_snack3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="보통"/>
+            <RadioButton
+                android:id="@+id/survey_rb_propre_snack4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="좋음"/>
+            <RadioButton
+                android:id="@+id/survey_rb_propre_snack5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="매우좋음"/>
 
+        </RadioGroup>
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -1000,82 +967,84 @@
             android:textColor="@color/black"
             android:textSize="16dp"
             />
-            <TextView
-            android:id="@+id/survey_tv_original"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="오리지날"/>
-            <RadioGroup
-            android:id="@+id/survey_rg_original"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <RadioButton
-                android:id="@+id/survey_rb_flapre_original1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="매우나쁨"/>
-            <RadioButton
-                android:id="@+id/survey_rb_flapre_original2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="나쁨"/>
-            <RadioButton
-                android:id="@+id/survey_rb_flapre_original3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="보통"/>
-            <RadioButton
-                android:id="@+id/survey_rb_flapre_original4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="좋음"/>
-            <RadioButton
-                android:id="@+id/survey_rb_flapre_original5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="매우좋음"/>
-
-        </RadioGroup>
         <TextView
-            android:id="@+id/survey_tv_garlic"
+            android:id="@+id/survey_tv_spicy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="마늘 맛"/>
+            android:text="매운 맛"/>
         <RadioGroup
-            android:id="@+id/survey_rg_garlic"
+            android:id="@+id/survey_rg_spicy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <RadioButton
-                android:id="@+id/survey_rb_flapre_garlic1"
+                android:id="@+id/survey_rb_flapre_spicy1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="매우나쁨"/>
             <RadioButton
-                android:id="@+id/survey_rb_flapre_garlic2"
+                android:id="@+id/survey_rb_flapre_spicy2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="나쁨"/>
             <RadioButton
-                android:id="@+id/survey_rb_flapre_garlic3"
+                android:id="@+id/survey_rb_flapre_spicy3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="보통"/>
             <RadioButton
-                android:id="@+id/survey_rb_flapre_garlic4"
+                android:id="@+id/survey_rb_flare_spicy4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="좋음"/>
             <RadioButton
-                android:id="@+id/survey_rb_flapre_garlic5"
+                android:id="@+id/survey_rb_flaopre_spicy5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="매우좋음"/>
 
         </RadioGroup>
+
+        <TextView
+            android:id="@+id/survey_tv_very_spicy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="불닭 맛"/>
+        <RadioGroup
+            android:id="@+id/survey_rg_very_spicy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/survey_rb_flapre_very_spicy1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="매우나쁨"/>
+            <RadioButton
+                android:id="@+id/survey_rb_flapre_very_spicy2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="나쁨"/>
+            <RadioButton
+                android:id="@+id/survey_rb_flapre_very_spicy3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="보통"/>
+            <RadioButton
+                android:id="@+id/survey_rb_flare_very_spicy4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="좋음"/>
+            <RadioButton
+                android:id="@+id/survey_rb_flaopre_very_spicy5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="매우좋음"/>
+
+        </RadioGroup>
+
         <TextView
             android:id="@+id/survey_tv_pepper"
             android:layout_width="wrap_content"
@@ -1116,233 +1085,83 @@
         </RadioGroup>
 
         <TextView
-            android:id="@+id/survey_tv_cream"
+            android:id="@+id/survey_tv_garlic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="까르보나라 맛"/>
+            android:text="갈릭 맛"/>
         <RadioGroup
-            android:id="@+id/survey_rg_cream"
+            android:id="@+id/survey_rg_garlic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <RadioButton
-                android:id="@+id/survey_rb_flapre_cream1"
+                android:id="@+id/survey_rb_flapre_garlic1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="매우나쁨"/>
             <RadioButton
-                android:id="@+id/survey_rb_flapre_cream2"
+                android:id="@+id/survey_rb_flapre_garlic2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="나쁨"/>
             <RadioButton
-                android:id="@+id/survey_rb_flapre_cream3"
+                android:id="@+id/survey_rb_flapre_garlic3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="보통"/>
             <RadioButton
-                android:id="@+id/survey_rb_flapre_cream4"
+                android:id="@+id/survey_rb_flapre_garlic4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="좋음"/>
             <RadioButton
-                android:id="@+id/survey_rb_flapre_cream5"
+                android:id="@+id/survey_rb_flapre_garlic5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="매우좋음"/>
 
         </RadioGroup>
+
         <TextView
-            android:id="@+id/survey_tv_curry"
+            android:id="@+id/survey_tv_original"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="카레 맛"/>
+            android:text="오리지날"/>
         <RadioGroup
-            android:id="@+id/survey_rg_curry"
+            android:id="@+id/survey_rg_original"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <RadioButton
-                android:id="@+id/survey_rb_flapre_curry1"
+                android:id="@+id/survey_rb_flapre_original1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="매우나쁨"/>
             <RadioButton
-                android:id="@+id/survey_rb_flapre_curry2"
+                android:id="@+id/survey_rb_flapre_original2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="나쁨"/>
             <RadioButton
-                android:id="@+id/survey_rb_flapre_curry3"
+                android:id="@+id/survey_rb_flapre_original3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="보통"/>
             <RadioButton
-                android:id="@+id/survey_rb_flapre_curry4"
+                android:id="@+id/survey_rb_flapre_original4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="좋음"/>
             <RadioButton
-                android:id="@+id/survey_rb_flapre_curry5"
+                android:id="@+id/survey_rb_flapre_original5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="매우좋음"/>
 
         </RadioGroup>
-        <TextView
-            android:id="@+id/survey_tv_smoke"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="훈제 맛"/>
-        <RadioGroup
-            android:id="@+id/survey_rg_smoke"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <RadioButton
-                android:id="@+id/survey_rb_flapre_smoke1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="매우나쁨"/>
-            <RadioButton
-                android:id="@+id/survey_rb_flapre_smoke2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="나쁨"/>
-            <RadioButton
-                android:id="@+id/survey_rb_flapre_smoke3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="보통"/>
-            <RadioButton
-                android:id="@+id/survey_rb_flapre_smoke4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="좋음"/>
-            <RadioButton
-                android:id="@+id/survey_rb_flapre_smoke5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="매우좋음"/>
 
-        </RadioGroup>
-        <TextView
-            android:id="@+id/survey_tv_tomato"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="토마토 맛"/>
-        <RadioGroup
-            android:id="@+id/survey_rg_tomato"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <RadioButton
-                android:id="@+id/survey_rb_flapre_tomato1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="매우나쁨"/>
-            <RadioButton
-                android:id="@+id/survey_rb_flapre_tomato2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="나쁨"/>
-            <RadioButton
-                android:id="@+id/survey_rb_flapre_tomato3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="보통"/>
-            <RadioButton
-                android:id="@+id/survey_rb_flapre_tomato4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="좋음"/>
-            <RadioButton
-                android:id="@+id/survey_rb_flapre_tomato5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="매우좋음"/>
-
-        </RadioGroup>
-        <TextView
-            android:id="@+id/survey_tv_black"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="짜장 밋"/>
-        <RadioGroup
-            android:id="@+id/survey_rg_black"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <RadioButton
-                android:id="@+id/survey_rb_flapre_black1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="매우나쁨"/>
-            <RadioButton
-                android:id="@+id/survey_rb_flapre_black2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="나쁨"/>
-            <RadioButton
-                android:id="@+id/survey_rb_flapre_black3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="보통"/>
-            <RadioButton
-                android:id="@+id/survey_rb_flapre_black4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="좋음"/>
-            <RadioButton
-                android:id="@+id/survey_rb_flapre_black5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="매우좋음"/>
-
-        </RadioGroup>
-        <TextView
-            android:id="@+id/survey_tv_red"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="짬뽕 맛"/>
-        <RadioGroup
-            android:id="@+id/survey_rg_red"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <RadioButton
-                android:id="@+id/survey_rb_flapre_red1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="매우나쁨"/>
-            <RadioButton
-                android:id="@+id/survey_rb_flapre_red2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="나쁨"/>
-            <RadioButton
-                android:id="@+id/survey_rb_flapre_red3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="보통"/>
-            <RadioButton
-                android:id="@+id/survey_rb_flapre_red4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="좋음"/>
-            <RadioButton
-                android:id="@+id/survey_rb_flapre_red5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="매우좋음"/>
-
-        </RadioGroup>
         <TextView
             android:id="@+id/survey_tv_soy"
             android:layout_width="wrap_content"
@@ -1382,6 +1201,86 @@
                 />
 
         </RadioGroup>
+
+        <TextView
+            android:id="@+id/survey_tv_cream"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="크림 맛"/>
+        <RadioGroup
+            android:id="@+id/survey_rg_cream"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/survey_rb_flapre_cream1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="매우나쁨"/>
+            <RadioButton
+                android:id="@+id/survey_rb_flapre_cream2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="나쁨"/>
+            <RadioButton
+                android:id="@+id/survey_rb_flapre_cream3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="보통"/>
+            <RadioButton
+                android:id="@+id/survey_rb_flapre_cream4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="좋음"/>
+            <RadioButton
+                android:id="@+id/survey_rb_flapre_cream5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="매우좋음"/>
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/survey_tv_vege"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="채소 밋"/>
+        <RadioGroup
+            android:id="@+id/survey_rg_vege"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/survey_rb_flapre_vege1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="매우나쁨"/>
+            <RadioButton
+                android:id="@+id/survey_rb_flapre_vege2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="나쁨"/>
+            <RadioButton
+                android:id="@+id/survey_rb_flapre_vege3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="보통"/>
+            <RadioButton
+                android:id="@+id/survey_rb_flapre_vege4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="좋음"/>
+            <RadioButton
+                android:id="@+id/survey_rb_flapre_vege5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="매우좋음"/>
+
+        </RadioGroup>
+
+
 
 
 
