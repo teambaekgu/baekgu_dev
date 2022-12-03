@@ -27,6 +27,7 @@ class SignupActivity:BaseActivity<ActivitySignupBinding>(ActivitySignupBinding::
     private lateinit var phoneValue: String
     private lateinit var addressValue: String
     private lateinit var auth: FirebaseAuth
+//    연습 코드
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
