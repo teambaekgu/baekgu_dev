@@ -734,7 +734,7 @@
                 android:id="@+id/survey_rb_propre_godeungeo2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="나븜"/>
+                android:text="나쁨"/>
             <RadioButton
                 android:id="@+id/survey_rb_propre_godeungeo3"
                 android:layout_width="wrap_content"
@@ -773,7 +773,7 @@
                 android:id="@+id/survey_rb_propre_tuna2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="나븜"/>
+                android:text="나쁨"/>
             <RadioButton
                 android:id="@+id/survey_rb_propre_tuna3"
                 android:layout_width="wrap_content"
@@ -812,7 +812,7 @@
                 android:id="@+id/survey_rb_propre_samchi2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="나븜"/>
+                android:text="나쁨"/>
             <RadioButton
                 android:id="@+id/survey_rb_propre_samchi3"
                 android:layout_width="wrap_content"
