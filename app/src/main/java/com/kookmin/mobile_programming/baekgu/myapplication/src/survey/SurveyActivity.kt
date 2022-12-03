@@ -311,10 +311,10 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
                     sTrainingPurpose = sFTrainingPurpose
                     sTrainingTime = sFTrainingTime
 
-                    sAllergy = sFAllergy
-                    sDietCnt = sFDietCnt
-                    sPropre = sFPropre
-                    sFlapre = sFFlapre
+//                    sAllergy = sFAllergy.toTypeArray()
+//                    sDietCnt = sFDietCnt.toTypeArray()
+//                    sPropre = sFPropre.toTypeArray()
+//                    sFlapre = sFFlapre.toTypeArray()
 
 
                     Log.d("1. 키", sHeight!!)
