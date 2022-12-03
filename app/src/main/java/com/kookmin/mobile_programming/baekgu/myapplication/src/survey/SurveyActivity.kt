@@ -11,6 +11,7 @@ import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.database.*
 import com.kookmin.mobile_programming.baekgu.myapplication.R.id.*
 import com.kookmin.mobile_programming.baekgu.myapplication.R.layout
+import com.google.firebase.auth.FirebaseAuth
 import com.kookmin.mobile_programming.baekgu.myapplication.config.BaseActivity
 import com.kookmin.mobile_programming.baekgu.myapplication.databinding.ActivitySurveyBinding
 
@@ -37,6 +38,7 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
     var sAllergy: ArrayList<String>? = null
     var sPropre: ArrayList<String>? = null
     var sFlapre: ArrayList<String>? = null
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
