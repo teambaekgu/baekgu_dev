@@ -8,12 +8,16 @@
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <LinearLayout
+        android:layout_height="0dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        >
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
+
+
 
     <androidx.appcompat.widget.LinearLayoutCompat
             android:id="@+id/survey_layout_height"
@@ -1385,14 +1389,6 @@
     </androidx.appcompat.widget.LinearLayoutCompat>
 
 
-    <!--<Button
-        android:id="@+id/survey_btn_send"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:paddingHorizontal="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/survey_layout_flapre"
-        android:text="저장하기"/>-->
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/survey_btn_save"
@@ -1409,8 +1405,7 @@
         app:layout_constraintRight_toRightOf="parent"
         />
 
-
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>
 
