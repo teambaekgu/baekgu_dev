@@ -138,6 +138,7 @@ class SurveyActivity : BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding
             // 입력값 변수에 담기
             val sHeight = heightEdit.text.toString()
             val sWeight = weightEdit.text.toString()
+
             val proteinPurposeRadioButton =
                 findViewById<RadioButton>(proteinPurposeRadioButtonGroup.checkedRadioButtonId)
             val sProteinPurpose = proteinPurposeRadioButton.text.toString()
@@ -228,10 +229,9 @@ class SurveyActivity : BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding
                 sFlapreResult
             )
             dao.add(survey).addOnSuccessListener(OnSuccessListener<Void?> {
-                onClickShowAlert()
-                Toast.makeText(applicationContext, "성공", Toast.LENGTH_SHORT).show()
-                // Read from the database
-
+                proteinAmout = calculateProtein(sHeight.toInt(), sWeight.toInt(), sTrainingPurpose)
+                Log.d("필수 단백질======================", proteinAmout.toString())
+                onClickShowAlert(proteinAmout!!)
 
                 // 입력창 초기화
                 heightEdit.setText("")
@@ -264,11 +264,6 @@ class SurveyActivity : BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding
                     allergy18,
                     allergy19
                 )
-
-
-//            snackynRadioButton.isChecked = false
-
-                //proPreEdit.setText("") //checkbox
 
             }).addOnFailureListener(OnFailureListener {
                 Toast.makeText(
@@ -379,11 +374,11 @@ class SurveyActivity : BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding
         })
     }
 
-    private fun onClickShowAlert() {
+    private fun onClickShowAlert(proteinAmout: Int) {
         val myAlertBuilder: AlertDialog.Builder = AlertDialog.Builder(this@SurveyActivity)
         // alert의 title과 Messege 세팅
-        myAlertBuilder.setTitle("Alert")
-        myAlertBuilder.setMessage("Click OK to continue, or Cancel to stop:")
+        myAlertBuilder.setTitle("회원님의 필수 단백질량은: ${proteinAmout.toString()}입니다")
+        myAlertBuilder.setMessage("Ok버튼을 누르면 맞춤 식단을 만나보실 수 있습니다! /n 설문을 다시 작성하려면 Cancle버튼을 눌러주세요.")
         // 버튼 추가 (Ok 버튼과 Cancle 버튼 )
         myAlertBuilder.setPositiveButton("Ok",
             DialogInterface.OnClickListener { dialog, which -> // OK 버튼을 눌렸을 경우
@@ -400,7 +395,18 @@ class SurveyActivity : BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding
         myAlertBuilder.show()
     }
 
-    
-
+    private fun calculateProtein(height: Int, weight: Int, purpose: String) : Int{
+        val leanFat: Int = ((1.10 * weight) - 128 * (weight / height)).toInt()
+        val result:Int = when (purpose) {
+            "보디빌딩 대회 준비" -> (leanFat * 2.0).toInt()
+            "바디 프로필 준비" -> (leanFat * 1.8).toInt()
+            "골격근량 증가" -> (leanFat * 1.5).toInt()
+            "체지방 감량" -> (leanFat * 1.3).toInt()
+            "벌크업" -> (leanFat * 1.75).toInt()
+            "웨이트 트레이닝을 하지 않음" -> (leanFat * 1.1).toInt()
+            else -> 0
+        }
+        return result
+    }
 }
 

@@ -169,7 +169,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="보디빌딩 대회 준비" />
-
                     <RadioButton
                         android:id="@+id/survey_cb_trainpurpose_2"
                         android:layout_width="wrap_content"
