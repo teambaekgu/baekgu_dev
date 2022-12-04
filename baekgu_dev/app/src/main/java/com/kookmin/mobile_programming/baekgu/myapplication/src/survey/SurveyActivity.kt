@@ -2,6 +2,9 @@ package com.kookmin.mobile_programming.baekgu.myapplication.src.survey
 
 
 import android.R
+import android.app.AlertDialog
+import android.content.DialogInterface
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.*
@@ -11,16 +14,16 @@ import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.database.*
 import com.kookmin.mobile_programming.baekgu.myapplication.R.id.*
 import com.kookmin.mobile_programming.baekgu.myapplication.R.layout
-import com.google.firebase.auth.FirebaseAuth
 import com.kookmin.mobile_programming.baekgu.myapplication.config.BaseActivity
 import com.kookmin.mobile_programming.baekgu.myapplication.databinding.ActivitySurveyBinding
+import com.kookmin.mobile_programming.baekgu.myapplication.src.MainActivity
 
 
-class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::inflate) {
+class SurveyActivity : BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::inflate) {
 
     var arrayList = ArrayList<String>()
     var adapter: ArrayAdapter<String>? = null
-    
+
     var firebaseDatabase: FirebaseDatabase? = null
     var databaseReference: DatabaseReference? = null
 
@@ -29,17 +32,17 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
     var sHeight: String? = null
     var sWeight: String? = null
     var sProteinPurpose: String? = null
-    var sSnackYn : String? = null
+    var sSnackYn: String? = null
     var sTrainingTime: String? = null
     var sTrainingPurpose: String? = null
-    var sTrainingCnt : String? = null
+    var sTrainingCnt: String? = null
 
     var sDietCnt: ArrayList<String>? = null
     var sAllergy: ArrayList<String>? = null
     var sPropre: ArrayList<String>? = null
     var sFlapre: ArrayList<String>? = null
 
-
+    var proteinAmout: Int? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -101,17 +104,14 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
         val proPre8 = findViewById<RadioGroup>(survey_rg_snack)
 
 
-
-         val flaPre1 = findViewById<RadioGroup>(survey_rg_spicy)
-         val flaPre2 = findViewById<RadioGroup>(survey_rg_very_spicy)
+        val flaPre1 = findViewById<RadioGroup>(survey_rg_spicy)
+        val flaPre2 = findViewById<RadioGroup>(survey_rg_very_spicy)
         val flaPre3 = findViewById<RadioGroup>(survey_rg_pepper)
-         val flaPre4 = findViewById<RadioGroup>(survey_rg_garlic)
-         val flaPre5 = findViewById<RadioGroup>(survey_rg_original)
+        val flaPre4 = findViewById<RadioGroup>(survey_rg_garlic)
+        val flaPre5 = findViewById<RadioGroup>(survey_rg_original)
         val flaPre6 = findViewById<RadioGroup>(survey_rg_soy)
         val flaPre7 = findViewById<RadioGroup>(survey_rg_cream)
         val flaPre8 = findViewById<RadioGroup>(survey_rg_vege)
-
-
 
 
         val addBtn = findViewById<Button>(survey_btn_save)
@@ -138,23 +138,47 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
             // 입력값 변수에 담기
             val sHeight = heightEdit.text.toString()
             val sWeight = weightEdit.text.toString()
-            val proteinPurposeRadioButton = findViewById<RadioButton>(proteinPurposeRadioButtonGroup.checkedRadioButtonId)
+            val proteinPurposeRadioButton =
+                findViewById<RadioButton>(proteinPurposeRadioButtonGroup.checkedRadioButtonId)
             val sProteinPurpose = proteinPurposeRadioButton.text.toString()
 
-            val trainingPurposeRadioButton = findViewById<RadioButton>(trainingPurposeRadioButtonGroup.checkedRadioButtonId)
+            val trainingPurposeRadioButton =
+                findViewById<RadioButton>(trainingPurposeRadioButtonGroup.checkedRadioButtonId)
             val sTrainingPurpose = trainingPurposeRadioButton.text.toString()
 
-            val trainingCntRadioButton = findViewById<RadioButton>(trainingCntRadioButtonGroup.checkedRadioButtonId)
+            val trainingCntRadioButton =
+                findViewById<RadioButton>(trainingCntRadioButtonGroup.checkedRadioButtonId)
             val sTrainingCnt = trainingCntRadioButton.text.toString()
 
-            val trainingTimeRadioButton = findViewById<RadioButton>(trainingTimeRadioButtonGroup.checkedRadioButtonId)
+            val trainingTimeRadioButton =
+                findViewById<RadioButton>(trainingTimeRadioButtonGroup.checkedRadioButtonId)
             val sTrainingTime = trainingTimeRadioButton.text.toString()
 
             val sDietCnt = sendCheck(dietCntBreakfast, dietCntLunch, dietCntDinner)
-            val sAllergy = sendCheck(allergy1,allergy2,allergy3,allergy4,allergy5, allergy6, allergy7, allergy8, allergy9, allergy10,
-                                        allergy11, allergy12, allergy13, allergy14, allergy15, allergy16, allergy17, allergy18, allergy19)
+            val sAllergy = sendCheck(
+                allergy1,
+                allergy2,
+                allergy3,
+                allergy4,
+                allergy5,
+                allergy6,
+                allergy7,
+                allergy8,
+                allergy9,
+                allergy10,
+                allergy11,
+                allergy12,
+                allergy13,
+                allergy14,
+                allergy15,
+                allergy16,
+                allergy17,
+                allergy18,
+                allergy19
+            )
 
-            val snackynRadioButton = findViewById<RadioButton>(snackynRadioButtonGroup.checkedRadioButtonId)
+            val snackynRadioButton =
+                findViewById<RadioButton>(snackynRadioButtonGroup.checkedRadioButtonId)
             val sSnackYn = snackynRadioButton.text.toString()
 
             val sPropre1 = findViewById<RadioButton>(proPre1.checkedRadioButtonId).text.toString()
@@ -165,8 +189,10 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
             val sPropre6 = findViewById<RadioButton>(proPre6.checkedRadioButtonId).text.toString()
             val sPropre7 = findViewById<RadioButton>(proPre7.checkedRadioButtonId).text.toString()
             val sPropre8 = findViewById<RadioButton>(proPre8.checkedRadioButtonId).text.toString()
-            val sPropreResult = sendRadio(sPropre1, sPropre2, sPropre3, sPropre4, sPropre5, sPropre6,
-                sPropre7, sPropre8)
+            val sPropreResult = sendRadio(
+                sPropre1, sPropre2, sPropre3, sPropre4, sPropre5, sPropre6,
+                sPropre7, sPropre8
+            )
 
             val sFlapre1 = findViewById<RadioButton>(flaPre1.checkedRadioButtonId).text.toString()
             val sFlapre2 = findViewById<RadioButton>(flaPre2.checkedRadioButtonId).text.toString()
@@ -176,7 +202,16 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
             val sFlapre6 = findViewById<RadioButton>(flaPre6.checkedRadioButtonId).text.toString()
             val sFlapre7 = findViewById<RadioButton>(flaPre7.checkedRadioButtonId).text.toString()
             val sFlapre8 = findViewById<RadioButton>(flaPre8.checkedRadioButtonId).text.toString()
-            val sFlapreResult = sendRadio(sFlapre1, sFlapre2, sFlapre3, sFlapre4, sFlapre5, sFlapre6, sFlapre7,sFlapre8)
+            val sFlapreResult = sendRadio(
+                sFlapre1,
+                sFlapre2,
+                sFlapre3,
+                sFlapre4,
+                sFlapre5,
+                sFlapre6,
+                sFlapre7,
+                sFlapre8
+            )
 
 
             val survey = Survey(
@@ -193,6 +228,7 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
                 sFlapreResult
             )
             dao.add(survey).addOnSuccessListener(OnSuccessListener<Void?> {
+                onClickShowAlert()
                 Toast.makeText(applicationContext, "성공", Toast.LENGTH_SHORT).show()
                 // Read from the database
 
@@ -290,11 +326,15 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
                 for (dataSnapshot in snapshot.children) {
                     val sFHeight = dataSnapshot.child("user_height").getValue(String::class.java)
                     val sFWeight = dataSnapshot.child("user_weight").getValue(String::class.java)
-                    val sFProteinPurpose = dataSnapshot.child("user_proteinPurpose").getValue(String::class.java)
+                    val sFProteinPurpose =
+                        dataSnapshot.child("user_proteinPurpose").getValue(String::class.java)
                     val sFSnackYn = dataSnapshot.child("user_snackYn").getValue(String::class.java)
-                    val sFTrainingCnt = dataSnapshot.child("user_trainingCnt").getValue(String::class.java)
-                    val sFTrainingPurpose = dataSnapshot.child("user_trainingPurpose").getValue(String::class.java)
-                    val sFTrainingTime = dataSnapshot.child("user_trainingTime").getValue(String::class.java)
+                    val sFTrainingCnt =
+                        dataSnapshot.child("user_trainingCnt").getValue(String::class.java)
+                    val sFTrainingPurpose =
+                        dataSnapshot.child("user_trainingPurpose").getValue(String::class.java)
+                    val sFTrainingTime =
+                        dataSnapshot.child("user_trainingTime").getValue(String::class.java)
 
                     val sFAllergy = dataSnapshot.child("user_allergy").value as ArrayList<String>?
                     val sFDietCnt = dataSnapshot.child("user_dietCnt").value as ArrayList<String>?
@@ -339,4 +379,28 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
         })
     }
 
+    private fun onClickShowAlert() {
+        val myAlertBuilder: AlertDialog.Builder = AlertDialog.Builder(this@SurveyActivity)
+        // alert의 title과 Messege 세팅
+        myAlertBuilder.setTitle("Alert")
+        myAlertBuilder.setMessage("Click OK to continue, or Cancel to stop:")
+        // 버튼 추가 (Ok 버튼과 Cancle 버튼 )
+        myAlertBuilder.setPositiveButton("Ok",
+            DialogInterface.OnClickListener { dialog, which -> // OK 버튼을 눌렸을 경우
+                startActivity(Intent(this,MainActivity::class.java))
+            })
+        myAlertBuilder.setNegativeButton("Cancle",
+            DialogInterface.OnClickListener { dialog, which -> // Cancle 버튼을 눌렸을 경우
+                Toast.makeText(
+                    applicationContext, "Pressed Cancle",
+                    Toast.LENGTH_SHORT
+                ).show()
+            })
+        // Alert를 생성해주고 보여주는 메소드(show를 선언해야 Alert가 생성됨)
+        myAlertBuilder.show()
+    }
+
+    
+
 }
+
