@@ -2,22 +2,19 @@ package com.kookmin.mobile_programming.baekgu.myapplication.src.signup
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.view.View
-import android.widget.Button
 import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.IgnoreExtraProperties
+import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.kookmin.mobile_programming.baekgu.myapplication.R
 import com.kookmin.mobile_programming.baekgu.myapplication.config.BaseActivity
 import com.kookmin.mobile_programming.baekgu.myapplication.databinding.ActivitySignupBinding
-import com.kookmin.mobile_programming.baekgu.myapplication.src.MainActivity
 import com.kookmin.mobile_programming.baekgu.myapplication.src.survey.SurveyActivity
 import java.util.regex.Pattern
-
 
 class SignupActivity:BaseActivity<ActivitySignupBinding>(ActivitySignupBinding::inflate) {
     private lateinit var emailValue: String
@@ -27,7 +24,19 @@ class SignupActivity:BaseActivity<ActivitySignupBinding>(ActivitySignupBinding::
     private lateinit var phoneValue: String
     private lateinit var addressValue: String
     private lateinit var auth: FirebaseAuth
-//    연습 코드
+    private lateinit var database: DatabaseReference
+
+    @IgnoreExtraProperties
+    data class User(val name: String, val birth: String, val phone: String, val address: String) {
+        // Null default values create a no-argument default constructor, which is needed
+        // for deserialization from a DataSnapshot.
+    }
+    fun writeNewUser(email: String, name: String, birth: String, phone: String, address: String) {
+        database = Firebase.database.reference
+        val user = User(name, birth, phone, address)
+
+        database.child("users").child(email).setValue(user)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,6 +53,7 @@ class SignupActivity:BaseActivity<ActivitySignupBinding>(ActivitySignupBinding::
                 if (Pattern.matches(
                         "^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[\$@\$!%*#?&])[A-Za-z[0-9]\$@\$!%*#?&]{8,20}\$", pwValue)) {
                     if(nameValue.isNotEmpty() && birthValue.isNotEmpty() && phoneValue.isNotEmpty() && addressValue.isNotEmpty()) {
+                        // 파이어베이스 Authentication 계정 생성
                         createAccount(
                             binding.signupEditId.text.toString(),
                             binding.signupEditPw.text.toString()
@@ -73,6 +83,9 @@ class SignupActivity:BaseActivity<ActivitySignupBinding>(ActivitySignupBinding::
                     user?.let {
                         val email = user.email
                         val uid = user.uid
+
+                        // 파이어베이스 Realtime Database 데이터 저장
+                        writeNewUser(uid, nameValue, birthValue, phoneValue, addressValue)
                         var intent= Intent(this, SurveyActivity::class.java)
                         intent.putExtra("uid", uid)
                         startActivity(intent)

@@ -22,6 +22,9 @@
         <entry key="..\:/Users/nex00/Desktop/baekgu_project/app/src/main/res/menu/main_bnv.xml" value="0.1" />
         <entry key="..\:/Users/nex00/Desktop/baekgu_project/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1915" />
         <entry key="..\:/Users/nex00/Desktop/baekgu_project/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1915" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.11413043478260869" />
+        <entry key="app/src/main/res/layout/activity_signup.xml" value="0.11413043478260869" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.19067028985507245" />
       </map>
     </option>
   </component>
