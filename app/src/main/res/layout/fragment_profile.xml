@@ -60,7 +60,7 @@
                 android:id="@+id/fg_profile_tv_user_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="김국민"
+                android:text="김백구"
                 android:textColor="@color/black"
                 android:textSize="@dimen/text_title"
                 android:fontFamily="@font/spoqa_han_sans_neo_bold"
@@ -68,27 +68,16 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/fg_profile_tv_town"
+                android:id="@+id/fg_profile_tv_email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="성북구"
+                android:text="id@email"
                 android:textColor="@color/subGrey"
                 android:textSize="@dimen/text_small"
                 android:fontFamily="@font/spoqa_han_sans_neo_medium"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/fg_profile_tv_user_name" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/fg_profile_tv_gender"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="남성"
-                android:textColor="@color/subGrey"
-                android:textSize="@dimen/text_small"
-                android:fontFamily="@font/spoqa_han_sans_neo_medium"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fg_profile_tv_town" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.appcompat.widget.AppCompatTextView

@@ -1,23 +1,27 @@
 package com.kookmin.mobile_programming.baekgu.myapplication.src.login
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.kookmin.mobile_programming.baekgu.myapplication.R
 import com.kookmin.mobile_programming.baekgu.myapplication.config.BaseActivity
 import com.kookmin.mobile_programming.baekgu.myapplication.databinding.ActivityLoginBinding
 import com.kookmin.mobile_programming.baekgu.myapplication.src.MainActivity
 import com.kookmin.mobile_programming.baekgu.myapplication.src.signup.SignupActivity
-import com.kookmin.mobile_programming.baekgu.myapplication.src.survey.SurveyActivity
+import org.json.JSONObject
+import org.json.JSONTokener
 
 class LoginActivity:BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::inflate) {
     private lateinit var auth: FirebaseAuth
+        private lateinit var database: DatabaseReference
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -79,8 +83,22 @@ class LoginActivity:BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::inf
                 if (task.isSuccessful) {
                     startActivity(Intent(this,MainActivity::class.java))
                     val user = auth.currentUser
+                    user?.let {
+                        val email = user.email
+                        val uid = user.uid
+                        database = Firebase.database.reference
+                        database.child("users").child(uid).get().addOnSuccessListener {
+                            val jsonObject = JSONTokener(it.value.toString()).nextValue() as JSONObject
+                            val nameValue = jsonObject.getString("name")
+                            val birthValue = jsonObject.getString("birth")
+                            val phoneValue = jsonObject.getString("phone")
+                            val addressValue = jsonObject.getString("address")
+                            updateUI(uid, email, password, nameValue, birthValue, phoneValue, addressValue)
+                        }
+                    }
                 } else {
                     Toast.makeText(baseContext, "이메일 또는 비밀번호를 잘못 입력했습니다.", Toast.LENGTH_SHORT).show()
+                    updateUI(null, null, null, null, null, null, null)
                 }
             }
     }
@@ -88,6 +106,19 @@ class LoginActivity:BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::inf
     private fun reload() {
         var intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
+    }
+
+    private fun updateUI(uid: String?, email: String?, pwValue: String?, nameValue: String?, birthValue: String?, phoneValue: String?, addressValue: String?) {
+        val sharedPreference = getSharedPreferences("userInfo", MODE_PRIVATE)
+        val editor: SharedPreferences.Editor = sharedPreference.edit()
+        editor.putString("uid", uid)
+        editor.putString("email", email)
+        editor.putString("password", pwValue)
+        editor.putString("name", nameValue)
+        editor.putString("birth", birthValue)
+        editor.putString("phone", phoneValue)
+        editor.putString("address", addressValue)
+        editor.commit()
     }
 
     private fun checkData(){

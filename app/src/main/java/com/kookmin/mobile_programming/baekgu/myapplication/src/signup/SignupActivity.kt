@@ -1,6 +1,7 @@
 package com.kookmin.mobile_programming.baekgu.myapplication.src.signup
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
@@ -83,15 +84,20 @@ class SignupActivity:BaseActivity<ActivitySignupBinding>(ActivitySignupBinding::
                     user?.let {
                         val email = user.email
                         val uid = user.uid
+                        // 프레퍼런스에 유저 정보 저장
+                        updateUI(uid, email, pwValue, nameValue, birthValue, phoneValue, addressValue)
 
                         // 파이어베이스 Realtime Database 데이터 저장
                         writeNewUser(uid, nameValue, birthValue, phoneValue, addressValue)
+
+                        // 설문조사 페이지로 uid 담아 이동
                         var intent= Intent(this, SurveyActivity::class.java)
                         intent.putExtra("uid", uid)
                         startActivity(intent)
                     }
                 } else {
                     Toast.makeText(baseContext, "이미 존재하는 이메일입니다.", Toast.LENGTH_SHORT).show()
+                    updateUI(null, null, null, null, null, null, null)
                 }
             }
     }
@@ -159,9 +165,6 @@ class SignupActivity:BaseActivity<ActivitySignupBinding>(ActivitySignupBinding::
         binding.signupImgBack.setOnClickListener {
             finish()
         }
-
-
-
     }
 
     //정보가 올바르게 입력되었는지 확인
@@ -178,9 +181,18 @@ class SignupActivity:BaseActivity<ActivitySignupBinding>(ActivitySignupBinding::
         }
     }
 
-//    private fun updateUI(user: FirebaseUser?) {
-//
-//    }
+    private fun updateUI(uid: String?, email: String?, pwValue: String?, nameValue: String?, birthValue: String?, phoneValue: String?, addressValue: String?) {
+        val sharedPreference = getSharedPreferences("userInfo", MODE_PRIVATE)
+        val editor: SharedPreferences.Editor = sharedPreference.edit()
+        editor.putString("uid", uid)
+        editor.putString("email", email)
+        editor.putString("password", pwValue)
+        editor.putString("name", nameValue)
+        editor.putString("birth", birthValue)
+        editor.putString("phone", phoneValue)
+        editor.putString("address", addressValue)
+        editor.commit()
+    }
 
     companion object {
         private const val TAG = "EmailPassword"
