@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">769162778818-t4723fkca9ghgr8kcr4bua7aevkhvn3a.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">769162778818</string>
+    <string name="google_api_key" translatable="false">AIzaSyAbMq7UI32XquDq1RzbEO-u558g5H76XgQ</string>
+    <string name="google_app_id" translatable="false">1:769162778818:android:3c8be69a55f1856ab6035b</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAbMq7UI32XquDq1RzbEO-u558g5H76XgQ</string>
+    <string name="google_storage_bucket" translatable="false">baekgu-dev.appspot.com</string>
+    <string name="project_id" translatable="false">baekgu-dev</string>
+</resources>
