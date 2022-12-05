@@ -87,6 +87,8 @@
                 android:maxLength="30"
                 android:background="@drawable/bg_btn_disabled"
                 android:layout_marginTop="@dimen/vertical_margin_small"
+                android:focusable="false"
+                android:textColor="@color/subGrey"
                 />
 
 
