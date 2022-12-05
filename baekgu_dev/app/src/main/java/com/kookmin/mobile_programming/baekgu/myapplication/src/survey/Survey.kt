@@ -1,6 +1,7 @@
 package com.example.firebasepratice
 
 class Survey {
+    var user_id: String? = null
     var user_height: String? = null
     var user_weight: String? = null
     var user_proteinPurpose: String? = null
@@ -17,6 +18,7 @@ class Survey {
 
     internal constructor() {}
     constructor(
+        user_id: String?,
         user_height: String?,
         user_weight: String?,
         user_proteinPurpose: String?,
@@ -31,6 +33,7 @@ class Survey {
 
 
     ) {
+        this.user_id = user_id
         this.user_height = user_height
         this.user_weight = user_weight
         this.user_proteinPurpose = user_proteinPurpose

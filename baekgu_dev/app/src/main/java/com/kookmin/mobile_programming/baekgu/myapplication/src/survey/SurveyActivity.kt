@@ -11,7 +11,10 @@ import android.widget.*
 import com.example.firebasepratice.Survey
 import com.google.android.gms.tasks.OnFailureListener
 import com.google.android.gms.tasks.OnSuccessListener
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.*
+import com.google.firebase.ktx.Firebase
 import com.kookmin.mobile_programming.baekgu.myapplication.R.id.*
 import com.kookmin.mobile_programming.baekgu.myapplication.R.layout
 import com.kookmin.mobile_programming.baekgu.myapplication.config.BaseActivity
@@ -21,6 +24,8 @@ import com.kookmin.mobile_programming.baekgu.myapplication.src.MainActivity
 
 class SurveyActivity : BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::inflate) {
 
+
+
     var arrayList = ArrayList<String>()
     var adapter: ArrayAdapter<String>? = null
 
@@ -29,6 +34,7 @@ class SurveyActivity : BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding
 
     var listView: ListView? = null
 
+    var semail: String? = null
     var sHeight: String? = null
     var sWeight: String? = null
     var sProteinPurpose: String? = null
@@ -39,14 +45,19 @@ class SurveyActivity : BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding
 
     var sDietCnt: ArrayList<String>? = null
     var sAllergy: ArrayList<String>? = null
-    var sPropre: ArrayList<String>? = null
-    var sFlapre: ArrayList<String>? = null
+    var sPropre: ArrayList<Int>? = null
+    var sFlapre: ArrayList<Int>? = null
 
     var proteinAmout: Int? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(layout.activity_survey)
+
+        val user = Firebase.auth.currentUser
+        user?.let {
+            val email = user.email
+        }
 
 
         // 컴포넌트 변수에 담기
@@ -216,6 +227,7 @@ class SurveyActivity : BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding
 
 
             val survey = Survey(
+                semail,
                 sHeight,
                 sWeight,
                 sProteinPurpose,
@@ -230,7 +242,6 @@ class SurveyActivity : BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding
             )
             dao.add(survey).addOnSuccessListener(OnSuccessListener<Void?> {
                 proteinAmout = calculateProtein(sHeight.toInt(), sWeight.toInt(), sTrainingPurpose)
-                Log.d("필수 단백질======================", proteinAmout.toString())
                 onClickShowAlert(proteinAmout!!)
 
                 // 입력창 초기화
@@ -333,8 +344,8 @@ class SurveyActivity : BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding
 
                     val sFAllergy = dataSnapshot.child("user_allergy").value as ArrayList<String>?
                     val sFDietCnt = dataSnapshot.child("user_dietCnt").value as ArrayList<String>?
-                    val sFPropre = dataSnapshot.child("user_proPre").value as ArrayList<String>?
-                    val sFFlapre = dataSnapshot.child("user_flaPre").value as ArrayList<String>?
+                    val sFPropre = dataSnapshot.child("user_proPre").value as ArrayList<Int>?
+                    val sFFlapre = dataSnapshot.child("user_flaPre").value as ArrayList<Int>?
 
 
 
@@ -353,7 +364,7 @@ class SurveyActivity : BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding
                     sPropre = sFPropre
                     sFlapre = sFFlapre
 
-
+                    Log.d("아이디", semail!!)
                     Log.d("1. 키", sHeight!!)
                     Log.d("2. 무게", sWeight!!)
                     Log.d("3. 단백질 섭취 목적", sProteinPurpose!!)
@@ -374,7 +385,7 @@ class SurveyActivity : BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding
         })
     }
 
-    private fun onClickShowAlert(proteinAmout: Int) {
+    private fun onClickShowAlert(p: Int) {
         val myAlertBuilder: AlertDialog.Builder = AlertDialog.Builder(this@SurveyActivity)
         // alert의 title과 Messege 세팅
         myAlertBuilder.setTitle("회원님의 필수 단백질량은: ${proteinAmout.toString()}입니다")
@@ -382,8 +393,10 @@ class SurveyActivity : BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding
         // 버튼 추가 (Ok 버튼과 Cancle 버튼 )
         myAlertBuilder.setPositiveButton("Ok",
             DialogInterface.OnClickListener { dialog, which -> // OK 버튼을 눌렸을 경우
-                startActivity(Intent(this,MainActivity::class.java))
+                val intent = Intent(this,MainActivity::class.java)
+                startActivity(intent)
             })
+
         myAlertBuilder.setNegativeButton("Cancle",
             DialogInterface.OnClickListener { dialog, which -> // Cancle 버튼을 눌렸을 경우
                 Toast.makeText(
