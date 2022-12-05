@@ -18,6 +18,11 @@ class ProfileFragment: BaseFragment<FragmentProfileBinding>(FragmentProfileBindi
         setListener()
     }
 
+    override fun onResume() {
+        super.onResume()
+        setListener()
+    }
+
 
     private fun setListener(){
         // 마이페이지 개인정보 표시
