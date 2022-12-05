@@ -92,6 +92,7 @@ class SignupActivity:BaseActivity<ActivitySignupBinding>(ActivitySignupBinding::
 
                         // 설문조사 페이지로 uid 담아 이동
                         var intent= Intent(this, SurveyActivity::class.java)
+                        intent.putExtra("user_id", email)
                         startActivity(intent)
                     }
                 } else {
