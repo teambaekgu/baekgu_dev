@@ -27,12 +27,12 @@ class SignupActivity:BaseActivity<ActivitySignupBinding>(ActivitySignupBinding::
         // 회원가입 완료 버튼
         binding.signupTvFinish.setOnClickListener() {
             //[Temp] : 발표자료에 쓰일 예정이므로 해당코드는 잠시 주석처리
-//            createAccount(
-//                binding.signupEditId.text.toString(),
-//                binding.signupEditPw.text.toString()
-//            )
+            createAccount(
+                binding.signupEditId.text.toString(),
+                binding.signupEditPw.text.toString()
+            )
 //            Log.d(TAG, "버튼 클릭")
-            startActivity(Intent(this, SurveyActivity::class.java))
+//            startActivity(Intent(this, SurveyActivity::class.java))
         }
 
 
@@ -41,18 +41,25 @@ class SignupActivity:BaseActivity<ActivitySignupBinding>(ActivitySignupBinding::
     }
 
     private fun createAccount(email: String, password: String) {
+        Log.d("email", email)
+        Log.d("password", password)
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    Log.d(TAG, "회원가입 성공")
-                    var intent= Intent(this, MainActivity::class.java)
-                    startActivity(intent)
-                    val user = auth.currentUser
-                    updateUI(user)
+//                    Log.d(TAG, "회원가입 성공")
+//                    var intent= Intent(this, MainActivity::class.java)
+//                    startActivity(intent)
+//                    val user = auth.currentUser
+//                    updateUI(user)
+//                    val user = auth.currentUser
+//                    updateUI(user)
+//                    var intent= Intent(this, SurveyActivity::class.java)
+//                    startActivity(intent)
+//                    Log.d(TAG, "회원가입 성공")
                 } else {
                     Log.w(TAG, "회원가입 실패", task.exception)
                     Toast.makeText(baseContext, "이미 존재하는 계정입니다.", Toast.LENGTH_SHORT).show()
-                    updateUI(null)
+//                    updateUI(null)
                 }
             }
     }

@@ -13,7 +13,6 @@ import java.util.*
 abstract class BaseActivity<B : ViewBinding>(private val inflate: (LayoutInflater) -> B) :
     AppCompatActivity() {
     protected lateinit var binding: B
-        private set
     private val toastList = arrayListOf<Toast>()
 
     // 뷰 바인딩 객체를 받아서 inflate해서 화면을 만들어줌.
