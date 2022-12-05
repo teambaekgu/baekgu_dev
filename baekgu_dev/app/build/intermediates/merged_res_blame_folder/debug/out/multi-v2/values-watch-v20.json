@@ -1,0 +1,20 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.kookmin.mobile_programming.baekgu.myapplication.app-mergeDebugResources-4:/values-watch-v20/values-watch-v20.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\서준원\\.gradle\\caches\\transforms-3\\f083f5c09f1dfb16f2c7002e4ae8d53d\\transformed\\appcompat-1.5.1\\res\\values-watch-v20\\values-watch-v20.xml",
+                    "from": {
+                        "startLines": "2,5,8",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,214,385",
+                        "endLines": "4,7,10",
+                        "endColumns": "12,12,12",
+                        "endOffsets": "209,380,553"
+                    }
+                }
+            ]
+        }
+    ]
+}
