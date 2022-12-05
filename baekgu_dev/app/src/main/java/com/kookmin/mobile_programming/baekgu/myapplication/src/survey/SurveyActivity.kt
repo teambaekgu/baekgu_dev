@@ -56,9 +56,8 @@ class SurveyActivity : BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding
 
         val user = Firebase.auth.currentUser
         user?.let {
-            val email = user.email
+            semail = user.uid
         }
-
 
         // 컴포넌트 변수에 담기
         val heightEdit = findViewById<EditText>(
@@ -146,6 +145,7 @@ class SurveyActivity : BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding
 
         // 데이터 등록
         addBtn.setOnClickListener {
+
             // 입력값 변수에 담기
             val sHeight = heightEdit.text.toString()
             val sWeight = weightEdit.text.toString()

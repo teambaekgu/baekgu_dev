@@ -51,11 +51,11 @@ class SignupActivity:BaseActivity<ActivitySignupBinding>(ActivitySignupBinding::
 //                    startActivity(intent)
 //                    val user = auth.currentUser
 //                    updateUI(user)
-//                    val user = auth.currentUser
-//                    updateUI(user)
-//                    var intent= Intent(this, SurveyActivity::class.java)
-//                    startActivity(intent)
-//                    Log.d(TAG, "회원가입 성공")
+                    val user = auth.currentUser
+                    updateUI(user)
+                    var intent= Intent(this, SurveyActivity::class.java)
+                    startActivity(intent)
+                    Log.d(TAG, "회원가입 성공")
                 } else {
                     Log.w(TAG, "회원가입 실패", task.exception)
                     Toast.makeText(baseContext, "이미 존재하는 계정입니다.", Toast.LENGTH_SHORT).show()
