@@ -32,8 +32,6 @@ class SurveyActivity : BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding
     var firebaseDatabase: FirebaseDatabase? = null
     var databaseReference: DatabaseReference? = null
 
-    var listView: ListView? = null
-
     var semail: String? = null
     var sHeight: String? = null
     var sWeight: String? = null
