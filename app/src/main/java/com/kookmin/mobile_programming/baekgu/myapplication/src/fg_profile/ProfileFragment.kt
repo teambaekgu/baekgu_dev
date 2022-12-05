@@ -28,7 +28,7 @@ class ProfileFragment: BaseFragment<FragmentProfileBinding>(FragmentProfileBindi
         binding.fgProfileTvEmail.setText(emailValue)
 
         // 개인정보 수정 페이지로 이동
-        binding.fgProfileTvProfileEdit.setOnClickListener {
+        binding.fgProfileLayoutSetting.setOnClickListener {
             var intent= Intent(requireContext(), ProfileEditActivity::class.java)
             startActivity(intent)
         }
