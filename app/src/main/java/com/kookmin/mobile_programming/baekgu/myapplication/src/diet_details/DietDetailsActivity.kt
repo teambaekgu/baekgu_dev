@@ -26,6 +26,7 @@ class DietDetailsActivity:BaseActivity<ActivityDietDetailsBinding>(ActivityDietD
 
         }
 
+
         Log.d("weagawgawg","${date}")
 
 
