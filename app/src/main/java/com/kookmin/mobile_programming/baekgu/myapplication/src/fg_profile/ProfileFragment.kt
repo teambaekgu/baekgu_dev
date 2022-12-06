@@ -24,6 +24,11 @@ class ProfileFragment: BaseFragment<FragmentProfileBinding>(FragmentProfileBindi
             startActivity(intent)
         }
 
+//        binding.fgProfileTvTargetEdit.setOnClickListener{
+//            var intent = Intent(requireContext(),ProfileTargetEditActivity::class.java)
+//            startActivity(intent)
+//        }
+
         binding.fgProfileLayoutSurvey.setOnClickListener{
             var intent = Intent(requireContext(),SurveyActivity::class.java)
             startActivity(intent)
