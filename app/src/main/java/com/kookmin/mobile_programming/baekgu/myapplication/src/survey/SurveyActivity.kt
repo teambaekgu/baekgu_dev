@@ -4,6 +4,7 @@ import android.app.AlertDialog
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
+
 import android.util.Log
 import android.widget.*
 import com.example.firebasepratice.Survey
@@ -11,11 +12,13 @@ import com.google.android.gms.tasks.OnFailureListener
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.database.*
 import com.kookmin.mobile_programming.baekgu.myapplication.R
+
 import com.kookmin.mobile_programming.baekgu.myapplication.config.BaseActivity
 import com.kookmin.mobile_programming.baekgu.myapplication.databinding.ActivitySurveyBinding
 import com.kookmin.mobile_programming.baekgu.myapplication.src.MainActivity
 
 class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::inflate) {
+
 
     var semail: String? = null
     var proteinAmout: Int? = null
