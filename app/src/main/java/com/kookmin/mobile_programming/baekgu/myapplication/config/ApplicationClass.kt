@@ -11,7 +11,7 @@ class ApplicationClass: Application() {
         // 만들어져있는 SharedPreferences 를 사용해야합니다. 재생성하지 않도록 유념해주세요
         lateinit var sharedPreferences: SharedPreferences
 
-
+        var test:String="hello test"
 
 
     }
