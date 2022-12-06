@@ -1,22 +1,27 @@
 package com.kookmin.mobile_programming.baekgu.myapplication.src.login
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.kookmin.mobile_programming.baekgu.myapplication.R
 import com.kookmin.mobile_programming.baekgu.myapplication.config.BaseActivity
 import com.kookmin.mobile_programming.baekgu.myapplication.databinding.ActivityLoginBinding
 import com.kookmin.mobile_programming.baekgu.myapplication.src.MainActivity
 import com.kookmin.mobile_programming.baekgu.myapplication.src.signup.SignupActivity
+import org.json.JSONObject
+import org.json.JSONTokener
 
 class LoginActivity:BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::inflate) {
     private lateinit var auth: FirebaseAuth
+        private lateinit var database: DatabaseReference
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,22 +32,14 @@ class LoginActivity:BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::inf
     private fun setListener() {
         //로그인버튼
         binding.loginBtnLogin.setOnClickListener {
-            //[Temp] : 발표자료에 쓰일 예정이므로 해당코드는 잠시 주석처리
-//            if (binding.loginTvIdTitle.text.isNullOrEmpty() || binding.loginTvPwTitle.text.isNullOrEmpty()) {
-//                showCustomToast("정보를 올바르게 입력하세요")
-//            } else {
-//                signIn(
-//                    binding.loginEditId.text.toString(),
-//                    binding.loginEditPw.text.toString()
-//                )
-//            }
-
-
-
-            if (binding.loginTvIdTitle.text.isNullOrEmpty() || binding.loginTvPwTitle.text.isNullOrEmpty()){
-                startActivity(Intent(this,MainActivity::class.java))
+            if (binding.loginTvIdTitle.text.isNullOrEmpty() || binding.loginTvPwTitle.text.isNullOrEmpty()) {
+                showCustomToast("이메일, 비밀번호를 입력하세요.")
+            } else {
+                signIn(
+                    binding.loginEditId.text.toString(),
+                    binding.loginEditPw.text.toString()
+                )
             }
-
         }
         //회원가입 버튼
         binding.loginTvSignup.setOnClickListener {
@@ -59,8 +56,6 @@ class LoginActivity:BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::inf
                 binding.loginEditId.background=resources.getDrawable(R.drawable.bg_btn_disabled,null)
             }
             checkData()
-
-
         }
 
         binding.loginEditPw.addTextChangedListener {
@@ -70,24 +65,7 @@ class LoginActivity:BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::inf
                 binding.loginEditPw.background=resources.getDrawable(R.drawable.bg_btn_disabled,null)
             }
             checkData()
-
         }
-
-
-        binding.loginEditPw.addTextChangedListener {
-            if(it!!.isNotEmpty()){
-                binding.loginEditPw.background=resources.getDrawable(R.drawable.bg_activity,null)
-            }else{
-                binding.loginEditPw.background=resources.getDrawable(R.drawable.bg_btn_disabled,null)
-            }
-            checkData()
-
-        }
-
-
-
-
-
     }
 
     public override fun onStart() {
@@ -103,30 +81,46 @@ class LoginActivity:BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::inf
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
-//                    Log.d("로그인 성공")
+                    intent = Intent(this,MainActivity::class.java)
+                    intent.putExtra("user_id",binding.loginEditId.text.toString())
+                    startActivity(intent)
                     val user = auth.currentUser
-                    updateUI(user)
+                    user?.let {
+                        val email = user.email
+                        val uid = user.uid
+                        database = Firebase.database.reference
+                        database.child("users").child(uid).get().addOnSuccessListener {
+                            val jsonObject = JSONTokener(it.value.toString()).nextValue() as JSONObject
+                            val nameValue = jsonObject.getString("name")
+                            val birthValue = jsonObject.getString("birth")
+                            val phoneValue = jsonObject.getString("phone")
+                            val addressValue = jsonObject.getString("address")
+                            updateUI(uid, email, password, nameValue, birthValue, phoneValue, addressValue)
+                        }
+                    }
                 } else {
-                    // If sign in fails, display a message to the user.
-                    Log.w("로그인 실패", task.exception)
-                    Toast.makeText(baseContext, "로그인 실패", Toast.LENGTH_SHORT).show()
-                    updateUI(null)
+                    Toast.makeText(baseContext, "이메일 또는 비밀번호를 잘못 입력했습니다.", Toast.LENGTH_SHORT).show()
+                    updateUI(null, null, null, null, null, null, null)
                 }
             }
     }
 
-    private fun confirmLogin(id:String?,pw:String?){
-        //firbase 로그인 확인 로직
-
-    }
-
-    private fun updateUI(user: FirebaseUser?) {
-
-    }
-
     private fun reload() {
+        var intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+    }
 
+    private fun updateUI(uid: String?, email: String?, pwValue: String?, nameValue: String?, birthValue: String?, phoneValue: String?, addressValue: String?) {
+        val sharedPreference = getSharedPreferences("userInfo", MODE_PRIVATE)
+        val editor: SharedPreferences.Editor = sharedPreference.edit()
+        editor.putString("uid", uid)
+        editor.putString("email", email)
+        editor.putString("password", pwValue)
+        editor.putString("name", nameValue)
+        editor.putString("birth", birthValue)
+        editor.putString("phone", phoneValue)
+        editor.putString("address", addressValue)
+        editor.commit()
     }
 
     private fun checkData(){

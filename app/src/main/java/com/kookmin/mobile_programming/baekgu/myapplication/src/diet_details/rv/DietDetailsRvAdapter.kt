@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.kookmin.mobile_programming.baekgu.myapplication.databinding.ItemDietDetailsBinding
 
 class DietDetailsRvAdapter(val dataSet:ArrayList<DietDetailsDataClass>):RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val binding=ItemDietDetailsBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         return dietDetailsViewHolder(binding)

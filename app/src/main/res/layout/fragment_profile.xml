@@ -60,7 +60,7 @@
                 android:id="@+id/fg_profile_tv_user_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="김국민"
+                android:text="김백구"
                 android:textColor="@color/black"
                 android:textSize="@dimen/text_title"
                 android:fontFamily="@font/spoqa_han_sans_neo_bold"
@@ -68,42 +68,31 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/fg_profile_tv_town"
+                android:id="@+id/fg_profile_tv_email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="성북구"
+                android:text="id@email"
                 android:textColor="@color/subGrey"
                 android:textSize="@dimen/text_small"
                 android:fontFamily="@font/spoqa_han_sans_neo_medium"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/fg_profile_tv_user_name" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/fg_profile_tv_gender"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="남성"
-                android:textColor="@color/subGrey"
-                android:textSize="@dimen/text_small"
-                android:fontFamily="@font/spoqa_han_sans_neo_medium"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fg_profile_tv_town" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/fg_profile_tv_profile_edit"
+            android:id="@+id/fg_profile_tv_logout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="@dimen/horizontal_margin"
-            android:text="수정"
+            android:layout_marginTop="10dp"
+            android:text="로그아웃"
             android:textColor="@color/subGrey"
             android:textSize="@dimen/text_standard"
             android:fontFamily="@font/spoqa_han_sans_neo_regular"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -157,19 +146,19 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/fg_profile_tv_target_edit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="수정"
-                android:textColor="@color/subGrey"
-                android:textSize="@dimen/text_standard"
-                android:fontFamily="@font/spoqa_han_sans_neo_regular"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
+<!--            <androidx.appcompat.widget.AppCompatTextView-->
+<!--                android:id="@+id/fg_profile_tv_target_edit"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="수정"-->
+<!--                android:textColor="@color/subGrey"-->
+<!--                android:textSize="@dimen/text_standard"-->
+<!--                android:fontFamily="@font/spoqa_han_sans_neo_regular"-->
+<!--                app:layout_constraintRight_toRightOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
 
-                />
+<!--                />-->
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -315,7 +304,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/horizontal_margin"
-            android:text="설정"
+            android:text="개인 정보 수정"
             android:textSize="@dimen/text_standard"
             android:textColor="@color/mainBlack"
             android:fontFamily="@font/spoqa_han_sans_neo_bold"
@@ -358,7 +347,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/horizontal_margin"
-            android:text="설문조사 변경"
+            android:text="설문 정보 수정"
             android:textSize="@dimen/text_standard"
             android:textColor="@color/mainBlack"
             android:fontFamily="@font/spoqa_han_sans_neo_bold"
@@ -383,46 +372,46 @@
 
 
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/fg_profile_layout_diet"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/vertical_margin_large"
-        android:layout_marginHorizontal="@dimen/horizontal_margin"
-        android:paddingVertical="@dimen/vertical_margin"
-        android:orientation="horizontal"
-        android:background="@drawable/bg_roundly"
-        android:elevation="3dp"
-        app:layout_constraintTop_toBottomOf="@+id/fg_profile_layout_survey"
-        >
+<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--        android:id="@+id/fg_profile_layout_diet"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="@dimen/vertical_margin_large"-->
+<!--        android:layout_marginHorizontal="@dimen/horizontal_margin"-->
+<!--        android:paddingVertical="@dimen/vertical_margin"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:background="@drawable/bg_roundly"-->
+<!--        android:elevation="3dp"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/fg_profile_layout_survey"-->
+<!--        >-->
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/fg_profile_tv_diet"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/horizontal_margin"
-            android:text="식단정보 변경"
-            android:textSize="@dimen/text_standard"
-            android:textColor="@color/mainBlack"
-            android:fontFamily="@font/spoqa_han_sans_neo_bold"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            />
+<!--        <androidx.appcompat.widget.AppCompatTextView-->
+<!--            android:id="@+id/fg_profile_tv_diet"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="@dimen/horizontal_margin"-->
+<!--            android:text="식단정보 변경"-->
+<!--            android:textSize="@dimen/text_standard"-->
+<!--            android:textColor="@color/mainBlack"-->
+<!--            android:fontFamily="@font/spoqa_han_sans_neo_bold"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:layout_constraintLeft_toLeftOf="parent"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            />-->
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/fg_profile_img_diet"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="@dimen/horizontal_margin_small"
-            android:src="@drawable/ic_right"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            />
+<!--        <androidx.appcompat.widget.AppCompatImageView-->
+<!--            android:id="@+id/fg_profile_img_diet"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginRight="@dimen/horizontal_margin_small"-->
+<!--            android:src="@drawable/ic_right"-->
+<!--            app:layout_constraintRight_toRightOf="parent"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            />-->
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
 
 
 

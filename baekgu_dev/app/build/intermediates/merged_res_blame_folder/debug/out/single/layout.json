@@ -1,0 +1,54 @@
+[
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-mergeDebugResources-5:/layout/activity_signup.xml",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/layout/activity_signup.xml"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-mergeDebugResources-5:/layout/fragment_product.xml",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/layout/fragment_product.xml"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-mergeDebugResources-5:/layout/dialog_loading.xml",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/layout/dialog_loading.xml"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-mergeDebugResources-5:/layout/fragment_profile.xml",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/layout/fragment_profile.xml"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-mergeDebugResources-5:/layout/fragment_calendar.xml",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/layout/fragment_calendar.xml"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-mergeDebugResources-5:/layout/activity_survey.xml",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/layout/activity_survey.xml"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-mergeDebugResources-5:/layout/activity_splash.xml",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/layout/activity_splash.xml"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-mergeDebugResources-5:/layout/item_diet_details.xml",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/layout/item_diet_details.xml"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-mergeDebugResources-5:/layout/activity_profile_edit.xml",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/layout/activity_profile_edit.xml"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-mergeDebugResources-5:/layout/activity_main.xml",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-mergeDebugResources-5:/layout/item_recommend_product.xml",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/layout/item_recommend_product.xml"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-mergeDebugResources-5:/layout/activity_diet_details.xml",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/layout/activity_diet_details.xml"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-mergeDebugResources-5:/layout/activity_login.xml",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/layout/activity_login.xml"
+    }
+]

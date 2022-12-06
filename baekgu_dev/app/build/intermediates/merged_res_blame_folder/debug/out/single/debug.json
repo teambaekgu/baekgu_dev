@@ -1,0 +1,318 @@
+[
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/drawable-hdpi_ic_bnv_feed_unchecked.png.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/drawable-hdpi/ic_bnv_feed_unchecked.png"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/layout_fragment_profile.xml.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/layout/fragment_profile.xml"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/drawable-v24_img_user_none.png.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/drawable-v24/img_user_none.png"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/drawable-xxxhdpi_test_image_2.jpg.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/drawable-xxxhdpi/test_image_2.jpg"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/drawable-mdpi_component_13.png.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/drawable-mdpi/component_13.png"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/layout_activity_main.xml.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/drawable-xxhdpi_component_13.png.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/drawable-xxhdpi/component_13.png"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/drawable-v24_ic_btn_back_left.png.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/drawable-v24/ic_btn_back_left.png"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/drawable_bg_btn_activity.xml.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/drawable/bg_btn_activity.xml"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/layout_item_recommend_product.xml.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/layout/item_recommend_product.xml"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/drawable-v24_bg_activity.xml.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/drawable-v24/bg_activity.xml"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/mipmap-xhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/layout_activity_signup.xml.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/layout/activity_signup.xml"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/layout_fragment_calendar.xml.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/layout/fragment_calendar.xml"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/drawable-xxhdpi_ic_bnv_feed_unchecked.png.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/drawable-xxhdpi/ic_bnv_feed_unchecked.png"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/drawable-xhdpi_ic_bnv_feed_unchecked.png.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/drawable-xhdpi/ic_bnv_feed_unchecked.png"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/font_spoqa_han_sans_neo_regular.ttf.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/font/spoqa_han_sans_neo_regular.ttf"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/drawable-hdpi_ic_right.png.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/drawable-hdpi/ic_right.png"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/drawable-mdpi_ic_bnv_feed_unchecked.png.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/drawable-mdpi/ic_bnv_feed_unchecked.png"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/drawable-xxxhdpi_component_13.png.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/drawable-xxxhdpi/component_13.png"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/drawable-xxxhdpi_ic_right.png.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/drawable-xxxhdpi/ic_right.png"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/drawable-xxxhdpi_ic_bnv_game_unchecked.png.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/drawable-xxxhdpi/ic_bnv_game_unchecked.png"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/layout_activity_diet_details.xml.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/layout/activity_diet_details.xml"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/drawable-mdpi_ic_bnv_profile_unchecked.png.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/drawable-mdpi/ic_bnv_profile_unchecked.png"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/drawable-xxhdpi_ic_bnv_profile_unchecked.png.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/drawable-xxhdpi/ic_bnv_profile_unchecked.png"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/drawable-xxxhdpi_test_image_1.jpg.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/drawable-xxxhdpi/test_image_1.jpg"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/layout_activity_profile_edit.xml.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/layout/activity_profile_edit.xml"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/mipmap-xhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/drawable_baekgu_img.png.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/drawable/baekgu_img.png"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/drawable-hdpi_component_13.png.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/drawable-hdpi/component_13.png"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/xml_data_extraction_rules.xml.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/mipmap-xxxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/drawable-xxxhdpi_test_image_4.jpg.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/drawable-xxxhdpi/test_image_4.jpg"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/xml_backup_rules.xml.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/mipmap-xxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/font_spoqa_han_sans_neo_bold.ttf.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/font/spoqa_han_sans_neo_bold.ttf"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/mipmap-xxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/font_spoqa_han_sans_neo_medium_font.ttf.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/font/spoqa_han_sans_neo_medium_font.ttf"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/layout_dialog_loading.xml.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/layout/dialog_loading.xml"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/drawable-xxxhdpi_ic_bnv_feed_unchecked.png.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/drawable-xxxhdpi/ic_bnv_feed_unchecked.png"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/font_spoqa_han_sans_neo.xml.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/font/spoqa_han_sans_neo.xml"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/mipmap-mdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/layout_fragment_product.xml.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/layout/fragment_product.xml"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/drawable-xxxhdpi_ic_bnv_profile_unchecked.png.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/drawable-xxxhdpi/ic_bnv_profile_unchecked.png"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/drawable-xhdpi_component_13.png.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/drawable-xhdpi/component_13.png"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/layout_item_diet_details.xml.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/layout/item_diet_details.xml"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/layout_activity_login.xml.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/layout/activity_login.xml"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/mipmap-mdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/font_tmoney_round_wind_extrabold.xml.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/font/tmoney_round_wind_extrabold.xml"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/drawable_bg_roundly.xml.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/drawable/bg_roundly.xml"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/menu_main_bnv.xml.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/menu/main_bnv.xml"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/layout_activity_splash.xml.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/layout/activity_splash.xml"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/drawable-hdpi_ic_bnv_change.xml.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/drawable-hdpi/ic_bnv_change.xml"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/font_spoqa_han_sans_neo_medium.xml.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/font/spoqa_han_sans_neo_medium.xml"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/drawable-xhdpi_ic_right.png.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/drawable-xhdpi/ic_right.png"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/drawable-xxxhdpi_test_image_3.jpg.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/drawable-xxxhdpi/test_image_3.jpg"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/drawable-v24_bg_btn_disabled.xml.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/drawable-v24/bg_btn_disabled.xml"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/drawable-xxxhdpi_banner.jpg.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/drawable-xxxhdpi/banner.jpg"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/drawable_baekgu_face.png.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/drawable/baekgu_face.png"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/drawable-v24/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/drawable-hdpi_ic_bnv_profile_unchecked.png.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/drawable-hdpi/ic_bnv_profile_unchecked.png"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/mipmap-hdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/mipmap-xxxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/drawable-xhdpi_ic_bnv_profile_unchecked.png.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/drawable-xhdpi/ic_bnv_profile_unchecked.png"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/mipmap-hdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/drawable-hdpi_ic_bnv_game_unchecked.png.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/drawable-hdpi/ic_bnv_game_unchecked.png"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/drawable-mdpi_ic_right.png.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/drawable-mdpi/ic_right.png"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/drawable-v24_test_product.png.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/drawable-v24/test_product.png"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/drawable-xhdpi_ic_bnv_game_unchecked.png.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/drawable-xhdpi/ic_bnv_game_unchecked.png"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/drawable_baekgu_mipmap.jpg.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/drawable/baekgu_mipmap.jpg"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/drawable-xxhdpi_ic_right.png.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/drawable-xxhdpi/ic_right.png"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/font_tmoney_round_wind_extra_bold_font.ttf.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/font/tmoney_round_wind_extra_bold_font.ttf"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/drawable-mdpi_ic_bnv_game_unchecked.png.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/drawable-mdpi/ic_bnv_game_unchecked.png"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/drawable-xxhdpi_ic_bnv_game_unchecked.png.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/drawable-xxhdpi/ic_bnv_game_unchecked.png"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/drawable_bg_diet_details.xml.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/drawable/bg_diet_details.xml"
+    },
+    {
+        "merged": "com.kookmin.mobile_programming.baekgu.myapplication.app-merged_res-6:/layout_activity_survey.xml.flat",
+        "source": "com.kookmin.mobile_programming.baekgu.myapplication.app-main-8:/layout/activity_survey.xml"
+    }
+]
