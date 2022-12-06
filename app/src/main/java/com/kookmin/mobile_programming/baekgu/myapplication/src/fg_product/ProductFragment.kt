@@ -4,14 +4,12 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.bumptech.glide.Glide
 import com.kookmin.mobile_programming.baekgu.myapplication.R
 import com.kookmin.mobile_programming.baekgu.myapplication.config.BaseFragment
 import com.kookmin.mobile_programming.baekgu.myapplication.databinding.FragmentProductBinding
 import com.kookmin.mobile_programming.baekgu.myapplication.src.fg_product.rv.RecommendProductListDataClass
 import com.kookmin.mobile_programming.baekgu.myapplication.src.fg_product.rv.RecommendProductListRvAdapter
 import com.kookmin.mobile_programming.baekgu.myapplication.src.product_details.ProductDetailsActivity
-import com.kookmin.mobile_programming.baekgu.myapplication.src.profile_edit.ProfileEditActivity
 
 class ProductFragment: BaseFragment<FragmentProductBinding>(FragmentProductBinding::bind, R.layout.fragment_product) {
     private val recommendProductList=ArrayList<RecommendProductListDataClass>()
@@ -22,6 +20,7 @@ class ProductFragment: BaseFragment<FragmentProductBinding>(FragmentProductBindi
         setData()
         setRecyclerView()
         setListener()
+
     }
 
     private fun setData(){
@@ -29,22 +28,19 @@ class ProductFragment: BaseFragment<FragmentProductBinding>(FragmentProductBindi
     }
 
     private fun setRecyclerView(){
-            recommendProductList.add(RecommendProductListDataClass(R.drawable.test_image_2,"고등어구이"))
-            recommendProductList.add(RecommendProductListDataClass(R.drawable.test_image_4,"연어구이"))
-            recommendProductList.add(RecommendProductListDataClass(R.drawable.test_image_4,"연어구이"))
+            recommendProductList.add(RecommendProductListDataClass(R.drawable.cbx001_1,R.drawable.cbx001_2,R.drawable.cbx001_3,R.drawable.cbx001_4,"오리지널"))
+            recommendProductList.add(RecommendProductListDataClass(R.drawable.cbx002_1,R.drawable.cbx002_2,R.drawable.cbx002_3,R.drawable.cbx002_4,"스파이시"))
+            recommendProductList.add(RecommendProductListDataClass(R.drawable.cbx003_1,R.drawable.cbx003_2,R.drawable.cbx003_3,R.drawable.cbx003_4,"치즈 맛"))
 
-            bestProductList.add(RecommendProductListDataClass(R.drawable.test_image_1,"갈릭맛"))
-            bestProductList.add(RecommendProductListDataClass(R.drawable.test_image_3,"레몬 크림 맛"))
-            bestProductList.add(RecommendProductListDataClass(R.drawable.test_image_3,"레몬 크림 맛"))
+            bestProductList.add(RecommendProductListDataClass(R.drawable.csx003_1,R.drawable.csx003_2,R.drawable.csx003_3,R.drawable.csx003_4,"청양고추 맛"))
+            bestProductList.add(RecommendProductListDataClass(R.drawable.csx007_1,R.drawable.csx007_2,R.drawable.csx007_3,R.drawable.csx007_4,"훈제 맛"))
+            bestProductList.add(RecommendProductListDataClass(R.drawable.csx005_1,R.drawable.csx005_2,R.drawable.csx005_3,R.drawable.csx005_4,"카레 맛"))
 
         binding.fgProductRvMain.adapter=RecommendProductListRvAdapter(recommendProductList)
         binding.fgProductRvMain.layoutManager=LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
 
-
-
         binding.fgProductRvBest.adapter=RecommendProductListRvAdapter(bestProductList)
         binding.fgProductRvBest.layoutManager=LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
-
 
     }
 
@@ -52,7 +48,7 @@ class ProductFragment: BaseFragment<FragmentProductBinding>(FragmentProductBindi
         (binding.fgProductRvMain.adapter as RecommendProductListRvAdapter).setItemClickListener(object :RecommendProductListRvAdapter.OnItemClickListener{
             override fun onClick(position: Int) {
                 var intent=Intent(requireContext(),ProductDetailsActivity::class.java)
-                intent.putExtra("pos",position)
+                intent.putExtra("info",recommendProductList[position])
                 startActivity(intent)
             }
 
@@ -60,8 +56,9 @@ class ProductFragment: BaseFragment<FragmentProductBinding>(FragmentProductBindi
 
         (binding.fgProductRvBest.adapter as RecommendProductListRvAdapter).setItemClickListener(object :RecommendProductListRvAdapter.OnItemClickListener{
             override fun onClick(position: Int) {
-                var intent = Intent(requireContext(),ProductDetailsActivity::class.java)
-                intent.putExtra("pos",position)
+                // 이런식으로 !! recommendProductList[position].
+                var intent=Intent(requireContext(),ProductDetailsActivity::class.java)
+                intent.putExtra("info",bestProductList[position])
                 startActivity(intent)
             }
         })

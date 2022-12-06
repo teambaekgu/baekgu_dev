@@ -1345,7 +1345,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="채소 밋"/>
+            android:text="채소 맛"/>
         <RadioGroup
             android:id="@+id/survey_rg_vege"
             android:layout_width="wrap_content"
