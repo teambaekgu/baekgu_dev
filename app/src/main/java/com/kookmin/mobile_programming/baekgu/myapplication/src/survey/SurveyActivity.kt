@@ -279,7 +279,7 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
     private fun onClickShowAlert(p: Int, flavour: Array<Int>, product: Array<Int>) {
         val myAlertBuilder: AlertDialog.Builder = AlertDialog.Builder(this@SurveyActivity)
         myAlertBuilder.setTitle("회원님의 필수 단백질량은: ${proteinAmout.toString()}입니다")
-        myAlertBuilder.setMessage("Ok버튼을 누르면 맞춤 식단을 만나보실 수 있습니다! /n 설문을 다시 작성하려면 Cancle버튼을 눌러주세요.")
+        myAlertBuilder.setMessage("Ok버튼을 누르면 맞춤 식단을 만나보실 수 있습니다! \n 설문을 다시 작성하려면 Cancel버튼을 눌러주세요.")
         myAlertBuilder.setPositiveButton("Ok",
             DialogInterface.OnClickListener { dialog, which -> // OK 버튼을 눌렸을 경우
                 val intent = Intent(this, MainActivity::class.java)

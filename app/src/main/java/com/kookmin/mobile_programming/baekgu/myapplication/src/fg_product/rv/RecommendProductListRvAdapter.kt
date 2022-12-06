@@ -54,7 +54,7 @@ class RecommendProductListRvAdapter(val dataSet:ArrayList<RecommendProductListDa
             binding.itemRecommendProductImgMain.clipToOutline=true
 
             Glide.with(binding.root)
-                .load(item.image)
+                .load(item.title_image)
                 .centerCrop()
                 .into(binding.itemRecommendProductImgMain)
 
