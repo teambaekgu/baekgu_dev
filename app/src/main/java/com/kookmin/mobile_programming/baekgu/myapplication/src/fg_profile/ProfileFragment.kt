@@ -2,8 +2,10 @@ package com.kookmin.mobile_programming.baekgu.myapplication.src.fg_profile
 
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.kookmin.mobile_programming.baekgu.myapplication.R
@@ -21,6 +23,19 @@ class ProfileFragment: BaseFragment<FragmentProfileBinding>(FragmentProfileBindi
     override fun onResume() {
         super.onResume()
         setListener()
+    }
+
+    private fun updateUI(uid: String?, email: String?, pwValue: String?, nameValue: String?, birthValue: String?, phoneValue: String?, addressValue: String?) {
+        val sharedPreference = requireContext().getSharedPreferences("userInfo", AppCompatActivity.MODE_PRIVATE)
+        val editor: SharedPreferences.Editor = sharedPreference.edit()
+        editor.putString("uid", uid)
+        editor.putString("email", email)
+        editor.putString("password", pwValue)
+        editor.putString("name", nameValue)
+        editor.putString("birth", birthValue)
+        editor.putString("phone", phoneValue)
+        editor.putString("address", addressValue)
+        editor.commit()
     }
 
 
@@ -41,6 +56,7 @@ class ProfileFragment: BaseFragment<FragmentProfileBinding>(FragmentProfileBindi
         // 로그아웃 기능
         binding.fgProfileTvLogout.setOnClickListener {
             Firebase.auth.signOut()
+            updateUI(null, null, null, null, null, null, null)
             var intent= Intent(requireContext(), LoginActivity::class.java)
             startActivity(intent)
         }

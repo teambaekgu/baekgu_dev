@@ -15,8 +15,6 @@ import com.kookmin.mobile_programming.baekgu.myapplication.config.BaseActivity
 import com.kookmin.mobile_programming.baekgu.myapplication.databinding.ActivityLoginBinding
 import com.kookmin.mobile_programming.baekgu.myapplication.src.MainActivity
 import com.kookmin.mobile_programming.baekgu.myapplication.src.signup.SignupActivity
-import org.json.JSONObject
-import org.json.JSONTokener
 
 class LoginActivity:BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::inflate) {
     private lateinit var auth: FirebaseAuth
@@ -84,21 +82,44 @@ class LoginActivity:BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::inf
                     startActivity(Intent(this,MainActivity::class.java))
                     val user = auth.currentUser
                     user?.let {
-                        val email = user.email
                         val uid = user.uid
+                        val email = user.email
+                        updateUI("uid", uid)
+                        updateUI("email", email)
+
                         database = Firebase.database.reference
-                        database.child("users").child(uid).get().addOnSuccessListener {
-                            val jsonObject = JSONTokener(it.value.toString()).nextValue() as JSONObject
-                            val nameValue = jsonObject.getString("name")
-                            val birthValue = jsonObject.getString("birth")
-                            val phoneValue = jsonObject.getString("phone")
-                            val addressValue = jsonObject.getString("address")
-                            updateUI(uid, email, password, nameValue, birthValue, phoneValue, addressValue)
+                        database.child("users").child(uid).child("name").get().addOnSuccessListener {
+                            var nameValue = it.value.toString()
+                            updateUI("name", nameValue)
                         }
+                        database.child("users").child(uid).child("birth").get().addOnSuccessListener {
+                            var birthValue = it.value.toString()
+                            updateUI("birth", birthValue)
+                        }
+                        database.child("users").child(uid).child("phone").get().addOnSuccessListener {
+                            var phoneValue = it.value.toString()
+                            updateUI("phone", phoneValue)
+                        }
+                        database.child("users").child(uid).child("address").get().addOnSuccessListener {
+                            var addressValue = it.value.toString()
+                            updateUI("address", addressValue)
+                        }
+//                            val jsonObject = JSONTokener(it.value.toString()).nextValue() as JSONObject
+//                            val nameValue = jsonObject.getString("name")
+//                            val birthValue = jsonObject.getString("birth")
+//                            val phoneValue = jsonObject.getString("phone")
+//                            val addressValue = jsonObject.getString("address")
+
                     }
                 } else {
                     Toast.makeText(baseContext, "이메일 또는 비밀번호를 잘못 입력했습니다.", Toast.LENGTH_SHORT).show()
-                    updateUI(null, null, null, null, null, null, null)
+                    updateUI("uid", null)
+                    updateUI("email", null)
+                    updateUI("password", null)
+                    updateUI("name", null)
+                    updateUI("birth", null)
+                    updateUI("phone", null)
+                    updateUI("address", null)
                 }
             }
     }
@@ -108,16 +129,23 @@ class LoginActivity:BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::inf
         startActivity(intent)
     }
 
-    private fun updateUI(uid: String?, email: String?, pwValue: String?, nameValue: String?, birthValue: String?, phoneValue: String?, addressValue: String?) {
+//    private fun updateUI(uid: String?, email: String?, pwValue: String?, nameValue: String?,
+//                         birthValue: String?, phoneValue: String?, addressValue: String?) {
+//        val sharedPreference = getSharedPreferences("userInfo", MODE_PRIVATE)
+//        val editor: SharedPreferences.Editor = sharedPreference.edit()
+//        editor.putString("uid", uid)
+//        editor.putString("email", email)
+//        editor.putString("password", pwValue)
+//        editor.putString("name", nameValue)
+//        editor.putString("birth", birthValue)
+//        editor.putString("phone", phoneValue)
+//        editor.putString("address", addressValue)
+//        editor.commit()
+//    }
+    private fun updateUI(title: String?, value: String?) {
         val sharedPreference = getSharedPreferences("userInfo", MODE_PRIVATE)
         val editor: SharedPreferences.Editor = sharedPreference.edit()
-        editor.putString("uid", uid)
-        editor.putString("email", email)
-        editor.putString("password", pwValue)
-        editor.putString("name", nameValue)
-        editor.putString("birth", birthValue)
-        editor.putString("phone", phoneValue)
-        editor.putString("address", addressValue)
+        editor.putString(title, value)
         editor.commit()
     }
 
