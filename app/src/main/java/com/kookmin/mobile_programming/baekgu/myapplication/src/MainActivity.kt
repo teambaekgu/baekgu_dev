@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.*
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.ktx.Firebase
 import com.kookmin.mobile_programming.baekgu.myapplication.R
 import com.kookmin.mobile_programming.baekgu.myapplication.config.BaseActivity
@@ -36,9 +37,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
         val test="weagaweg"
 
         var email = intent.getStringExtra("user_id")
-        val proteinAmount = intent.getIntExtra("proteinAmout", 0)
-        var flavour = intent.getIntArrayExtra("flavour")
-        var product = intent.getIntArrayExtra("product")!!.toTypedArray()
+//        val proteinAmount = intent.getIntExtra("proteinAmout", 0)
+//        var flavour = intent.getIntArrayExtra("flavour")
+//        var product = intent.getIntArrayExtra("product")!!.toTypedArray()
 
         val month = 12
         val allergy = 3
@@ -62,7 +63,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
 //        val month = 12 //캘린더 정보에서 받아오기
         // ---------------------------------------------------------
 
-        val result = makeDietCalendar(proteinAmount,flavour,product,allergy,month)
+//        val result = makeDietCalendar(proteinAmount,flavour,product,allergy,month)
 
 //        for(i : Int in 0..30){
 //            Log.d("2022/12/${i+1} 아침 : ", result.calendar[i][0].toString())
