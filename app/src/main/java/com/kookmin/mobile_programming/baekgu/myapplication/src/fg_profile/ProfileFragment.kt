@@ -13,6 +13,7 @@ import com.kookmin.mobile_programming.baekgu.myapplication.config.BaseFragment
 import com.kookmin.mobile_programming.baekgu.myapplication.databinding.FragmentProfileBinding
 import com.kookmin.mobile_programming.baekgu.myapplication.src.login.LoginActivity
 import com.kookmin.mobile_programming.baekgu.myapplication.src.profile_edit.ProfileEditActivity
+import com.kookmin.mobile_programming.baekgu.myapplication.src.survey.SurveyActivity
 
 class ProfileFragment: BaseFragment<FragmentProfileBinding>(FragmentProfileBinding::bind, R.layout.fragment_profile) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -58,6 +59,16 @@ class ProfileFragment: BaseFragment<FragmentProfileBinding>(FragmentProfileBindi
             Firebase.auth.signOut()
             updateUI(null, null, null, null, null, null, null)
             var intent= Intent(requireContext(), LoginActivity::class.java)
+            startActivity(intent)
+        }
+
+//        binding.fgProfileTvTargetEdit.setOnClickListener{
+//            var intent = Intent(requireContext(),ProfileTargetEditActivity::class.java)
+//            startActivity(intent)
+//        }
+
+        binding.fgProfileLayoutSurvey.setOnClickListener{
+            var intent = Intent(requireContext(),SurveyActivity::class.java)
             startActivity(intent)
         }
     }

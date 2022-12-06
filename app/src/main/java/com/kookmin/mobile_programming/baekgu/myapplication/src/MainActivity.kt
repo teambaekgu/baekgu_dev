@@ -4,6 +4,11 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.*
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.ktx.Firebase
 import com.kookmin.mobile_programming.baekgu.myapplication.R
 import com.kookmin.mobile_programming.baekgu.myapplication.config.BaseActivity
 import com.kookmin.mobile_programming.baekgu.myapplication.databinding.ActivityMainBinding
@@ -19,31 +24,55 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
     private var productFragment: Fragment?=null
     private var calendarFragment: Fragment?=null
     private var profileFragment: Fragment?=null
+    private var firebaseDatabase: FirebaseDatabase? = null
+    private var databaseReference: DatabaseReference? = null
+    private lateinit var auth: FirebaseAuth
+
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        auth = Firebase.auth
         val test="weagaweg"
+
+        var email = intent.getStringExtra("user_id")
+//        val proteinAmount = intent.getIntExtra("proteinAmout", 0)
+//        var flavour = intent.getIntArrayExtra("flavour")
+//        var product = intent.getIntArrayExtra("product")!!.toTypedArray()
+
+        val month = 12
+        val allergy = 3
+
+
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase!!.getReference().child("Survey")
+        getValue(email.toString())
+        Log.d("email", email.toString())
+        Log.d("alksdjflkajslfkjaslfjlaskdfjlaaa", "Log.d(\"alksdjflkajslfkjaslfjlaskdfjlaaa\", )")
+
 
         // DB에서 받아오는 부분 ---------------------------------------
         // 제품 순서 : 소시지, 볼, 소스, 소고기, 생선, 스테이크, 프로틴, 간식
         // allergy : product 배열 idx
-        val proteinAmount = 132     // 82 104 128
-        val flavour = arrayOf(4, 2, 3, 5, 4, 3, 2, 1)
-        val product = arrayOf(4, 3, 5, 4, 3, 5)
-        val allergy = 3 // product 배열 idx
-        val month = 12 //캘린더 정보에서 받아오기
+
+        //val proteinAmount = 132     // 82 104 128
+//        val flavour = arrayOf(4, 2, 3, 5, 4, 3, 2, 1)
+//        val product = arrayOf(4, 3, 5, 4, 3, 5)
+//        val allergy = 3 // product 배열 idx
+//        val month = 12 //캘린더 정보에서 받아오기
         // ---------------------------------------------------------
 
-        val result = makeDietCalendar(proteinAmount,flavour,product,allergy,month)
+//        val result = makeDietCalendar(proteinAmount,flavour,product,allergy,month)
 
-        for(i : Int in 0..30){
-            Log.d("2022/12/${i+1} 아침 : ", result.calendar[i][0].toString())
-            Log.d("2022/12/${i+1} 점심 : ", result.calendar[i][1].toString())
-            Log.d("2022/12/${i+1} 저녁 : ", result.calendar[i][2].toString())
-            Log.d("2022/12/${i+1} 간식1 : ", result.calendar[i][3].toString())
-            Log.d("2022/12/${i+1} 간식2 : ", result.calendar[i][4].toString())
-            Log.d("--","--------------------------------------------")
-        }
+//        for(i : Int in 0..30){
+//            Log.d("2022/12/${i+1} 아침 : ", result.calendar[i][0].toString())
+//            Log.d("2022/12/${i+1} 점심 : ", result.calendar[i][1].toString())
+//            Log.d("2022/12/${i+1} 저녁 : ", result.calendar[i][2].toString())
+//            Log.d("2022/12/${i+1} 간식1 : ", result.calendar[i][3].toString())
+//            Log.d("2022/12/${i+1} 간식2 : ", result.calendar[i][4].toString())
+//            Log.d("--","--------------------------------------------")
+//        }
 
 
 
@@ -73,7 +102,55 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
             return@setOnItemSelectedListener true
         }
     }
+    private fun getValue(email: String) {
+        databaseReference!!.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                for (dataSnapshot in snapshot.children) {
+                    if (dataSnapshot.child("user_id").getValue(String::class.java) == email) {
+                        val sFHeight =
+                            dataSnapshot.child("user_height").getValue(String::class.java)
+                        val sFWeight =
+                            dataSnapshot.child("user_weight").getValue(String::class.java)
+                        val sFProteinPurpose =
+                            dataSnapshot.child("user_proteinPurpose").getValue(String::class.java)
+                        val sFSnackYn =
+                            dataSnapshot.child("user_snackYn").getValue(String::class.java)
+                        val sFTrainingCnt =
+                            dataSnapshot.child("user_trainingCnt").getValue(String::class.java)
+                        val sFTrainingPurpose =
+                            dataSnapshot.child("user_trainingPurpose").getValue(String::class.java)
+                        val sFTrainingTime =
+                            dataSnapshot.child("user_trainingTime").getValue(String::class.java)
 
+                        val sFAllergy =
+                            dataSnapshot.child("user_allergy").value as ArrayList<Int>?
+                        val sFDietCnt =
+                            dataSnapshot.child("user_dietCnt").value as ArrayList<Int>?
+                        val sFPropre = dataSnapshot.child("user_proPre").value as ArrayList<Int>?
+                        val sFFlapre = dataSnapshot.child("user_flaPre").value as ArrayList<Int>?
+
+
+
+                        //Log.d("아이디", semail!!)
+                        Log.d("1. 키", sFHeight!!)
+                        Log.d("2. 무게", sFWeight!!)
+                        Log.d("3. 단백질 섭취 목적", sFProteinPurpose!!)
+                        Log.d("4. 간식 여부", sFSnackYn!!)
+                        Log.d("5. 훈련 횟수", sFTrainingCnt!!)
+                        Log.d("6. 훈련 목적", sFTrainingPurpose!!)
+                        Log.d("7. 훈련 시간", sFTrainingTime!!)
+
+                        Log.d("8. 알러지", sFAllergy.toString())
+                        Log.d("9. 하루 식단", sFDietCnt.toString())
+                        Log.d("10. 제품별 선호도", sFPropre.toString())
+                        Log.d("11. 맛 선호도", sFFlapre.toString())
+                    }
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {}
+        })
+    }
 
 
 
@@ -110,7 +187,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
         if (profileFragment != null) supportFragmentManager.beginTransaction().show(profileFragment!!).commit()
     }
 
-    fun makeDietCalendar(proteinAmount : Int, flavour : Array<Int> , product : Array<Int>, allergy : Int, month : Int) : DietInfo {
+    fun makeDietCalendar(proteinAmount: Int, flavour: IntArray?, product: Array<Int>, allergy: Int, month: Int) : DietInfo {
 
         // 1. 받아온 달에 맞춰 필요한 총 상품 갯수 산출
         val case1 = arrayOf(1,3,4,7,8,10,12)

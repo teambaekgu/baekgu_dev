@@ -1,5 +1,6 @@
 package com.kookmin.mobile_programming.baekgu.myapplication.src.fg_product
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -9,14 +10,18 @@ import com.kookmin.mobile_programming.baekgu.myapplication.config.BaseFragment
 import com.kookmin.mobile_programming.baekgu.myapplication.databinding.FragmentProductBinding
 import com.kookmin.mobile_programming.baekgu.myapplication.src.fg_product.rv.RecommendProductListDataClass
 import com.kookmin.mobile_programming.baekgu.myapplication.src.fg_product.rv.RecommendProductListRvAdapter
+import com.kookmin.mobile_programming.baekgu.myapplication.src.product_details.ProductDetailsActivity
+import com.kookmin.mobile_programming.baekgu.myapplication.src.profile_edit.ProfileEditActivity
 
 class ProductFragment: BaseFragment<FragmentProductBinding>(FragmentProductBinding::bind, R.layout.fragment_product) {
     private val recommendProductList=ArrayList<RecommendProductListDataClass>()
     private val bestProductList=ArrayList<RecommendProductListDataClass>()
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setData()
         setRecyclerView()
+        setListener()
     }
 
     private fun setData(){
@@ -36,8 +41,30 @@ class ProductFragment: BaseFragment<FragmentProductBinding>(FragmentProductBindi
         binding.fgProductRvMain.adapter=RecommendProductListRvAdapter(recommendProductList)
         binding.fgProductRvMain.layoutManager=LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
 
+
+
         binding.fgProductRvBest.adapter=RecommendProductListRvAdapter(bestProductList)
         binding.fgProductRvBest.layoutManager=LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
 
+
+    }
+
+    private fun setListener(){
+        (binding.fgProductRvMain.adapter as RecommendProductListRvAdapter).setItemClickListener(object :RecommendProductListRvAdapter.OnItemClickListener{
+            override fun onClick(position: Int) {
+                var intent=Intent(requireContext(),ProductDetailsActivity::class.java)
+                intent.putExtra("pos",position)
+                startActivity(intent)
+            }
+
+        })
+
+        (binding.fgProductRvBest.adapter as RecommendProductListRvAdapter).setItemClickListener(object :RecommendProductListRvAdapter.OnItemClickListener{
+            override fun onClick(position: Int) {
+                var intent = Intent(requireContext(),ProductDetailsActivity::class.java)
+                intent.putExtra("pos",position)
+                startActivity(intent)
+            }
+        })
     }
 }

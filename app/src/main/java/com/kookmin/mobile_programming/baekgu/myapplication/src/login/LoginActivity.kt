@@ -79,7 +79,9 @@ class LoginActivity:BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::inf
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    startActivity(Intent(this,MainActivity::class.java))
+                    intent = Intent(this,MainActivity::class.java)
+                    intent.putExtra("user_id",binding.loginEditId.text.toString())
+                    startActivity(intent)
                     val user = auth.currentUser
                     user?.let {
                         val uid = user.uid
