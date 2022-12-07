@@ -20,53 +20,13 @@ class LoginActivity:BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::inf
     private lateinit var auth: FirebaseAuth
         private lateinit var database: DatabaseReference
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         auth = Firebase.auth
         setListener()
     }
 
-    private fun setListener() {
-        //로그인버튼
-        binding.loginBtnLogin.setOnClickListener {
-            if (binding.loginTvIdTitle.text.isNullOrEmpty() || binding.loginTvPwTitle.text.isNullOrEmpty()) {
-                showCustomToast("이메일, 비밀번호를 입력하세요.")
-            } else {
-                signIn(
-                    binding.loginEditId.text.toString(),
-                    binding.loginEditPw.text.toString()
-                )
-            }
-        }
-        //회원가입 버튼
-        binding.loginTvSignup.setOnClickListener {
-            var intent = Intent(this, SignupActivity::class.java)
-            startActivity(intent)
-        }
-
-
-
-        binding.loginEditId.addTextChangedListener {
-            if(it!!.isNotEmpty()){
-                binding.loginEditId.background=resources.getDrawable(R.drawable.bg_activity,null)
-            }else{
-                binding.loginEditId.background=resources.getDrawable(R.drawable.bg_btn_disabled,null)
-            }
-            checkData()
-        }
-
-        binding.loginEditPw.addTextChangedListener {
-            if(it!!.isNotEmpty()){
-                binding.loginEditPw.background=resources.getDrawable(R.drawable.bg_activity,null)
-            }else{
-                binding.loginEditPw.background=resources.getDrawable(R.drawable.bg_btn_disabled,null)
-            }
-            checkData()
-        }
-    }
-
-    public override fun onStart() {
+    override fun onStart() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
         val currentUser = auth.currentUser
@@ -75,14 +35,44 @@ class LoginActivity:BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::inf
         }
     }
 
+    // 로그인 기록이 있으면 메인 액티비티로 이동
+    private fun reload() {
+        var intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun checkData(){
+        if(binding.loginEditId.text!!.isNotEmpty() && binding.loginEditPw.text!!.isNotEmpty()){
+            binding.loginBtnLogin.background=resources.getDrawable(R.drawable.bg_btn_activity,null)
+            binding.loginBtnLogin.setTextColor(resources.getColor(R.color.white,null))
+
+        }else{
+            binding.loginBtnLogin.background=resources.getDrawable(R.drawable.bg_btn_disabled,null)
+            binding.loginBtnLogin.setTextColor(resources.getColor(R.color.subGrey,null))
+
+        }
+    }
+
+    // 프레퍼런스 값 업데이트 함수
+    private fun updateUI(title: String?, value: String?) {
+        val sharedPreference = getSharedPreferences("userInfo", MODE_PRIVATE)
+        val editor: SharedPreferences.Editor = sharedPreference.edit()
+        editor.putString(title, value)
+        editor.commit()
+    }
+
+    // 회원가입 함수
     private fun signIn(email: String, password: String) {
+        // 파이어베이스 로그앤 메서드
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
+                    // 로그인 성공하면 메인화면으로 화면 전환
                     intent = Intent(this,MainActivity::class.java)
-                    intent.putExtra("user_id",binding.loginEditId.text.toString())
                     startActivity(intent)
                     val user = auth.currentUser
+
+                    // 파이어베이스 Realtime Database 조회 후 그 정보로 프레퍼런스 업데이트
                     user?.let {
                         val uid = user.uid
                         val email = user.email
@@ -106,14 +96,9 @@ class LoginActivity:BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::inf
                             var addressValue = it.value.toString()
                             updateUI("address", addressValue)
                         }
-//                            val jsonObject = JSONTokener(it.value.toString()).nextValue() as JSONObject
-//                            val nameValue = jsonObject.getString("name")
-//                            val birthValue = jsonObject.getString("birth")
-//                            val phoneValue = jsonObject.getString("phone")
-//                            val addressValue = jsonObject.getString("address")
-
                     }
                 } else {
+                    // 로그인 실패 시 프레퍼런스 null 값으로 업데이트
                     Toast.makeText(baseContext, "이메일 또는 비밀번호를 잘못 입력했습니다.", Toast.LENGTH_SHORT).show()
                     updateUI("uid", null)
                     updateUI("email", null)
@@ -126,44 +111,41 @@ class LoginActivity:BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::inf
             }
     }
 
-    private fun reload() {
-        var intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
-    }
+    private fun setListener() {
+        //로그인버튼
+        binding.loginBtnLogin.setOnClickListener {
+            if (binding.loginTvIdTitle.text.isNullOrEmpty() || binding.loginTvPwTitle.text.isNullOrEmpty()) {
+                showCustomToast("이메일, 비밀번호를 입력하세요.")
+            } else {
+                signIn(
+                    binding.loginEditId.text.toString(),
+                    binding.loginEditPw.text.toString()
+                )
+            }
+        }
 
-//    private fun updateUI(uid: String?, email: String?, pwValue: String?, nameValue: String?,
-//                         birthValue: String?, phoneValue: String?, addressValue: String?) {
-//        val sharedPreference = getSharedPreferences("userInfo", MODE_PRIVATE)
-//        val editor: SharedPreferences.Editor = sharedPreference.edit()
-//        editor.putString("uid", uid)
-//        editor.putString("email", email)
-//        editor.putString("password", pwValue)
-//        editor.putString("name", nameValue)
-//        editor.putString("birth", birthValue)
-//        editor.putString("phone", phoneValue)
-//        editor.putString("address", addressValue)
-//        editor.commit()
-//    }
-    private fun updateUI(title: String?, value: String?) {
-        val sharedPreference = getSharedPreferences("userInfo", MODE_PRIVATE)
-        val editor: SharedPreferences.Editor = sharedPreference.edit()
-        editor.putString(title, value)
-        editor.commit()
-    }
+        //회원가입 버튼
+        binding.loginTvSignup.setOnClickListener {
+            var intent = Intent(this, SignupActivity::class.java)
+            startActivity(intent)
+        }
 
-    private fun checkData(){
-        if(binding.loginEditId.text!!.isNotEmpty() && binding.loginEditPw.text!!.isNotEmpty()){
-            binding.loginBtnLogin.background=resources.getDrawable(R.drawable.bg_btn_activity,null)
-            binding.loginBtnLogin.setTextColor(resources.getColor(R.color.white,null))
+        binding.loginEditId.addTextChangedListener {
+            if(it!!.isNotEmpty()){
+                binding.loginEditId.background=resources.getDrawable(R.drawable.bg_activity,null)
+            }else{
+                binding.loginEditId.background=resources.getDrawable(R.drawable.bg_btn_disabled,null)
+            }
+            checkData()
+        }
 
-        }else{
-            binding.loginBtnLogin.background=resources.getDrawable(R.drawable.bg_btn_disabled,null)
-            binding.loginBtnLogin.setTextColor(resources.getColor(R.color.subGrey,null))
-
+        binding.loginEditPw.addTextChangedListener {
+            if(it!!.isNotEmpty()){
+                binding.loginEditPw.background=resources.getDrawable(R.drawable.bg_activity,null)
+            }else{
+                binding.loginEditPw.background=resources.getDrawable(R.drawable.bg_btn_disabled,null)
+            }
+            checkData()
         }
     }
-
-
-
-
 }
