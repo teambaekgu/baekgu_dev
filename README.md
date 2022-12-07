@@ -232,10 +232,10 @@
 
  <tr>
   <td align='center'><img src="x" width="50" height="50"></td>
-  <td align='center'>지수님</td>
+  <td align='center'>jisu Seo</td>
   <td align='center'>Back-End (Firebase)</td>
-  <td align='center'><a href="x"><img src="x"/></a></td>
-  <td align='center'><a href="x"><img src="x"/></a></td>
+  <td align='center'><a href="https://github.com/jseo9732"><img src="x"/></a></td>
+  <td align='center'><a href="mailto:jseo9732@gmail.com"><img src="x"/></a></td>
  </tr>
    
 </table>
