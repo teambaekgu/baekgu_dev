@@ -68,7 +68,6 @@ class LoginActivity:BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::inf
 
     // 로그인 함수
     private fun signIn(email: String, password: String) {
-        Log.d("====================", "==========start=========")
         // 파이어베이스 로그인 메서드
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
@@ -85,6 +84,7 @@ class LoginActivity:BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::inf
                         val email = user.email
                         updateUI("uid", uid)
                         updateUI("email", email)
+                        updateUI("password", binding.loginEditPw.text.toString())
 
                         database = Firebase.database.reference
                         database.child("users").child(uid).child("name").get().addOnSuccessListener {
