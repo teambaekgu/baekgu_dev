@@ -85,39 +85,44 @@ class ProfileEditActivity:BaseActivity<ActivityProfileEditBinding>(ActivityProfi
             var newPhoneValue = binding.profileEditEditNumber.text.toString()
             var newAddressValue = binding.profileEditEditTown.text.toString()
 
-            if (Pattern.matches(
-                    "^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[\$@\$!%*#?&])[A-Za-z[0-9]\$@\$!%*#?&]{8,20}\$", newPwValue)) {
-                if(newNameValue.isNotEmpty() && newBirthValue.isNotEmpty() && newPhoneValue.isNotEmpty() && newAddressValue.isNotEmpty()) {
-                    // 회원 정보 수정
-                    user?.let {
-                        val uid = user.uid
+            if (pwValue == newPwValue && nameValue == newNameValue && birthValue == newBirthValue && phoneValue == newPhoneValue && addressValue == newAddressValue) {
+                Toast.makeText(baseContext, "수정 사항이 없습니다.", Toast.LENGTH_SHORT).show()
+                finish()
+            } else {
+                if (Pattern.matches(
+                        "^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[\$@\$!%*#?&])[A-Za-z[0-9]\$@\$!%*#?&]{8,20}\$", newPwValue)) {
+                    if(newNameValue.isNotEmpty() && newBirthValue.isNotEmpty() && newPhoneValue.isNotEmpty() && newAddressValue.isNotEmpty()) {
+                        // 회원 정보 수정
+                        user?.let {
+                            val uid = user.uid
 
-                        // 원래 비밀번호랑 다르면 비밀번호 수정
-                        if(pwValue != newPwValue) {
-                            // 파이어베이스 사용자 재인증 - 이메일, 비밀번호 수정 전 한번 해줘야함
-                            val credential = EmailAuthProvider.getCredential(emailValue.toString(), pwValue.toString())
-                            user.reauthenticate(credential).addOnCompleteListener {
-                                Log.d("회원정보 수정", "유저 재인증 완료")
+                            // 원래 비밀번호랑 다르면 비밀번호 수정
+                            if(pwValue != newPwValue) {
+                                // 파이어베이스 사용자 재인증 - 이메일, 비밀번호 수정 전 한번 해줘야함
+                                val credential = EmailAuthProvider.getCredential(emailValue.toString(), pwValue.toString())
+                                user.reauthenticate(credential).addOnCompleteListener {
+                                    Log.d("회원정보 수정", "유저 재인증 완료")
+                                }
+
+                                // 파이어베이스 탑재 비밀번호 수정 메소드
+                                user!!.updatePassword(binding.profileEditEditPw.text.toString())
+                                    .addOnCompleteListener { task ->
+                                        if (task.isSuccessful) {
+                                            Log.d("비밀번호 수정", "비밀번호 변경 완료")
+                                        }
+                                    }
                             }
 
-                            // 파이어베이스 탑재 비밀번호 수정 메소드
-                            user!!.updatePassword(binding.profileEditEditPw.text.toString())
-                                .addOnCompleteListener { task ->
-                                    if (task.isSuccessful) {
-                                        Log.d("비밀번호 수정", "비밀번호 변경 완료")
-                                    }
-                                }
+                            // 나머지 회원정보, 비밀번호 프레퍼런스 수정
+                            updateUI(uid, newEmailValue, newPwValue, newNameValue, newBirthValue, newPhoneValue, newAddressValue)
                         }
+                    } else {
+                        Toast.makeText(baseContext, "모든 항목을 다 입력해주세요.", Toast.LENGTH_SHORT).show()
 
-                        // 나머지 회원정보, 비밀번호 프레퍼런스 수정
-                        updateUI(uid, newEmailValue, newPwValue, newNameValue, newBirthValue, newPhoneValue, newAddressValue)
                     }
                 } else {
-                    Toast.makeText(baseContext, "모든 항목을 다 입력해주세요.", Toast.LENGTH_SHORT).show()
-
+                    Toast.makeText(baseContext, "8~16자 영문, 숫자, 특수문자를 사용하세요.", Toast.LENGTH_SHORT).show()
                 }
-            } else {
-                Toast.makeText(baseContext, "8~16자 영문, 숫자, 특수문자를 사용하세요.", Toast.LENGTH_SHORT).show()
             }
         }
     }
