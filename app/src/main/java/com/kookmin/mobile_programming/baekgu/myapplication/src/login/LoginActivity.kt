@@ -61,9 +61,9 @@ class LoginActivity:BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::inf
         editor.commit()
     }
 
-    // 회원가입 함수
+    // 로그인 함수
     private fun signIn(email: String, password: String) {
-        // 파이어베이스 로그앤 메서드
+        // 파이어베이스 로그인 메서드
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
@@ -115,7 +115,7 @@ class LoginActivity:BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::inf
     private fun setListener() {
         //로그인버튼
         binding.loginBtnLogin.setOnClickListener {
-            if (binding.loginTvIdTitle.text.isNullOrEmpty() || binding.loginTvPwTitle.text.isNullOrEmpty()) {
+            if (binding.loginEditId.text.isNullOrEmpty() || binding.loginEditPw.text.isNullOrEmpty()) {
                 showCustomToast("이메일, 비밀번호를 입력하세요.")
             } else {
                 signIn(
