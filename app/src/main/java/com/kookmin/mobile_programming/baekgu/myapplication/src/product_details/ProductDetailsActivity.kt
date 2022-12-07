@@ -31,7 +31,7 @@ class ProductDetailsActivity: BaseActivity<ActivityProductDetailsBinding>(Activi
 
     private fun setRecyclerView(){
 
-        productDetailsList.add(ProductDetailsDataClass(info!!.image_1))//null이라 느낌표 !! 두개해주기
+        productDetailsList.add(ProductDetailsDataClass(info!!.image_1))
         productDetailsList.add(ProductDetailsDataClass(info!!.image_2))
         productDetailsList.add(ProductDetailsDataClass(info!!.image_3))
 

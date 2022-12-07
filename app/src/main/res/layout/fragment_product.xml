@@ -124,7 +124,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/fg_product_layout_main"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
                 >
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/fg_product_tv_best"
@@ -146,9 +145,160 @@
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/fg_product_layout_chicken_steak"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="@dimen/vertical_margin"
+                android:layout_marginTop="@dimen/vertical_margin"
+                app:layout_constraintTop_toBottomOf="@+id/fg_product_layout_best"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                >
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/fg_product_tv_chicken_steak"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/horizontal_margin"
+                    android:text="닭가슴살 스테이크"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_large"
+                    android:textStyle="bold"
+                    />
 
 
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/fg_product_rv_chicken_steak"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
 
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+<!--            <androidx.appcompat.widget.LinearLayoutCompat-->
+<!--                android:id="@+id/fg_product_layout_sauce_chicken"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical"-->
+<!--                android:layout_marginBottom="@dimen/vertical_margin"-->
+<!--                android:layout_marginTop="@dimen/vertical_margin"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/fg_product_layout_chiken_steak"-->
+<!--                app:layout_constraintLeft_toLeftOf="parent"-->
+<!--                app:layout_constraintRight_toRightOf="parent"-->
+<!--                >-->
+<!--                <androidx.appcompat.widget.AppCompatTextView-->
+<!--                    android:id="@+id/fg_product_tv_sauce_chicken"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginLeft="@dimen/horizontal_margin"-->
+<!--                    android:text="소스 닭가슴살"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textSize="@dimen/text_large"-->
+<!--                    android:textStyle="bold"-->
+<!--                    />-->
+
+
+<!--                <androidx.recyclerview.widget.RecyclerView-->
+<!--                    android:id="@+id/fg_product_rv_sauce_chicken"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    />-->
+
+<!--            </androidx.appcompat.widget.LinearLayoutCompat>-->
+
+<!--            <androidx.appcompat.widget.LinearLayoutCompat-->
+<!--                android:id="@+id/fg_product_layout_fish"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical"-->
+<!--                android:layout_marginBottom="@dimen/vertical_margin"-->
+<!--                android:layout_marginTop="@dimen/vertical_margin"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/fg_product_layout_sauce_chicken"-->
+<!--                app:layout_constraintLeft_toLeftOf="parent"-->
+<!--                app:layout_constraintRight_toRightOf="parent"-->
+<!--                >-->
+<!--                <androidx.appcompat.widget.AppCompatTextView-->
+<!--                    android:id="@+id/fg_product_tv_fish"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginLeft="@dimen/horizontal_margin"-->
+<!--                    android:text="생선류"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textSize="@dimen/text_large"-->
+<!--                    android:textStyle="bold"-->
+<!--                    />-->
+
+
+<!--                <androidx.recyclerview.widget.RecyclerView-->
+<!--                    android:id="@+id/fg_product_rv_fish"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    />-->
+
+<!--            </androidx.appcompat.widget.LinearLayoutCompat>-->
+
+<!--            <androidx.appcompat.widget.LinearLayoutCompat-->
+<!--                android:id="@+id/fg_product_layout_beef_ball"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical"-->
+<!--                android:layout_marginBottom="@dimen/vertical_margin"-->
+<!--                android:layout_marginTop="@dimen/vertical_margin"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/fg_product_layout_fish"-->
+<!--                app:layout_constraintLeft_toLeftOf="parent"-->
+<!--                app:layout_constraintRight_toRightOf="parent"-->
+<!--                >-->
+<!--                <androidx.appcompat.widget.AppCompatTextView-->
+<!--                    android:id="@+id/fg_product_tv_beef_ball"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginLeft="@dimen/horizontal_margin"-->
+<!--                    android:text="소고기 볼"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textSize="@dimen/text_large"-->
+<!--                    android:textStyle="bold"-->
+<!--                    />-->
+
+
+<!--                <androidx.recyclerview.widget.RecyclerView-->
+<!--                    android:id="@+id/fg_product_rv_beef_ball"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    />-->
+
+<!--            </androidx.appcompat.widget.LinearLayoutCompat>-->
+
+<!--            <androidx.appcompat.widget.LinearLayoutCompat-->
+<!--                android:id="@+id/fg_product_layout_beef_steak"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical"-->
+<!--                android:layout_marginBottom="@dimen/vertical_margin"-->
+<!--                android:layout_marginTop="@dimen/vertical_margin"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/fg_product_layout_beef_ball"-->
+<!--                app:layout_constraintLeft_toLeftOf="parent"-->
+<!--                app:layout_constraintRight_toRightOf="parent"-->
+<!--                >-->
+<!--                <androidx.appcompat.widget.AppCompatTextView-->
+<!--                    android:id="@+id/fg_product_tv_beef_steak"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginLeft="@dimen/horizontal_margin"-->
+<!--                    android:text="소고기 스테이크"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textSize="@dimen/text_large"-->
+<!--                    android:textStyle="bold"-->
+<!--                    />-->
+
+
+<!--                <androidx.recyclerview.widget.RecyclerView-->
+<!--                    android:id="@+id/fg_product_rv_beef_steak"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    />-->
+
+<!--            </androidx.appcompat.widget.LinearLayoutCompat>-->
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
