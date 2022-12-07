@@ -16,6 +16,8 @@ class DietDetailsActivity:BaseActivity<ActivityDietDetailsBinding>(ActivityDietD
     private val dietList=ArrayList<DietDetailsDataClass>()
     private lateinit var receiveIntent: Intent
     private var dietDetailsList=ArrayList<DietDetailsDataClass>()
+    private val DIET_DETAILS_CODE=101
+    private var changeProteinAmount=ArrayList<Int>()
 
     private var date:String=""
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,12 +26,17 @@ class DietDetailsActivity:BaseActivity<ActivityDietDetailsBinding>(ActivityDietD
         if(receiveIntent!=null){
             if(!receiveIntent.getStringExtra("date")!!.isEmpty()){
                 date=receiveIntent.getStringExtra("date")!!
+                Log.d("weagfwag",date)
             }
 
             if(receiveIntent.getSerializableExtra("dietList")!=null){
                 dietDetailsList=receiveIntent.getSerializableExtra("dietList") as ArrayList<DietDetailsDataClass>
             }
 
+        }
+
+        for(i in 0 until 30){
+            changeProteinAmount.add(0)
         }
 
 
@@ -41,6 +48,24 @@ class DietDetailsActivity:BaseActivity<ActivityDietDetailsBinding>(ActivityDietD
             dietList.add((dietDetailsList[i]))
         }
         setViewPager()
+        setListener()
+    }
+
+    private fun setListener(){
+        binding.dietDetailsImgBack.setOnClickListener{
+            Log.d("ewgawgewag",changeProteinAmount.toString())
+            receiveIntent.putExtra("proteinAmountList",changeProteinAmount)
+            receiveIntent.putExtra("pos",12)
+            setResult(DIET_DETAILS_CODE,receiveIntent)
+            finish()
+        }
+
+        (binding.dietDetailsVp2Main.adapter as DietDetailsRvAdapter).setItemClickListener(object :DietDetailsRvAdapter.OnItemClickListener{
+            override fun onClick(position: Int, addAmount: Int) {
+                changeProteinAmount[position]=changeProteinAmount[position]+addAmount
+            }
+
+        })
     }
 
     private fun setViewPager(){
@@ -75,6 +100,6 @@ class DietDetailsActivity:BaseActivity<ActivityDietDetailsBinding>(ActivityDietD
         )
         binding.dietDetailsVp2Main.addItemDecoration(itemDecoration)
 
-        binding.dietDetailsVp2Main.setCurrentItem(1,false)
+        binding.dietDetailsVp2Main.setCurrentItem(date.split(".")[1].toInt()-1,false)
     }
 }
