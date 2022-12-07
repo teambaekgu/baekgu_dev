@@ -75,6 +75,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
 //        }
 
 
+        //캘린더 상품 , 식단 상세보기 , 회원정보 수정 테두리 , README 작성
+
 
 
         productFragment= ProductFragment()

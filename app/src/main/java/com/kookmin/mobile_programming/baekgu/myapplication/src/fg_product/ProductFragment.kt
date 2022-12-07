@@ -27,7 +27,6 @@ class ProductFragment: BaseFragment<FragmentProductBinding>(FragmentProductBindi
 
     private fun setData(){
 
-
     }
 
     private fun setRecyclerView(){
