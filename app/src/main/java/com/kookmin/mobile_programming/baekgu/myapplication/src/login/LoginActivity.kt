@@ -79,6 +79,7 @@ class LoginActivity:BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::inf
                         val email = user.email
                         updateUI("uid", uid)
                         updateUI("email", email)
+                        updateUI("password", binding.loginEditPw.text.toString())
 
                         database = Firebase.database.reference
                         database.child("users").child(uid).child("name").get().addOnSuccessListener {
