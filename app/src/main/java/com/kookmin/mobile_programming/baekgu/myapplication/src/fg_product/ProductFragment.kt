@@ -57,7 +57,6 @@ class ProductFragment: BaseFragment<FragmentProductBinding>(FragmentProductBindi
 
         (binding.fgProductRvBest.adapter as RecommendProductListRvAdapter).setItemClickListener(object :RecommendProductListRvAdapter.OnItemClickListener{
             override fun onClick(position: Int) {
-                // 이런식으로 !! recommendProductList[position].
                 var intent=Intent(requireContext(),ProductDetailsActivity::class.java)
                 intent.putExtra("info",bestProductList[position])
                 startActivity(intent)
