@@ -9,8 +9,10 @@ import com.kookmin.mobile_programming.baekgu.myapplication.R
 import com.kookmin.mobile_programming.baekgu.myapplication.config.BaseFragment
 import com.kookmin.mobile_programming.baekgu.myapplication.databinding.FragmentCalendarBinding
 import com.kookmin.mobile_programming.baekgu.myapplication.src.diet_details.DietDetailsActivity
+import com.kookmin.mobile_programming.baekgu.myapplication.src.diet_details.rv.DietDetailsDataClass
 import com.kookmin.mobile_programming.baekgu.myapplication.src.dto.DietInfo
 import com.kookmin.mobile_programming.baekgu.myapplication.src.dto.LocalDB
+import com.kookmin.mobile_programming.baekgu.myapplication.src.fg_calendar.data_class.ProteinAmountDataClass
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -20,6 +22,11 @@ class CalendarFragment: BaseFragment<FragmentCalendarBinding>(FragmentCalendarBi
 
     private var month:String=""
     private var day:String=""
+
+    private var proteinAmountList=ArrayList<ProteinAmountDataClass>()
+    private var dietDetailsList=ArrayList<DietDetailsDataClass>()
+
+
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -41,6 +48,14 @@ class CalendarFragment: BaseFragment<FragmentCalendarBinding>(FragmentCalendarBi
         setListener()
 
 
+
+
+
+
+
+
+
+
         // DB에서 받아오는 부분 ---------------------------------------
         // 제품 순서 : 소시지, 볼, 소스, 소고기, 생선, 스테이크, 프로틴, 간식
         // allergy : product 배열 idx
@@ -55,13 +70,19 @@ class CalendarFragment: BaseFragment<FragmentCalendarBinding>(FragmentCalendarBi
         val result = makeDietCalendar(proteinAmount,flavour,product,allergy,month)
 
         for(i : Int in 0..30){
-            Log.d("2022/12/${i+1} 아침 : ", result.calendar[i][0].toString())
-            Log.d("2022/12/${i+1} 점심 : ", result.calendar[i][1].toString())
-            Log.d("2022/12/${i+1} 저녁 : ", result.calendar[i][2].toString())
-            Log.d("2022/12/${i+1} 간식1 : ", result.calendar[i][3].toString())
-            Log.d("2022/12/${i+1} 간식2 : ", result.calendar[i][4].toString())
-            Log.d("--","--------------------------------------------")
+            proteinAmountList.add(ProteinAmountDataClass(proteinAmount,0))
+            dietDetailsList.add(DietDetailsDataClass(month.toString(),(i+1).toString(),result.calendar[i][0],result.calendar[i][1],result.calendar[i][2],
+                result.calendar[i][3],result.calendar[i][4]))
+
+            Log.d(TAG,"2022/12/${i+1} 아침 : ${result.calendar[i][0]}")
+            Log.d(TAG,"2022/12/${i+1} 점심 : ${result.calendar[i][1]}")
+            Log.d(TAG,"2022/12/${i+1} 저녁 : ${result.calendar[i][2]}")
+            Log.d(TAG,"2022/12/${i+1} 간식1 :${result.calendar[i][3]}")
+            Log.d(TAG,"2022/12/${i+1} 간식2 :${result.calendar[i][4]}")
+            Log.d(TAG,"----------------------------------------------")
         }
+
+
 
 
 
@@ -75,6 +96,7 @@ class CalendarFragment: BaseFragment<FragmentCalendarBinding>(FragmentCalendarBi
             var intent=Intent(requireContext(),DietDetailsActivity::class.java)
 
             intent.putExtra("date","${month}.${day}")
+            intent.putExtra("dietList",dietDetailsList)
             startActivity(intent)
 
 
@@ -82,7 +104,12 @@ class CalendarFragment: BaseFragment<FragmentCalendarBinding>(FragmentCalendarBi
 
 
         binding.fgCalendarMain.setOnDateChangeListener(OnDateChangeListener { calendarView, i, i1, i2 ->
+            proteinAmountList[i2-1]
 
+            if((i2-1)>0 && (i2-1)<31){
+                binding.fgCalendarTvTargetProtein.text=proteinAmountList[i2-1].targetAmount.toString()
+                binding.fgCalendarTvCurrentProtein.text=proteinAmountList[i2-1].currentAmount.toString()
+            }
             binding.fgCalendarTvDate.text="${i1+1}.${i2}"
 
         })

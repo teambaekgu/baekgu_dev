@@ -62,9 +62,8 @@ LoginActivity:BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::inflate) 
         editor.commit()
     }
 
-    // 회원가입 함수
+    // 로그인 함수
     private fun signIn(email: String, password: String) {
-
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
@@ -116,7 +115,7 @@ LoginActivity:BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::inflate) 
     private fun setListener() {
         //로그인버튼
         binding.loginBtnLogin.setOnClickListener {
-            if (binding.loginTvIdTitle.text.isNullOrEmpty() || binding.loginTvPwTitle.text.isNullOrEmpty()) {
+            if (binding.loginEditId.text.isNullOrEmpty() || binding.loginEditPw.text.isNullOrEmpty()) {
                 showCustomToast("이메일, 비밀번호를 입력하세요.")
             } else {
                 signIn(

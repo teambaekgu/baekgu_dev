@@ -26,7 +26,7 @@ class DietDetailsRvAdapter(val dataSet:ArrayList<DietDetailsDataClass>):Recycler
 
         fun bind(item:DietDetailsDataClass){
 
-            binding.itemDietDetailsTvMonth.text=item.test
+            binding.itemDietDetailsTvMonth.text="${item.month}.${item.day}"
 
         }
 

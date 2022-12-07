@@ -15,6 +15,8 @@ import com.kookmin.mobile_programming.baekgu.myapplication.src.diet_details.util
 class DietDetailsActivity:BaseActivity<ActivityDietDetailsBinding>(ActivityDietDetailsBinding::inflate) {
     private val dietList=ArrayList<DietDetailsDataClass>()
     private lateinit var receiveIntent: Intent
+    private var dietDetailsList=ArrayList<DietDetailsDataClass>()
+
     private var date:String=""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,6 +26,10 @@ class DietDetailsActivity:BaseActivity<ActivityDietDetailsBinding>(ActivityDietD
                 date=receiveIntent.getStringExtra("date")!!
             }
 
+            if(receiveIntent.getSerializableExtra("dietList")!=null){
+                dietDetailsList=receiveIntent.getSerializableExtra("dietList") as ArrayList<DietDetailsDataClass>
+            }
+
         }
 
 
@@ -31,8 +37,8 @@ class DietDetailsActivity:BaseActivity<ActivityDietDetailsBinding>(ActivityDietD
 
 
 
-        for(i in 0 until 5){
-            dietList.add(DietDetailsDataClass(date))
+        for(i in 0 until dietDetailsList.size){
+            dietList.add((dietDetailsList[i]))
         }
         setViewPager()
     }
