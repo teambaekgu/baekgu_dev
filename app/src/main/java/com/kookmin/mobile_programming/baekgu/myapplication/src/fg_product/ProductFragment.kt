@@ -43,15 +43,15 @@ class ProductFragment: BaseFragment<FragmentProductBinding>(FragmentProductBindi
         recommendProductList.add(RecommendProductListDataClass(R.drawable.cbx001_1,R.drawable.cbx001_2,R.drawable.cbx001_3,R.drawable.cbx001_4,"오리지널"))
         recommendProductList.add(RecommendProductListDataClass(R.drawable.cbx002_1,R.drawable.cbx002_2,R.drawable.cbx002_3,R.drawable.cbx002_4,"스파이시"))
         recommendProductList.add(RecommendProductListDataClass(R.drawable.cbx003_1,R.drawable.cbx003_2,R.drawable.cbx003_3,R.drawable.cbx003_4,"치즈"))
-//        recommendProductList.add(RecommendProductListDataClass(R.drawable.cbx004_1,R.drawable.cbx004_2,R.drawable.cbx004_3,R.drawable.cbx004_4,"깻잎"))
-//        recommendProductList.add(RecommendProductListDataClass(R.drawable.cbx005_1,R.drawable.cbx005_2,R.drawable.cbx005_3,R.drawable.cbx005_4,"자반김"))
+        recommendProductList.add(RecommendProductListDataClass(R.drawable.cbx004_1,R.drawable.cbx004_2,R.drawable.cbx004_3,R.drawable.cbx004_4,"깻잎"))
+        recommendProductList.add(RecommendProductListDataClass(R.drawable.cbx005_1,R.drawable.cbx005_2,R.drawable.cbx005_3,R.drawable.cbx005_4,"자반김"))
 
         //닭가슴살 소세지
         bestProductList.add(RecommendProductListDataClass(R.drawable.csx003_1,R.drawable.csx003_2,R.drawable.csx003_3,R.drawable.csx003_4,"청양고추"))
         bestProductList.add(RecommendProductListDataClass(R.drawable.csx007_1,R.drawable.csx007_2,R.drawable.csx007_3,R.drawable.csx007_4,"훈제"))
         bestProductList.add(RecommendProductListDataClass(R.drawable.csx005_1,R.drawable.csx005_2,R.drawable.csx005_3,R.drawable.csx005_4,"카레"))
-//        bestProductList.add(RecommendProductListDataClass(R.drawable.csx001_1,R.drawable.csx001_2,R.drawable.csx001_3,R.drawable.csx001_4,"매콤치즈"))
-//        bestProductList.add(RecommendProductListDataClass(R.drawable.csx002_1,R.drawable.csx002_2,R.drawable.csx002_3,R.drawable.csx002_4,"고추"))
+        bestProductList.add(RecommendProductListDataClass(R.drawable.csx001_1,R.drawable.csx001_2,R.drawable.csx001_3,R.drawable.csx001_4,"매콤치즈"))
+        bestProductList.add(RecommendProductListDataClass(R.drawable.csx002_1,R.drawable.csx002_2,R.drawable.csx002_3,R.drawable.csx002_4,"고추"))
 //        bestProductList.add(RecommendProductListDataClass(R.drawable.csx004_1,R.drawable.csx004_2,R.drawable.csx004_3,R.drawable.csx004_4,"마늘"))
 //        bestProductList.add(RecommendProductListDataClass(R.drawable.csx006_1,R.drawable.csx006_2,R.drawable.csx006_3,R.drawable.csx006_4,"불닭"))
 //        bestProductList.add(RecommendProductListDataClass(R.drawable.csx008_1,R.drawable.csx008_2,R.drawable.csx008_3,R.drawable.csx008_4,"할라피뇨"))
@@ -59,9 +59,9 @@ class ProductFragment: BaseFragment<FragmentProductBinding>(FragmentProductBindi
 //        bestProductList.add(RecommendProductListDataClass(R.drawable.csx0010_1,R.drawable.csx0010_2,R.drawable.csx0010_3,R.drawable.csx0010_4,"현미"))
 
         //달가슴살 스테이크
-        chickenSteakProductList.add(RecommendProductListDataClass(R.drawable.stx001_1,R.drawable.stx001_2,R.drawable.stx001_3,R.drawable.stx001_4,"오리지널"))
-        chickenSteakProductList.add(RecommendProductListDataClass(R.drawable.stx002_1,R.drawable.stx002_2,R.drawable.stx002_3,R.drawable.stx002_4,"갈릭"))
-        chickenSteakProductList.add(RecommendProductListDataClass(R.drawable.stx003_1,R.drawable.stx003_2,R.drawable.stx003_3,R.drawable.stx003_4,"고추"))
+//        chickenSteakProductList.add(RecommendProductListDataClass(R.drawable.stx001_1,R.drawable.stx001_2,R.drawable.stx001_3,R.drawable.stx001_4,"오리지널"))
+//        chickenSteakProductList.add(RecommendProductListDataClass(R.drawable.stx002_1,R.drawable.stx002_2,R.drawable.stx002_3,R.drawable.stx002_4,"갈릭"))
+//        chickenSteakProductList.add(RecommendProductListDataClass(R.drawable.stx003_1,R.drawable.stx003_2,R.drawable.stx003_3,R.drawable.stx003_4,"고추"))
 //        chickenSteakProductList.add(RecommendProductListDataClass(R.drawable.stx004_1,R.drawable.stx004_2,R.drawable.stx004_3,R.drawable.stx004_4,"호박"))
 //        chickenSteakProductList.add(RecommendProductListDataClass(R.drawable.stx005_1,R.drawable.stx005_2,R.drawable.stx005_3,R.drawable.stx005_4,"야채"))
 //        chickenSteakProductList.add(RecommendProductListDataClass(R.drawable.stx006_1,R.drawable.stx006_2,R.drawable.stx006_3,R.drawable.stx006_4,"토마토"))
@@ -98,8 +98,8 @@ class ProductFragment: BaseFragment<FragmentProductBinding>(FragmentProductBindi
         binding.fgProductRvBest.adapter=RecommendProductListRvAdapter(bestProductList)
         binding.fgProductRvBest.layoutManager=LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
 
-        binding.fgProductRvBest.adapter=RecommendProductListRvAdapter(chickenSteakProductList)
-        binding.fgProductRvBest.layoutManager=LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
+//        binding.fgProductRvBest.adapter=RecommendProductListRvAdapter(chickenSteakProductList)
+//        binding.fgProductRvBest.layoutManager=LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
 
 //        binding.fgProductRvBest.adapter=RecommendProductListRvAdapter(sauceChickenProductList)
 //        binding.fgProductRvBest.layoutManager=LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
@@ -134,14 +134,14 @@ class ProductFragment: BaseFragment<FragmentProductBinding>(FragmentProductBindi
             }
         })
 
-        (binding.fgProductRvChickenSteak.adapter as RecommendProductListRvAdapter).setItemClickListener(object :RecommendProductListRvAdapter.OnItemClickListener{
-            override fun onClick(position: Int) {
-                var intent=Intent(requireContext(),ProductDetailsActivity::class.java)
-                intent.putExtra("info",chickenSteakProductList[position])
-                startActivity(intent)
-            }
-
-        })
+//        (binding.fgProductRvChickenSteak.adapter as RecommendProductListRvAdapter).setItemClickListener(object :RecommendProductListRvAdapter.OnItemClickListener{
+//            override fun onClick(position: Int) {
+//                var intent=Intent(requireContext(),ProductDetailsActivity::class.java)
+//                intent.putExtra("info",chickenSteakProductList[position])
+//                startActivity(intent)
+//            }
+//
+//        })
 
 //        (binding.fgProductRvSauceChicken.adapter as RecommendProductListRvAdapter).setItemClickListener(object :RecommendProductListRvAdapter.OnItemClickListener{
 //            override fun onClick(position: Int) {
