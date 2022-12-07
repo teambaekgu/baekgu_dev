@@ -27,7 +27,7 @@ class ProfileFragment: BaseFragment<FragmentProfileBinding>(FragmentProfileBindi
     }
 
     // 프레퍼런스 값 업데이트 함수
-    private fun updateUI(uid: String?, email: String?, pwValue: String?, nameValue: String?, birthValue: String?, phoneValue: String?, addressValue: String?) {
+    private fun updateUI(uid: String?, email: String?, pwValue: String?, nameValue: String?, birthValue: String?, phoneValue: String?, addressValue: String?, heightValue: String?, weightValue: String?) {
         val sharedPreference = requireContext().getSharedPreferences("userInfo", AppCompatActivity.MODE_PRIVATE)
         val editor: SharedPreferences.Editor = sharedPreference.edit()
         editor.putString("uid", uid)
@@ -37,6 +37,8 @@ class ProfileFragment: BaseFragment<FragmentProfileBinding>(FragmentProfileBindi
         editor.putString("birth", birthValue)
         editor.putString("phone", phoneValue)
         editor.putString("address", addressValue)
+        editor.putString("height", heightValue)
+        editor.putString("weight", weightValue)
         editor.commit()
     }
 
@@ -49,6 +51,11 @@ class ProfileFragment: BaseFragment<FragmentProfileBinding>(FragmentProfileBindi
         binding.fgProfileTvUserName.setText(nameValue)
         binding.fgProfileTvEmail.setText(emailValue)
 
+        val heightValue = sharedPreference.getString("height", "User height")
+        val weightValue = sharedPreference.getString("weight", "User weight")
+        binding.fgProfileTvHeight.setText("${heightValue}g")
+        binding.fgProfileTvWeight.setText("${weightValue}g")
+
         // 개인정보 수정 페이지로 이동
         binding.fgProfileLayoutSetting.setOnClickListener {
             var intent= Intent(requireContext(), ProfileEditActivity::class.java)
@@ -58,7 +65,7 @@ class ProfileFragment: BaseFragment<FragmentProfileBinding>(FragmentProfileBindi
         // 로그아웃 기능
         binding.fgProfileTvLogout.setOnClickListener {
             Firebase.auth.signOut()
-            updateUI(null, null, null, null, null, null, null)
+            updateUI(null, null, null, null, null, null, null,null,null)
             var intent= Intent(requireContext(), LoginActivity::class.java)
             startActivity(intent)
         }

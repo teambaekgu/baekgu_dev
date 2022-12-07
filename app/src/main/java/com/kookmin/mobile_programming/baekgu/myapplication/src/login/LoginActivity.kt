@@ -3,11 +3,15 @@ package com.kookmin.mobile_programming.baekgu.myapplication.src.login
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.kookmin.mobile_programming.baekgu.myapplication.R
@@ -18,7 +22,7 @@ import com.kookmin.mobile_programming.baekgu.myapplication.src.signup.SignupActi
 
 class LoginActivity:BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::inflate) {
     private lateinit var auth: FirebaseAuth
-        private lateinit var database: DatabaseReference
+    private lateinit var database: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,8 +65,10 @@ class LoginActivity:BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::inf
         editor.commit()
     }
 
+
     // 로그인 함수
     private fun signIn(email: String, password: String) {
+        Log.d("====================", "==========start=========")
         // 파이어베이스 로그인 메서드
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
@@ -79,7 +85,6 @@ class LoginActivity:BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::inf
                         val email = user.email
                         updateUI("uid", uid)
                         updateUI("email", email)
-                        updateUI("password", binding.loginEditPw.text.toString())
 
                         database = Firebase.database.reference
                         database.child("users").child(uid).child("name").get().addOnSuccessListener {
@@ -98,8 +103,26 @@ class LoginActivity:BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::inf
                             var addressValue = it.value.toString()
                             updateUI("address", addressValue)
                         }
+
+                        database.child("Survey").addValueEventListener(object : ValueEventListener {
+                            override fun onDataChange(snapshot: DataSnapshot) {
+                                for (dataSnapshot in snapshot.children) {
+                                    if (dataSnapshot.child("user_id").getValue(String::class.java) == email.toString()) {
+                                        var heightValue = dataSnapshot.child("user_height").getValue(String::class.java)
+                                        updateUI("height", heightValue)
+                                        var weightValue = dataSnapshot.child("user_weight").getValue(String::class.java)
+                                        updateUI("weight", weightValue)
+                                    }
+                                }
+                            }
+
+                            override fun onCancelled(error: DatabaseError) {
+                                TODO("Not yet implemented")
+                            }
+                        })
                     }
-                } else {
+                }
+                else {
                     // 로그인 실패 시 프레퍼런스 null 값으로 업데이트
                     Toast.makeText(baseContext, "이메일 또는 비밀번호를 잘못 입력했습니다.", Toast.LENGTH_SHORT).show()
                     updateUI("uid", null)
@@ -109,6 +132,8 @@ class LoginActivity:BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::inf
                     updateUI("birth", null)
                     updateUI("phone", null)
                     updateUI("address", null)
+                    updateUI("height", null)
+                    updateUI("weight", null)
                 }
             }
     }
