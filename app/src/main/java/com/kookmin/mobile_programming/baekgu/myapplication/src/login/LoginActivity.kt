@@ -69,6 +69,7 @@ class LoginActivity:BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::inf
                 if (task.isSuccessful) {
                     // 로그인 성공하면 메인화면으로 화면 전환
                     intent = Intent(this,MainActivity::class.java)
+                    intent.putExtra("user_id",binding.loginEditId.text.toString())
                     startActivity(intent)
                     val user = auth.currentUser
 
