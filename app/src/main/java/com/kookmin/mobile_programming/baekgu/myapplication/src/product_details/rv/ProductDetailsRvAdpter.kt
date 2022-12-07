@@ -32,7 +32,6 @@ class ProductDetailsRvAdpter(val dataSet:ArrayList<ProductDetailsDataClass>): Re
 
             Glide.with(binding.root)
                 .load(item.image)
-//                .centerCrop()
                 .into(binding.itemProductDetailsImgMain)
 
         }
