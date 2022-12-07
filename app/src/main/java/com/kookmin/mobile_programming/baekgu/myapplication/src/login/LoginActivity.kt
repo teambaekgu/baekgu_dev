@@ -16,7 +16,8 @@ import com.kookmin.mobile_programming.baekgu.myapplication.databinding.ActivityL
 import com.kookmin.mobile_programming.baekgu.myapplication.src.MainActivity
 import com.kookmin.mobile_programming.baekgu.myapplication.src.signup.SignupActivity
 
-class LoginActivity:BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::inflate) {
+class
+LoginActivity:BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::inflate) {
     private lateinit var auth: FirebaseAuth
         private lateinit var database: DatabaseReference
 
@@ -76,6 +77,7 @@ class LoginActivity:BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::inf
     }
 
     private fun signIn(email: String, password: String) {
+
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {

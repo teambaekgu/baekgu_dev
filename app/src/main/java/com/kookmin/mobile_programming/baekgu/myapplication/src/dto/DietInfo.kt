@@ -14,5 +14,4 @@ class DietInfo (){
         Array(6,{"0"}),Array(6,{"0"}),Array(6,{"0"}),
         Array(6,{"0"}),Array(6,{"0"}),Array(6,{"0"}),
         Array(6,{"0"}),Array(6,{"0"}),Array(6,{"0"}),Array(6,{"0"}))
-
 }
