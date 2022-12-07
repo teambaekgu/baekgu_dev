@@ -16,6 +16,7 @@ import com.kookmin.mobile_programming.baekgu.myapplication.R
 import com.kookmin.mobile_programming.baekgu.myapplication.config.BaseActivity
 import com.kookmin.mobile_programming.baekgu.myapplication.databinding.ActivitySurveyBinding
 import com.kookmin.mobile_programming.baekgu.myapplication.src.MainActivity
+import kotlin.math.roundToInt
 
 class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::inflate) {
 
@@ -301,13 +302,13 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
     }
 
     private fun calculateProtein(height: Int, weight: Int, purpose: String) : Int{
-        val leanFat: Int = ((1.10 * weight) - 128 * (weight / height)).toInt()
+        val leanFat: Int = ((1.10 * weight) - 128 * ((weight *  weight) / (height * height))).toInt()
         val result:Int = when (purpose) {
             "보디빌딩 대회 준비" -> (leanFat * 2.0).toInt()
             "바디 프로필 준비" -> (leanFat * 1.8).toInt()
-            "골격근량 증가" -> (leanFat * 1.5).toInt()
+            "골격근량 증가" -> (leanFat * 1.5).toInt() //165 84
             "체지방 감량" -> (leanFat * 1.3).toInt()
-            "벌크업" -> (leanFat * 1.75).toInt()
+            "벌크업" -> (leanFat * 1.75).toInt() //180 130
             "웨이트 트레이닝을 하지 않음" -> (leanFat * 1.1).toInt()
             else -> 0
         }
