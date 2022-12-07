@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.CalendarView.OnDateChangeListener
+import androidx.activity.result.contract.ActivityResultContracts
 import com.kookmin.mobile_programming.baekgu.myapplication.R
 import com.kookmin.mobile_programming.baekgu.myapplication.config.BaseFragment
 import com.kookmin.mobile_programming.baekgu.myapplication.databinding.FragmentCalendarBinding
@@ -15,6 +16,7 @@ import com.kookmin.mobile_programming.baekgu.myapplication.src.dto.LocalDB
 import com.kookmin.mobile_programming.baekgu.myapplication.src.fg_calendar.data_class.ProteinAmountDataClass
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.collections.ArrayList
 
 
 class CalendarFragment: BaseFragment<FragmentCalendarBinding>(FragmentCalendarBinding::bind, R.layout.fragment_calendar) {
@@ -26,6 +28,24 @@ class CalendarFragment: BaseFragment<FragmentCalendarBinding>(FragmentCalendarBi
     private var proteinAmountList=ArrayList<ProteinAmountDataClass>()
     private var dietDetailsList=ArrayList<DietDetailsDataClass>()
 
+    private val DIET_DETAILS_CODE=101
+
+
+    // Pre contract
+    private val preDietDetailsActivityContractStartActivityResult =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { a_result ->
+            if (a_result.resultCode == DIET_DETAILS_CODE) {
+                a_result.data?.let {
+                    var amountList=it.getSerializableExtra("proteinAmountList") as ArrayList<Int>
+                    for(i in 0 until amountList.size){
+                        proteinAmountList[i].currentAmount=proteinAmountList[i].currentAmount+amountList[i]
+                    }
+
+                    binding.fgCalendarTvCurrentProtein.text=proteinAmountList[day.toInt()-1].currentAmount.toString()
+                    Log.d("wegwegaes",amountList.toString())
+                }
+            }
+        }
 
 
 
@@ -85,8 +105,6 @@ class CalendarFragment: BaseFragment<FragmentCalendarBinding>(FragmentCalendarBi
 
 
 
-
-
     }
     private fun setListener(){
 
@@ -97,13 +115,15 @@ class CalendarFragment: BaseFragment<FragmentCalendarBinding>(FragmentCalendarBi
 
             intent.putExtra("date","${month}.${day}")
             intent.putExtra("dietList",dietDetailsList)
-            startActivity(intent)
 
+            preDietDetailsActivityContractStartActivityResult.launch(intent)
 
         }
 
 
         binding.fgCalendarMain.setOnDateChangeListener(OnDateChangeListener { calendarView, i, i1, i2 ->
+            day=i2.toString()
+
             proteinAmountList[i2-1]
 
             if((i2-1)>0 && (i2-1)<31){

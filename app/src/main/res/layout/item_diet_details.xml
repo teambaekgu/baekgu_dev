@@ -38,16 +38,28 @@
             android:fontFamily="@font/spoqa_han_sans_neo_bold"
             />
 
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/item_diet_details_tv_breakfast_content"
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/vertical_margin_small"
-            android:text="닭가슴살"
-            android:textColor="@color/subGrey"
-            android:fontFamily="@font/spoqa_han_sans_neo_regular"
-            />
+            android:orientation="horizontal"
+            >
+
+            <CheckBox
+                android:id="@+id/item_diet_details_chb_breakfast"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/item_diet_details_tv_breakfast_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="닭가슴살"
+                android:textColor="@color/subGrey"
+                android:fontFamily="@font/spoqa_han_sans_neo_regular"
+                />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
 
 
     </androidx.appcompat.widget.LinearLayoutCompat>
@@ -75,16 +87,28 @@
 
             />
 
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/item_diet_details_tv_lunch_content"
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/vertical_margin_small"
-            android:text="연어스테이크"
-            android:textColor="@color/subGrey"
-            android:fontFamily="@font/spoqa_han_sans_neo_regular"
-            />
+            android:orientation="horizontal"
+            >
+            <CheckBox
+                android:id="@+id/item_diet_details_chb_lunch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/item_diet_details_tv_lunch_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="연어스테이크"
+                android:textColor="@color/subGrey"
+                android:fontFamily="@font/spoqa_han_sans_neo_regular"
+                />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
 
 
     </androidx.appcompat.widget.LinearLayoutCompat>
@@ -100,7 +124,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_marginTop="@dimen/vertical_margin_large"
-
         >
 
 
@@ -114,16 +137,123 @@
             android:fontFamily="@font/spoqa_han_sans_neo_bold"
             />
 
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/item_diet_details_tv_dinner_content"
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/vertical_margin_small"
-            android:text="파스타 밀키트"
-            android:textColor="@color/subGrey"
-            android:fontFamily="@font/spoqa_han_sans_neo_regular"
+            android:orientation="horizontal"
+            >
+
+            <CheckBox
+                android:id="@+id/item_diet_details_chb_dinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/item_diet_details_tv_dinner_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/vertical_margin_small"
+                android:text="파스타 밀키트"
+                android:textColor="@color/subGrey"
+                android:fontFamily="@font/spoqa_han_sans_neo_regular"
+                />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/item_diet_details_layout_snack_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/vertical_margin_large"
+        >
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/item_diet_details_tv_snack_1_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="간식1"
+            android:textSize="@dimen/text_large"
+            android:textColor="@color/black"
+            android:fontFamily="@font/spoqa_han_sans_neo_bold"
             />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <CheckBox
+                android:id="@+id/item_diet_details_chb_snack_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/item_diet_details_tv_snack_1_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="파스타 밀키트"
+                android:textColor="@color/subGrey"
+                android:fontFamily="@font/spoqa_han_sans_neo_regular"
+                />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/item_diet_details_layout_snack_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/vertical_margin_large"
+        >
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/item_diet_details_tv_snack_2_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="간식2"
+            android:textSize="@dimen/text_large"
+            android:textColor="@color/black"
+            android:fontFamily="@font/spoqa_han_sans_neo_bold"
+            />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <CheckBox
+                android:id="@+id/item_diet_details_chb_snack_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/item_diet_details_tv_snack_2_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="파스타 밀키트"
+                android:textColor="@color/subGrey"
+                android:fontFamily="@font/spoqa_han_sans_neo_regular"
+                />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
 
 
     </androidx.appcompat.widget.LinearLayoutCompat>
