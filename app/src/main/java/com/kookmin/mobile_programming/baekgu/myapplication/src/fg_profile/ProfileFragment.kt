@@ -26,6 +26,7 @@ class ProfileFragment: BaseFragment<FragmentProfileBinding>(FragmentProfileBindi
         setListener()
     }
 
+    // 프레퍼런스 값 업데이트 함수
     private fun updateUI(uid: String?, email: String?, pwValue: String?, nameValue: String?, birthValue: String?, phoneValue: String?, addressValue: String?) {
         val sharedPreference = requireContext().getSharedPreferences("userInfo", AppCompatActivity.MODE_PRIVATE)
         val editor: SharedPreferences.Editor = sharedPreference.edit()
@@ -43,8 +44,8 @@ class ProfileFragment: BaseFragment<FragmentProfileBinding>(FragmentProfileBindi
     private fun setListener(){
         // 마이페이지 개인정보 표시
         val sharedPreference = requireContext().getSharedPreferences("userInfo", Context.MODE_PRIVATE)
-        val nameValue = sharedPreference.getString("name", "유저 이름")
-        val emailValue = sharedPreference.getString("email", "유저 이메일")
+        val nameValue = sharedPreference.getString("name", "User name")
+        val emailValue = sharedPreference.getString("email", "User email")
         binding.fgProfileTvUserName.setText(nameValue)
         binding.fgProfileTvEmail.setText(emailValue)
 
@@ -67,6 +68,7 @@ class ProfileFragment: BaseFragment<FragmentProfileBinding>(FragmentProfileBindi
 //            startActivity(intent)
 //        }
 
+        // 설문조사 수정 페이지로 이동
         binding.fgProfileLayoutSurvey.setOnClickListener{
             var intent = Intent(requireContext(),SurveyActivity::class.java)
             startActivity(intent)

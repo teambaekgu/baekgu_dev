@@ -17,6 +17,11 @@ import java.util.regex.Pattern
 class ProfileEditActivity:BaseActivity<ActivityProfileEditBinding>(ActivityProfileEditBinding::inflate) {
     private lateinit var database: DatabaseReference
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setListener()
+    }
+
     // 프레퍼런스 수정 함수
     private fun updateUI(uid: String, newEmailValue: String, newPwValue: String,
                          newNameValue: String, newBirthValue: String,
@@ -46,11 +51,6 @@ class ProfileEditActivity:BaseActivity<ActivityProfileEditBinding>(ActivityProfi
 
         Toast.makeText(baseContext, "개인 정보 수정 완료되었습니다.", Toast.LENGTH_SHORT).show()
         finish()
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setListener()
     }
 
     private fun setListener(){
