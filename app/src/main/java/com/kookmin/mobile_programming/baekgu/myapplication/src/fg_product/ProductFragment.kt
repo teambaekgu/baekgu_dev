@@ -15,6 +15,8 @@ class ProductFragment: BaseFragment<FragmentProductBinding>(FragmentProductBindi
     private val recommendProductList=ArrayList<RecommendProductListDataClass>()
     private val bestProductList=ArrayList<RecommendProductListDataClass>()
 
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setData()

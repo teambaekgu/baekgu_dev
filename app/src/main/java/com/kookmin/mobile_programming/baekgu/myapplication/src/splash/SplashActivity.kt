@@ -6,7 +6,6 @@ import android.os.Handler
 import android.os.Looper
 import com.kookmin.mobile_programming.baekgu.myapplication.config.BaseActivity
 import com.kookmin.mobile_programming.baekgu.myapplication.databinding.ActivitySplashBinding
-import com.kookmin.mobile_programming.baekgu.myapplication.src.MainActivity
 import com.kookmin.mobile_programming.baekgu.myapplication.src.login.LoginActivity
 
 class SplashActivity:BaseActivity<ActivitySplashBinding>(ActivitySplashBinding::inflate) {

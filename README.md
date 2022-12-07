@@ -231,11 +231,11 @@
  </tr>
 
  <tr>
-  <td align='center'><img src="x" width="50" height="50"></td>
-  <td align='center'>지수님</td>
+  <td align='center'><img src="https://avatars.githubusercontent.com/u/79249376?v=4" width="50" height="50"></td>
+  <td align='center'>jisu Seo</td>
   <td align='center'>Back-End (Firebase)</td>
-  <td align='center'><a href="x"><img src="x"/></a></td>
-  <td align='center'><a href="x"><img src="x"/></a></td>
+  <td align='center'><a href="https://github.com/jseo9732"><img src="http://img.shields.io/badge/jseo9732-green?style=social&logo=github"/></a></td>
+  <td align='center'><a href="mailto:jseo9732@gmail.com"><img src="https://img.shields.io/badge/jseo9732@gmail.com-green?logo=gmail&style=social"/></a></td>
  </tr>
    
 </table>
