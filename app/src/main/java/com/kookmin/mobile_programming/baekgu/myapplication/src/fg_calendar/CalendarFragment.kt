@@ -16,7 +16,6 @@ import com.kookmin.mobile_programming.baekgu.myapplication.src.dto.LocalDB
 import com.kookmin.mobile_programming.baekgu.myapplication.src.fg_calendar.data_class.ProteinAmountDataClass
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.collections.ArrayList
 
 
 class CalendarFragment: BaseFragment<FragmentCalendarBinding>(FragmentCalendarBinding::bind, R.layout.fragment_calendar) {
@@ -41,7 +40,7 @@ class CalendarFragment: BaseFragment<FragmentCalendarBinding>(FragmentCalendarBi
                         proteinAmountList[i].currentAmount=proteinAmountList[i].currentAmount+amountList[i]
                     }
 
-                    binding.fgCalendarTvCurrentProtein.text=proteinAmountList[day.toInt()-1].currentAmount.toString()
+                    binding.fgCalendarTvCurrentProtein.text="${proteinAmountList[day.toInt()-1].currentAmount.toString()}g"
                     Log.d("wegwegaes",amountList.toString())
                 }
             }
@@ -82,8 +81,8 @@ class CalendarFragment: BaseFragment<FragmentCalendarBinding>(FragmentCalendarBi
 
         val result = makeDietCalendar(proteinAmount,flavour,product,allergy,month)
 
-        binding.fgCalendarTvTargetProtein.text=proteinAmount.toString()
-        binding.fgCalendarTvCurrentProtein.text="0"
+        binding.fgCalendarTvTargetProtein.text="${proteinAmount.toString()}g"
+        binding.fgCalendarTvCurrentProtein.text="0g"
 
         for(i : Int in 0..30){
             proteinAmountList.add(ProteinAmountDataClass(proteinAmount,0))
@@ -122,8 +121,8 @@ class CalendarFragment: BaseFragment<FragmentCalendarBinding>(FragmentCalendarBi
             proteinAmountList[i2-1]
 
             if((i2-1)>0 && (i2-1)<31){
-                binding.fgCalendarTvTargetProtein.text=proteinAmountList[i2-1].targetAmount.toString()
-                binding.fgCalendarTvCurrentProtein.text=proteinAmountList[i2-1].currentAmount.toString()
+                binding.fgCalendarTvTargetProtein.text= "${proteinAmountList[i2-1].targetAmount.toString()}g"
+                binding.fgCalendarTvCurrentProtein.text="${proteinAmountList[i2-1].currentAmount.toString()}g"
             }
             binding.fgCalendarTvDate.text="${i1+1}.${i2}"
 
