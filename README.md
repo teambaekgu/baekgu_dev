@@ -203,6 +203,8 @@
    ```
   
    2. 이메일 중복없이 회원가입에 성공하면 Firebase Authentication에 계정을 등록한다. 실패 시 Toast 메세지 출력
+  <img width="773" alt="스크린샷 2022-12-09 오전 8 36 18" src="https://user-images.githubusercontent.com/79249376/206589342-1499a5be-51f7-48dc-828e-d8a417436e31.png">
+
    ``` kotlin
    // 회원가입 함수
    private fun createAccount(email: String, password: String) {
