@@ -1,7 +1,6 @@
 # 백구 : 헬서들을 위한 단백질 보충 식단 추천 서비스
 
-
-<간략한소개>
+<img width="230" alt="image" src="https://user-images.githubusercontent.com/54922625/206559927-793f5dc9-c25c-45c1-9bb2-cb6491f119e5.jpeg"/>
 
 
 ## 🗂️프로젝트 소개
@@ -10,7 +9,8 @@
 <details>
  <summary>📃주제 정의 문서</summary>
  
- ### 🐾 기획 의도
+ ### 🐾 기획 의도<img width="682" alt="image" src="https://user-images.githubusercontent.com/54922625/206564601-1d1581b9-2ee4-486b-a5d9-f6641d5391d9.png">
+
  
  #### MZ세대에서 트렌드 키워드로 뽑히는 #운동 #자기관리
  - Instagram의 #오운완(오늘운동완료)인증글은 385만개 헬스를 주제로 하는 유튜버들의 구독자가 100만명이 넘는 등 SNS와 플랫폼으로 MZ세대가 많은 자극을 받음
@@ -66,14 +66,26 @@
  
 <img width="885" alt="image" src="https://user-images.githubusercontent.com/54922625/206552123-01200fef-2488-4312-b973-627839c407cc.png">
 <img width="884" alt="image" src="https://user-images.githubusercontent.com/54922625/206552186-fc0f30ac-e865-464d-b2e8-ce739414c864.png">
-
 </details>
+
+<details>
+ <summary>🎨일러스트 </summary> 
+ 단백질 구독의 줄임말로 "백구"라는 이미지를 떠올렸고, 일러스트로 구현해서 splash화면, 로그인 화면, 앱 이미지에 활용하였다.
+ <table>
+ <tr>
+  <td><img width="230" alt="image" src="https://user-images.githubusercontent.com/54922625/206559927-793f5dc9-c25c-45c1-9bb2-cb6491f119e5.jpeg"/></td>
+  <td><img width="230" alt="image" src="https://user-images.githubusercontent.com/54922625/206560766-ec76b4ad-d929-4ca7-bca5-473f5a5f0527.png"/></td>
+  <td><img width="230" alt="image" src="https://user-images.githubusercontent.com/54922625/206560661-e12504ed-3c0e-4810-a562-44e78b22c9f7.png"/></td>
+ </tr>
+ </table>
+</details>
+
 
 
 <details>
  <summary>🖊개발 문서</summary>
 
-- [UX UI] 처음에 구상한 ui 넣으면 좋을듯 합니다
+- [레이아웃 정의서](https://funky-sage-b47.notion.site/995d94acec834bfc968af3c12a379eab)
 - [개발 일지-BackEnd] 각자 하나씩 통일해서 파일로 정리를 해볼까요?
 - [개발 일지-FrontEnd]각자 하나씩 통일해서 파일로 정리를 해볼까요? 개발일지는 선택사항이니까 나중에 얘기해봅시당
 - [중간평가 수행 보고서](https://funky-sage-b47.notion.site/eb9c0b7930ff4a17a59ef2e0aed1e542)
@@ -154,26 +166,62 @@
  ### 🐾 Back-End (Firebase)
 
  #### 1. 사용자 정보 
+  
  
- #### 2. 설문조사 정보
+#### 2. 설문조사 정보
+  1. 설문조사에서 조사한 설문정보를 Firebase Realtime DataBase에 저장한다. 각각의 타입은 아래와 같다.
+  <table>
+    <tr>
+    <td>타입</td>
+    <td>설문 정보</td>
+   </tr>
+   <tr>
+    <td>String</td>
+    <td>user_id, user_height, user_weight, user_proteinPurpose, user_trainingPurpose, user_trainingTime, user_snackYn</td>
+   </tr>
+   <tr>
+    <td>Int</td>
+    <td>user_proteinAmount</td>
+   </tr>
+   <tr>
+    <td>List<String>?</td>
+    <td>user_dietCnt, user_allergy</td>
+   </tr>
+   <tr>
+    <td>List<String>?</td>
+    <td>user_proPre, user_flaPre</td>
+   </tr>
+  </table>
+<img width="727" alt="image" src="https://user-images.githubusercontent.com/54922625/206557942-12a44e70-720f-4ffc-bda6-34f1969d2f16.png">
+  
+  2. 캘린더에서 Firebase Realtime DataBase에 있는 데이터를 읽어온다.
+  <img width="642" alt="image" src="https://user-images.githubusercontent.com/54922625/206564521-9fbc4fe8-b783-48cc-b908-be8941cb47fd.png">
 
- 
- <p align='center'><img src="https://user-images.githubusercontent.com/40621030/137884075-bed5c980-72db-472e-820d-6754080d704c.PNG" height="250"/></p>
- Canary app 사용 날짜와 사용자 id, 이미지에서 검출된 객체에 대한 기록이 남습니다.
- 
- <p align='center'><img src="https://user-images.githubusercontent.com/40621030/137884362-a8e7f87f-167c-4294-ba99-07ebadb3d6e2.PNG" height="250"/></p>
- 성능이 가장 좋은 모델의 weight 주소를 조회하여 canary server의 모델을 최신모델로 업데이트 할 수 있습니다.
- 
- Django를 사용했기 때문에 Django admin 또한 사용할 수 있습니다.
- <p align='center'><img src="https://user-images.githubusercontent.com/86545225/137576790-1e7b5459-fdbd-4cc8-9e3b-d27a3bd3b1b4.jpg" height="250"/></p>
+  
+
+
+
+### 🐾 기능 구현
+  
+#### 1. 필요 단백질량 산출 함수
+**제지방** : 전체 몸에서 지방량을 제외한 부분의 무게를 모두 합한 무레로 근육, 뼈, 기관 등을 포함한 체중<br>
+제지방 공식 :  (1.10  * 체중kg ) - ( 128 * ( 체중kg제곱 / 키cm제곱 ) )
+
+<필요 단백질량 산출 방법><br>
+ 1. 제지방 공식을 통해서 제지방을 산출한다.
+ 2. 활동계수와 맞게 설문조사에서 조사한 트레이닝 목적 기준으로 필요 단백질량을 산출해준다.
+<img width="682" alt="image" src="https://user-images.githubusercontent.com/54922625/206562364-547ebcf4-68e9-4220-bf48-d029118ff44c.png">
+
+<img width="803" alt="image" src="https://user-images.githubusercontent.com/54922625/206561871-97d53fae-90cd-43c2-8adc-dec0500887f1.png">
+
+
+
 
 ---
 
 ## 컴퓨터 구성 / 필수 조건 안내 (Prerequisites) -->
-* 안드로이드 사향?
-* 안드로이드 스튜디오 사향?
-* 파이어베이스도 그런게 잇을까요?
-
+* 안드로이드 사향: 13 (API Level 33)
+* 안드로이드 스튜디오 사향: Android Dolphin 2021.3.1
 ---
 
 ## 🔨기술 스택 (Technique Used) 
@@ -187,7 +235,7 @@
   <td align='center'>Firebase</td>
  </tr>
 </table>
----
+
 
 ## 💽설치 안내 (Installation Process)
 ### Android
@@ -238,6 +286,7 @@
   <td>Role</td>
   <td>github</td>
   <td>e-mail</td>
+  <td>상세 기능</td>
  </tr>
    
  <tr>
@@ -246,6 +295,9 @@
   <td align='center'>Leader / Back-End(Firebase)</td>
   <td align='center'><a href="x"><img src="x"/></a></td>
   <td align='center'><a href="x"><img src="x"/></a></td>
+    <td> Realtime Firebase를 활용한 데이터 활용 및 상품 검색 기능 구현<br>
+     설문조사 정보 및 필요단백질량을 기반 유저별 맞춤 식단 구성 API 구현
+  </td>
  </tr>
 
  <tr>
@@ -254,6 +306,9 @@
   <td align='center'>Front-End (kotlin)</td>
   <td align='center'><a href="x"><img src="x"/></a></td>
   <td align='center'><a href="x"><img src="x"/></a></td>
+    <td> 회원가입 / 로그인, 상품 / 캘린더 / 프로필 탭, 식단 상세 페이지 구현<br>
+반응형 레이아웃 , 디자인적용
+</td>
  </tr>
  
  <tr>
@@ -262,6 +317,7 @@
   <td align='center'>Back-End (Firebase)</td>
   <td align='center'><a href="https://github.com/hellohidi"><img src="http://img.shields.io/badge/hellohidi-green?style=social&logo=github"/></a></td>
   <td align='center'><a href="mailto:fbgmlwo123@naver.com"><img src="https://img.shields.io/badge/fbgmlwo123@naver.com-green?logo=gmail&style=social"/></a></td>
+  <td> Realtime Firebase를 활용한 설문조사 저장 및 관리 기능 구현<br>설문조사 정보를 기반으로 필요단백질량 산출기능 구현</td>
  </tr>
 
  <tr>
@@ -270,6 +326,9 @@
   <td align='center'>Front-End (kotlin)</td>
    <td align='center'><a href="https://github.com/YeoSungeun"><img src="http://img.shields.io/badge/YeoSungeun-green?style=social&logo=github"/></a></td>
  <td align='center'><a href="mailto:dutjddms@naver.com"><img src="https://img.shields.io/badge/dutjddms@naver.com-green?logo=gmail&style=social"/></a></td>
+    <td> 로고 디자인 및 스플래시 화면 구현<br>
+설문조사, 상품 목록, 상품 상세 정보 페이지 구현
+</td>
  </tr>
 
  <tr>
@@ -278,7 +337,12 @@
   <td align='center'>Back-End (Firebase)</td>
   <td align='center'><a href="https://github.com/jseo9732"><img src="http://img.shields.io/badge/jseo9732-green?style=social&logo=github"/></a></td>
   <td align='center'><a href="mailto:jseo9732@gmail.com"><img src="https://img.shields.io/badge/jseo9732@gmail.com-green?logo=gmail&style=social"/></a></td>
+    <td> 회원가입 / 로그인, 자동 로그인, 회원 정보 수정 기능 구현
+메인 페이지, 상품 상세 페이지 상품 조회 기능 구현
+</td>
  </tr>
+ 
+ 
    
 </table>
 
@@ -291,53 +355,17 @@
   <td align='center'><a href="https://workspace.google.com/intl/ko/products/drive/"><img src="https://user-images.githubusercontent.com/54922625/205430341-1dd3ada6-5575-4c96-a24d-242f6abc3896.png" height=80/></a></td>
   <td align='center'><a href="https://github.com/"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" height=80/></a></td>
   <td align='center'><a href="https://zoom.us"><img src="https://user-images.githubusercontent.com/54922625/205430400-3c6a1687-aed1-44d2-adb6-1cebe4c3c725.png" height=80/></a></td>
+  <td align='center'><a href="https://www.notion.so/ko-kr"><img src="https://user-images.githubusercontent.com/54922625/206552600-4041c940-199a-4482-85de-05c4c90b8f26.png" height=80/></a></td>
  </tr>
  
  <tr>
   <td align='center'>Google Drive</td>
   <td align='center'>Github</td>
   <td align='center'>Zoom</td>
+  <td align='center'>Notion</td>
  </tr>
    
 </table>
- 
-
-
-
-
-
-
-# baekgu_dev
-- **레이아웃 이름**
-    - 액티비티 : activity_도메인
-    - 프레그먼트 : fragment_도메인
-    - 리사이클러뷰 : item_도메인
-    - 다이얼로그 : dialog_도메인
-
-## activity
-### 클래스 
-- Activity(이름) ex) 회원가입클래스 : ActivitySignup
-
-### xml
-- activity_이름 ex) 회원가입 화면 : activity_signup
-
-
-## fragment
-### 클래스
-- Fragment(이름) ex) 상품화면 : FragmentProduct
--
-### xml
-- fragment_이름 ex) 상품화면 : fragment_product
-
-## 레이아웃 이름
-### 도메인_컴포넌트_용도
-- ex) 회원가입 화면안에서 이름을 보여주는 TextView : signup_tv_name
-
-### 함수명,변수명
-- camelCase
-- 동사 + 명사구 + (전치사)
-
-
 
 
 
