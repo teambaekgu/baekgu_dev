@@ -65,7 +65,8 @@
  <summary>😎페르소나 </summary> 
  
 <img width="885" alt="image" src="https://user-images.githubusercontent.com/54922625/206552123-01200fef-2488-4312-b973-627839c407cc.png">
-<img width="884" alt="image" src="https://user-images.githubusercontent.com/54922625/206552186-fc0f30ac-e865-464d-b2e8-ce739414c864.png">
+
+<img width="884" alt="image" src="https://user-images.githubusercontent.com/54922625/206573445-9851a9c4-d9f1-41c1-94d5-d9e4bb7232ab.png">
 </details>
 
 <details>
