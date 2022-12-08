@@ -167,39 +167,73 @@
  ### 🐾 Back-End (Firebase)
 
  #### 1. 사용자 정보
-   1.  
-  ``` kotlin
-  // 회원가입 함수
-  private fun createAccount(email: String, password: String) {
-  // 파이어베이스 회원가입 메서드
-  auth.createUserWithEmailAndPassword(email, password)
-      .addOnCompleteListener(this) { task ->
-          if (task.isSuccessful) {
-              // 회원가입 성공
-              val user = Firebase.auth.currentUser
-              user?.let {
-                  val email = user.email
-                  val uid = user.uid
-                  // 프레퍼런스에 유저 정보 저장
-                  updateUI(uid, email, pwValue, nameValue, birthValue, phoneValue, addressValue)
+   1. 이메일 형식과 비밀번호 형식(영문, 숫자, 특수문자 조합), 빈칸 유무를 확인 후 이상이 없으면 회원가입 함수를 실행한다.
+   ``` kotlin
+   // 회원가입 완료 버튼
+   binding.signupTvFinish.setOnClickListener() {
+       emailValue = binding.signupEditId.text.toString()
+       pwValue = binding.signupEditPw.text.toString()
+       nameValue = binding.signupEditName.text.toString()
+       birthValue = binding.signupEditBirthday.text.toString()
+       phoneValue = binding.signupEditNumber.text.toString()
+       addressValue = binding.signupEditTown.text.toString()
+       // 이메일 형식 확인
+       if(android.util.Patterns.EMAIL_ADDRESS.matcher(emailValue).matches()) {
+           // 비밀번호 형식 확인
+           if (Pattern.matches(
+                   "^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[\$@\$!%*#?&])[A-Za-z[0-9]\$@\$!%*#?&]{8,20}\$", pwValue)) {
+               // 나머지 값 빈 칸이 있는지 확인
+               if(nameValue.isNotEmpty() && birthValue.isNotEmpty() && phoneValue.isNotEmpty() && addressValue.isNotEmpty()) {
+                   // 파이어베이스 Authentication 계정 생성
+                   createAccount(
+                       binding.signupEditId.text.toString(),
+                       binding.signupEditPw.text.toString()
+                   )
+               } else {
+                   Toast.makeText(baseContext, "모든 항목을 다 입력해주세요.", Toast.LENGTH_SHORT).show()
 
-                  // 파이어베이스 Realtime Database 데이터 저장
-                  writeNewUser(uid, nameValue, birthValue, phoneValue, addressValue)
-
-                  // 설문조사 페이지로 이동
-                  var intent= Intent(this, SurveyActivity::class.java)
-                  intent.putExtra("user_id", email)
-                  startActivity(intent)
-              }
-          } else {
-              // 회원가입 실패 시 프레퍼런스 null 값으로 업데이트
-              Toast.makeText(baseContext, "이미 존재하는 이메일입니다.", Toast.LENGTH_SHORT).show()
-              updateUI(null, null, null, null, null, null, null)
-          }
-      }
+               }
+           } else {
+               Toast.makeText(baseContext, "8~16자 영문, 숫자, 특수문자를 사용하세요.", Toast.LENGTH_SHORT).show()
+           }
+       } else {
+           Toast.makeText(baseContext, "이메일 형식이 아닙니다.", Toast.LENGTH_SHORT).show()
+       }
    }
-  ```
-   1. 회원가입에서 입력한 정보를 Firebase Realtime DataBase users에 저장한다. 각각의 타입은 아래와 같다.
+   ```
+  
+   2. 이메일 중복없이 회원가입에 성공하면 Firebase Authentication에 계정을 등록한다. 실패 시 Toast 메세지 출력
+   ``` kotlin
+   // 회원가입 함수
+   private fun createAccount(email: String, password: String) {
+   // 파이어베이스 회원가입 메서드
+   auth.createUserWithEmailAndPassword(email, password)
+       .addOnCompleteListener(this) { task ->
+           if (task.isSuccessful) {
+               // 회원가입 성공
+               val user = Firebase.auth.currentUser
+               user?.let {
+                   val email = user.email
+                   val uid = user.uid
+
+                   // 파이어베이스 Realtime Database 데이터 저장
+                   writeNewUser(uid, nameValue, birthValue, phoneValue, addressValue)
+
+                   // 설문조사 페이지로 이동
+                   var intent= Intent(this, SurveyActivity::class.java)
+                   intent.putExtra("user_id", email)
+                   startActivity(intent)
+               }
+           } else {
+               // 회원가입 실패 시 프레퍼런스 null 값으로 업데이트
+               Toast.makeText(baseContext, "이미 존재하는 이메일입니다.", Toast.LENGTH_SHORT).show()
+               updateUI(null, null, null, null, null, null, null)
+           }
+       }
+    }
+   ```
+  
+   3. 회원가입에서 입력한 정보를 Firebase Realtime DataBase users에 저장한다. 각각의 타입은 아래와 같다.
   <table>
     <tr>
     <td>타입</td>
@@ -210,7 +244,23 @@
     <td>name, birth, phone, address</td>
    </tr>
   </table>
-  <img width="504" alt="스크린샷 2022-12-09 오전 7 51 59" src="https://user-images.githubusercontent.com/79249376/206583896-2206a60e-01d2-4a78-8699-0d9e8ad24da1.png">
+  
+  ``` kotlin
+  // 파이어베이스 Realtime Database 저장 형식
+  @IgnoreExtraProperties
+  data class User(val name: String, val birth: String, val phone: String, val address: String) {
+      // Null default values create a no-argument default constructor, which is needed
+      // for deserialization from a DataSnapshot.
+  }
+
+  // 파이어베이스 Realtime Database 저장 함수
+  fun writeNewUser(email: String, name: String, birth: String, phone: String, address: String) {
+      database = Firebase.database.reference
+      val user = User(name, birth, phone, address)
+
+      database.child("users").child(email).setValue(user)
+  }
+  ```
 
   2. 
  
