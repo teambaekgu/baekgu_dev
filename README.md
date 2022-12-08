@@ -224,10 +224,10 @@
 
  <tr>
   <td align='center'><img src="x" width="50" height="50"></td>
-  <td align='center'>성은님</td>
+  <td align='center'>Sungeun Yeo</td>
   <td align='center'>Front-End (kotlin)</td>
-  <td align='center'><a href="x"><img src="x"/></a></td>
-  <td align='center'><a href="x"><img src="x"/></a></td>
+   <td align='center'><a href="https://github.com/YeoSungeun"><img src="http://img.shields.io/badge/YeoSungeun-green?style=social&logo=github"/></a></td>
+ <td align='center'><a href="mailto:dutjddms@naver.com"><img src="https://img.shields.io/badge/dutjddms@naver.com-green?logo=gmail&style=social"/></a></td>
  </tr>
 
  <tr>
