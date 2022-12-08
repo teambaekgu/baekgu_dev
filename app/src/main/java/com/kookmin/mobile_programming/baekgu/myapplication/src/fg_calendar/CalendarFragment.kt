@@ -89,7 +89,6 @@ class CalendarFragment: BaseFragment<FragmentCalendarBinding>(FragmentCalendarBi
             proteinAmountList.add(ProteinAmountDataClass(proteinAmount,0))
             dietDetailsList.add(DietDetailsDataClass(month.toString(),(i+1).toString(),result.calendar[i][0],result.calendar[i][1],result.calendar[i][2],
                 result.calendar[i][3],result.calendar[i][4]))
-
             Log.d(TAG,"2022/12/${i+1} 아침 : ${result.calendar[i][0]}")
             Log.d(TAG,"2022/12/${i+1} 점심 : ${result.calendar[i][1]}")
             Log.d(TAG,"2022/12/${i+1} 저녁 : ${result.calendar[i][2]}")
