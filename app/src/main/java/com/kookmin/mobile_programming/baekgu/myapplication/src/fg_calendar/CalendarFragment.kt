@@ -69,15 +69,16 @@ class CalendarFragment: BaseFragment<FragmentCalendarBinding>(FragmentCalendarBi
 
 
 
+
         // DB에서 받아오는 부분 ---------------------------------------
         // 제품 순서 : 소시지, 볼, 소스, 소고기, 생선, 스테이크, 프로틴, 간식
         // allergy : product 배열 idx
 
-        val proteinAmount = 132     // 82 104 128
+        val proteinAmount = 85
         val flavour = arrayOf(4, 2, 3, 5, 4, 3, 2, 1)
-        val product = arrayOf(4, 3, 5, 4, 3, 5)
+        val product = arrayOf(5, 2, 3, 4, 1, 4)
 
-        val allergy = 3 // product 배열 idx
+        val allergy = 4 // 생선
         val month = 12 //캘린더 정보에서 받아오기
 
         val result = makeDietCalendar(proteinAmount,flavour,product,allergy,month)
