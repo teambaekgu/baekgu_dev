@@ -169,35 +169,35 @@
  #### 1. 사용자 정보
    1.  
   ``` kotlin
-        // 회원가입 함수
-        private fun createAccount(email: String, password: String) {
-        // 파이어베이스 회원가입 메서드
-        auth.createUserWithEmailAndPassword(email, password)
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    // 회원가입 성공
-                    val user = Firebase.auth.currentUser
-                    user?.let {
-                        val email = user.email
-                        val uid = user.uid
-                        // 프레퍼런스에 유저 정보 저장
-                        updateUI(uid, email, pwValue, nameValue, birthValue, phoneValue, addressValue)
+  // 회원가입 함수
+  private fun createAccount(email: String, password: String) {
+  // 파이어베이스 회원가입 메서드
+  auth.createUserWithEmailAndPassword(email, password)
+      .addOnCompleteListener(this) { task ->
+          if (task.isSuccessful) {
+              // 회원가입 성공
+              val user = Firebase.auth.currentUser
+              user?.let {
+                  val email = user.email
+                  val uid = user.uid
+                  // 프레퍼런스에 유저 정보 저장
+                  updateUI(uid, email, pwValue, nameValue, birthValue, phoneValue, addressValue)
 
-                        // 파이어베이스 Realtime Database 데이터 저장
-                        writeNewUser(uid, nameValue, birthValue, phoneValue, addressValue)
+                  // 파이어베이스 Realtime Database 데이터 저장
+                  writeNewUser(uid, nameValue, birthValue, phoneValue, addressValue)
 
-                        // 설문조사 페이지로 이동
-                        var intent= Intent(this, SurveyActivity::class.java)
-                        intent.putExtra("user_id", email)
-                        startActivity(intent)
-                    }
-                } else {
-                    // 회원가입 실패 시 프레퍼런스 null 값으로 업데이트
-                    Toast.makeText(baseContext, "이미 존재하는 이메일입니다.", Toast.LENGTH_SHORT).show()
-                    updateUI(null, null, null, null, null, null, null)
-                }
-            }
-         }
+                  // 설문조사 페이지로 이동
+                  var intent= Intent(this, SurveyActivity::class.java)
+                  intent.putExtra("user_id", email)
+                  startActivity(intent)
+              }
+          } else {
+              // 회원가입 실패 시 프레퍼런스 null 값으로 업데이트
+              Toast.makeText(baseContext, "이미 존재하는 이메일입니다.", Toast.LENGTH_SHORT).show()
+              updateUI(null, null, null, null, null, null, null)
+          }
+      }
+   }
   ```
    1. 회원가입에서 입력한 정보를 Firebase Realtime DataBase users에 저장한다. 각각의 타입은 아래와 같다.
   <table>
