@@ -62,16 +62,11 @@
 </details>
 
 <details>
- <summary>페르소나 </summary> (아래 부분은 예시)
+ <summary>😎페르소나 </summary> 
  
- ### User-case Diagram
- <p align='center'><img src="https://user-images.githubusercontent.com/40621030/134690667-abe8f797-01a8-44db-ae89-ef7809c22d64.png"/></p>
- 
- ### Sequence Diagram
-  <p align='center'><img src="https://user-images.githubusercontent.com/40621030/136720501-bbe98072-abbc-4797-a0c2-c66771f7e04a.png"/></p>
- 
- ### Architecture
-  <p align='center'><img src="https://user-images.githubusercontent.com/40621030/136720255-0456ffd4-4d7d-4d2e-b5c5-09387c5861fa.png"/></p>
+<img width="885" alt="image" src="https://user-images.githubusercontent.com/54922625/206552123-01200fef-2488-4312-b973-627839c407cc.png">
+<img width="884" alt="image" src="https://user-images.githubusercontent.com/54922625/206552186-fc0f30ac-e865-464d-b2e8-ce739414c864.png">
+
 </details>
 
 
@@ -81,14 +76,18 @@
 - [UX UI] 처음에 구상한 ui 넣으면 좋을듯 합니다
 - [개발 일지-BackEnd] 각자 하나씩 통일해서 파일로 정리를 해볼까요?
 - [개발 일지-FrontEnd]각자 하나씩 통일해서 파일로 정리를 해볼까요? 개발일지는 선택사항이니까 나중에 얘기해봅시당
-- [멘토링 일지]중간평가 받았던 부분 적으면 될듯합니다
-- [회의록]지금까지 회의록 첨부하면 좋을 거 같습니다
-
+- [중간평가 수행 보고서](https://funky-sage-b47.notion.site/eb9c0b7930ff4a17a59ef2e0aed1e542)
+- [테이블 명세서](https://funky-sage-b47.notion.site/806ef11fe87e472eb4980a17c226f1ab)
+- [요구사항 정의서](https://funky-sage-b47.notion.site/d38347f828e24c539ca63894e1ccd3a3)
+- [이슈 리포트](https://funky-sage-b47.notion.site/4a51b1a53a554a2eb57be494b46e81e9)
+- [메뉴 및 기능 정의서](https://www.notion.so/fd830844438a43eb9f9e1af5fc122363)
+- [주차별 보고서](https://funky-sage-b47.notion.site/34953c0d566941239baf5ab8a9ab4b07?v=44801df90b6e4ba797878da840d052b4)
+- [Code Convention](https://funky-sage-b47.notion.site/Code-Convention-fc736353b54c485782ede8ade2ad4edb)
 
 </details>
 
 
-## 📔기능 설명 
+## 📔 앱 설명
 
 <!--
 ### 🖥화면 정의 (아래 내용은 예시인데 이런느낌으로 해주시면 좋을 거 같습니다)
@@ -105,7 +104,7 @@
 </table>
 -->
 
- ### 🐾**백구 **
+ ### 🐾 Front-End
 
  앱을 처음 실행 시, 사용자는 자신의 성명과 군번을 통해 회원가입을 진행합니다. 이 정보는 암호화되어 저장됩니다.  
 
@@ -152,8 +151,11 @@
  <table>
 
   
- ### 🐤**Firbase** (저희는 파이어베이스)
+ ### 🐾 Back-End (Firebase)
 
+ #### 1. 사용자 정보 
+ 
+ #### 2. 설문조사 정보
 
  
  <p align='center'><img src="https://user-images.githubusercontent.com/40621030/137884075-bed5c980-72db-472e-820d-6754080d704c.PNG" height="250"/></p>
@@ -341,32 +343,4 @@
 
 
 
-# baekgu_dev
-- **레이아웃 이름**
-    - 액티비티 : activity_도메인
-    - 프레그먼트 : fragment_도메인
-    - 리사이클러뷰 : item_도메인
-    - 다이얼로그 : dialog_도메인
 
-## activity
-### 클래스 
-- Activity(이름) ex) 회원가입클래스 : ActivitySignup
-
-### xml
-- activity_이름 ex) 회원가입 화면 : activity_signup
-
-
-## fragment
-### 클래스
-- Fragment(이름) ex) 상품화면 : FragmentProduct
--
-### xml
-- fragment_이름 ex) 상품화면 : fragment_product
-
-## 레이아웃 이름
-### 도메인_컴포넌트_용도
-- ex) 회원가입 화면안에서 이름을 보여주는 TextView : signup_tv_name
-
-### 함수명,변수명
-- camelCase
-- 동사 + 명사구 + (전치사)
