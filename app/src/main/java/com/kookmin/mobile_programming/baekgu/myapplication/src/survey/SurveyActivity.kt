@@ -3,6 +3,7 @@ package com.kookmin.mobile_programming.baekgu.myapplication.src.survey
 import android.app.AlertDialog
 import android.content.DialogInterface
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 
 import android.util.Log
@@ -19,10 +20,7 @@ import com.kookmin.mobile_programming.baekgu.myapplication.src.MainActivity
 import kotlin.math.roundToInt
 
 class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::inflate) {
-
-
     var semail: String? = null
-    var proteinAmout: Int? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -96,6 +94,9 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
 
         var dao = DAOSurvey()
 
+
+
+
         addBtn.setOnClickListener {
 
             val sHeight = heightEdit.text.toString()
@@ -103,19 +104,60 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
 
             val proteinPurposeRadioButton =
                 findViewById<RadioButton>(proteinPurposeRadioButtonGroup.checkedRadioButtonId)
-            val sProteinPurpose = proteinPurposeRadioButton.text.toString()
+            var sProteinPurpose: String? = null
+
+            if(proteinPurposeRadioButton == null){
+                Toast.makeText(
+                    applicationContext,
+                    "실패",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }else {
+                sProteinPurpose = proteinPurposeRadioButton.text.toString()
+            }
+
 
             val trainingPurposeRadioButton =
                 findViewById<RadioButton>(trainingPurposeRadioButtonGroup.checkedRadioButtonId)
-            val sTrainingPurpose = trainingPurposeRadioButton.text.toString()
+            var sTrainingPurpose : String? = null
+
+            if(trainingPurposeRadioButton == null){
+                Toast.makeText(
+                    applicationContext,
+                    "실패",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }else {
+                sTrainingPurpose = trainingPurposeRadioButton.text.toString()
+            }
 
             val trainingCntRadioButton =
                 findViewById<RadioButton>(trainingCntRadioButtonGroup.checkedRadioButtonId)
-            val sTrainingCnt = trainingCntRadioButton.text.toString()
+            var sTrainingCnt : String? = null
+
+            if(trainingCntRadioButton == null){
+                Toast.makeText(
+                    applicationContext,
+                    "실패",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }else {
+                sTrainingCnt = trainingPurposeRadioButton.text.toString()
+            }
 
             val trainingTimeRadioButton =
                 findViewById<RadioButton>(trainingTimeRadioButtonGroup.checkedRadioButtonId)
-            val sTrainingTime = trainingTimeRadioButton.text.toString()
+            var sTrainingTime : String? = null
+
+            if(trainingTimeRadioButton == null){
+                Toast.makeText(
+                    applicationContext,
+                    "실패",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }else {
+                sTrainingTime = trainingTimeRadioButton.text.toString()
+            }
 
             val sDietCnt = sendCheck(dietCntBreakfast, dietCntLunch, dietCntDinner)
             val sAllergy = sendCheck(
@@ -142,9 +184,28 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
 
             val snackynRadioButton =
                 findViewById<RadioButton>(snackynRadioButtonGroup.checkedRadioButtonId)
-            val sSnackYn = snackynRadioButton.text.toString()
+            var sSnackYn: String? = null
 
-            val sPropre1 = findViewById<RadioButton>(proPre1.checkedRadioButtonId).text.toString()
+            if(snackynRadioButton == null){
+                Toast.makeText(
+                    applicationContext,
+                    "실패",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }else {
+                sSnackYn = snackynRadioButton.text.toString()
+            }
+
+            var sPropre1 = findViewById<RadioButton>(proPre1.checkedRadioButtonId).text.toString()
+            if(sPropre1 == null){
+                Toast.makeText(
+                    applicationContext,
+                    "실패",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }else {
+                sPropre1 = findViewById<RadioButton>(proPre1.checkedRadioButtonId).text.toString()
+            }
             val sPropre2 = findViewById<RadioButton>(proPre2.checkedRadioButtonId).text.toString()
             val sPropre3 = findViewById<RadioButton>(proPre3.checkedRadioButtonId).text.toString()
             val sPropre4 = findViewById<RadioButton>(proPre4.checkedRadioButtonId).text.toString()
@@ -176,66 +237,94 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
                 sFlapre8
             )
 
+            val sProteinAmount = calculateProtein(sHeight.toInt(), sWeight.toInt(), sTrainingPurpose!!)
 
-            val survey = Survey(
-                semail,
-                sHeight,
-                sWeight,
-                sProteinPurpose,
-                sTrainingPurpose,
-                sTrainingCnt,
-                sTrainingTime,
-                sDietCnt,
-                sAllergy,
-                sSnackYn,
-                sPropreResult,
-                sFlapreResult
-            )
+            if((sHeight == null) or
+                (sHeight == null) or
+                (sWeight == null  ) or
+                (sProteinPurpose == null) or
+                (sTrainingPurpose == null) or
+                (sTrainingCnt == null) or
+                (sTrainingTime == null) or
+                (sDietCnt == null) or
+                (sAllergy == null) or
+                (sSnackYn == null) or
+                (sPropreResult == null) or
+                (sFlapreResult == null) or
+                (sProteinAmount == null)) {
 
-            dao.add(survey).addOnSuccessListener(OnSuccessListener<Void?> {
-                proteinAmout = calculateProtein(sHeight.toInt(), sWeight.toInt(), sTrainingPurpose)
-                onClickShowAlert(proteinAmout!!,sFlapreResult.toTypedArray()!!,sPropreResult.toTypedArray()!!)
-
-                // 입력창 초기화
-                heightEdit.setText("")
-                weightEdit.setText("")
-                proteinPurposeRadioButton.isChecked = false
-                trainingPurposeRadioButton.isChecked = false
-                trainingCntRadioButton.isChecked = false
-                trainingTimeRadioButton.isChecked = false
-
-
-                setCheckBoxFalse(dietCntBreakfast, dietCntLunch, dietCntDinner)
-                setCheckBoxFalse(
-                    allergy1,
-                    allergy2,
-                    allergy3,
-                    allergy4,
-                    allergy5,
-                    allergy6,
-                    allergy7,
-                    allergy8,
-                    allergy9,
-                    allergy10,
-                    allergy11,
-                    allergy12,
-                    allergy13,
-                    allergy14,
-                    allergy15,
-                    allergy16,
-                    allergy17,
-                    allergy18,
-                    allergy19
-                )
-
-            }).addOnFailureListener(OnFailureListener {
                 Toast.makeText(
                     applicationContext,
-                    "실패",
+                    "모든 항목을 설문해주세요!",
                     Toast.LENGTH_SHORT
                 ).show()
-            })
+
+            } else {
+                val survey = Survey(
+                    semail,
+                    sHeight,
+                    sWeight,
+                    sProteinPurpose,
+                    sTrainingPurpose,
+                    sTrainingCnt,
+                    sTrainingTime,
+                    sDietCnt,
+                    sAllergy,
+                    sSnackYn,
+                    sPropreResult,
+                    sFlapreResult,
+                    sProteinAmount
+                )
+
+                dao.add(survey).addOnSuccessListener(OnSuccessListener<Void?> {
+                    onClickShowAlert(sProteinAmount!!,sFlapreResult.toTypedArray()!!,sPropreResult.toTypedArray()!!)
+                    updateUI("height", sHeight)
+                    updateUI("weight", sWeight)
+                    updateUI("proteinAmount", sProteinAmount.toString())
+
+
+                    // 입력창 초기화
+                    heightEdit.setText("")
+                    weightEdit.setText("")
+                    proteinPurposeRadioButton.isChecked = false
+                    trainingPurposeRadioButton.isChecked = false
+                    trainingCntRadioButton.isChecked = false
+                    trainingTimeRadioButton.isChecked = false
+
+
+                    setCheckBoxFalse(dietCntBreakfast, dietCntLunch, dietCntDinner)
+                    setCheckBoxFalse(
+                        allergy1,
+                        allergy2,
+                        allergy3,
+                        allergy4,
+                        allergy5,
+                        allergy6,
+                        allergy7,
+                        allergy8,
+                        allergy9,
+                        allergy10,
+                        allergy11,
+                        allergy12,
+                        allergy13,
+                        allergy14,
+                        allergy15,
+                        allergy16,
+                        allergy17,
+                        allergy18,
+                        allergy19
+                    )
+
+                }).addOnFailureListener(OnFailureListener {
+                    Toast.makeText(
+                        applicationContext,
+                        "실패",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                })
+            }
         }
+
     }
 
 
@@ -279,15 +368,11 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
 
     private fun onClickShowAlert(p: Int, flavour: Array<Int>, product: Array<Int>) {
         val myAlertBuilder: AlertDialog.Builder = AlertDialog.Builder(this@SurveyActivity)
-        myAlertBuilder.setTitle("회원님의 필수 단백질량은: ${proteinAmout.toString()}입니다")
-        myAlertBuilder.setMessage("Ok버튼을 누르면 맞춤 식단을 만나보실 수 있습니다! \n 설문을 다시 작성하려면 Cancel버튼을 눌러주세요.")
+        myAlertBuilder.setTitle("회원님의 필수 단백질량은: ${p}입니다")
+        myAlertBuilder.setMessage("Ok버튼을 누르면 맞춤 식단을 만나보실 수 있습니다! 설문을 다시 작성하려면 Cancel버튼을 눌러주세요.")
         myAlertBuilder.setPositiveButton("Ok",
             DialogInterface.OnClickListener { dialog, which -> // OK 버튼을 눌렸을 경우
                 val intent = Intent(this, MainActivity::class.java)
-                intent.putExtra("user_id", semail)
-                intent.putExtra("proteinAmout", proteinAmout)
-                intent.putExtra("flavour", flavour)
-                intent.putExtra("product", product)
                 startActivity(intent)
             })
 
@@ -313,6 +398,13 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
             else -> 0
         }
         return result
+    }
+
+    private fun updateUI(title: String?, value: String?) {
+        val sharedPreference = getSharedPreferences("surveyInfo", MODE_PRIVATE)
+        val editor: SharedPreferences.Editor = sharedPreference.edit()
+        editor.putString(title, value)
+        editor.commit()
     }
 
 }

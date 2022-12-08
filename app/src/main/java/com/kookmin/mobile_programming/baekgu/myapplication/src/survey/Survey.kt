@@ -13,6 +13,7 @@ class Survey {
     var user_snackYn: String? = null
     var user_proPre: List<Int>? = null
     var user_flaPre: List<Int>? = null
+    var user_proteinAmount: Int? = null
 
 
 
@@ -29,7 +30,8 @@ class Survey {
         user_allergy: List<String>?,
         user_snackYn: String?,
         user_proPre: List<Int>?,
-        user_flaPre: List<Int>?
+        user_flaPre: List<Int>?,
+        user_proteinAmount: Int?
 
 
     ) {
@@ -45,5 +47,6 @@ class Survey {
         this.user_snackYn = user_snackYn
         this.user_proPre = user_proPre
         this.user_flaPre = user_flaPre
+        this.user_proteinAmount = user_proteinAmount
     }
 }
