@@ -6,18 +6,15 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 
-import android.util.Log
 import android.widget.*
 import com.example.firebasepratice.Survey
 import com.google.android.gms.tasks.OnFailureListener
 import com.google.android.gms.tasks.OnSuccessListener
-import com.google.firebase.database.*
 import com.kookmin.mobile_programming.baekgu.myapplication.R
 
 import com.kookmin.mobile_programming.baekgu.myapplication.config.BaseActivity
 import com.kookmin.mobile_programming.baekgu.myapplication.databinding.ActivitySurveyBinding
 import com.kookmin.mobile_programming.baekgu.myapplication.src.MainActivity
-import kotlin.math.roundToInt
 
 class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::inflate) {
     var semail: String? = null
@@ -52,10 +49,7 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
         var allergy3 = findViewById<CheckBox>(R.id.survey_cb_allergy_3)
         var allergy4 = findViewById<CheckBox>(R.id.survey_cb_allergy_4)
         var allergy5 = findViewById<CheckBox>(R.id.survey_cb_allergy_5)
-        var allergy6 = findViewById<CheckBox>(R.id.survey_cb_allergy_6)
-        var allergy7 = findViewById<CheckBox>(R.id.survey_cb_allergy_7)
-        var allergy8 = findViewById<CheckBox>(R.id.survey_cb_allergy_8)
-        var allergy9 = findViewById<CheckBox>(R.id.survey_cb_allergy_9)
+
 
 
         val snackynRadioButtonGroup = findViewById<RadioGroup>(R.id.survey_rg_snackyn)
@@ -67,8 +61,7 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
         val proPre4 = findViewById<RadioGroup>(R.id.survey_rg_beefsteak)
         val proPre5 = findViewById<RadioGroup>(R.id.survey_rg_godeungeo)
         val proPre6 = findViewById<RadioGroup>(R.id.survey_rg_chickensteak)
-        val proPre7 = findViewById<RadioGroup>(R.id.survey_rg_protein)
-        val proPre8 = findViewById<RadioGroup>(R.id.survey_rg_snack)
+
 
 
         val flaPre1 = findViewById<RadioGroup>(R.id.survey_rg_spicy)
@@ -156,10 +149,6 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
                 allergy3,
                 allergy4,
                 allergy5,
-                allergy6,
-                allergy7,
-                allergy8,
-                allergy9
             )
 
             val snackynRadioButton =
@@ -191,11 +180,9 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
             val sPropre4 = findViewById<RadioButton>(proPre4.checkedRadioButtonId).text.toString()
             val sPropre5 = findViewById<RadioButton>(proPre5.checkedRadioButtonId).text.toString()
             val sPropre6 = findViewById<RadioButton>(proPre6.checkedRadioButtonId).text.toString()
-            val sPropre7 = findViewById<RadioButton>(proPre7.checkedRadioButtonId).text.toString()
-            val sPropre8 = findViewById<RadioButton>(proPre8.checkedRadioButtonId).text.toString()
+
             val sPropreResult = sendRadio(
-                sPropre1, sPropre2, sPropre3, sPropre4, sPropre5, sPropre6,
-                sPropre7, sPropre8
+                sPropre1, sPropre2, sPropre3, sPropre4, sPropre5, sPropre6
             )
 
             val sFlapre1 = findViewById<RadioButton>(flaPre1.checkedRadioButtonId).text.toString()
@@ -279,10 +266,6 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
                         allergy3,
                         allergy4,
                         allergy5,
-                        allergy6,
-                        allergy7,
-                        allergy8,
-                        allergy9
                     )
 
                 }).addOnFailureListener(OnFailureListener {
