@@ -198,7 +198,7 @@
                 }
             }
          }
-       ```
+  ```
    1. 회원가입에서 입력한 정보를 Firebase Realtime DataBase users에 저장한다. 각각의 타입은 아래와 같다.
   <table>
     <tr>
