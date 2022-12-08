@@ -2,6 +2,7 @@ package com.kookmin.mobile_programming.baekgu.myapplication.src.diet_details.rv
 
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.kookmin.mobile_programming.baekgu.myapplication.databinding.ItemDietDetailsBinding
@@ -114,8 +115,22 @@ class DietDetailsRvAdapter(val dataSet:ArrayList<DietDetailsDataClass>):Recycler
             binding.itemDietDetailsTvBreakfastContent.text=item.breakFast.split("?")[0]
             binding.itemDietDetailsTvLunchContent.text=item.lunch.split("?")[0]
             binding.itemDietDetailsTvDinnerContent.text=item.dinner.split("?")[0]
-            binding.itemDietDetailsTvSnack1Content.text=item.snack_1.split("?")[0]
-            binding.itemDietDetailsTvSnack2Content.text=item.snack_2.split("?")[0]
+
+            if(item.snack_1.split("?")[1].toInt()==0){
+                binding.itemDietDetailsLayoutSnack1.visibility= View.GONE
+            }else{
+                binding.itemDietDetailsLayoutSnack1.visibility=View.VISIBLE
+                binding.itemDietDetailsTvSnack1Content.text=item.snack_1.split("?")[0]
+            }
+
+            if(item.snack_2.split("?")[1].toInt()==0){
+                binding.itemDietDetailsLayoutSnack2.visibility=View.GONE
+            }else{
+                binding.itemDietDetailsLayoutSnack2.visibility=View.VISIBLE
+                binding.itemDietDetailsTvSnack2Content.text=item.snack_2.split("?")[0]
+            }
+
+
         }
 
     }
