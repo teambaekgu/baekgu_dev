@@ -116,18 +116,21 @@ class DietDetailsRvAdapter(val dataSet:ArrayList<DietDetailsDataClass>):Recycler
             binding.itemDietDetailsTvLunchContent.text=item.lunch.split("?")[0]
             binding.itemDietDetailsTvDinnerContent.text=item.dinner.split("?")[0]
 
-            if(item.snack_1.split("?")[1].toInt()==0){
-                binding.itemDietDetailsLayoutSnack1.visibility= View.GONE
-            }else{
+            if(item.snack_1.contains("?")){
                 binding.itemDietDetailsLayoutSnack1.visibility=View.VISIBLE
                 binding.itemDietDetailsTvSnack1Content.text=item.snack_1.split("?")[0]
+            }else{
+                binding.itemDietDetailsLayoutSnack1.visibility= View.GONE
+
             }
 
-            if(item.snack_2.split("?")[1].toInt()==0){
-                binding.itemDietDetailsLayoutSnack2.visibility=View.GONE
-            }else{
+            if(item.snack_2.contains("?")){
                 binding.itemDietDetailsLayoutSnack2.visibility=View.VISIBLE
                 binding.itemDietDetailsTvSnack2Content.text=item.snack_2.split("?")[0]
+
+            }else{
+                binding.itemDietDetailsLayoutSnack2.visibility=View.GONE
+
             }
 
 
