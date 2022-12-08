@@ -112,6 +112,8 @@ LoginActivity:BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::inflate) 
                                         updateUI("height", heightValue)
                                         var weightValue = dataSnapshot.child("user_weight").getValue(String::class.java)
                                         updateUI("weight", weightValue)
+                                        var proteinAmountValue = dataSnapshot.child("user_proteinAmount").getValue(Int::class.java)
+                                        updateUI("proteinAmount", proteinAmountValue.toString())
                                     }
                                 }
                             }
@@ -134,6 +136,8 @@ LoginActivity:BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::inflate) 
                     updateUI("address", null)
                     updateUI("height", null)
                     updateUI("weight", null)
+                    updateUI("proteinAmount", null)
+
                 }
             }
     }
