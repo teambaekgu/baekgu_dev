@@ -264,6 +264,7 @@
        database.child("users").child(email).setValue(user)
    }
    ```
+  
    4. signInWithEmailAndPassword 메서드를 사용해 Firebase Authentication에 저장된 데이터와 일치 여부를 판단한다.
       Firebase Realtime Database에 저장된 데이터를 조회하여 변수에 저장한 뒤 마이페이지 내용을 유저에 맞게 변경한다.
    ``` kotlin
@@ -306,24 +307,25 @@
     }
    ```
   
-     5. 이미 로그인한 유저는 별도의 로그인없이 메인 액티비티로 이동한다.
-     ``` kotlin
-      override fun onStart() {
-         super.onStart()
-         // Check if user is signed in (non-null) and update UI accordingly.
-         val currentUser = auth.currentUser
-         if(currentUser != null){
-             reload();
-         }
-     }
+   5. 이미 로그인한 유저는 별도의 로그인없이 메인 액티비티로 이동한다.
+   ``` kotlin
+     override fun onStart() {
+        super.onStart()
+        // Check if user is signed in (non-null) and update UI accordingly.
+        val currentUser = auth.currentUser
+        if(currentUser != null){
+            reload();
+        }
+    }
 
      // 로그인 기록이 있으면 메인 액티비티로 이동
      private fun reload() {
          var intent = Intent(this, MainActivity::class.java)
          startActivity(intent)
      }
-   
-     ```
+
+   ```
+  
    6. 비밀번호 수정이 있으면 Firebase Authentication에 비밀번호 수정 요청을 보내고 나머지 정보는 Realtime Database에 새 정보를 새로 저장한다.
    ``` kotlin
    // 수정 완료 버튼
