@@ -1,4 +1,4 @@
-# 백구 : 모두를 위한 군사보안 경보 시스템 <수정할 부분>
+# 백구 : 헬서들을 위한 단백질 보충 식단 추천 서비스
 
 
 <간략한소개>
@@ -10,14 +10,40 @@
 <details>
  <summary>📃주제 정의 문서</summary>
  
- ### 문제 발견하기
+ ### 🐾 기획 의도
+ 
+ #### MZ세대에서 트렌드 키워드로 뽑히는 #운동 #자기관리
+ - Instagram의 #오운완(오늘운동완료)인증글은 385만개 헬스를 주제로 하는 유튜버들의 구독자가 100만명이 넘는 등 SNS와 플랫폼으로 MZ세대가 많은 자극을 받음
+ - '자기관리 = 건간관리' 라는 사회적 분위기가 형성되면서 "덤벨 이코노미" 시대 즉, 건강과 운동, 체력 관리에 대한 관심이 커지면서 건강 관련 시장이 급성장하는 경제 현상이나 소비 패턴이 이뤄지고 있다.
+
+<table>
+ <tr>
+  <td><img width="531" alt="image" src="https://user-images.githubusercontent.com/54922625/206523332-8978f4d8-5465-46c7-ab64-0e652e1e43f0.png" width="230"></td>
+  <td><img src="https://user-images.githubusercontent.com/54922625/206525532-0ba8adfe-5cdc-493f-89eb-431e55ada284.jpeg" width="230" height="350"></td>
+  <td><img width="330" alt="image" src="https://user-images.githubusercontent.com/54922625/206526593-d28e1798-4e02-4353-a88d-cfe916fd55cf.png"/></td>
+ </tr>
+ <tr>
+  <td>"대학내일 통계자료"</td>
+  <td>인스타 #오운완 인증글</td>
+  <td>헬스 유튜버 "피지컬 갤러리"</td>
+ </tr>
+</table>
+
+#### 다이어트 앱은 넘쳐나지만 헬서를 위한 식단 맞춤 앱의 부재
+- 헬스의 인기가 높아지면서 단백질 식단도 크게 각광을 받고 있다.
+- 그러나 식단관리 앱이 넘쳐나도 전반적인 초점은 체중감량이었고, 헬서들에게 필요한 단백질 맞춤 식단 추천앱은 부재하다는 것을 인지하였다.
+<img src="https://user-images.githubusercontent.com/54922625/206528612-7f4b3a35-98de-448e-a030-e84dc12fcbe0.png" width=230 height=230/>
+<img src="https://user-images.githubusercontent.com/54922625/206529819-0516c2f4-a1d6-4b6f-86d2-edf56a82e52e.png" width=300 height=230/>
+
    
  
- ### 문제 정의
+ ### 🐾 아이디어 내기
+ 그래서 우리는 아래의 기능들을 구현하여 단백질 식단 관리 편성에 대한 번거로움과 단일한 단백질 식품에 대한 권태감을 해소시키는<br>
+ **헬서& 다이어터를 위한개인 맞춤형 단백질 식단 관리 및 제공 서비스**를 제공하기로 했다.
  
- 
- ### 아이디어 내기
- 
+ 1. 설문 조사를 통해 개인정보와 상품에 대한 선호도조사를 바탕으로 단백질 식단을 추천, 제공
+ 2. 하루 목표 단백질 섭취율을 체크해 주는 기능 제공
+ 3. 카테고리 별 개별 상품 확인 기능 제공 
  
 </details>
 
@@ -34,6 +60,20 @@
  ### Architecture
   <p align='center'><img src="https://user-images.githubusercontent.com/40621030/136720255-0456ffd4-4d7d-4d2e-b5c5-09387c5861fa.png"/></p>
 </details>
+
+<details>
+ <summary>페르소나 </summary> (아래 부분은 예시)
+ 
+ ### User-case Diagram
+ <p align='center'><img src="https://user-images.githubusercontent.com/40621030/134690667-abe8f797-01a8-44db-ae89-ef7809c22d64.png"/></p>
+ 
+ ### Sequence Diagram
+  <p align='center'><img src="https://user-images.githubusercontent.com/40621030/136720501-bbe98072-abbc-4797-a0c2-c66771f7e04a.png"/></p>
+ 
+ ### Architecture
+  <p align='center'><img src="https://user-images.githubusercontent.com/40621030/136720255-0456ffd4-4d7d-4d2e-b5c5-09387c5861fa.png"/></p>
+</details>
+
 
 <details>
  <summary>🖊개발 문서</summary>
@@ -65,7 +105,7 @@
 </table>
 -->
 
- ### 🐤**Canary app**
+ ### 🐾**백구 **
 
  앱을 처음 실행 시, 사용자는 자신의 성명과 군번을 통해 회원가입을 진행합니다. 이 정보는 암호화되어 저장됩니다.  
 
@@ -112,7 +152,7 @@
  <table>
 
   
- ### 🐤**Admin Server** (저희는 파이어베이스)
+ ### 🐤**Firbase** (저희는 파이어베이스)
 
 
  
