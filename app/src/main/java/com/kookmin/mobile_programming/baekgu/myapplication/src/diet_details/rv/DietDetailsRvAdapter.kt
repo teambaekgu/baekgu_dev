@@ -23,12 +23,29 @@ class DietDetailsRvAdapter(val dataSet:ArrayList<DietDetailsDataClass>):Recycler
         val binding=ItemDietDetailsBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         return dietDetailsViewHolder(binding).also { holder ->
 
+            binding.itemDietDetailsChbBreakfastRice.setOnCheckedChangeListener { compoundButton, b ->
+                if(b){
+                    this.itemClickListener.onClick(holder.adapterPosition,7)
+                }else{
+                    this.itemClickListener.onClick(holder.adapterPosition,-7)
+                }
+            }
+
             binding.itemDietDetailsChbBreakfast.setOnCheckedChangeListener { compoundButton, b ->
                 Log.d("weagwaegewag","${holder.adapterPosition} ,${b}")
                 if(b){
                     this.itemClickListener.onClick(holder.adapterPosition,dataSet[holder.adapterPosition].breakFast.split("?")[1].toInt())
                 }else{
                     this.itemClickListener.onClick(holder.adapterPosition,-dataSet[holder.adapterPosition].breakFast.split("?")[1].toInt())
+                }
+            }
+
+
+            binding.itemDietDetailsChbLunchRice.setOnCheckedChangeListener { compoundButton, b ->
+                if(b){
+                    this.itemClickListener.onClick(holder.adapterPosition,7)
+                }else{
+                    this.itemClickListener.onClick(holder.adapterPosition,-7)
                 }
             }
 
@@ -40,6 +57,14 @@ class DietDetailsRvAdapter(val dataSet:ArrayList<DietDetailsDataClass>):Recycler
                 }
             }
 
+
+            binding.itemDietDetailsChbDinnerRice.setOnCheckedChangeListener { compoundButton, b ->
+                if(b){
+                    this.itemClickListener.onClick(holder.adapterPosition,7)
+                }else{
+                    this.itemClickListener.onClick(holder.adapterPosition,-7)
+                }
+            }
             binding.itemDietDetailsChbDinner.setOnCheckedChangeListener { compoundButton, b ->
                 Log.d("weagwaegewag","${holder.adapterPosition} ,${b}")
                 if(b){

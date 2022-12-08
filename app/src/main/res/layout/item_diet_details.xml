@@ -42,12 +42,36 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_marginTop="4dp"
             >
+            <CheckBox
+                android:id="@+id/item_diet_details_chb_breakfast_rice"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/item_diet_details_tv_breakfast_content_rice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="흰 쌀밥"
+                android:textColor="@color/subGrey"
+                android:fontFamily="@font/spoqa_han_sans_neo_regular"
+                />
 
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="2dp"
+
+            >
             <CheckBox
                 android:id="@+id/item_diet_details_chb_breakfast"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="20dp"/>
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/item_diet_details_tv_breakfast_content"
                 android:layout_width="wrap_content"
@@ -91,11 +115,36 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_marginTop="4dp"
+
+            >
+            <CheckBox
+                android:id="@+id/item_diet_details_chb_lunch_rice"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/item_diet_details_tv_lunch_content_rice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="흰 쌀밥"
+                android:textColor="@color/subGrey"
+                android:fontFamily="@font/spoqa_han_sans_neo_regular"
+                />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="2dp"
+
             >
             <CheckBox
                 android:id="@+id/item_diet_details_chb_lunch"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="20dp"/>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/item_diet_details_tv_lunch_content"
@@ -141,17 +190,44 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_marginTop="4dp"
+
+            >
+
+            <CheckBox
+                android:id="@+id/item_diet_details_chb_dinner_rice"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/item_diet_details_tv_dinner_content_rice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="흰 쌀밥"
+                android:textColor="@color/subGrey"
+                android:fontFamily="@font/spoqa_han_sans_neo_regular"
+                />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="2dp"
+
             >
 
             <CheckBox
                 android:id="@+id/item_diet_details_chb_dinner"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="20dp"/>
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/item_diet_details_tv_dinner_content"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/vertical_margin_small"
                 android:text="파스타 밀키트"
                 android:textColor="@color/subGrey"
                 android:fontFamily="@font/spoqa_han_sans_neo_regular"
@@ -189,12 +265,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_marginTop="4dp"
+
             >
 
             <CheckBox
                 android:id="@+id/item_diet_details_chb_snack_1"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="20dp"/>
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/item_diet_details_tv_snack_1_content"
                 android:layout_width="wrap_content"
@@ -236,12 +314,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_marginTop="4dp"
+
             >
 
             <CheckBox
                 android:id="@+id/item_diet_details_chb_snack_2"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="20dp"/>
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/item_diet_details_tv_snack_2_content"
                 android:layout_width="wrap_content"
