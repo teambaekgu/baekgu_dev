@@ -56,16 +56,6 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
         var allergy7 = findViewById<CheckBox>(R.id.survey_cb_allergy_7)
         var allergy8 = findViewById<CheckBox>(R.id.survey_cb_allergy_8)
         var allergy9 = findViewById<CheckBox>(R.id.survey_cb_allergy_9)
-        var allergy10 = findViewById<CheckBox>(R.id.survey_cb_allergy_10)
-        var allergy11 = findViewById<CheckBox>(R.id.survey_cb_allergy_11)
-        var allergy12 = findViewById<CheckBox>(R.id.survey_cb_allergy_12)
-        var allergy13 = findViewById<CheckBox>(R.id.survey_cb_allergy_13)
-        var allergy14 = findViewById<CheckBox>(R.id.survey_cb_allergy_14)
-        var allergy15 = findViewById<CheckBox>(R.id.survey_cb_allergy_15)
-        var allergy16 = findViewById<CheckBox>(R.id.survey_cb_allergy_16)
-        var allergy17 = findViewById<CheckBox>(R.id.survey_cb_allergy_17)
-        var allergy18 = findViewById<CheckBox>(R.id.survey_cb_allergy_18)
-        var allergy19 = findViewById<CheckBox>(R.id.survey_cb_allergy_19)
 
 
         val snackynRadioButtonGroup = findViewById<RadioGroup>(R.id.survey_rg_snackyn)
@@ -169,17 +159,7 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
                 allergy6,
                 allergy7,
                 allergy8,
-                allergy9,
-                allergy10,
-                allergy11,
-                allergy12,
-                allergy13,
-                allergy14,
-                allergy15,
-                allergy16,
-                allergy17,
-                allergy18,
-                allergy19
+                allergy9
             )
 
             val snackynRadioButton =
@@ -302,17 +282,7 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
                         allergy6,
                         allergy7,
                         allergy8,
-                        allergy9,
-                        allergy10,
-                        allergy11,
-                        allergy12,
-                        allergy13,
-                        allergy14,
-                        allergy15,
-                        allergy16,
-                        allergy17,
-                        allergy18,
-                        allergy19
+                        allergy9
                     )
 
                 }).addOnFailureListener(OnFailureListener {

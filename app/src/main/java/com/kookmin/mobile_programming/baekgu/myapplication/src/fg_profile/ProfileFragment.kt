@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.ktx.auth
@@ -43,6 +44,15 @@ class ProfileFragment: BaseFragment<FragmentProfileBinding>(FragmentProfileBindi
         editor.commit()
     }
 
+    private fun updateUI2(heightValue: String?, weightValue: String?, proteinAmountValue: String?) {
+        val sharedPreference = requireContext().getSharedPreferences("surveyInfo", AppCompatActivity.MODE_PRIVATE)
+        val editor: SharedPreferences.Editor = sharedPreference.edit()
+        editor.putString("height", heightValue)
+        editor.putString("weight", weightValue)
+        editor.putString("proteinAmount", proteinAmountValue.toString())
+        editor.commit()
+    }
+
     private fun setListener(){
         // 마이페이지 개인정보 표시
         val sharedPreference = requireContext().getSharedPreferences("userInfo", Context.MODE_PRIVATE)
@@ -58,7 +68,17 @@ class ProfileFragment: BaseFragment<FragmentProfileBinding>(FragmentProfileBindi
         binding.fgProfileTvHeight.setText("${heightValue}cm")
         binding.fgProfileTvProtein.setText("${proteinAmountValue}g")
 
+        Log.d("binding.fgProfileTvWeight", binding.fgProfileTvWeight.text.toString())
 
+        if(weightValue == "User weight"){
+            val sharedPreference = requireContext().getSharedPreferences("surveyInfo", Context.MODE_PRIVATE)
+            val weightValue = sharedPreference.getString("weight", "User weight")
+            val heightValue = sharedPreference.getString("height", "User height")
+            val proteinAmountValue = sharedPreference.getString("proteinAmount", "User proteinAmount")
+            binding.fgProfileTvWeight.setText("${weightValue}kg")
+            binding.fgProfileTvHeight.setText("${heightValue}cm")
+            binding.fgProfileTvProtein.setText("${proteinAmountValue}g")
+        }
 
         // 개인정보 수정 페이지로 이동
         binding.fgProfileLayoutSetting.setOnClickListener {
@@ -73,6 +93,7 @@ class ProfileFragment: BaseFragment<FragmentProfileBinding>(FragmentProfileBindi
             var intent= Intent(requireContext(), LoginActivity::class.java)
             startActivity(intent)
         }
+
 
 //        binding.fgProfileTvTargetEdit.setOnClickListener{
 //            var intent = Intent(requireContext(),ProfileTargetEditActivity::class.java)
