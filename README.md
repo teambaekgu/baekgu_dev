@@ -54,7 +54,7 @@
 ### 🖥화면 정의 (아래 내용은 예시인데 이런느낌으로 해주시면 좋을 거 같습니다)
 <table>
  <tr>
-  <td><img src="https://user-images.githubusercontent.com/40621030/134689804-f72fc601-00cb-462b-a332-a1bcb62ad8a1.png" width="230"/></td>
+  <td><img src="https://user-images.githubusercontent.com/109564764/206384389-b59ecafd-3b95-479a-918d-1320b3894bd7.png" width="230"/></td>
   <td><img src="https://user-images.githubusercontent.com/40621030/134689811-03fca8d5-26fd-4678-a398-df31655ebae5.png" width="230"/></td>
   <td><img src="https://user-images.githubusercontent.com/40621030/134689813-b89f9162-4e74-48c7-9ac6-57e22f355827.png" width="230"/></td>
  </tr>
@@ -224,10 +224,10 @@
 
  <tr>
   <td align='center'><img src="x" width="50" height="50"></td>
-  <td align='center'>성은님</td>
+  <td align='center'>Sungeun Yeo</td>
   <td align='center'>Front-End (kotlin)</td>
-  <td align='center'><a href="x"><img src="x"/></a></td>
-  <td align='center'><a href="x"><img src="x"/></a></td>
+   <td align='center'><a href="https://github.com/YeoSungeun"><img src="http://img.shields.io/badge/YeoSungeun-green?style=social&logo=github"/></a></td>
+ <td align='center'><a href="mailto:dutjddms@naver.com"><img src="https://img.shields.io/badge/dutjddms@naver.com-green?logo=gmail&style=social"/></a></td>
  </tr>
 
  <tr>
