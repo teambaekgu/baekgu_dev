@@ -384,28 +384,28 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="4dp"
-                        android:text="우유" />
+                        android:text="유제품" />
 
                     <CheckBox
                         android:id="@+id/survey_cb_allergy_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="4dp"
-                        android:text="대두" />
+                        android:text="소고기" />
 
                     <CheckBox
                         android:id="@+id/survey_cb_allergy_3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="4dp"
-                        android:text="닭" />
+                        android:text="닭고기" />
 
                     <CheckBox
                         android:id="@+id/survey_cb_allergy_4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="4dp"
-                        android:text="소" />
+                        android:text="돼지고기" />
 
 
 
@@ -422,7 +422,7 @@
                         android:id="@+id/survey_cb_allergy_5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="돼지"
+                        android:text="대두"
                         android:layout_marginRight="4dp"/>
 
                     <CheckBox
@@ -446,6 +446,13 @@
                         android:layout_height="wrap_content"
                         android:layout_marginRight="4dp"
                         android:text="생선류" />
+
+                    <CheckBox
+                        android:id="@+id/survey_cb_allergy_9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="4dp"
+                        android:text="없음" />
 
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
