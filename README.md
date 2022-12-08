@@ -304,6 +304,94 @@
     }
    ```
   
+     5. 이미 로그인한 유저는 별도의 로그인없이 메인 액티비티로 이동한다.
+     ``` kotlin
+      override fun onStart() {
+         super.onStart()
+         // Check if user is signed in (non-null) and update UI accordingly.
+         val currentUser = auth.currentUser
+         if(currentUser != null){
+             reload();
+         }
+     }
+
+     // 로그인 기록이 있으면 메인 액티비티로 이동
+     private fun reload() {
+         var intent = Intent(this, MainActivity::class.java)
+         startActivity(intent)
+     }
+   
+     ```
+   6. 비밀번호 수정이 있으면 Firebase Authentication에 비밀번호 수정 요청을 보내고 나머지 정보는 Realtime Database에 새 정보를 새로 저장한다.
+   ``` kotlin
+   // 수정 완료 버튼
+   binding.profileEditTvFinish.setOnClickListener {
+       val user = Firebase.auth.currentUser!!
+       var newEmailValue = binding.profileEditEditId.text.toString()
+       var newPwValue = binding.profileEditEditPw.text.toString()
+       var newNameValue = binding.profileEditEditName.text.toString()
+       var newBirthValue = binding.profileEditEditBirthday.text.toString()
+       var newPhoneValue = binding.profileEditEditNumber.text.toString()
+       var newAddressValue = binding.profileEditEditTown.text.toString()
+
+       if (pwValue == newPwValue && nameValue == newNameValue && birthValue == newBirthValue && phoneValue == newPhoneValue && addressValue == newAddressValue) {
+           Toast.makeText(baseContext, "수정 사항이 없습니다.", Toast.LENGTH_SHORT).show()
+       } else {
+           if (Pattern.matches(
+                   "^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[\$@\$!%*#?&])[A-Za-z[0-9]\$@\$!%*#?&]{8,20}\$", newPwValue)) {
+               if(newNameValue.isNotEmpty() && newBirthValue.isNotEmpty() && newPhoneValue.isNotEmpty() && newAddressValue.isNotEmpty()) {
+                   // 회원 정보 수정
+                   user?.let {
+                       val uid = user.uid
+
+                       // 원래 비밀번호랑 다르면 비밀번호 수정
+                       if(pwValue != newPwValue) {
+                           // 파이어베이스 사용자 재인증 - 이메일, 비밀번호 수정 전 한번 해줘야함
+                           val credential = EmailAuthProvider.getCredential(emailValue.toString(), pwValue.toString())
+                           user.reauthenticate(credential).addOnCompleteListener {
+                               Log.d("회원정보 수정", "유저 재인증 완료")
+                           }
+
+                           // 파이어베이스 탑재 비밀번호 수정 메소드
+                           user!!.updatePassword(binding.profileEditEditPw.text.toString())
+                               .addOnCompleteListener { task ->
+                                   if (task.isSuccessful) {
+                                       Log.d("비밀번호 수정", "비밀번호 변경 완료")
+                                   }
+                               }
+                       }
+
+                       // 파이어베이스 리얼타임 데이터베이스 수정
+                       fun updateUser(email: String, name: String, birth: String, phone: String, address: String) {
+                           database = Firebase.database.reference
+                           val user = SignupActivity.User(name, birth, phone, address)
+
+                           database.child("users").child(email).setValue(user)
+
+                           Toast.makeText(baseContext, "개인 정보 수정 완료되었습니다.", Toast.LENGTH_SHORT).show()
+                           finish()
+                       }
+                   }
+               } else {
+                   Toast.makeText(baseContext, "모든 항목을 다 입력해주세요.", Toast.LENGTH_SHORT).show()
+
+               }
+           } else {
+               Toast.makeText(baseContext, "8~16자 영문, 숫자, 특수문자를 사용하세요.", Toast.LENGTH_SHORT).show()
+           }
+       }
+   }
+   ```
+  
+   7. 로그아웃
+   ``` kotlin
+   // 로그아웃 기능
+   binding.fgProfileTvLogout.setOnClickListener {
+       Firebase.auth.signOut()
+       var intent= Intent(requireContext(), LoginActivity::class.java)
+       startActivity(intent)
+   }
+   ```
 
  
  #### 2. 설문조사 정보
