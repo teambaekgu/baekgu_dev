@@ -38,8 +38,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
 
         var email = intent.getStringExtra("user_id")
 //        val proteinAmount = intent.getIntExtra("proteinAmout", 0)
-//        var flavour = intent.getIntArrayExtra("flavour")
-//        var product = intent.getIntArrayExtra("product")!!.toTypedArray()
+//        var flavour = intent.getIntArrayExtra("flavour")?.toTypedArray()
+//        var product = intent.getIntArrayExtra("product")?.toTypedArray()
 
         val month = 12
         val allergy = 3
@@ -48,9 +48,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase!!.getReference().child("Survey")
         getValue(email.toString())
-        Log.d("email", email.toString())
-        Log.d("alksdjflkajslfkjaslfjlaskdfjlaaa", "Log.d(\"alksdjflkajslfkjaslfjlaskdfjlaaa\", )")
-
+//        Log.d("proteinAmount", proteinAmount.toString())
+//        Log.d("email", email.toString())
+//        Log.d("flavour", flavour.toString())
+//        Log.d("product", product.toString())
 
         // DB에서 받아오는 부분 ---------------------------------------
         // 제품 순서 : 소시지, 볼, 소스, 소고기, 생선, 스테이크, 프로틴, 간식
