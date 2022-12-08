@@ -52,7 +52,6 @@ class CalendarFragment: BaseFragment<FragmentCalendarBinding>(FragmentCalendarBi
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         val now = System.currentTimeMillis()
         val date = Date(now)
 
@@ -70,12 +69,6 @@ class CalendarFragment: BaseFragment<FragmentCalendarBinding>(FragmentCalendarBi
 
 
 
-
-
-
-
-
-
         // DB에서 받아오는 부분 ---------------------------------------
         // 제품 순서 : 소시지, 볼, 소스, 소고기, 생선, 스테이크, 프로틴, 간식
         // allergy : product 배열 idx
@@ -88,6 +81,9 @@ class CalendarFragment: BaseFragment<FragmentCalendarBinding>(FragmentCalendarBi
         val month = 12 //캘린더 정보에서 받아오기
 
         val result = makeDietCalendar(proteinAmount,flavour,product,allergy,month)
+
+        binding.fgCalendarTvTargetProtein.text=proteinAmount.toString()
+        binding.fgCalendarTvCurrentProtein.text="0"
 
         for(i : Int in 0..30){
             proteinAmountList.add(ProteinAmountDataClass(proteinAmount,0))
