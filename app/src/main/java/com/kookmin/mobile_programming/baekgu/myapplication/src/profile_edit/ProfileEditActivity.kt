@@ -87,7 +87,6 @@ class ProfileEditActivity:BaseActivity<ActivityProfileEditBinding>(ActivityProfi
 
             if (pwValue == newPwValue && nameValue == newNameValue && birthValue == newBirthValue && phoneValue == newPhoneValue && addressValue == newAddressValue) {
                 Toast.makeText(baseContext, "수정 사항이 없습니다.", Toast.LENGTH_SHORT).show()
-                finish()
             } else {
                 if (Pattern.matches(
                         "^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[\$@\$!%*#?&])[A-Za-z[0-9]\$@\$!%*#?&]{8,20}\$", newPwValue)) {
