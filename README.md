@@ -166,10 +166,54 @@
   
  ### 🐾 Back-End (Firebase)
 
- #### 1. 사용자 정보 
-  
+ #### 1. 사용자 정보
+   1.  ```kotlin
+        // 회원가입 함수
+    private fun createAccount(email: String, password: String) {
+        // 파이어베이스 회원가입 메서드
+        auth.createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    // 회원가입 성공
+                    val user = Firebase.auth.currentUser
+                    user?.let {
+                        val email = user.email
+                        val uid = user.uid
+                        // 프레퍼런스에 유저 정보 저장
+                        updateUI(uid, email, pwValue, nameValue, birthValue, phoneValue, addressValue)
+
+                        // 파이어베이스 Realtime Database 데이터 저장
+                        writeNewUser(uid, nameValue, birthValue, phoneValue, addressValue)
+
+                        // 설문조사 페이지로 이동
+                        var intent= Intent(this, SurveyActivity::class.java)
+                        intent.putExtra("user_id", email)
+                        startActivity(intent)
+                    }
+                } else {
+                    // 회원가입 실패 시 프레퍼런스 null 값으로 업데이트
+                    Toast.makeText(baseContext, "이미 존재하는 이메일입니다.", Toast.LENGTH_SHORT).show()
+                    updateUI(null, null, null, null, null, null, null)
+                }
+            }
+    }
+       ```
+   1. 회원가입에서 입력한 정보를 Firebase Realtime DataBase users에 저장한다. 각각의 타입은 아래와 같다.
+  <table>
+    <tr>
+    <td>타입</td>
+    <td>설문 정보</td>
+   </tr>
+   <tr>
+    <td>String</td>
+    <td>name, birth, phone, address</td>
+   </tr>
+  </table>
+  <img width="504" alt="스크린샷 2022-12-09 오전 7 51 59" src="https://user-images.githubusercontent.com/79249376/206583896-2206a60e-01d2-4a78-8699-0d9e8ad24da1.png">
+
+  2. 
  
-#### 2. 설문조사 정보
+ #### 2. 설문조사 정보
   1. 설문조사에서 조사한 설문정보를 Firebase Realtime DataBase에 저장한다. 각각의 타입은 아래와 같다.
   <table>
     <tr>
@@ -338,7 +382,7 @@
   <td align='center'>Back-End (Firebase)</td>
   <td align='center'><a href="https://github.com/jseo9732"><img src="http://img.shields.io/badge/jseo9732-green?style=social&logo=github"/></a></td>
   <td align='center'><a href="mailto:jseo9732@gmail.com"><img src="https://img.shields.io/badge/jseo9732@gmail.com-green?logo=gmail&style=social"/></a></td>
-    <td> 회원가입 / 로그인, 자동 로그인, 회원 정보 수정 기능 구현
+    <td> 회원가입, 로그인, 자동 로그인, 회원 정보 수정 기능 구현
 메인 페이지, 상품 상세 페이지 상품 조회 기능 구현
 </td>
  </tr>
