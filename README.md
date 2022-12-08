@@ -227,42 +227,84 @@
            } else {
                // 회원가입 실패 시 프레퍼런스 null 값으로 업데이트
                Toast.makeText(baseContext, "이미 존재하는 이메일입니다.", Toast.LENGTH_SHORT).show()
-               updateUI(null, null, null, null, null, null, null)
            }
        }
     }
    ```
   
    3. 회원가입에서 입력한 정보를 Firebase Realtime DataBase users에 저장한다. 각각의 타입은 아래와 같다.
-  <table>
+   <table>
+     <tr>
+     <td>타입</td>
+     <td>설문 정보</td>
+    </tr>
     <tr>
-    <td>타입</td>
-    <td>설문 정보</td>
-   </tr>
-   <tr>
-    <td>String</td>
-    <td>name, birth, phone, address</td>
-   </tr>
-  </table>
+     <td>String</td>
+     <td>name, birth, phone, address</td>
+    </tr>
+   </table>
+   <img width="504" alt="스크린샷 2022-12-09 오전 7 51 59" src="https://user-images.githubusercontent.com/79249376/206586583-1afee694-3844-4c1a-a1f3-20b1b4b75692.png">
+
   
-  ``` kotlin
-  // 파이어베이스 Realtime Database 저장 형식
-  @IgnoreExtraProperties
-  data class User(val name: String, val birth: String, val phone: String, val address: String) {
-      // Null default values create a no-argument default constructor, which is needed
-      // for deserialization from a DataSnapshot.
-  }
+   ``` kotlin
+   // 파이어베이스 Realtime Database 저장 형식
+   @IgnoreExtraProperties
+   data class User(val name: String, val birth: String, val phone: String, val address: String) {
+       // Null default values create a no-argument default constructor, which is needed
+       // for deserialization from a DataSnapshot.
+   }
 
-  // 파이어베이스 Realtime Database 저장 함수
-  fun writeNewUser(email: String, name: String, birth: String, phone: String, address: String) {
-      database = Firebase.database.reference
-      val user = User(name, birth, phone, address)
+   // Firebase Realtime Database 저장 함수
+   fun writeNewUser(email: String, name: String, birth: String, phone: String, address: String) {
+       database = Firebase.database.reference
+       val user = User(name, birth, phone, address)
 
-      database.child("users").child(email).setValue(user)
-  }
-  ```
+       database.child("users").child(email).setValue(user)
+   }
+   ```
+   4. signInWithEmailAndPassword 메서드를 사용해 Firebase Authentication에 저장된 데이터와 일치 여부를 판단한다.
+      Firebase Realtime Database에 저장된 데이터를 조회하여 변수에 저장한 뒤 마이페이지 내용을 유저에 맞게 변경한다.
+   ``` kotlin
+    // 로그인 함수
+    private fun signIn(email: String, password: String) {
+        auth.signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    // 로그인 성공하면 메인화면으로 화면 전환
+                    intent = Intent(this,MainActivity::class.java)
+                    intent.putExtra("user_id",binding.loginEditId.text.toString())
+                    startActivity(intent)
+                    val user = auth.currentUser
 
-  2. 
+                    // 파이어베이스 Realtime Database 조회 후 그 정보로 프레퍼런스 업데이트
+                    user?.let {
+                        val uid = user.uid
+                        val email = user.email
+
+                        database = Firebase.database.reference
+                        database.child("users").child(uid).child("name").get().addOnSuccessListener {
+                            var nameValue = it.value.toString()
+                        }
+                        database.child("users").child(uid).child("birth").get().addOnSuccessListener {
+                            var birthValue = it.value.toString()
+                        }
+                        database.child("users").child(uid).child("phone").get().addOnSuccessListener {
+                            var phoneValue = it.value.toString()
+                        }
+                        database.child("users").child(uid).child("address").get().addOnSuccessListener {
+                            var addressValue = it.value.toString()
+                        }
+                    }
+                }
+                else {
+                    // 로그인 실패 시 프레퍼런스 null 값으로 업데이트
+                    Toast.makeText(baseContext, "이메일 또는 비밀번호를 잘못 입력했습니다.", Toast.LENGTH_SHORT).show()
+                }
+            }
+    }
+   ```
+  
+
  
  #### 2. 설문조사 정보
   1. 설문조사에서 조사한 설문정보를 Firebase Realtime DataBase에 저장한다. 각각의 타입은 아래와 같다.
