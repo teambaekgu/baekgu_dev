@@ -167,9 +167,10 @@
  ### 🐾 Back-End (Firebase)
 
  #### 1. 사용자 정보
-   1.  ```kotlin
+   1.  
+  ``` kotlin
         // 회원가입 함수
-    private fun createAccount(email: String, password: String) {
+        private fun createAccount(email: String, password: String) {
         // 파이어베이스 회원가입 메서드
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
@@ -196,7 +197,7 @@
                     updateUI(null, null, null, null, null, null, null)
                 }
             }
-    }
+         }
        ```
    1. 회원가입에서 입력한 정보를 Firebase Realtime DataBase users에 저장한다. 각각의 타입은 아래와 같다.
   <table>
