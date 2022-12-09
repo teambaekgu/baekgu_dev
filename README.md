@@ -536,7 +536,7 @@
   <td align='center'>Front-End (kotlin)</td>
   <td align='center'><a href="x"><img src="x"/></a></td>
   <td align='center'><a href="x"><img src="x"/></a></td>
-    <td> 회원가입 / 로그인, 상품 / 캘린더 / 프로필 탭, 식단 상세 페이지 구현<br>
+    <td> 회원가입 / 로그인, 상품 / 캘린더 / 프로필, 식단 상세 페이지 구현<br>
 반응형 레이아웃 , 디자인적용
 </td>
  </tr>
