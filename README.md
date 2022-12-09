@@ -165,8 +165,9 @@
 
   
  ### 🐾 Back-End (Firebase)
-
- #### 1. 사용자 정보
+ 
+ #### 1. 파이어베이스를 활용한 사용자 정보관리
+  
    1. 이메일 형식과 비밀번호 형식(영문, 숫자, 특수문자 조합), 빈칸 유무를 확인 후 이상이 없으면 회원가입 함수를 실행한다.
    ``` kotlin
    // 회원가입 완료 버튼
@@ -397,8 +398,8 @@
    }
    ```
 
- 
- #### 2. 설문조사 정보
+
+ #### 2. 파이어베이스를 활용한 설문정보 관리
   1. 설문조사에서 조사한 설문정보를 Firebase Realtime DataBase에 저장한다. 각각의 타입은 아래와 같다.
   <table>
     <tr>
@@ -447,6 +448,27 @@
                 fproteinAmount = sFProtein!!
             }
   ```
+  
+  3. 설문조사를 하면서 저장해둔 유저의 키, 몸무게, 필요단백질량을 프래퍼런스로 저장하여 프로필 화면에서 유저가 확인할 수 있도록 한다.
+  그리고 설문조사 수정하기 버튼을 누르면 설문조사 내용을 수정할 수 있다.
+  ``` kotlin
+  if(weightValue == "User weight"){
+            val sharedPreference = requireContext().getSharedPreferences("surveyInfo", Context.MODE_PRIVATE)
+            val weightValue = sharedPreference.getString("weight", "User weight")
+            val heightValue = sharedPreference.getString("height", "User height")
+            val proteinAmountValue = sharedPreference.getString("proteinAmount", "User proteinAmount")
+            binding.fgProfileTvWeight.setText("${weightValue}kg")
+            binding.fgProfileTvHeight.setText("${heightValue}cm")
+            binding.fgProfileTvProtein.setText("${proteinAmountValue}g")
+        }
+
+        // 설문조사 수정 페이지로 이동
+        binding.fgProfileLayoutSurvey.setOnClickListener{
+            var intent = Intent(requireContext(),SurveyActivity::class.java)
+            startActivity(intent)
+        }
+ ```
+
 
   
 
