@@ -520,7 +520,7 @@
  </tr>
    
  <tr>
-  <td align='center'><img src="x" width="50" height="50"></td>
+  <td align='center'><img src="x" width="100" height="100"></td>
   <td align='center'>준원님</td>
   <td align='center'>Leader / Back-End(Firebase)</td>
   <td align='center'><a href="x"><img src="x"/></a></td>
@@ -531,7 +531,7 @@
  </tr>
 
  <tr>
-  <td align='center'><img src="x" width="50" height="50"></td>
+  <td align='center'><img src="x" width="100" height="100"></td>
   <td align='center'>민중님</td>
   <td align='center'>Front-End (kotlin)</td>
   <td align='center'><a href="x"><img src="x"/></a></td>
@@ -542,7 +542,7 @@
  </tr>
  
  <tr>
-  <td align='center'><img src="https://avatars.githubusercontent.com/u/54922625?v=4" width="50" height="50"></td>
+  <td align='center'><img src="https://avatars.githubusercontent.com/u/54922625?v=4" width="100" height="100"></td>
   <td align='center'>Huijae Ryu</td>
   <td align='center'>Back-End (Firebase)</td>
   <td align='center'><a href="https://github.com/hellohidi"><img src="http://img.shields.io/badge/hellohidi-green?style=social&logo=github"/></a></td>
@@ -562,7 +562,7 @@
  </tr>
 
  <tr>
-  <td align='center'><img src="https://avatars.githubusercontent.com/u/79249376?v=4" width="50" height="50"></td>
+  <td align='center'><img src="https://avatars.githubusercontent.com/u/79249376?v=4" width="100" height="100"></td>
   <td align='center'>jisu Seo</td>
   <td align='center'>Back-End (Firebase)</td>
   <td align='center'><a href="https://github.com/jseo9732"><img src="http://img.shields.io/badge/jseo9732-green?style=social&logo=github"/></a></td>
