@@ -425,7 +425,28 @@
 <img width="727" alt="image" src="https://user-images.githubusercontent.com/54922625/206557942-12a44e70-720f-4ffc-bda6-34f1969d2f16.png">
   
   2. 캘린더에서 Firebase Realtime DataBase에 있는 데이터를 읽어온다.
-  <img width="642" alt="image" src="https://user-images.githubusercontent.com/54922625/206564521-9fbc4fe8-b783-48cc-b908-be8941cb47fd.png">
+ ``` kotlin
+  firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase!!.getReference().child("Survey")
+        auth = Firebase.auth
+        val email: String = (auth.currentUser?.email) as String
+
+        databaseReference!!.get().addOnSuccessListener {
+
+            val data = it.children.iterator().next().getValue() as HashMap<String, Any>
+            Log.d("전부다", data.toString())
+            var fflavour: Array<Int>? = null
+            var fproduct: Array<Int>? = null
+            var fproteinAmount: Int? = null
+            if (data.get("user_id").toString() == email) {
+                var sFFlavour = data.get("user_flaPre") as ArrayList<Int>?
+                var sFProduct = data.get("user_proPre") as ArrayList<Int>?
+                var sFProtein = data.get("user_proteinAmount") as Int
+                fflavour = strToArray(sFFlavour!!)
+                fproduct = strToArray(sFProduct!!).copyOf()
+                fproteinAmount = sFProtein!!
+            }
+  ```
 
   
 
@@ -440,13 +461,46 @@
 <필요 단백질량 산출 방법><br>
  1. 제지방 공식을 통해서 제지방을 산출한다.
  2. 활동계수와 맞게 설문조사에서 조사한 트레이닝 목적 기준으로 필요 단백질량을 산출해준다.
-<img width="682" alt="image" src="https://user-images.githubusercontent.com/54922625/206562364-547ebcf4-68e9-4220-bf48-d029118ff44c.png">
+``` kotlin
+private fun calculateProtein(height: Int, weight: Int, purpose: String?) : Int{
+        val leanFat: Int = ((1.10 * weight) - 128 * ((weight *  weight) / (height * height))).toInt()
+        val result:Int = when (purpose) {
+            "보디빌딩 대회 준비" -> (leanFat * 2.0).toInt()
+            "바디 프로필 준비" -> (leanFat * 1.8).toInt()
+            "골격근량 증가" -> (leanFat * 1.5).toInt() //165 84
+            "체지방 감량" -> (leanFat * 1.3).toInt()
+            "벌크업" -> (leanFat * 1.75).toInt() //180 130
+            "웨이트 트레이닝을 하지 않음" -> (leanFat * 1.1).toInt()
+            else -> 0
+        }
+        return result
+    }
+ ```
+ 3. 맞춤식단을 보여주기 전에 Alert창으로 미리 필요단백질량을 보여준다.
+ ``` kotlin
+ private fun onClickShowAlert(p: Int, flavour: Array<Int>, product: Array<Int>) {
+        val myAlertBuilder: AlertDialog.Builder = AlertDialog.Builder(this@SurveyActivity)
+        myAlertBuilder.setTitle("회원님의 필수 단백질량은: ${p}입니다")
+        myAlertBuilder.setMessage("Ok버튼을 누르면 맞춤 식단을 만나보실 수 있습니다! 설문을 다시 작성하려면 Cancel버튼을 눌러주세요.")
+        myAlertBuilder.setPositiveButton("Ok",
+            DialogInterface.OnClickListener { dialog, which -> // OK 버튼을 눌렸을 경우
+                val intent = Intent(this, MainActivity::class.java)
+                intent.putExtra("proteinAmount",p)
+                intent.putExtra("flavour",flavour)
+                intent.putExtra("product",product)
+                startActivity(intent)
+            })
 
-<img width="803" alt="image" src="https://user-images.githubusercontent.com/54922625/206561871-97d53fae-90cd-43c2-8adc-dec0500887f1.png">
-
-
-
-
+        myAlertBuilder.setNegativeButton("Cancle",
+            DialogInterface.OnClickListener { dialog, which -> // Cancle 버튼을 눌렸을 경우
+                Toast.makeText(
+                    applicationContext, "Pressed Cancle",
+                    Toast.LENGTH_SHORT
+                ).show()
+            })
+        myAlertBuilder.show()
+    }
+ ```
 ---
 
 ## 컴퓨터 구성 / 필수 조건 안내 (Prerequisites) -->
@@ -497,39 +551,15 @@
 ## 📈프로젝트 전망
 
 ### 🍎개선할 점
-  &nbsp; 로그인 기능 : 
-  - 파이어베이스 통해 회원 관리를 하고 있는데 추가로 소셜 로그인 기능을 구현하기
-
-  &nbsp; 회원 가입 기능:
-  - string으로 받는 주소 부분을 주소 API를 사용하여 개선하기
-  - 전화번호, 생년월일 steing 받는 것이 아닌 정확한 포맷으로 정보 수집하기
-
-  &nbsp; 상품목록 :
-  - 상품목록 카테고리와 상품을 다양화하기
-  - 카테고리 뿐만 아니라 메인 페이지에 추천 제품 나타내기
-
-  &nbsp; 설문조사 : 
-  - 알레르기 항목 세분화하여 적용 
-  - 설문조사 UI 더 보기 좋게 개선하기
-
-  &nbsp; 마이페이지 :
-  - 단백질 섭취량 조절할 수 있게 설정하기
-  - 설문조사 수정 부분 수정 체크 항목 간편하게 개선하기
-
 
 
 
 ### 💡발전 가능 방향
- - 2030 대상으로 사용자 분석을 실시 한 결과  단백질 식단 편성 서비스에 긍정적인<br/> 반응을 보였고 편성 식단에 맞춘 배달 서비스에 대하여 관심을 보였다. 
-
-* 분석 결과에 따라 결제 및 배송 서비스에 대한 기능들을 추가적으로 구현하고 개선해<br/> 식단 추천 서비스를 받고 직접 상품까지 구매할 수 있는 플랫폼 서비스로 많은 사용자의<br/> 관심을 받을 수 있는 앱으로 발전시킬 수 있을 것이라 예상한다.
-
- 
 ---
 
 ## 🕋팀 정보 (Team Information)
 
- 팀설명 간단하게!
+팀설명 간단하게!
 
 안녕하십니까, Team BaekGu입니다.  
 
