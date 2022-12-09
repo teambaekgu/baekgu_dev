@@ -525,7 +525,8 @@
  이런식으로
   
   [시연 영상](https://drive.google.com/file/d/1KOiZ5L255-f1L-zDxaemdASKvn-h-d_U/view?usp=share_link)
-  
+  <img width="1179" alt="스크린샷 2022-12-09 오후 7 08 43" src="https://user-images.githubusercontent.com/79249376/206678205-d2f9727b-1636-4cdd-8138-5d4f574bbb47.png">(https://drive.google.com/file/d/1KOiZ5L255-f1L-zDxaemdASKvn-h-d_U/view?usp=share_link)
+
 ---
 
 ## 📈프로젝트 전망
