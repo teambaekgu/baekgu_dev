@@ -524,7 +524,7 @@
  
  이런식으로
   
-  [시연 영상](https://youtu.be/MTlwTyfn_xI)
+  [시연 영상](https://drive.google.com/file/d/1KOiZ5L255-f1L-zDxaemdASKvn-h-d_U/view?usp=share_link)
   
 ---
 
