@@ -714,7 +714,7 @@ fun makeDietCalendar(proteinAmount: Int, flavour: Array<Int>, product: Array<Int
 
   &nbsp; 회원 가입 기능:
   - string으로 받는 주소 부분을 주소 API를 사용하여 개선하기
-  - 전화번호, 생년월일 steing 받는 것이 아닌 정확한 포맷으로 정보 수집하기
+  - 전화번호, 생년월일 string 받는 것이 아닌 정확한 포맷으로 정보 수집하기
 
   &nbsp; 상품목록 :
   - 상품목록 카테고리와 상품을 다양화하기
