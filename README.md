@@ -484,8 +484,11 @@
 ---
 
 ## 컴퓨터 구성 / 필수 조건 안내 (Prerequisites) -->
-* 안드로이드 사향: 13 (API Level 33)
+* 안드로이드 사향: 13 (API Level 32)
 * 안드로이드 스튜디오 사향: Android Dolphin 2021.3.1
+* MinSdkVersion: 28
+* TargetSdkVrsion: 32
+* Kotlin Version: 1.7.20
 ---
 
 ## 🔨기술 스택 (Technique Used) 
@@ -519,8 +522,8 @@
 ## 📱프로젝트 사용법 (Getting Started)
   #### 🐤**백구 앱 사용 방법**
  여기다가 순서대로 정리하기
- 1. ㅁㄴ아ㅣ러ㅣㅁ
- 2..민ㅇ림날
+ 1. Build -> Build Bundle/APK -> Build APK
+ 2. 추출한 APK를 실행하고싶은 기기에서 실행한다
  
  이런식으로
   
