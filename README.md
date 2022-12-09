@@ -47,20 +47,6 @@
  
 </details>
 
-
-<details>
- <summary>📈시스템 흐름도</summary> (아래 부분은 예시)
- 
- ### User-case Diagram
- <p align='center'><img src="https://user-images.githubusercontent.com/40621030/134690667-abe8f797-01a8-44db-ae89-ef7809c22d64.png"/></p>
- 
- ### Sequence Diagram
-  <p align='center'><img src="https://user-images.githubusercontent.com/40621030/136720501-bbe98072-abbc-4797-a0c2-c66771f7e04a.png"/></p>
- 
- ### Architecture
-  <p align='center'><img src="https://user-images.githubusercontent.com/40621030/136720255-0456ffd4-4d7d-4d2e-b5c5-09387c5861fa.png"/></p>
-</details>
-
 <details>
  <summary>😎페르소나 </summary> 
  
