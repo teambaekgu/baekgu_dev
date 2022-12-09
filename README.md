@@ -181,25 +181,19 @@ src 폴더의 구조는 메인화면, 스플래쉬 화면 등 큰 도메인별�
  ### 🐾 Front-End
  
  **사용된 라이브러리**
- ```
+ <br>
  com.github.bumptech.glide:glide:4.12.0
- 
+ <br>
  androidx.viewpager2:viewpager2:1.0.0
- 
+ <br>
  com.github.xabaras:RecyclerViewSwipeDecorator:1.4
- 
+ <br>
  de.hdodenhof:circleimageview:3.1.0
- 
+ <br>
  com.google.code.gson:gson:2.9.0
- 
+ <br>
  com.squareup.retrofit2:converter-gson:2.9.0
- ```
- **주요 컴포넌트**
- ```
- RecylerView , ViewPager2 , CircleImageView , CalendarView
- ```
- 
- 
+  
  [**앱 처음 실행 시**]
 
  <table>
@@ -603,11 +597,22 @@ src 폴더의 구조는 메인화면, 스플래쉬 화면 등 큰 도메인별�
 
 ## 📱프로젝트 사용법 (Getting Started)
   #### 🐤**백구 앱 사용 방법**
- 여기다가 순서대로 정리하기
- 1. Build -> Build Bundle/APK -> Build APK
- 2. 추출한 APK를 실행하고싶은 기기에서 실행한다
- 
- 이런식으로
+	1.	회원가입을 해주세요.
+	2.	회원가입을 마친 유저는 바로 설문조사 페이지로 이동합니다.
+	3.	설문조사를 통해 신체 정보, 운동 정보, 선호 정보를 입력해주세요.
+	4.	메인 페이지를 통해 백구 서비스에서 제공하는 제품들을 열람해보세요! 상하좌우 스크롤을 통해 보다 간편하게 열람하실 수 있습니다.
+	5.	제품의 상세 정보를 보고 싶다면 클릭해주세요.
+	6.	상품 상세 페이지에서는 제품 소개, 원재료 및 함량, 영양 성분 등 다양한 정보를 열람할 수 있습니다.
+	7.	하단의 네비게이터를 통해 캘린더 페이지로 이동하세요.
+	8.	캘린더 페이지에서는 오늘의 날짜를 확인할 수 있고 더보기 버튼을 눌러 상세한 식단을 확인할 수 있습니다.
+	9.	상세 식단 페이지에서는 구성된 식단을 확인할 수 있고, 좌우 스크롤을 통해 다른 날짜의 식단도 확인 가능합니다.
+	10.	또, 상세 식단 페이지에서는 오늘 섭취한 제품을 체크하여 기록할 수 있습니다.
+	11.	체크 후 식단 페이지로 되돌아오면 하루 목표 섭취 단백질량과 내가 지금까지 섭취한 단백질량을 한눈에 볼 수 있습니다.
+	12.	하단의 네비게이터를 통해 마이페이지로 이동하세요.
+	13.	마이페이지에는 유저의 기본적인 정보가 나타나게 됩니다.
+	14.	마이페이지의 회원정보 수정, 설문정보 수정 버튼을 클릭해 앞서 기입한 정보를 수정할 수 있습니다.
+	15.	로그아웃 버튼을 눌러 서버와의 세션을 정상적으로 종료할 수 있습니다.
+	16.	앞서 가입한 회원 정보를 통해 로그인하여 계속해서 서비스 이용이 가능합니다.
   
   [<img width="1179" alt="스크린샷 2022-12-09 오후 7 08 43" src="https://user-images.githubusercontent.com/79249376/206678205-d2f9727b-1636-4cdd-8138-5d4f574bbb47.png">](https://drive.google.com/file/d/1uDMCDRXEKIsqaxD6j7pUWlfAMqSH37FW/view?usp=share_link)
   [시연 영상](https://drive.google.com/file/d/1uDMCDRXEKIsqaxD6j7pUWlfAMqSH37FW/view?usp=share_link)
@@ -669,11 +674,11 @@ src 폴더의 구조는 메인화면, 스플래쉬 화면 등 큰 도메인별�
  <tr>
   <td align='center'><img src="x" width="100" height="100"></td>
   <td align='center'>Junwon Seo</td>
-  <td align='center'>Leader / Back-End(Firebase)</td>
+  <td align='center'>Leader / Back - End(Firebase)</td>
   <td align='center'><a href="https://github.com/wnsdnjs70"><img src="http://img.shields.io/badge/wnsdnjs70-green?style=social&logo=github"/></a></td>
-  <td align='center'><a href="mailto:junwon2018@kookmin.ac.kr"><img src="https://img.shields.io/badge/junwon2018@kookmin.ac.kr?logo=gmail&style=social"/></a></td>
+  <td align='center'><a href="mailto:junwon2018@gmail.com"><img src="https://img.shields.io/badge/junwon2018@gmail.com?logo=gmail&style=social"/></a></td>
     <td> Realtime Firebase를 활용한 데이터 활용 및 상품 검색 기능 구현<br>
-     설문조사 및 필요 단백질 섭취량 정보를 기반으로 유저별 맞춤 식단 구성 API 구현
+     설문조사 및 필요 단백질량 정보를 기반으로 유저별 맞춤 식단 구성 API 구현
   </td>
  </tr>
 
