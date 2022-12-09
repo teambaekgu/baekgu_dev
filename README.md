@@ -181,25 +181,19 @@ src 폴더의 구조는 메인화면, 스플래쉬 화면 등 큰 도메인별�
  ### 🐾 Front-End
  
  **사용된 라이브러리**
-```
+ <br>
  com.github.bumptech.glide:glide:4.12.0
- 
+ <br>
  androidx.viewpager2:viewpager2:1.0.0
- 
+ <br>
  com.github.xabaras:RecyclerViewSwipeDecorator:1.4
- 
+ <br>
  de.hdodenhof:circleimageview:3.1.0
- 
+ <br>
  com.google.code.gson:gson:2.9.0
- 
- com.squareup.retrofit2:converter-gson:2.9.0  
-```
-
-**사용한 주요 컴포넌트**
-```
-RecyclerView , ViewPaget2, CalendarView , CircleImageView
-```
-
+ <br>
+ com.squareup.retrofit2:converter-gson:2.9.0
+  
  [**앱 처음 실행 시**]
 
  <table>
@@ -632,6 +626,10 @@ RecyclerView , ViewPaget2, CalendarView , CircleImageView
   &nbsp; 설문조사 : 
   - 알레르기 항목 세분화하여 적용 
   - 설문조사 UI 더 보기 좋게 개선하기
+  
+  &nbsp; 식단구성 : 
+  - 필요 단백질 섭취량에 더욱 Fit한 식단 구성 알고리즘 구현 
+  - 누적된 유저 데이터를 바탕으로 식단 추천 AI 모델 개발
 
   &nbsp; 마이페이지 :
   - 단백질 섭취량 조절할 수 있게 설정하기
@@ -650,8 +648,6 @@ RecyclerView , ViewPaget2, CalendarView , CircleImageView
 
 ## 🕋팀 정보 (Team Information)
 
- 팀설명 간단하게!
-
 안녕하십니까, Team BaekGu입니다.  
 
 <table>
@@ -666,12 +662,12 @@ RecyclerView , ViewPaget2, CalendarView , CircleImageView
    
  <tr>
   <td align='center'><img src="x" width="100" height="100"></td>
-  <td align='center'>준원님</td>
+  <td align='center'>Junwon Seo</td>
   <td align='center'>Leader / Back-End(Firebase)</td>
-  <td align='center'><a href="x"><img src="x"/></a></td>
-  <td align='center'><a href="x"><img src="x"/></a></td>
+  <td align='center'><a href="https://github.com/wnsdnjs70"><img src="http://img.shields.io/badge/wnsdnjs70-green?style=social&logo=github"/></a></td>
+  <td align='center'><a href="mailto:junwon2018@kookmin.ac.kr"><img src="https://img.shields.io/badge/junwon2018@kookmin.ac.kr?logo=gmail&style=social"/></a></td>
     <td> Realtime Firebase를 활용한 데이터 활용 및 상품 검색 기능 구현<br>
-     설문조사 정보 및 필요단백질량을 기반 유저별 맞춤 식단 구성 API 구현
+     설문조사 및 필요 단백질 섭취량 정보를 기반으로 유저별 맞춤 식단 구성 API 구현
   </td>
  </tr>
 
