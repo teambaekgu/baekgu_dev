@@ -118,56 +118,87 @@
 -->
 
  ### 🐾 Front-End
-
- 앱을 처음 실행 시, 사용자는 자신의 성명과 군번을 통해 회원가입을 진행합니다. 이 정보는 암호화되어 저장됩니다.  
+ 
+ * 앱 처음 실행 시
 
  <table>
   <tr>
-   <td><img src="https://user-images.githubusercontent.com/86545225/137917096-372ec2f3-60ab-4e49-ab98-cb87ca96aa88.PNG" width="200"/></td>
-   <td><img src="https://user-images.githubusercontent.com/86545225/137917134-a9d63375-3663-467a-8ea3-2d5a92950085.PNG" width="200"/></td>
-   <td><img src="https://user-images.githubusercontent.com/86545225/137917151-8ddf28a4-6ab6-4ea9-ad38-fcdaf1df0d5c.PNG" width="200"/></td>
+   <td><img src="https://user-images.githubusercontent.com/109564764/206642963-bac026b0-aa50-4e59-875d-edb0bbe7f753.png" width="200"/></td>
+   <td><img src="https://user-images.githubusercontent.com/109564764/206642817-9d7d6d55-165f-498c-8b36-ab86365fea3c.png" width="200"/></td>
+   <td><img src="https://user-images.githubusercontent.com/109564764/206642890-0d53c15e-2623-4822-a6cf-046637383962.png" width="200"/></td>
   </tr>
  </table>
 
- - 카메라 모드: 군 내부에서도 사용 가능한 카메라입니다. 촬영한 사진 안의 보안 위반 요소를 식별 후 모자이크 처리하여 반환합니다.
-
-   사용자가 찍은 사진은 스마트폰에 바로 저장되지 않고 서버에 전송되어, 보안 위반 요소를 식별 후 적절한 강도로 모자이크 처리하여 반환됩니다.
-
- - 갤러리 모드: 갤러리에 이미 저장된 사진을 모자이크 할 필요가 있을 시, 해당 사진을 업로드하여 카메라로 촬영할 때와 동일하게 모자이크 처리를 할 수 있습니다.  
+ 앱을 실행 후 로딩 될 때 백구 캐릭터가 담긴 splash 화면으로 시작합니다.</br>
+ 사용자는 계정이 있는 경우 로그인하여 메인 페이지로 이동하고 첫 사용자 일 경우에는 회원가입을 진행합니다.</br>
+ 회원 가입은 이메일, 비밀번호, 이름 외 개인 정보들을 입력하고 완료 시 파이어베이스 DB로 저장됩니다.</br>
+ 
+ 
+  * 설문 조사
  
  <table>
   <tr>
-   <td><img src="https://user-images.githubusercontent.com/86545225/137917734-1f88e1c0-5f2f-4f2e-a7f5-d3ddb3019b81.png" width="200"/></td>
-   <td><img src="https://user-images.githubusercontent.com/86545225/137917171-afe0567c-4cc5-4bf7-84dd-862c1cec4819.PNG" width="200"/></td>
+   <td><img src="https://user-images.githubusercontent.com/109564764/206644050-5600e2f3-88d8-4ec8-9f49-97f33ec594a2.png" width="200"/></td>
+   <td><img src="https://user-images.githubusercontent.com/109564764/206644095-9a58df84-356a-47b7-aa0a-c348f4896198.png" width="200"/></td>
+   <td><img src="https://user-images.githubusercontent.com/109564764/206644143-9b1d79f6-4f28-4f34-8c36-eb6365660ffc.png" width="200"/></td>
+   <td><img src="https://user-images.githubusercontent.com/109564764/206644202-2ff91aaf-83ef-408f-b4ef-1b17c155ff12.png" width="200"/></td>
   </tr>
  <table>
  
-
- 보안 위반 요소는 사용자의 소속 부대 및 위치 식별 가능 여부, 기밀 유출 가능 여부 등을 고려하여 다음과 같이 선정하였습니다.
- >총(소총, 리볼버), 방탄조끼, 부대마크, 모니터, 노트북, 서류, 표지판, 포, 차량, 탱크, 군용 비행기, 미사일, 항공모함  
-
- 군복의 경우 촬영 당시 맥락에 따라 보안 여부가 달라지므로 모자이크 처리는 하지 않되 사용자가 검출 여부를 인지할 수 있게 합니다.  
+ 회원 가입 후에는 개인 맞춤 단백질 제공 식단 편성을 위한 설문조사 화면으로 이동합니다. </br>
+ 신체 정보와 단백질 섭취 목적, 운동 강도와 횟수, 알레르기, 제품별 및 맛 선호도를 조사해 </br>
+ DB에 저장하고 설문 조사 항목들을 바탕으로 목표 단백질 섭취량을 계산해 줍니다. </br>
  
- 처리된 사진이 반환될 때, 검출된 객체에 따라 발생할 수 있는 상황에 대한 경고문을 전송합니다. 반환된 사진을 터치하면 확인할 수 있습니다.  
- 또한, 회원가입 시 입력한 군번을 암호화한 값을 이용해 만든 QR코드가 사진에 추가됩니다. 이를 이용하여 사진 처리자의 신원을 파악하거나 이미지 처리 여부를 눈으로 식별할 수 있습니다.  
+ 
+  * 메인 페이지 (피드)
+
  <table>
   <tr>
-   <td><img src="https://user-images.githubusercontent.com/86545225/137919288-c90a06c7-c843-407f-ba5e-aed914cf3fd5.PNG" width="200"/></td>
-   <td><img src="https://user-images.githubusercontent.com/86545225/137919350-567523d8-255e-466a-a834-12014eeb4679.PNG" width="200"/></td>
+   <td><img src="https://user-images.githubusercontent.com/109564764/206645139-7b839e17-9724-40ef-879e-154716528bc5.png" width="200"/></td>
+   <td><img src="https://user-images.githubusercontent.com/109564764/206645425-c005d9b4-5031-4dbd-8685-552a9e7561b3.png" width="200"/></td>
   </tr>
+ </table>
+ 메인화면에 피드 부분에서는 카테고리 별 서비스에서 제공하는 상품들 목록을 확인할 수 있습니다. </br>
+ 상하 스크롤을 통해 카테고리 열람이 가능하고 카테고리에서 좌우 스크롤 시 해당 카테고리의 제품을 확인할 수 있습니다.</br>
  
+  <table>
   <tr>
-   <td><img src="https://user-images.githubusercontent.com/86545225/137919337-f2109767-9daa-427d-85f7-2dad831202db.png" width="200"/></td>
-   <td><img src="https://user-images.githubusercontent.com/86545225/137919583-8a2fd884-c0c3-4bfb-8099-aeb03b7ce081.png" width="200"/></td>
-   <td><img src="https://user-images.githubusercontent.com/86545225/137919328-6390d7ea-207c-49c9-a0b8-97c4eab44d47.PNG" width="200"/></td>
+   <td><img src="https://user-images.githubusercontent.com/109564764/206645718-0c8a40da-3328-4868-a1e0-783cbd7276ef.png" width="200"/></td>
+   <td><img src="https://user-images.githubusercontent.com/109564764/206645774-6097216c-9d5b-44d0-a54c-a661d793385f.png" width="200"/></td>
   </tr>
- <table>
+ </table>
+ 메인화면 속 개별 제품을 클릭하면 해당 제품의 영양 성분과 상품정보를 확인할 수 있습니다.</br>
+ 
+ * 메인 페이지 (캘린더)
 
+ <table>
+  <tr>
+   <td><img src="https://user-images.githubusercontent.com/109564764/206646277-65fbb2c4-cdc1-4006-a4dd-18db0cd98254.png" width="200"/></td>
+   <td><img src="https://user-images.githubusercontent.com/109564764/206646324-0b82a42b-a446-4808-a888-4b04571d17d1.png" width="200"/></td>
+   <td><img src="https://user-images.githubusercontent.com/109564764/206646371-38573c84-d3cc-41d9-83be-e5fcefccff0e.png" width="200"/></td>
+  </tr>
+ </table>
+ 
+ 메인화면에 캘린더 부분에서는 설문조사에 따라 편성된 한 달 치 식단을 확인할 수 있습니다.</br>
+ 날짜를 클릭하고 더 보기를 누르면 상세 식단을 확인할 수 있고 좌우 스크롤을 하면 근접 날짜의 식단도 확인할 수있습니다. </br>
+ 섭취한 목록을 체크면 그 날짜에 섭취한 단백질량을 업데이트해주어 확인할 수 있습니다. </br>
+ 
+ * 메인 페이지 (마이페이지)
+
+ <table>
+  <tr>
+   <td><img src="https://user-images.githubusercontent.com/109564764/206646565-d1b6aaf0-37fb-4641-99a4-1356c36eea88.png" width="200"/></td>
+   <td><img src="https://user-images.githubusercontent.com/109564764/206646614-7d204f81-ae3f-4766-804b-b5ed5d733530.png" width="200"/></td>
+   <td><img src="https://user-images.githubusercontent.com/109564764/206646663-9d3d716b-9686-47ee-9ff8-a39ea03006c6.png" width="200"/></td>
+  </tr>
+ </table>
+ 마이페이지 부분에서는 사용자의 프로필과 신체정보, 목표 단백질량을 볼 수 있고 개인 정보와 설문 정보를 수정할 수 있습니다.</br>
+ 개인정보 수정 버튼을 클릭 시 프로필 수정 화면이 나타나고 개인정보를 변경할 수 있습니다. </br>
+ 또한 설문조사 정보 수정을 클릭 시 설문조사를 다시진행하여 설문 정보를 변경할 수 있습니다. </br>
   
  ### 🐾 Back-End (Firebase)
- 
- #### 1. 파이어베이스를 활용한 사용자 정보관리
-  
+
+ #### 1. 사용자 정보
    1. 이메일 형식과 비밀번호 형식(영문, 숫자, 특수문자 조합), 빈칸 유무를 확인 후 이상이 없으면 회원가입 함수를 실행한다.
    ``` kotlin
    // 회원가입 완료 버튼
@@ -398,8 +429,8 @@
    }
    ```
 
-
- #### 2. 파이어베이스를 활용한 설문정보 관리
+ 
+ #### 2. 설문조사 정보
   1. 설문조사에서 조사한 설문정보를 Firebase Realtime DataBase에 저장한다. 각각의 타입은 아래와 같다.
   <table>
     <tr>
@@ -423,107 +454,10 @@
     <td>user_proPre, user_flaPre</td>
    </tr>
   </table>
-  
-   ``` kotlin
-    package com.example.firebasepratice
-
-    class Survey {
-      var user_id: String? = null
-      var user_height: String? = null
-      var user_weight: String? = null
-      var user_proteinPurpose: String? = null
-      var user_trainingPurpose: String? = null
-      var user_trainingCnt: String? = null
-      var user_trainingTime: String? = null
-      var user_dietCnt: List<String>? = null
-      var user_allergy: List<String>? = null
-      var user_snackYn: String? = null
-      var user_proPre: List<Int>? = null
-      var user_flaPre: List<Int>? = null
-      var user_proteinAmount: Int? = null
-
-
-
-      internal constructor() {}
-      constructor(
-          user_id: String?,
-          user_height: String?,
-          user_weight: String?,
-          user_proteinPurpose: String?,
-          user_trainingPurpose: String?,
-          user_trainingCnt: String?,
-          user_trainingTime: String?,
-          user_dietCnt: List<String>?,
-          user_allergy: List<String>?,
-          user_snackYn: String?,
-          user_proPre: List<Int>?,
-          user_flaPre: List<Int>?,
-          user_proteinAmount: Int?
-
-
-      ) {
-          this.user_id = user_id
-          this.user_height = user_height
-          this.user_weight = user_weight
-          this.user_proteinPurpose = user_proteinPurpose
-          this.user_trainingPurpose = user_trainingPurpose
-          this.user_trainingCnt = user_trainingCnt
-          this.user_trainingTime = user_trainingTime
-          this.user_dietCnt = user_dietCnt
-          this.user_allergy = user_allergy
-          this.user_snackYn = user_snackYn
-          this.user_proPre = user_proPre
-          this.user_flaPre = user_flaPre
-          this.user_proteinAmount = user_proteinAmount
-      }
-  }
-```
 <img width="727" alt="image" src="https://user-images.githubusercontent.com/54922625/206557942-12a44e70-720f-4ffc-bda6-34f1969d2f16.png">
   
   2. 캘린더에서 Firebase Realtime DataBase에 있는 데이터를 읽어온다.
- ``` kotlin
-  firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase!!.getReference().child("Survey")
-        auth = Firebase.auth
-        val email: String = (auth.currentUser?.email) as String
-
-        databaseReference!!.get().addOnSuccessListener {
-
-            val data = it.children.iterator().next().getValue() as HashMap<String, Any>
-            Log.d("전부다", data.toString())
-            var fflavour: Array<Int>? = null
-            var fproduct: Array<Int>? = null
-            var fproteinAmount: Int? = null
-            if (data.get("user_id").toString() == email) {
-                var sFFlavour = data.get("user_flaPre") as ArrayList<Int>?
-                var sFProduct = data.get("user_proPre") as ArrayList<Int>?
-                var sFProtein = data.get("user_proteinAmount") as Int
-                fflavour = strToArray(sFFlavour!!)
-                fproduct = strToArray(sFProduct!!).copyOf()
-                fproteinAmount = sFProtein!!
-            }
-  ```
-  
-  3. 설문조사를 하면서 저장해둔 유저의 키, 몸무게, 필요단백질량을 프래퍼런스로 저장하여 프로필 화면에서 유저가 확인할 수 있도록 한다.
-  그리고 설문조사 수정하기 버튼을 누르면 설문조사 내용을 수정할 수 있다.
-  ``` kotlin
-  if(weightValue == "User weight"){
-            val sharedPreference = requireContext().getSharedPreferences("surveyInfo", Context.MODE_PRIVATE)
-            val weightValue = sharedPreference.getString("weight", "User weight")
-            val heightValue = sharedPreference.getString("height", "User height")
-            val proteinAmountValue = sharedPreference.getString("proteinAmount", "User proteinAmount")
-            binding.fgProfileTvWeight.setText("${weightValue}kg")
-            binding.fgProfileTvHeight.setText("${heightValue}cm")
-            binding.fgProfileTvProtein.setText("${proteinAmountValue}g")
-        }
-
-        // 설문조사 수정 페이지로 이동
-        binding.fgProfileLayoutSurvey.setOnClickListener{
-            var intent = Intent(requireContext(),SurveyActivity::class.java)
-            startActivity(intent)
-        }
- ```
-
+  <img width="642" alt="image" src="https://user-images.githubusercontent.com/54922625/206564521-9fbc4fe8-b783-48cc-b908-be8941cb47fd.png">
 
   
 
@@ -538,46 +472,13 @@
 <필요 단백질량 산출 방법><br>
  1. 제지방 공식을 통해서 제지방을 산출한다.
  2. 활동계수와 맞게 설문조사에서 조사한 트레이닝 목적 기준으로 필요 단백질량을 산출해준다.
-``` kotlin
-private fun calculateProtein(height: Int, weight: Int, purpose: String?) : Int{
-        val leanFat: Int = ((1.10 * weight) - 128 * ((weight *  weight) / (height * height))).toInt()
-        val result:Int = when (purpose) {
-            "보디빌딩 대회 준비" -> (leanFat * 2.0).toInt()
-            "바디 프로필 준비" -> (leanFat * 1.8).toInt()
-            "골격근량 증가" -> (leanFat * 1.5).toInt() //165 84
-            "체지방 감량" -> (leanFat * 1.3).toInt()
-            "벌크업" -> (leanFat * 1.75).toInt() //180 130
-            "웨이트 트레이닝을 하지 않음" -> (leanFat * 1.1).toInt()
-            else -> 0
-        }
-        return result
-    }
- ```
- 3. 맞춤식단을 보여주기 전에 Alert창으로 미리 필요단백질량을 보여준다.
- ``` kotlin
- private fun onClickShowAlert(p: Int, flavour: Array<Int>, product: Array<Int>) {
-        val myAlertBuilder: AlertDialog.Builder = AlertDialog.Builder(this@SurveyActivity)
-        myAlertBuilder.setTitle("회원님의 필수 단백질량은: ${p}입니다")
-        myAlertBuilder.setMessage("Ok버튼을 누르면 맞춤 식단을 만나보실 수 있습니다! 설문을 다시 작성하려면 Cancel버튼을 눌러주세요.")
-        myAlertBuilder.setPositiveButton("Ok",
-            DialogInterface.OnClickListener { dialog, which -> // OK 버튼을 눌렸을 경우
-                val intent = Intent(this, MainActivity::class.java)
-                intent.putExtra("proteinAmount",p)
-                intent.putExtra("flavour",flavour)
-                intent.putExtra("product",product)
-                startActivity(intent)
-            })
+<img width="682" alt="image" src="https://user-images.githubusercontent.com/54922625/206562364-547ebcf4-68e9-4220-bf48-d029118ff44c.png">
 
-        myAlertBuilder.setNegativeButton("Cancle",
-            DialogInterface.OnClickListener { dialog, which -> // Cancle 버튼을 눌렸을 경우
-                Toast.makeText(
-                    applicationContext, "Pressed Cancle",
-                    Toast.LENGTH_SHORT
-                ).show()
-            })
-        myAlertBuilder.show()
-    }
- ```
+<img width="803" alt="image" src="https://user-images.githubusercontent.com/54922625/206561871-97d53fae-90cd-43c2-8adc-dec0500887f1.png">
+
+
+
+
 ---
 
 ## 컴퓨터 구성 / 필수 조건 안내 (Prerequisites) -->
@@ -628,38 +529,39 @@ private fun calculateProtein(height: Int, weight: Int, purpose: String?) : Int{
 ## 📈프로젝트 전망
 
 ### 🍎개선할 점
-   &nbsp; 로그인 기능 : 
-   - 파이어베이스 통해 회원 관리를 하고 있는데 추가로 소셜 로그인 기능을 구현하기
+  &nbsp; 로그인 기능 : 
+  - 파이어베이스 통해 회원 관리를 하고 있는데 추가로 소셜 로그인 기능을 구현하기
 
- &nbsp; 회원 가입 기능:
-   - string으로 받는 주소 부분을 주소 API를 사용하여 개선하기
-   - 전화번호, 생년월일 steing 받는 것이 아닌 정확한 포맷으로 정보 수집하기
+  &nbsp; 회원 가입 기능:
+  - string으로 받는 주소 부분을 주소 API를 사용하여 개선하기
+  - 전화번호, 생년월일 steing 받는 것이 아닌 정확한 포맷으로 정보 수집하기
 
-   상품목록 :
-   - 상품목록 카테고리와 상품을 다양화하기
-   - 카테고리 뿐만 아니라 메인 페이지에 추천 제품 나타내기
+  &nbsp; 상품목록 :
+  - 상품목록 카테고리와 상품을 다양화하기
+  - 카테고리 뿐만 아니라 메인 페이지에 추천 제품 나타내기
 
-   설문조사 :  
-   - 알레르기 항목 세분화하여 적용 
-   - 설문조사 UI 더 보기 좋게 개선하기
+  &nbsp; 설문조사 : 
+  - 알레르기 항목 세분화하여 적용 
+  - 설문조사 UI 더 보기 좋게 개선하기
 
-   마이페이지 :
-   - 단백질 섭취량 조절할 수 있게 설정하기
-   - 설문조사 수정 부분 수정 체크 항목 간편하게 개선하기
+  &nbsp; 마이페이지 :
+  - 단백질 섭취량 조절할 수 있게 설정하기
+  - 설문조사 수정 부분 수정 체크 항목 간편하게 개선하기
+
+
 
 
 ### 💡발전 가능 방향
  - 2030 대상으로 사용자 분석을 실시 한 결과  단백질 식단 편성 서비스에 긍정적인<br/> 반응을 보였고 편성 식단에 맞춘 배달 서비스에 대하여 관심을 보였다. 
 
- * 분석 결과에 따라 결제 및 배송 서비스에 대한 기능들을 추가적으로 구현하고 개선해<br/> 식단 추천 서비스를 받고 직접 상품까지 구매할 수 있는 플랫폼 서비스로 많은 사용자의<br/> 관심을 받을 수 있는 앱으로 발전시킬 수 있을 것이라 예상한다.
+* 분석 결과에 따라 결제 및 배송 서비스에 대한 기능들을 추가적으로 구현하고 개선해<br/> 식단 추천 서비스를 받고 직접 상품까지 구매할 수 있는 플랫폼 서비스로 많은 사용자의<br/> 관심을 받을 수 있는 앱으로 발전시킬 수 있을 것이라 예상한다.
 
-
-
+ 
 ---
 
 ## 🕋팀 정보 (Team Information)
 
-팀설명 간단하게!
+ 팀설명 간단하게!
 
 안녕하십니까, Team BaekGu입니다.  
 
