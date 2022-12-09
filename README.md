@@ -551,7 +551,7 @@
  </tr>
 
  <tr>
-  <td align='center'><img src="https://avatars.githubusercontent.com/u/109564764?s=96&v=4" width="50" height="50"></td>
+  <td align='center'><img src="https://user-images.githubusercontent.com/109564764/206620876-4172d475-8930-4829-9b7e-d6b9d248c59e.jpeg" width="50" height="50"></td>
   <td align='center'>Sungeun Yeo</td>
   <td align='center'>Front-End (kotlin)</td>
    <td align='center'><a href="https://github.com/YeoSungeun"><img src="http://img.shields.io/badge/YeoSungeun-green?style=social&logo=github"/></a></td>
