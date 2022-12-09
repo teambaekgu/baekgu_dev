@@ -119,6 +119,20 @@
 
  ### 🐾 Front-End
  
+ **사용된 라이브러리**
+ <br>
+ com.github.bumptech.glide:glide:4.12.0
+ <br>
+ androidx.viewpager2:viewpager2:1.0.0
+ <br>
+ com.github.xabaras:RecyclerViewSwipeDecorator:1.4
+ <br>
+ de.hdodenhof:circleimageview:3.1.0
+ <br>
+ com.google.code.gson:gson:2.9.0
+ <br>
+ com.squareup.retrofit2:converter-gson:2.9.0
+  
  [**앱 처음 실행 시**]
 
  <table>
