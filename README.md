@@ -87,8 +87,6 @@
  <summary>🖊개발 문서</summary>
 
 - [레이아웃 정의서](https://funky-sage-b47.notion.site/995d94acec834bfc968af3c12a379eab)
-- [개발 일지-BackEnd] 각자 하나씩 통일해서 파일로 정리를 해볼까요?
-- [개발 일지-FrontEnd]각자 하나씩 통일해서 파일로 정리를 해볼까요? 개발일지는 선택사항이니까 나중에 얘기해봅시당
 - [중간평가 수행 보고서](https://funky-sage-b47.notion.site/eb9c0b7930ff4a17a59ef2e0aed1e542)
 - [테이블 명세서](https://funky-sage-b47.notion.site/806ef11fe87e472eb4980a17c226f1ab)
 - [요구사항 정의서](https://funky-sage-b47.notion.site/d38347f828e24c539ca63894e1ccd3a3)
@@ -532,10 +530,105 @@ src 폴더의 구조는 메인화면, 스플래쉬 화면 등 큰 도메인별�
     <td>user_proPre, user_flaPre</td>
    </tr>
   </table>
+  
+  ``` kotlin
+     package com.example.firebasepratice
+
+     class Survey {
+       var user_id: String? = null
+       var user_height: String? = null
+       var user_weight: String? = null
+       var user_proteinPurpose: String? = null
+       var user_trainingPurpose: String? = null
+       var user_trainingCnt: String? = null
+       var user_trainingTime: String? = null
+       var user_dietCnt: List<String>? = null
+       var user_allergy: List<String>? = null
+       var user_snackYn: String? = null
+       var user_proPre: List<Int>? = null
+       var user_flaPre: List<Int>? = null
+       var user_proteinAmount: Int? = null
+
+
+
+       internal constructor() {}
+       constructor(
+           user_id: String?,
+           user_height: String?,
+           user_weight: String?,
+           user_proteinPurpose: String?,
+           user_trainingPurpose: String?,
+           user_trainingCnt: String?,
+           user_trainingTime: String?,
+           user_dietCnt: List<String>?,
+           user_allergy: List<String>?,
+           user_snackYn: String?,
+           user_proPre: List<Int>?,
+           user_flaPre: List<Int>?,
+           user_proteinAmount: Int?
+
+
+       ) {
+           this.user_id = user_id
+           this.user_height = user_height
+           this.user_weight = user_weight
+           this.user_proteinPurpose = user_proteinPurpose
+           this.user_trainingPurpose = user_trainingPurpose
+           this.user_trainingCnt = user_trainingCnt
+           this.user_trainingTime = user_trainingTime
+           this.user_dietCnt = user_dietCnt
+           this.user_allergy = user_allergy
+           this.user_snackYn = user_snackYn
+           this.user_proPre = user_proPre
+           this.user_flaPre = user_flaPre
+           this.user_proteinAmount = user_proteinAmount
+       }
+   }
+ ```
+ 
 <img width="727" alt="image" src="https://user-images.githubusercontent.com/54922625/206557942-12a44e70-720f-4ffc-bda6-34f1969d2f16.png">
   
-  2. 캘린더에서 Firebase Realtime DataBase에 있는 데이터를 읽어온다.
-  <img width="642" alt="image" src="https://user-images.githubusercontent.com/54922625/206564521-9fbc4fe8-b783-48cc-b908-be8941cb47fd.png">
+ 2. 캘린더에서 Firebase Realtime DataBase에 있는 데이터를 읽어온다.
+ ``` kotlin
+  firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase!!.getReference().child("Survey")
+        auth = Firebase.auth
+        val email: String = (auth.currentUser?.email) as String
+        databaseReference!!.get().addOnSuccessListener {
+            val data = it.children.iterator().next().getValue() as HashMap<String, Any>
+            Log.d("전부다", data.toString())
+            var fflavour: Array<Int>? = null
+            var fproduct: Array<Int>? = null
+            var fproteinAmount: Int? = null
+            if (data.get("user_id").toString() == email) {
+                var sFFlavour = data.get("user_flaPre") as ArrayList<Int>?
+                var sFProduct = data.get("user_proPre") as ArrayList<Int>?
+                var sFProtein = data.get("user_proteinAmount") as Int
+                fflavour = strToArray(sFFlavour!!)
+                fproduct = strToArray(sFProduct!!).copyOf()
+                 fproteinAmount = sFProtein!!
+             }
+   ```
+   
+   3. 설문조사를 하면서 저장해둔 유저의 키, 몸무게, 필요단백질량을 프래퍼런스로 저장하여 프로필 화면에서 유저가 확인할 수 있도록 한다.
+   그리고 설문조사 수정하기 버튼을 누르면 설문조사 내용을 수정할 수 있다.
+   ``` kotlin
+   if(weightValue == "User weight"){
+             val sharedPreference = requireContext().getSharedPreferences("surveyInfo", Context.MODE_PRIVATE)
+             val weightValue = sharedPreference.getString("weight", "User weight")
+             val heightValue = sharedPreference.getString("height", "User height")
+             val proteinAmountValue = sharedPreference.getString("proteinAmount", "User proteinAmount")
+             binding.fgProfileTvWeight.setText("${weightValue}kg")
+             binding.fgProfileTvHeight.setText("${heightValue}cm")
+             binding.fgProfileTvProtein.setText("${proteinAmountValue}g")
+         }
+
+         // 설문조사 수정 페이지로 이동
+         binding.fgProfileLayoutSurvey.setOnClickListener{
+             var intent = Intent(requireContext(),SurveyActivity::class.java)
+             startActivity(intent)
+         }
+  ```
 
   
 
@@ -543,16 +636,53 @@ src 폴더의 구조는 메인화면, 스플래쉬 화면 등 큰 도메인별�
 
 ### 🐾 기능 구현
   
+### 🐾 기능 구현
+  
 #### 1. 필요 단백질량 산출 함수
 **제지방** : 전체 몸에서 지방량을 제외한 부분의 무게를 모두 합한 무레로 근육, 뼈, 기관 등을 포함한 체중<br>
 제지방 공식 :  (1.10  * 체중kg ) - ( 128 * ( 체중kg제곱 / 키cm제곱 ) )
-
 <필요 단백질량 산출 방법><br>
  1. 제지방 공식을 통해서 제지방을 산출한다.
  2. 활동계수와 맞게 설문조사에서 조사한 트레이닝 목적 기준으로 필요 단백질량을 산출해준다.
-<img width="682" alt="image" src="https://user-images.githubusercontent.com/54922625/206562364-547ebcf4-68e9-4220-bf48-d029118ff44c.png">
-
-<img width="803" alt="image" src="https://user-images.githubusercontent.com/54922625/206561871-97d53fae-90cd-43c2-8adc-dec0500887f1.png">
+``` kotlin
+private fun calculateProtein(height: Int, weight: Int, purpose: String?) : Int{
+        val leanFat: Int = ((1.10 * weight) - 128 * ((weight *  weight) / (height * height))).toInt()
+        val result:Int = when (purpose) {
+            "보디빌딩 대회 준비" -> (leanFat * 2.0).toInt()
+            "바디 프로필 준비" -> (leanFat * 1.8).toInt()
+            "골격근량 증가" -> (leanFat * 1.5).toInt() //165 84
+            "체지방 감량" -> (leanFat * 1.3).toInt()
+            "벌크업" -> (leanFat * 1.75).toInt() //180 130
+            "웨이트 트레이닝을 하지 않음" -> (leanFat * 1.1).toInt()
+            else -> 0
+        }
+        return result
+    }
+ ```
+ 3. 맞춤식단을 보여주기 전에 Alert창으로 미리 필요단백질량을 보여준다.
+ ``` kotlin
+ private fun onClickShowAlert(p: Int, flavour: Array<Int>, product: Array<Int>) {
+        val myAlertBuilder: AlertDialog.Builder = AlertDialog.Builder(this@SurveyActivity)
+        myAlertBuilder.setTitle("회원님의 필수 단백질량은: ${p}입니다")
+        myAlertBuilder.setMessage("Ok버튼을 누르면 맞춤 식단을 만나보실 수 있습니다! 설문을 다시 작성하려면 Cancel버튼을 눌러주세요.")
+        myAlertBuilder.setPositiveButton("Ok",
+            DialogInterface.OnClickListener { dialog, which -> // OK 버튼을 눌렸을 경우
+                val intent = Intent(this, MainActivity::class.java)
+                intent.putExtra("proteinAmount",p)
+                intent.putExtra("flavour",flavour)
+                intent.putExtra("product",product)
+                startActivity(intent)
+            })
+        myAlertBuilder.setNegativeButton("Cancle",
+            DialogInterface.OnClickListener { dialog, which -> // Cancle 버튼을 눌렸을 경우
+                Toast.makeText(
+                    applicationContext, "Pressed Cancle",
+                    Toast.LENGTH_SHORT
+                ).show()
+            })
+        myAlertBuilder.show()
+    }
+ ```
 
 #### 2. 유저 맞춤형 식단 구성 알고리즘
  1) 월별에 맞게 전체 식단의 수를 조정
@@ -772,7 +902,7 @@ fun makeDietCalendar(proteinAmount: Int, flavour: Array<Int>, product: Array<Int
   <td align='center'><img src="x" width="100" height="100"></td>
   <td align='center'>민중님</td>
   <td align='center'>Front-End (kotlin)</td>
-  <td align='center'><a href="x"><img src="x"/></a></td>
+  <td align='center'><a href="https://github.com/kmj-99"><img src="http://img.shields.io/badge/kmj99-green?style=social&logo=github"/></a></td>
   <td align='center'><a href="x"><img src="x"/></a></td>
     <td> 회원가입 / 로그인, 상품 / 캘린더 / 프로필, 식단 상세 페이지 구현<br>
 반응형 레이아웃 , 디자인적용
