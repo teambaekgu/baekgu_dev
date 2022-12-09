@@ -36,45 +36,17 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
         auth = Firebase.auth
         val test="weagaweg"
 
-        var email = intent.getStringExtra("user_id")
-//        val proteinAmount = intent.getIntExtra("proteinAmout", 0)
-//        var flavour = intent.getIntArrayExtra("flavour")?.toTypedArray()
-//        var product = intent.getIntArrayExtra("product")?.toTypedArray()
-
-        val month = 12
+        val proteinAmount = intent.getIntExtra("proteinAmount", 85)
+        val flavour = intent.getIntArrayExtra("flavour")
+        val product = intent.getIntArrayExtra("product")
         val allergy = 3
 
 
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase!!.getReference().child("Survey")
-        getValue(email.toString())
-//        Log.d("proteinAmount", proteinAmount.toString())
-//        Log.d("email", email.toString())
-//        Log.d("flavour", flavour.toString())
-//        Log.d("product", product.toString())
-
-        // DB에서 받아오는 부분 ---------------------------------------
-        // 제품 순서 : 소시지, 볼, 소스, 소고기, 생선, 스테이크, 프로틴, 간식
-        // allergy : product 배열 idx
-
-        //val proteinAmount = 132     // 82 104 128
-//        val flavour = arrayOf(4, 2, 3, 5, 4, 3, 2, 1)
-//        val product = arrayOf(4, 3, 5, 4, 3, 5)
-//        val allergy = 3 // product 배열 idx
-//        val month = 12 //캘린더 정보에서 받아오기
-        // ---------------------------------------------------------
-
-//        val result = makeDietCalendar(proteinAmount,flavour,product,allergy,month)
-
-//        for(i : Int in 0..30){
-//            Log.d("2022/12/${i+1} 아침 : ", result.calendar[i][0].toString())
-//            Log.d("2022/12/${i+1} 점심 : ", result.calendar[i][1].toString())
-//            Log.d("2022/12/${i+1} 저녁 : ", result.calendar[i][2].toString())
-//            Log.d("2022/12/${i+1} 간식1 : ", result.calendar[i][3].toString())
-//            Log.d("2022/12/${i+1} 간식2 : ", result.calendar[i][4].toString())
-//            Log.d("--","--------------------------------------------")
-//        }
-
+        Log.d("p", proteinAmount.toString())
+        Log.d("flavour", flavour.toString())
+        Log.d("product", product.toString())
 
         //캘린더 상품 , 식단 상세보기 , 회원정보 수정 테두리 , README 작성
 

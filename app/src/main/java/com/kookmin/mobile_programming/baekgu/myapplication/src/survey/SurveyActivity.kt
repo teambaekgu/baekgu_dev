@@ -5,6 +5,7 @@ import android.content.DialogInterface
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 
 import android.widget.*
 import com.example.firebasepratice.Survey
@@ -17,7 +18,7 @@ import com.kookmin.mobile_programming.baekgu.myapplication.databinding.ActivityS
 import com.kookmin.mobile_programming.baekgu.myapplication.src.MainActivity
 
 class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::inflate) {
-    var semail: String? = null
+    private var semail: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,16 +38,16 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
         val trainingTimeRadioButtonGroup = findViewById<RadioGroup>(R.id.survey_rg_trainingtime)
 
         val dietCntBreakfast = findViewById<CheckBox>(R.id.survey_cb_dietcnt_breakfast)
-        var dietCntLunch = findViewById<CheckBox>(R.id.survey_cb_dietcnt_lunch)
-        var dietCntDinner = findViewById<CheckBox>(R.id.survey_cb_dietcnt_dinner);
+        val dietCntLunch = findViewById<CheckBox>(R.id.survey_cb_dietcnt_lunch)
+        val dietCntDinner = findViewById<CheckBox>(R.id.survey_cb_dietcnt_dinner)
 
 
         // 알러지
-        var allergy1 = findViewById<CheckBox>(R.id.survey_cb_allergy_1)
-        var allergy2 = findViewById<CheckBox>(R.id.survey_cb_allergy_2)
-        var allergy3 = findViewById<CheckBox>(R.id.survey_cb_allergy_3)
-        var allergy4 = findViewById<CheckBox>(R.id.survey_cb_allergy_4)
-        var allergy5 = findViewById<CheckBox>(R.id.survey_cb_allergy_5)
+        val allergy1 = findViewById<CheckBox>(R.id.survey_cb_allergy_1)
+        val allergy2 = findViewById<CheckBox>(R.id.survey_cb_allergy_2)
+        val allergy3 = findViewById<CheckBox>(R.id.survey_cb_allergy_3)
+        val allergy4 = findViewById<CheckBox>(R.id.survey_cb_allergy_4)
+        val allergy5 = findViewById<CheckBox>(R.id.survey_cb_allergy_5)
 
 
 
@@ -73,10 +74,7 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
 
         val addBtn = findViewById<Button>(R.id.survey_btn_save)
 
-        var dao = DAOSurvey()
-
-
-
+        val dao = DAOSurvey()
 
         addBtn.setOnClickListener {
             val sHeight = heightEdit.text.toString()
@@ -84,21 +82,21 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
 
             val proteinPurposeRadioButton =
                 findViewById<RadioButton>(proteinPurposeRadioButtonGroup.checkedRadioButtonId)
-            var sProteinPurpose: String? = radioButtonNullCheck(proteinPurposeRadioButton)
+            val sProteinPurpose: String? = radioButtonNullCheck(proteinPurposeRadioButton)
 
 
             val trainingPurposeRadioButton =
                 findViewById<RadioButton>(trainingPurposeRadioButtonGroup.checkedRadioButtonId)
-            var sTrainingPurpose : String? = radioButtonNullCheck(trainingPurposeRadioButton)
+            val sTrainingPurpose : String? = radioButtonNullCheck(trainingPurposeRadioButton)
 
             val trainingCntRadioButton =
                 findViewById<RadioButton>(trainingCntRadioButtonGroup.checkedRadioButtonId)
-            var sTrainingCnt : String? = radioButtonNullCheck(trainingCntRadioButton)
+            val sTrainingCnt : String? = radioButtonNullCheck(trainingCntRadioButton)
 
 
             val trainingTimeRadioButton =
                 findViewById<RadioButton>(trainingTimeRadioButtonGroup.checkedRadioButtonId)
-            var sTrainingTime : String? = radioButtonNullCheck(trainingTimeRadioButton)
+            val sTrainingTime : String? = radioButtonNullCheck(trainingTimeRadioButton)
 
 
             val sDietCnt = sendCheck(dietCntBreakfast, dietCntLunch, dietCntDinner)
@@ -112,10 +110,10 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
 
             val snackynRadioButton =
                 findViewById<RadioButton>(snackynRadioButtonGroup.checkedRadioButtonId)
-            var sSnackYn: String? = radioButtonNullCheck(snackynRadioButton)
+            val sSnackYn: String? = radioButtonNullCheck(snackynRadioButton)
 
 
-            var sPropre1 = radioButtonNullCheck(findViewById<RadioButton>(proPre1.checkedRadioButtonId))
+            val sPropre1 = radioButtonNullCheck(findViewById<RadioButton>(proPre1.checkedRadioButtonId))
             val sPropre2 = radioButtonNullCheck(findViewById<RadioButton>(proPre2.checkedRadioButtonId))
             val sPropre3 = radioButtonNullCheck(findViewById<RadioButton>(proPre3.checkedRadioButtonId))
             val sPropre4 = radioButtonNullCheck(findViewById<RadioButton>(proPre4.checkedRadioButtonId))
@@ -147,20 +145,11 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
 
             val sProteinAmount = calculateProtein(sHeight.toInt(), sWeight.toInt(), sTrainingPurpose)
 
-            if((sHeight == null) or
-                (sHeight == null) or
-                (sWeight == null  ) or
-                (sProteinPurpose == null) or
+            if((sProteinPurpose == null) or
                 (sTrainingPurpose == null) or
                 (sTrainingCnt == null) or
                 (sTrainingTime == null) or
-                (sDietCnt == null) or
-                (sAllergy == null) or
-                (sSnackYn == null) or
-                (sPropreResult == null) or
-                (sFlapreResult == null) or
-                (sProteinAmount == null)) {
-
+                (sSnackYn == null)) {
                 Toast.makeText(
                     applicationContext,
                     "모든 항목을 설문해주세요!",
@@ -185,7 +174,7 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
                 )
 
                 dao.add(survey).addOnSuccessListener(OnSuccessListener<Void?> {
-                    onClickShowAlert(sProteinAmount!!,sFlapreResult.toTypedArray()!!,sPropreResult.toTypedArray()!!)
+                    onClickShowAlert(sProteinAmount,sFlapreResult.toTypedArray(),sPropreResult.toTypedArray())
                     updateUI("height", sHeight)
                     updateUI("weight", sWeight)
                     updateUI("proteinAmount", sProteinAmount.toString())
@@ -243,7 +232,7 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
     }
 
     private fun sendRadio(vararg flapreStr: String?): List<Int> {
-        var flavor = mutableListOf<Int>()
+        val flavor = mutableListOf<Int>()
         var i = 0
         for (str in flapreStr) {
             var x = 0
@@ -309,7 +298,4 @@ class SurveyActivity:BaseActivity<ActivitySurveyBinding>(ActivitySurveyBinding::
         if(radiobutton != null){  result =  radiobutton.text.toString() }
         return result
     }
-
-
-
 }

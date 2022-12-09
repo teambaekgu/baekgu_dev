@@ -6,6 +6,11 @@ import android.util.Log
 import android.view.View
 import android.widget.CalendarView.OnDateChangeListener
 import androidx.activity.result.contract.ActivityResultContracts
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.ktx.Firebase
 import com.kookmin.mobile_programming.baekgu.myapplication.R
 import com.kookmin.mobile_programming.baekgu.myapplication.config.BaseFragment
 import com.kookmin.mobile_programming.baekgu.myapplication.databinding.FragmentCalendarBinding
@@ -28,6 +33,10 @@ class CalendarFragment: BaseFragment<FragmentCalendarBinding>(FragmentCalendarBi
     private var dietDetailsList=ArrayList<DietDetailsDataClass>()
 
     private val DIET_DETAILS_CODE=101
+
+    private var firebaseDatabase: FirebaseDatabase? = null
+    private var databaseReference: DatabaseReference? = null
+    private lateinit var auth: FirebaseAuth
 
 
     // Pre contract
@@ -57,50 +66,88 @@ class CalendarFragment: BaseFragment<FragmentCalendarBinding>(FragmentCalendarBi
         var sdf = SimpleDateFormat("MM.dd")
 
         val getTime: String = sdf.format(date)
-        month=getTime.split(".")[0]
-        day=getTime.split(".")[1]
+        month = getTime.split(".")[0]
+        day = getTime.split(".")[1]
 
-        Log.d("weagawegawegwaeg",getTime)
 
-        binding.fgCalendarTvDate.text=getTime
+        Log.d("weagawegawegwaeg", getTime)
+
+        binding.fgCalendarTvDate.text = getTime
         setListener()
 
 
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase!!.getReference().child("Survey")
+        auth = Firebase.auth
+        val email: String = (auth.currentUser?.email) as String
+
+        databaseReference!!.get().addOnSuccessListener {
+
+            val data = it.children.iterator().next().getValue() as HashMap<String, Any>
+            Log.d("전부다", data.toString())
+            var fflavour: Array<Int>? = null
+            var fproduct: Array<Int>? = null
+            var fproteinAmount: Int? = null
+            if (data.get("user_id").toString() == email) {
+                var sFFlavour = data.get("user_flaPre") as ArrayList<Int>?
+                var sFProduct = data.get("user_proPre") as ArrayList<Int>?
+                var sFProtein = data.get("user_proteinAmount") as Int
+                fflavour = strToArray(sFFlavour!!)
+                fproduct = strToArray(sFProduct!!).copyOf()
+                fproteinAmount = sFProtein!!
+            }
 
 
+            // DB에서 받아오는 부분 ---------------------------------------
+            // 제품 순서 : 소시지, 볼, 소스, 소고기, 생선, 스테이크, 프로틴, 간식
+            // allergy : product 배열 idx
 
-        // DB에서 받아오는 부분 ---------------------------------------
-        // 제품 순서 : 소시지, 볼, 소스, 소고기, 생선, 스테이크, 프로틴, 간식
-        // allergy : product 배열 idx
+            val proteinAmount =fproteinAmount ?: 85
+            val flavour = fflavour ?: arrayOf(4, 2, 3, 5, 4, 3, 2, 1)
+            val product = fproduct ?: arrayOf(5, 2, 3, 4, 1, 4)
 
-        val proteinAmount = 85
-        val flavour = arrayOf(4, 2, 3, 5, 4, 3, 2, 1)
-        val product = arrayOf(5, 2, 3, 4, 1, 4)
+            val allergy = 4 // 생선
+            val month = 12 //캘린더 정보에서 받아오기
 
-        val allergy = 4 // 생선
-        val month = 12 //캘린더 정보에서 받아오기
+            val result = makeDietCalendar(proteinAmount, flavour, product, allergy, month)
 
-        val result = makeDietCalendar(proteinAmount,flavour,product,allergy,month)
+            binding.fgCalendarTvTargetProtein.text = "${proteinAmount.toString()}g"
+            binding.fgCalendarTvCurrentProtein.text = "0g"
 
-        binding.fgCalendarTvTargetProtein.text="${proteinAmount.toString()}g"
-        binding.fgCalendarTvCurrentProtein.text="0g"
+            for (i: Int in 0..30) {
+                proteinAmountList.add(ProteinAmountDataClass(proteinAmount, 0))
+                dietDetailsList.add(
+                    DietDetailsDataClass(
+                        month.toString(),
+                        (i + 1).toString(),
+                        result.calendar[i][0],
+                        result.calendar[i][1],
+                        result.calendar[i][2],
+                        result.calendar[i][3],
+                        result.calendar[i][4]
+                    )
+                )
+                Log.d(TAG, "2022/12/${i + 1} 아침 : ${result.calendar[i][0]}")
+                Log.d(TAG, "2022/12/${i + 1} 점심 : ${result.calendar[i][1]}")
+                Log.d(TAG, "2022/12/${i + 1} 저녁 : ${result.calendar[i][2]}")
+                Log.d(TAG, "2022/12/${i + 1} 간식1 :${result.calendar[i][3]}")
+                Log.d(TAG, "2022/12/${i + 1} 간식2 :${result.calendar[i][4]}")
+                Log.d(TAG, "----------------------------------------------")
+            }
 
-        for(i : Int in 0..30){
-            proteinAmountList.add(ProteinAmountDataClass(proteinAmount,0))
-            dietDetailsList.add(DietDetailsDataClass(month.toString(),(i+1).toString(),result.calendar[i][0],result.calendar[i][1],result.calendar[i][2],
-                result.calendar[i][3],result.calendar[i][4]))
-            Log.d(TAG,"2022/12/${i+1} 아침 : ${result.calendar[i][0]}")
-            Log.d(TAG,"2022/12/${i+1} 점심 : ${result.calendar[i][1]}")
-            Log.d(TAG,"2022/12/${i+1} 저녁 : ${result.calendar[i][2]}")
-            Log.d(TAG,"2022/12/${i+1} 간식1 :${result.calendar[i][3]}")
-            Log.d(TAG,"2022/12/${i+1} 간식2 :${result.calendar[i][4]}")
-            Log.d(TAG,"----------------------------------------------")
+
         }
-
-
-
-
     }
+
+    private fun strToArray(arraylist: ArrayList<Int>) : Array<Int> {
+        val result = Array<Int>(10){i->0}
+        for(i: Int in 0..arraylist.size-1){
+            result[i] = Integer.parseInt(arraylist[i].toString())
+            Log.d("result", result.toString())
+        }
+        return result
+    }
+
     private fun setListener(){
 
 

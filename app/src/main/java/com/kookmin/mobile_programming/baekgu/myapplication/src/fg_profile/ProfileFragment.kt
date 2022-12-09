@@ -90,6 +90,7 @@ class ProfileFragment: BaseFragment<FragmentProfileBinding>(FragmentProfileBindi
         binding.fgProfileTvLogout.setOnClickListener {
             Firebase.auth.signOut()
             updateUI(null, null, null, null, null, null, null,null,null, null)
+            updateUI2(null, null, null)
             var intent= Intent(requireContext(), LoginActivity::class.java)
             startActivity(intent)
         }
